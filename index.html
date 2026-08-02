@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <div id="previewControlBar" class="no-print" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9999; padding: 14px 30px; box-shadow: 0 4px 25px rgba(0,0,0,0.6); justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -319,32 +320,6 @@
 <script>!function(){const e=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");Object.defineProperty(Element.prototype,"innerHTML",{set:function(t){this.classList&&this.classList.contains("print-view-text")?(typeof DOMPurify!="undefined"&&(t=DOMPurify.sanitize(t)),e.set.call(this,t)):e.set.call(this,t)},get:e.get})}();</script>
 <script src="pendapatan.js"></script>
 <script src="script.js"></script>
-<script>
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
-            e.preventDefault();
-            return false;
-        }
-
-        if (e.ctrlKey && (e.key === 'p' || e.key === 'P' || e.keyCode === 80 || e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
-            e.preventDefault();
-            return false;
-        }
-    });
-</script>
 </body>
 </html>
