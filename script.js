@@ -1,4 +1,4 @@
-const SCRIPT_URL_DATABASE = "https://script.google.com/macros/s/AKfycbwVJIDuQxZRzYpnvdIM0n1nN0gzhhVPkTIgNC7yR927BnOH_U6NhVjcMAN9mqxct8SOkg/exec";
+const SCRIPT_URL_DATABASE = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
 let SECRET_KEY = sessionStorage.getItem('LRA_AUTH_KEY') || "";
 let SESSION_TOKEN = sessionStorage.getItem('LRA_SESSION_TOKEN') || '';
 let globalRawData = [];
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
     isiDropdownTahunOtomatis();
 	tampilkanGerbangKeamanan();
     
-	// 🛡️ MENCEGAH BUG TTD MENGUAP (KUNCI SEBELUM UPLOAD EXCEL)
+	// ðŸ›¡ï¸ MENCEGAH BUG TTD MENGUAP (KUNCI SEBELUM UPLOAD EXCEL)
     ['ttd-jabatan', 'ttd-nama', 'ttd-nip'].forEach(id => {
         document.getElementById(id).addEventListener('focus', function(e) {
             if(!kodeSkpdAktif) {
@@ -1790,7 +1790,7 @@ function muatDataDariCloud() {
     let currentDomain = window.location.hostname;
     
     if (currentDomain !== DOMAIN_RESMI) {
-        Swal.fire('Akses Ilegal 🚫', 'Aplikasi dijalankan dari server tidak resmi! Tarik data ditolak.', 'error');
+        Swal.fire('Akses Ilegal ðŸš«', 'Aplikasi dijalankan dari server tidak resmi! Tarik data ditolak.', 'error');
         return; 
     }
 
@@ -2362,7 +2362,7 @@ function tampilkanGerbangKeamanan() {
                     return { password: pwd, token: res.token, quota: res.quota };
                 })
                 .catch(error => {
-                    Swal.showValidationMessage('❌ Gagal cek server. Pastikan internet aktif!');
+                    Swal.showValidationMessage('âŒ Gagal cek server. Pastikan internet aktif!');
                     return false;
                 });
         }
