@@ -320,6 +320,32 @@
 <script>!function(){const e=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");Object.defineProperty(Element.prototype,"innerHTML",{set:function(t){this.classList&&this.classList.contains("print-view-text")?(typeof DOMPurify!="undefined"&&(t=DOMPurify.sanitize(t)),e.set.call(this,t)):e.set.call(this,t)},get:e.get})}();</script>
 <script src="pendapatan.js"></script>
 <script src="script.js"></script>
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
 
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
+            e.preventDefault();
+            return false;
+        }
+
+        if (e.ctrlKey && (e.key === 'p' || e.key === 'P' || e.keyCode === 80 || e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
 </body>
 </html>
