@@ -234,7 +234,7 @@ function injeksiDataPADkeTabel() {
                     <button id="btn_${rowID}" class="btn btn-sm w-100 text-start" 
                             style="font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #ffffff; border: 1px solid #cbd5e1; color: #475569; border-radius: 4px;"
                             onclick="bukaAsisten('${rowID}', '${cleanKode}', '${cleanUraian}', ${realisasi})">
-                        <i class="fa-regular fa-pen-to-square text-secondary me-1"></i> Isi Penjelasan Rincian PAD
+                        <i class="fa-regular fa-pen-to-square text-secondary me-1"></i> Input Rincian PAD
                     </button>
                 </div>
                 <div id="print_${rowID}" class="print-view-text"></div>
