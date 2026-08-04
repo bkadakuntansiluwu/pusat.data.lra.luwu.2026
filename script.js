@@ -2328,8 +2328,9 @@ function tampilkanGerbangKeamanan() {
             el.style.filter = 'none';
             el.style.pointerEvents = 'auto';
         });
-                pulihkanDataSesiLokal();
+        pulihkanDataSesiLokal();
         cekKoneksiServer();
+		mulaiPenghitungMundurSesi();
         return;
     }
 
@@ -2401,6 +2402,8 @@ function tampilkanGerbangKeamanan() {
             SESSION_TOKEN = loginData.token || '';
             sessionStorage.setItem('LRA_TOKEN', SESSION_TOKEN);
             sessionStorage.removeItem('LRA_AUTH_KEY');
+			sessionStorage.setItem('LRA_LOGIN_TIME', Date.now()); 
+            mulaiPenghitungMundurSesi();
             
             document.body.style.overflow = 'auto';
             document.querySelectorAll('.container-fluid, .print-page').forEach(el => {
@@ -2848,6 +2851,9 @@ function perpanjangSesiMulus() {
             // Memasang token baru yang segar untuk 8 jam ke depan
             SESSION_TOKEN = result.value.token;
             sessionStorage.setItem('LRA_TOKEN', SESSION_TOKEN);
+			sessionStorage.setItem('LRA_LOGIN_TIME', Date.now());
+            mulaiPenghitungMundurSesi();
+			
             Swal.fire({
                 icon: 'success', 
                 title: 'Sesi Diperpanjang!', 
@@ -2859,6 +2865,72 @@ function perpanjangSesiMulus() {
     });
 }
 
+/// =========================================================================
+// MESIN PENGHITUNG MUNDUR SESI 8 JAM (VISUAL & AUTO-POPUP)
+// =========================================================================
+let timerSesiHabis;
+const BATAS_WAKTU_SESI_MS = 8 * 60 * 60 * 1000; // 8 Jam
+
+function mulaiPenghitungMundurSesi() {
+    if (timerSesiHabis) clearInterval(timerSesiHabis);
+
+    let waktuLogin = sessionStorage.getItem('LRA_LOGIN_TIME');
+    if (!waktuLogin) {
+        waktuLogin = Date.now();
+        sessionStorage.setItem('LRA_LOGIN_TIME', waktuLogin);
+    }
+
+    let uiTimer = document.getElementById('uiTimerSesi');
+    if (!uiTimer) {
+        uiTimer = document.createElement('div');
+        uiTimer.id = 'uiTimerSesi';
+        uiTimer.className = 'shadow-sm d-flex align-items-center no-print';
+        uiTimer.style.cssText = 'position: fixed; bottom: 30px; left: 30px; padding: 8px 16px; border-radius: 50px; font-size: 11px; font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; z-index: 1060; transition: all 0.3s ease; letter-spacing: 0.5px;';
+        document.body.appendChild(uiTimer);
+    }
+    uiTimer.style.display = 'flex';
+
+    function updateLayar() {
+        let waktuBerjalan = Date.now() - parseInt(waktuLogin);
+        let sisaWaktu = BATAS_WAKTU_SESI_MS - waktuBerjalan;
+
+        if (sisaWaktu <= 0) {
+            clearInterval(timerSesiHabis);
+            uiTimer.innerHTML = '<i class="fa-solid fa-lock me-2 text-danger"></i> Sesi Habis';
+            uiTimer.style.backgroundColor = '#fef2f2';
+            uiTimer.style.color = '#991b1b';
+            uiTimer.style.border = '1px solid #fecdd3';
+            if (typeof perpanjangSesiMulus === 'function') perpanjangSesiMulus();
+            return;
+        }
+
+        let jam = Math.floor(sisaWaktu / (1000 * 60 * 60));
+        let menit = Math.floor((sisaWaktu % (1000 * 60 * 60)) / (1000 * 60));
+        let detik = Math.floor((sisaWaktu % (1000 * 60)) / 1000);
+
+        let strJam = jam.toString().padStart(2, '0');
+        let strMenit = menit.toString().padStart(2, '0');
+        let strDetik = detik.toString().padStart(2, '0');
+
+        let iconColor = '#64748b';
+        if (sisaWaktu <= 30 * 60 * 1000) {
+            uiTimer.style.backgroundColor = '#fffbeb';
+            uiTimer.style.color = '#92400e';
+            uiTimer.style.border = '1px solid #fde047';
+            iconColor = '#d97706';
+        } else {
+            uiTimer.style.backgroundColor = '#f8fafc';
+            uiTimer.style.color = '#334155';
+            uiTimer.style.border = '1px solid #cbd5e1';
+            iconColor = '#64748b';
+        }
+
+        uiTimer.innerHTML = `<i class="fa-solid fa-stopwatch me-2" style="color: ${iconColor};"></i> Sesi: ${strJam}:${strMenit}:${strDetik}`;
+    }
+
+    updateLayar(); 
+    timerSesiHabis = setInterval(updateLayar, 1000);
+}
 // =========================================================================
 // FITUR AUTO-SAVE KELAS ENTERPRISE (INDEXEDDB) - ANTI LIMIT & ANTI ERROR
 // =========================================================================
