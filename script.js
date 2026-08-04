@@ -1,1 +1,2949 @@
-const _0x5ce5bd=_0x3bed;(function(_0x23efda,_0x4a1e10){const _0x13d25a=_0x3bed,_0x56dd01=_0x23efda();while(!![]){try{const _0x4cd4d8=-parseInt(_0x13d25a(0x3ce))/0x1+parseInt(_0x13d25a(0x203))/0x2*(parseInt(_0x13d25a(0x205))/0x3)+-parseInt(_0x13d25a(0x231))/0x4+parseInt(_0x13d25a(0x365))/0x5*(-parseInt(_0x13d25a(0x3de))/0x6)+parseInt(_0x13d25a(0x3a6))/0x7*(parseInt(_0x13d25a(0x25c))/0x8)+parseInt(_0x13d25a(0x2e1))/0x9*(parseInt(_0x13d25a(0x28e))/0xa)+parseInt(_0x13d25a(0x209))/0xb*(parseInt(_0x13d25a(0x33d))/0xc);if(_0x4cd4d8===_0x4a1e10)break;else _0x56dd01['push'](_0x56dd01['shift']());}catch(_0x58fb73){_0x56dd01['push'](_0x56dd01['shift']());}}}(_0x5b96,0xbaab0));const SCRIPT_URL_DATABASE=_0x5ce5bd(0x3d3);let SECRET_KEY=sessionStorage[_0x5ce5bd(0x2d0)](_0x5ce5bd(0x27c))||'',SESSION_TOKEN=sessionStorage['getItem'](_0x5ce5bd(0x266))||'',globalRawData=[],kodeSkpdAktif='',modalAsisten,modalKeterangan,ttdSyncTimer=null,ttdSyncInProgress=![],_fetchQueue=[],_fetchProcessing=![];function _enqueueRequest(_0x10753e){return new Promise(function(_0x283256,_0x14f65f){const _0x324447=_0x3bed;_fetchQueue[_0x324447(0x453)]({'opts':_0x10753e,'resolve':_0x283256,'reject':_0x14f65f}),_processQueue();});}function _processQueue(){const _0x30be19=_0x5ce5bd;if(_fetchProcessing||_fetchQueue['length']===0x0)return;_fetchProcessing=!![];var _0x4f2aa3=_fetchQueue[_0x30be19(0x404)]();_smartFetch(_0x4f2aa3[_0x30be19(0x412)])[_0x30be19(0x30f)](_0x4f2aa3[_0x30be19(0x20d)])[_0x30be19(0x401)](_0x4f2aa3[_0x30be19(0x35e)])[_0x30be19(0x32f)](function(){_fetchProcessing=![],_processQueue();});}function _smartFetch(_0x191409){const _0x21ae8f=_0x5ce5bd;var _0x302cce=_0x191409[_0x21ae8f(0x416)]||'',_0x11c0ea=_0x191409[_0x21ae8f(0x3fa)]||'GET',_0x1cb0cd=_0x191409[_0x21ae8f(0x438)]||null,_0x47e60c=_0x191409['retries']||0x2,_0x3ebc91=0x0;function _0x200fe9(){return new Promise(function(_0x2bb316,_0x199fef){const _0xa21d47=_0x3bed;var _0x431545={'method':_0x11c0ea,'headers':{}};if(_0x1cb0cd)_0x431545[_0xa21d47(0x438)]=_0x1cb0cd;fetch(_0x302cce,_0x431545)[_0xa21d47(0x30f)](function(_0x5309c2){const _0x1849a7=_0xa21d47;return _0x5309c2[_0x1849a7(0x255)]()[_0x1849a7(0x30f)](function(_0x2927d3){const _0x21847c=_0x1849a7;try{var _0x3e97c4=JSON[_0x21847c(0x459)](_0x2927d3);_0x2bb316(_0x3e97c4);}catch(_0x3dc5a7){_0x199fef(new Error('Server\x20response\x20bukan\x20JSON'));}});})[_0xa21d47(0x401)](function(_0x44bcb4){_0x3ebc91++;if(_0x3ebc91<=_0x47e60c){var _0xfd3294=Math['pow'](0x2,_0x3ebc91)*0x3e8;setTimeout(function(){const _0x4c64ec=_0x3bed;_0x200fe9()[_0x4c64ec(0x30f)](_0x2bb316)[_0x4c64ec(0x401)](_0x199fef);},_0xfd3294);}else _0x199fef(_0x44bcb4);});});}return _0x200fe9();}function _sanitizeInput(_0x43c61f){const _0x4e8a4b=_0x5ce5bd;if(typeof _0x43c61f!==_0x4e8a4b(0x405))return _0x43c61f;var _0x107857=_0x43c61f[_0x4e8a4b(0x2f9)]();if(_0x107857[_0x4e8a4b(0x3a0)]>0x0&&(_0x107857[0x0]==='='||_0x107857[0x0]==='+'))return _0x107857[_0x4e8a4b(0x377)](0x1)[_0x4e8a4b(0x2f9)]();return _0x107857;}function amankanTeks(_0xf450c8){const _0x28b9ed=_0x5ce5bd;if(!_0xf450c8)return'';return _0xf450c8[_0x28b9ed(0x3c1)](/&/g,_0x28b9ed(0x33f))[_0x28b9ed(0x3c1)](/</g,_0x28b9ed(0x23c))[_0x28b9ed(0x3c1)](/>/g,'&gt;')[_0x28b9ed(0x3c1)](/"/g,'&quot;')[_0x28b9ed(0x3c1)](/'/g,_0x28b9ed(0x217));}document['addEventListener']('DOMContentLoaded',function(){const _0x1f3dd2=_0x5ce5bd;modalAsisten=new bootstrap[(_0x1f3dd2(0x3d5))](document[_0x1f3dd2(0x3e0)]('modalPenjelasan')),modalKeterangan=new bootstrap[(_0x1f3dd2(0x3d5))](document[_0x1f3dd2(0x3e0)]('modalKeterangan')),isiDropdownTahunOtomatis(),tampilkanGerbangKeamanan(),['ttd-jabatan','ttd-nama',_0x1f3dd2(0x235)][_0x1f3dd2(0x227)](_0xa87477=>{const _0x574a48=_0x1f3dd2;document[_0x574a48(0x3e0)](_0xa87477)[_0x574a48(0x248)](_0x574a48(0x1f3),function(_0x5d77a2){const _0x294b32=_0x574a48;!kodeSkpdAktif&&(_0x5d77a2[_0x294b32(0x3f0)][_0x294b32(0x228)](),Swal[_0x294b32(0x1ee)](_0x294b32(0x25a),'Harap\x20Upload\x20file\x20Excel\x20LRA\x20terlebih\x20dahulu!','warning'));});}),document[_0x1f3dd2(0x3e0)](_0x1f3dd2(0x2e7))['addEventListener'](_0x1f3dd2(0x307),function(){const _0x411320=_0x1f3dd2;kodeSkpdAktif&&(localStorage[_0x411320(0x200)]('TTD_JAB_'+kodeSkpdAktif,this[_0x411320(0x3e1)]),jadwalSyncTTDKeCloud());}),document[_0x1f3dd2(0x3e0)](_0x1f3dd2(0x3f1))[_0x1f3dd2(0x248)](_0x1f3dd2(0x307),function(){const _0x48165d=_0x1f3dd2;kodeSkpdAktif&&(localStorage[_0x48165d(0x200)](_0x48165d(0x286)+kodeSkpdAktif,this[_0x48165d(0x3e1)]),jadwalSyncTTDKeCloud());}),document['getElementById'](_0x1f3dd2(0x235))[_0x1f3dd2(0x248)]('input',function(){const _0x25b116=_0x1f3dd2;kodeSkpdAktif&&(localStorage[_0x25b116(0x200)](_0x25b116(0x230)+kodeSkpdAktif,this['innerText']),jadwalSyncTTDKeCloud());});});function getUserAgentUntukAudit(){const _0x3a85a5=_0x5ce5bd;let _0x3c1a86=navigator['userAgent'][_0x3a85a5(0x377)](0x0,0x78),_0x2cc9ec=document['getElementById'](_0x3a85a5(0x3f1))?document[_0x3a85a5(0x3e0)](_0x3a85a5(0x3f1))[_0x3a85a5(0x3e1)][_0x3a85a5(0x2f9)]()[_0x3a85a5(0x377)](0x0,0x28):'';return _0x2cc9ec?_0x2cc9ec+'\x20|\x20'+_0x3c1a86:_0x3c1a86;}function jadwalSyncTTDKeCloud(){if(ttdSyncTimer)clearTimeout(ttdSyncTimer);ttdSyncTimer=setTimeout(()=>syncTTDKeCloud(),0x7d0);}function syncTTDKeCloud(){const _0x423bda=_0x5ce5bd;if(!kodeSkpdAktif||ttdSyncInProgress)return;let _0x1f52c3=document[_0x423bda(0x3e0)](_0x423bda(0x35d))[_0x423bda(0x20a)],_0x579597=document['getElementById'](_0x423bda(0x2e7))[_0x423bda(0x3e1)][_0x423bda(0x2f9)](),_0x2f8246=document['getElementById'](_0x423bda(0x3f1))[_0x423bda(0x3e1)][_0x423bda(0x2f9)](),_0x531936=document[_0x423bda(0x3e0)](_0x423bda(0x235))[_0x423bda(0x3e1)][_0x423bda(0x2f9)]();if(!_0x579597&&!_0x2f8246&&!_0x531936)return;let _0x53d633={'token':SESSION_TOKEN||undefined,'secret_key':SESSION_TOKEN?undefined:SECRET_KEY,'action':'save_ttd','tahun':_0x1f52c3,'kode_skpd':kodeSkpdAktif,'jabatan':_0x579597,'nama':_0x2f8246,'nip':_0x531936,'updated_by':_0x2f8246||_0x423bda(0x2d1),'user_agent':getUserAgentUntukAudit()};fetch(SCRIPT_URL_DATABASE,{'method':'POST','body':JSON[_0x423bda(0x2d9)](_0x53d633)})[_0x423bda(0x30f)](_0x345ce3=>_0x345ce3['json']())[_0x423bda(0x30f)](_0x3b5349=>{const _0x3f2372=_0x423bda;if(_0x3b5349[_0x3f2372(0x219)]===_0x3f2372(0x402))perbaruiBadgeTTD(_0x3f2372(0x319));else _0x3b5349[_0x3f2372(0x219)]===_0x3f2372(0x2c7)?(perbaruiBadgeTTD(_0x3f2372(0x1e8)),setTimeout(()=>syncTTDKeCloud(),0x2710)):perbaruiBadgeTTD(_0x3f2372(0x1e8));})[_0x423bda(0x401)](()=>perbaruiBadgeTTD(_0x423bda(0x1ef)));}function muatTTDDariCloud(){const _0x4507f8=_0x5ce5bd;if(!kodeSkpdAktif)return;perbaruiBadgeTTD(_0x4507f8(0x414));let _0x1d7475=document[_0x4507f8(0x3e0)](_0x4507f8(0x35d))[_0x4507f8(0x20a)],_0x5cd37b={'action':_0x4507f8(0x3b0),'tahun':_0x1d7475,'kode_skpd':kodeSkpdAktif,'token':SESSION_TOKEN||undefined,'secret_key':SESSION_TOKEN?undefined:SECRET_KEY};fetch(SCRIPT_URL_DATABASE,{'method':'POST','body':JSON[_0x4507f8(0x2d9)](_0x5cd37b)})[_0x4507f8(0x30f)](_0x59010e=>_0x59010e['json']())['then'](_0x2dbfa5=>{const _0x1581d2=_0x4507f8;ttdSyncInProgress=!![];if(_0x2dbfa5[_0x1581d2(0x219)]==='success'&&_0x2dbfa5['data']){let _0x602ae0=_0x2dbfa5[_0x1581d2(0x395)];if(_0x602ae0[_0x1581d2(0x352)])document['getElementById'](_0x1581d2(0x2e7))[_0x1581d2(0x3e1)]=_0x602ae0['jabatan'];if(_0x602ae0[_0x1581d2(0x1e4)])document[_0x1581d2(0x3e0)](_0x1581d2(0x3f1))[_0x1581d2(0x3e1)]=_0x602ae0[_0x1581d2(0x1e4)];if(_0x602ae0['nip'])document[_0x1581d2(0x3e0)](_0x1581d2(0x235))[_0x1581d2(0x3e1)]=_0x602ae0[_0x1581d2(0x212)];localStorage[_0x1581d2(0x200)](_0x1581d2(0x2c2)+kodeSkpdAktif,_0x602ae0['jabatan']||''),localStorage[_0x1581d2(0x200)](_0x1581d2(0x286)+kodeSkpdAktif,_0x602ae0[_0x1581d2(0x1e4)]||''),localStorage[_0x1581d2(0x200)](_0x1581d2(0x230)+kodeSkpdAktif,_0x602ae0[_0x1581d2(0x212)]||''),perbaruiBadgeTTD(_0x1581d2(0x319),_0x602ae0['updated_at']);}else{let _0x5c3121=localStorage[_0x1581d2(0x2d0)](_0x1581d2(0x2c2)+kodeSkpdAktif),_0x53b793=localStorage[_0x1581d2(0x2d0)](_0x1581d2(0x286)+kodeSkpdAktif),_0x1b4a99=localStorage[_0x1581d2(0x2d0)](_0x1581d2(0x230)+kodeSkpdAktif);if(_0x5c3121||_0x53b793||_0x1b4a99){if(_0x5c3121)document[_0x1581d2(0x3e0)](_0x1581d2(0x2e7))[_0x1581d2(0x3e1)]=_0x5c3121;if(_0x53b793)document[_0x1581d2(0x3e0)](_0x1581d2(0x3f1))[_0x1581d2(0x3e1)]=_0x53b793;if(_0x1b4a99)document[_0x1581d2(0x3e0)](_0x1581d2(0x235))['innerText']=_0x1b4a99;setTimeout(()=>syncTTDKeCloud(),0x1f4),perbaruiBadgeTTD(_0x1581d2(0x1e8));}else document[_0x1581d2(0x3e0)](_0x1581d2(0x2e7))[_0x1581d2(0x3e1)]=_0x1581d2(0x2c0),document[_0x1581d2(0x3e0)]('ttd-nama')[_0x1581d2(0x3e1)]='NAMA\x20KEPALA\x20SKPD',document[_0x1581d2(0x3e0)](_0x1581d2(0x235))['innerText']='NIP.\x20xxxxxxxx',perbaruiBadgeTTD(_0x1581d2(0x37c));}setTimeout(()=>{ttdSyncInProgress=![];},0x1f4);})[_0x4507f8(0x401)](()=>{const _0x514d34=_0x4507f8;let _0x28627b=localStorage[_0x514d34(0x2d0)](_0x514d34(0x2c2)+kodeSkpdAktif),_0x47712d=localStorage[_0x514d34(0x2d0)](_0x514d34(0x286)+kodeSkpdAktif),_0x3de413=localStorage[_0x514d34(0x2d0)](_0x514d34(0x230)+kodeSkpdAktif);if(_0x28627b)document[_0x514d34(0x3e0)](_0x514d34(0x2e7))[_0x514d34(0x3e1)]=_0x28627b;if(_0x47712d)document[_0x514d34(0x3e0)](_0x514d34(0x3f1))[_0x514d34(0x3e1)]=_0x47712d;if(_0x3de413)document[_0x514d34(0x3e0)]('ttd-nip')[_0x514d34(0x3e1)]=_0x3de413;ttdSyncInProgress=![],perbaruiBadgeTTD('offline');});}function perbaruiBadgeTTD(_0x1aab1a,_0x7b7d7c){const _0x1699c0=_0x5ce5bd;let _0x53b10c=document['getElementById'](_0x1699c0(0x3bd));if(!_0x53b10c)return;let _0x4aa84e={'loading':{'class':_0x1699c0(0x223),'text':_0x1699c0(0x2e9),'title':_0x1699c0(0x3ae)},'synced':{'class':_0x1699c0(0x26d),'text':_0x1699c0(0x2fa),'title':_0x1699c0(0x40f)},'local_only':{'class':_0x1699c0(0x272),'text':_0x1699c0(0x43c),'title':_0x1699c0(0x3bc)},'empty':{'class':_0x1699c0(0x3be),'text':'\x20Kosong','title':'Ketik\x20TTD\x20untuk\x20menyimpan'},'offline':{'class':_0x1699c0(0x2f3),'text':_0x1699c0(0x221),'title':_0x1699c0(0x295)}},_0x59fae7=_0x4aa84e[_0x1aab1a]||_0x4aa84e[_0x1699c0(0x37c)];_0x53b10c[_0x1699c0(0x208)]=_0x1699c0(0x374)+_0x59fae7[_0x1699c0(0x2fc)]+_0x1699c0(0x207),_0x53b10c[_0x1699c0(0x3e1)]=_0x59fae7[_0x1699c0(0x255)],_0x53b10c[_0x1699c0(0x43f)]=_0x59fae7[_0x1699c0(0x43f)];}function hapusTTDDariCloud(){const _0x564b94=_0x5ce5bd;if(!kodeSkpdAktif){Swal[_0x564b94(0x1ee)](_0x564b94(0x201),_0x564b94(0x277),_0x564b94(0x445));return;}Swal[_0x564b94(0x1ee)]({'title':_0x564b94(0x342),'text':'Tanda\x20tangan\x20akan\x20dihapus\x20dari\x20database.\x20Anda\x20dapat\x20mengisi\x20ulang\x20setelah\x20ini.','icon':_0x564b94(0x2a4),'showCancelButton':!![],'confirmButtonColor':'#d33','cancelButtonColor':'#6c757d','confirmButtonText':'Ya,\x20Hapus','cancelButtonText':_0x564b94(0x2ba)})[_0x564b94(0x30f)](_0x50f8df=>{const _0x2caf1c=_0x564b94;if(!_0x50f8df[_0x2caf1c(0x328)])return;Swal[_0x2caf1c(0x1ee)]({'title':_0x2caf1c(0x3cb),'allowOutsideClick':![],'didOpen':()=>Swal['showLoading']()});let _0xb15ba={'token':SESSION_TOKEN||undefined,'secret_key':SESSION_TOKEN?undefined:SECRET_KEY,'action':_0x2caf1c(0x2ca),'tahun':document[_0x2caf1c(0x3e0)]('selectTahun')[_0x2caf1c(0x20a)],'kode_skpd':kodeSkpdAktif,'updated_by':document[_0x2caf1c(0x3e0)](_0x2caf1c(0x3f1))['innerText'][_0x2caf1c(0x2f9)]()||_0x2caf1c(0x2d1)};fetch(SCRIPT_URL_DATABASE,{'method':'POST','body':JSON[_0x2caf1c(0x2d9)](_0xb15ba)})[_0x2caf1c(0x30f)](_0x29b569=>_0x29b569['json']())[_0x2caf1c(0x30f)](_0x24bff2=>{const _0x271840=_0x2caf1c;_0x24bff2[_0x271840(0x219)]===_0x271840(0x402)||_0x24bff2[_0x271840(0x219)]===_0x271840(0x1e2)?(ttdSyncInProgress=!![],document[_0x271840(0x3e0)](_0x271840(0x2e7))['innerText']=_0x271840(0x2c0),document['getElementById'](_0x271840(0x3f1))['innerText']=_0x271840(0x304),document['getElementById'](_0x271840(0x235))[_0x271840(0x3e1)]=_0x271840(0x399),localStorage[_0x271840(0x294)](_0x271840(0x2c2)+kodeSkpdAktif),localStorage[_0x271840(0x294)](_0x271840(0x286)+kodeSkpdAktif),localStorage[_0x271840(0x294)](_0x271840(0x230)+kodeSkpdAktif),perbaruiBadgeTTD(_0x271840(0x37c)),setTimeout(()=>{ttdSyncInProgress=![];},0x1f4),Swal[_0x271840(0x1ee)]({'icon':_0x271840(0x402),'title':'Tanda\x20Tangan\x20Dihapus','text':_0x271840(0x3fe),'timer':0x7d0,'showConfirmButton':![]})):Swal[_0x271840(0x1ee)](_0x271840(0x449),_0x24bff2[_0x271840(0x2cb)]||_0x271840(0x3dd),'error');})[_0x2caf1c(0x401)](_0x3b6047=>Swal['fire'](_0x2caf1c(0x1e7),_0x2caf1c(0x1f7)+_0x3b6047['message'],_0x2caf1c(0x2f4)));});}function isiDropdownTahunOtomatis(){const _0x377ac5=_0x5ce5bd;let _0x431e56=document[_0x377ac5(0x3e0)]('selectTahun'),_0x4e13c8=new Date()[_0x377ac5(0x287)](),_0x1d122e=0x7ea,_0x55937a=_0x4e13c8+0x0;_0x431e56[_0x377ac5(0x3c2)]='';for(let _0x2d0e52=_0x1d122e;_0x2d0e52<=_0x55937a;_0x2d0e52++){let _0x57d328=document[_0x377ac5(0x252)](_0x377ac5(0x2d2));_0x57d328[_0x377ac5(0x20a)]=_0x2d0e52,_0x57d328[_0x377ac5(0x3e1)]=_0x2d0e52;if(_0x2d0e52===_0x4e13c8)_0x57d328[_0x377ac5(0x326)]=!![];_0x431e56[_0x377ac5(0x2ff)](_0x57d328);}}function updateInfoTandaTangan(){const _0x363220=_0x5ce5bd;let _0x34b6a0=document[_0x363220(0x3e0)](_0x363220(0x35d))['value'],_0x2662ac=document[_0x363220(0x3e0)](_0x363220(0x388))[_0x363220(0x20a)],_0x1ed8cb=document['getElementById']('ttd-tanggal');_0x2662ac[_0x363220(0x437)](_0x363220(0x3b2))?_0x1ed8cb['innerText']=_0x363220(0x419)+_0x34b6a0:_0x1ed8cb[_0x363220(0x3e1)]='Belopa,\x2031\x20Desember\x20'+_0x34b6a0;if(!kodeSkpdAktif)return;muatTTDDariCloud();}function parseIndonesianNumber(_0x36fc01){const _0x3b1470=_0x5ce5bd;if(_0x36fc01===undefined||_0x36fc01===null||_0x36fc01==='')return 0x0;if(typeof _0x36fc01===_0x3b1470(0x28a))return _0x36fc01;let _0x3a6af7=String(_0x36fc01)[_0x3b1470(0x2f9)]();if(_0x3a6af7==='-'||_0x3a6af7==='')return 0x0;let _0x24e97b=![];if(_0x3a6af7[_0x3b1470(0x26b)]('(')&&_0x3a6af7[_0x3b1470(0x285)](')'))_0x24e97b=!![],_0x3a6af7=_0x3a6af7[_0x3b1470(0x377)](0x1,_0x3a6af7[_0x3b1470(0x3a0)]-0x1)[_0x3b1470(0x2f9)]();else _0x3a6af7[_0x3b1470(0x26b)]('-')&&(_0x24e97b=!![],_0x3a6af7=_0x3a6af7[_0x3b1470(0x377)](0x1)[_0x3b1470(0x2f9)]());_0x3a6af7=_0x3a6af7[_0x3b1470(0x3c1)](/\s/g,'')[_0x3b1470(0x3c1)](/%/g,'')[_0x3b1470(0x3c1)](/Rp/gi,'');if(_0x3a6af7[_0x3b1470(0x437)]('.')&&_0x3a6af7[_0x3b1470(0x437)](','))_0x3a6af7=_0x3a6af7['replace'](/\./g,'')[_0x3b1470(0x3c1)](/,/g,'.');else{if(_0x3a6af7['includes'](',')&&!_0x3a6af7[_0x3b1470(0x437)]('.')){let _0xd356a2=_0x3a6af7[_0x3b1470(0x278)](',');_0xd356a2[_0xd356a2[_0x3b1470(0x3a0)]-0x1]['length']<=0x2?_0x3a6af7=_0x3a6af7[_0x3b1470(0x3c1)](/,/g,'.'):_0x3a6af7=_0x3a6af7[_0x3b1470(0x3c1)](/,/g,'');}else{if(_0x3a6af7[_0x3b1470(0x437)]('.')&&!_0x3a6af7[_0x3b1470(0x437)](',')){let _0x433902=_0x3a6af7[_0x3b1470(0x278)]('.');if(_0x433902[_0x433902[_0x3b1470(0x3a0)]-0x1][_0x3b1470(0x3a0)]===0x2&&_0x433902['length']===0x2){}else _0x3a6af7=_0x3a6af7[_0x3b1470(0x3c1)](/\./g,'');}}}let _0x147598=parseFloat(_0x3a6af7);if(isNaN(_0x147598))return 0x0;return _0x24e97b?-_0x147598:_0x147598;}document[_0x5ce5bd(0x3e0)](_0x5ce5bd(0x2b5))['addEventListener']('change',function(_0x47a101){const _0x1f7cff=_0x5ce5bd,_0x1e6c59=_0x47a101[_0x1f7cff(0x3f0)]['files'][0x0];if(!_0x1e6c59)return;const _0x3350f1=_0x1e6c59[_0x1f7cff(0x442)][_0x1f7cff(0x362)]();if(!_0x3350f1[_0x1f7cff(0x285)](_0x1f7cff(0x44e))&&!_0x3350f1[_0x1f7cff(0x285)](_0x1f7cff(0x3b5))&&!_0x3350f1[_0x1f7cff(0x285)](_0x1f7cff(0x35a))){Swal[_0x1f7cff(0x1ee)]({'icon':'error','title':_0x1f7cff(0x2ea),'text':_0x1f7cff(0x447),'confirmButtonColor':_0x1f7cff(0x279)}),_0x47a101[_0x1f7cff(0x3f0)][_0x1f7cff(0x20a)]='';return;}Swal['fire']({'title':_0x1f7cff(0x31b),'text':_0x1f7cff(0x27b),'allowOutsideClick':![],'didOpen':()=>{const _0x1f5629=_0x1f7cff;Swal[_0x1f5629(0x394)]();}});const _0x1f444b=new FileReader();_0x1f444b[_0x1f7cff(0x24e)]=function(_0x27c564){const _0x5734ff=_0x1f7cff;try{const _0x59d425=new Uint8Array(_0x27c564['target'][_0x5734ff(0x20e)]),_0x26dd43=XLSX[_0x5734ff(0x216)](_0x59d425,{'type':_0x5734ff(0x3a7)});let _0x523317=XLSX[_0x5734ff(0x3fd)][_0x5734ff(0x370)](_0x26dd43[_0x5734ff(0x292)][_0x26dd43[_0x5734ff(0x45c)][0x0]],{'header':0x1}),_0x5702bc=![];for(let _0x1def90=0x0;_0x1def90<0x14&&_0x1def90<_0x523317[_0x5734ff(0x3a0)];_0x1def90++){let _0x1f3681=String(_0x523317[_0x1def90]||'')[_0x5734ff(0x362)]();if(_0x1f3681[_0x5734ff(0x437)](_0x5734ff(0x233))&&_0x1f3681['includes']('realisasi')){_0x5702bc=!![];break;}}if(!_0x5702bc){Swal['fire']({'icon':'warning','title':'Isi\x20Dokumen\x20Tidak\x20Sesuai!','html':'Maaf,\x20file\x20ini\x20bukan\x20format\x20LRA\x20standar.<br>Tidak\x20ditemukan\x20kolom\x20<b>Anggaran</b>\x20&\x20<b>Realisasi</b>.','confirmButtonColor':_0x5734ff(0x3f8)}),_0x47a101[_0x5734ff(0x3f0)][_0x5734ff(0x20a)]='';return;}globalRawData=_0x523317;try{sessionStorage[_0x5734ff(0x200)](_0x5734ff(0x2b9),JSON[_0x5734ff(0x2d9)](_0x523317));}catch(_0x392959){console[_0x5734ff(0x446)]('Memori\x20browser\x20penuh,\x20data\x20gagal\x20dicadangkan.');}processAndBuildLRA(),_0x47a101[_0x5734ff(0x3f0)][_0x5734ff(0x20a)]='',Swal[_0x5734ff(0x1ee)]({'icon':_0x5734ff(0x402),'title':'Tabel\x20Belanja\x20Berhasil\x20Dimuat','timer':0x7d0,'showConfirmButton':![]});}catch(_0x378b16){Swal[_0x5734ff(0x1ee)]({'icon':_0x5734ff(0x2f4),'title':_0x5734ff(0x44a),'text':_0x5734ff(0x21e),'confirmButtonColor':_0x5734ff(0x279)}),_0x47a101[_0x5734ff(0x3f0)][_0x5734ff(0x20a)]='';}},_0x1f444b[_0x1f7cff(0x39c)](_0x1e6c59);});function applyFilters(){const _0x36e7f3=_0x5ce5bd;gantiSemester();if(globalRawData[_0x36e7f3(0x3a0)]>0x0)processAndBuildLRA();}function gantiSemester(){const _0x1c523c=_0x5ce5bd;let _0x1c042c=document[_0x1c523c(0x3e0)](_0x1c523c(0x35d))[_0x1c523c(0x20a)],_0x5704a9=document[_0x1c523c(0x3e0)]('selectPeriode')[_0x1c523c(0x20a)],_0x2dcd3e=document[_0x1c523c(0x3e0)]('headerTahun');_0x5704a9[_0x1c523c(0x437)](_0x1c523c(0x3b2))?_0x2dcd3e[_0x1c523c(0x3e1)]=_0x1c523c(0x314)+_0x1c042c+_0x1c523c(0x3af)+_0x1c042c:_0x2dcd3e[_0x1c523c(0x3e1)]=_0x1c523c(0x3b7)+_0x1c042c,updateInfoTandaTangan();}function processAndBuildLRA(){const _0x5880dc=_0x5ce5bd,_0x138f7a=document[_0x5880dc(0x3e0)](_0x5880dc(0x42a));if(typeof window[_0x5880dc(0x436)]===_0x5880dc(0x269))window[_0x5880dc(0x436)]();_0x138f7a['innerHTML']='';let _0xdcd3a6=document[_0x5880dc(0x337)](),_0x3d8bd7=![];kodeSkpdAktif='';let _0x3d2e35='',_0xed42d6='',_0x1b54cf=[],_0x3dc0bf=[],_0x285d51=[],_0x54d95f=[],_0x56010e=[],_0x185279=[],_0x4e003c=0x0;for(let _0x57f019=0x0;_0x57f019<0xf&&_0x57f019<globalRawData['length'];_0x57f019++){let _0x57f369=globalRawData[_0x57f019];if(!_0x57f369)continue;let _0x376626=[],_0x201202=[];for(let _0x254498=0x4;_0x254498<_0x57f369['length'];_0x254498++){let _0x4756bb=String(_0x57f369[_0x254498]||'')[_0x5880dc(0x362)]()['trim']();if(_0x4756bb==='anggaran')_0x376626[_0x5880dc(0x453)](_0x254498);else{if(_0x4756bb==='realisasi')_0x201202['push'](_0x254498);}if(_0x4756bb===_0x5880dc(0x45d))_0x285d51[_0x5880dc(0x453)](_0x254498),_0x285d51[_0x5880dc(0x453)](_0x254498+0x1);else{if(_0x4756bb===_0x5880dc(0x381))_0x54d95f['push'](_0x254498),_0x54d95f[_0x5880dc(0x453)](_0x254498+0x1);else{if(_0x4756bb[_0x5880dc(0x437)]('tak\x20terduga'))_0x56010e[_0x5880dc(0x453)](_0x254498),_0x56010e[_0x5880dc(0x453)](_0x254498+0x1);else _0x4756bb[_0x5880dc(0x437)](_0x5880dc(0x1f8))&&(_0x185279['push'](_0x254498),_0x185279['push'](_0x254498+0x1));}}}_0x376626['length']>_0x4e003c&&(_0x4e003c=_0x376626['length'],_0x1b54cf=_0x376626,_0x3dc0bf=_0x201202);}if(_0x1b54cf[_0x5880dc(0x3a0)]===0x0)_0x1b54cf=[0x5,0x7,0x9,0xb];if(_0x3dc0bf[_0x5880dc(0x3a0)]===0x0)_0x3dc0bf=[0x6,0x8,0xa,0xc];if(_0x285d51[_0x5880dc(0x3a0)]===0x0)_0x285d51=[0x5,0x6];if(_0x54d95f[_0x5880dc(0x3a0)]===0x0)_0x54d95f=[0x7,0x8];for(let _0x538cd0=0x0;_0x538cd0<globalRawData[_0x5880dc(0x3a0)];_0x538cd0++){let _0x28dcd1=globalRawData[_0x538cd0];if(!_0x28dcd1||_0x28dcd1['length']===0x0)continue;let _0x569bd2=_0x28dcd1[0x0]?String(_0x28dcd1[0x0])[_0x5880dc(0x2f9)]():'',_0x4b0cb7=_0x28dcd1[0x1]?String(_0x28dcd1[0x1])[_0x5880dc(0x2f9)]():'',_0x3dad35=_0x28dcd1[0x2]?String(_0x28dcd1[0x2])[_0x5880dc(0x2f9)]():'',_0x1596d3=_0x28dcd1[0x3]?String(_0x28dcd1[0x3])['trim']():'',_0x2dbd8d=_0x28dcd1[0x4]?String(_0x28dcd1[0x4])[_0x5880dc(0x2f9)]():'',_0x341bea=_0x569bd2[_0x5880dc(0x362)](),_0x4ef675=_0x4b0cb7[_0x5880dc(0x362)](),_0xe226ec=_0x2dbd8d[_0x5880dc(0x362)]();if(_0x341bea==='1'&&(_0x4ef675==='2'||_0xe226ec==='2'||_0xe226ec==='3'))continue;if(_0x341bea[_0x5880dc(0x437)]('kab.\x20luwu')||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x1fb)))continue;if(_0x341bea['includes']('rekapitulasi')||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x291)))continue;if(_0x341bea[_0x5880dc(0x437)]('beserta\x20hasil')||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x2cf)))continue;if(_0x341bea[_0x5880dc(0x437)](_0x5880dc(0x44c))||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x44c)))continue;let _0x55ab4e=_0x569bd2+_0x4b0cb7+_0x3dad35+_0x1596d3;if(!_0x55ab4e&&!_0x2dbd8d)continue;let _0x35e0db=[];if(_0x569bd2)_0x35e0db[_0x5880dc(0x453)](_0x569bd2);if(_0x4b0cb7)_0x35e0db[_0x5880dc(0x453)](_0x4b0cb7);if(_0x3dad35)_0x35e0db[_0x5880dc(0x453)](_0x3dad35);if(_0x1596d3)_0x35e0db[_0x5880dc(0x453)](_0x1596d3);let _0x2d0396=_0x35e0db[_0x5880dc(0x27d)]('.');/[a-zA-Z]/['test'](_0x2d0396)&&(_0x2d0396='');if(_0x2d0396)_0x3d2e35=_0x2d0396;let _0x1d262c=0x0;_0x1b54cf[_0x5880dc(0x227)](_0x35d2bf=>{_0x1d262c+=parseIndonesianNumber(_0x28dcd1[_0x35d2bf]);});let _0x460307=0x0;_0x3dc0bf[_0x5880dc(0x227)](_0x2746f3=>{_0x460307+=parseIndonesianNumber(_0x28dcd1[_0x2746f3]);});let _0xb8b8ec=_0x460307-_0x1d262c,_0x37768e=_0x1d262c>0x0?(_0x460307/_0x1d262c*0x64)[_0x5880dc(0x324)](0x2):_0x5880dc(0x2ef),_0xaf43c6=0x0,_0x10bbe5='',_0x5b9d8d=![],_0x419982=_0xe226ec['includes'](_0x5880dc(0x2a5))||_0xe226ec==='total'||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x253))||_0xe226ec[_0x5880dc(0x437)]('defisit'),_0x16ad2d=_0x341bea==='kode'||_0xe226ec[_0x5880dc(0x437)](_0x5880dc(0x23e));if(_0x419982)_0xaf43c6=0x1,_0x10bbe5=_0x5880dc(0x40e),_0x5b9d8d=![];else{if(_0x16ad2d)_0xaf43c6=0x0,_0x10bbe5='style-header',_0x5b9d8d=![];else{if(!_0x2d0396&&_0x2dbd8d)_0xaf43c6=0xa,_0x10bbe5='style-normal',_0x5b9d8d=!![];else{if(_0x1596d3){let _0x299d69=_0x1596d3[_0x5880dc(0x278)]('.');_0xaf43c6=0x3+_0x299d69[_0x5880dc(0x3a0)],_0x299d69['length']<=0x5?(_0x10bbe5='style-bold',_0x5b9d8d=![]):(_0x10bbe5='style-normal',_0x5b9d8d=!![]);}else{let _0x2e329e=(_0x2d0396[_0x5880dc(0x2ae)](/\./g)||[])[_0x5880dc(0x3a0)];if(_0x2e329e<=0x1)_0xaf43c6=0x0,_0x10bbe5=_0x5880dc(0x334),!_0x3d8bd7&&_0x341bea!==_0x5880dc(0x22b)&&(document[_0x5880dc(0x3e0)](_0x5880dc(0x2b2))[_0x5880dc(0x3e1)]=':\x20'+_0x2d0396+'\x20'+_0x2dbd8d,_0x3d8bd7=!![]);else{if(_0x2d0396[_0x5880dc(0x285)](_0x5880dc(0x20f))||_0x2e329e===0x7||_0x2e329e===0x8||_0x2e329e===0x9||_0x2e329e===0xa){_0xaf43c6=0x1,_0x10bbe5=_0x5880dc(0x40e);_0x341bea!==_0x5880dc(0x22b)&&(_0xed42d6=_0x2d0396);if(!kodeSkpdAktif&&_0x341bea!==_0x5880dc(0x22b)){kodeSkpdAktif=_0x2d0396,document[_0x5880dc(0x3e0)]('metaOrganisasi')[_0x5880dc(0x3e1)]=':\x20'+_0x2d0396+'\x20'+_0x2dbd8d;let _0x4a09fb=document['getElementById']('headerNamaSkpd');_0x4a09fb&&(_0x4a09fb['innerText']=_0x2dbd8d[_0x5880dc(0x362)]());}}else{if(_0x2e329e===0x2||_0x2e329e===0x3)_0xaf43c6=0x1,_0x10bbe5=_0x5880dc(0x40e);else _0x2e329e===0x4||_0x2e329e===0xc||_0x2e329e===0xd?(_0xaf43c6=0x2,_0x10bbe5=_0x5880dc(0x40e)):(_0xaf43c6=0x3,_0x10bbe5=_0x5880dc(0x40e));}}}}}}let _0x4f5406=_0x16ad2d?_0x569bd2:_0x2d0396;if(_0xed42d6&&_0x4f5406['startsWith'](_0xed42d6+'.')&&_0xaf43c6>0x1)_0x4f5406=_0x4f5406[_0x5880dc(0x377)](_0xed42d6['length']+0x1);else kodeSkpdAktif&&_0x4f5406[_0x5880dc(0x26b)](kodeSkpdAktif+'.')&&_0xaf43c6>0x1&&(_0x4f5406=_0x4f5406[_0x5880dc(0x377)](kodeSkpdAktif['length']+0x1));let _0x224475='',_0x134d04=_0x2dbd8d[_0x5880dc(0x3c1)](/'/g,'\x5c\x27')[_0x5880dc(0x3c1)](/"/g,_0x5880dc(0x3c4)),_0x598bbe=_0x4f5406?_0x4f5406['replace'](/'/g,'\x5c\x27'):'',_0x3d3fc1=_0x3d2e35[_0x5880dc(0x3c1)](/[^a-zA-Z0-9]/g,''),_0xb1f5ba=_0x2dbd8d[_0x5880dc(0x377)](0x0,0x19)[_0x5880dc(0x3c1)](/[^a-zA-Z0-9]/g,''),_0xf8421f='R_'+_0x3d3fc1+'_'+_0xb1f5ba;if(_0x419982){}else _0x5b9d8d?_0x224475=_0x5880dc(0x302)+_0xf8421f+_0x5880dc(0x288)+_0xf8421f+_0x5880dc(0x236)+_0x598bbe+'\x27,\x20\x27'+_0x134d04+_0x5880dc(0x2a3)+_0x460307+_0x5880dc(0x202)+_0xf8421f+_0x5880dc(0x211)+_0xf8421f+_0x5880dc(0x3e2)+_0xf8421f+_0x5880dc(0x33b)+_0x460307+_0x5880dc(0x29e):_0x224475=_0x5880dc(0x302)+_0xf8421f+_0x5880dc(0x3b6)+_0xf8421f+_0x5880dc(0x236)+_0x598bbe+_0x5880dc(0x236)+_0x134d04+_0x5880dc(0x372)+_0xf8421f+'\x22\x20class=\x22print-view-text\x20fw-bold\x20text-dark\x22\x20style=\x22margin-top:\x205px;\x20font-size:\x2011px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22hidden\x22\x20id=\x22val_'+_0xf8421f+'\x22\x20class=\x22input-database\x22\x20data-rowid=\x22'+_0xf8421f+_0x5880dc(0x3d0);let _0x682f1f={'minimumFractionDigits':0x2,'maximumFractionDigits':0x2},_0x421c06=_0x1d262c!==0x0?_0x1d262c['toLocaleString']('id-ID',_0x682f1f):_0x5880dc(0x2ef),_0x5abb47=_0x460307!==0x0?_0x460307[_0x5880dc(0x3e6)]('id-ID',_0x682f1f):_0x5880dc(0x2ef),_0x2dff6f=_0xb8b8ec!==0x0?_0xb8b8ec<0x0?'('+Math['abs'](_0xb8b8ec)[_0x5880dc(0x3e6)](_0x5880dc(0x29d),_0x682f1f)+')':_0xb8b8ec[_0x5880dc(0x3e6)](_0x5880dc(0x29d),_0x682f1f):_0x5880dc(0x2ef),_0x1640e1=_0x37768e['replace']('.',',');_0x16ad2d&&(_0x421c06='',_0x5abb47='',_0x2dff6f='',_0x1640e1='',_0x4f5406=_0x569bd2);let _0x76851a=document[_0x5880dc(0x252)]('tr');_0x76851a[_0x5880dc(0x208)]=_0x5880dc(0x42c)+_0xaf43c6+'\x20'+_0x10bbe5,_0x76851a[_0x5880dc(0x1e5)][_0x5880dc(0x411)]=_0xaf43c6;let _0x5928f6=_0x5880dc(0x3ed);if(_0x5b9d8d&&!_0x419982){let _0x522607=0x0;_0x285d51[_0x5880dc(0x227)](_0x5a4aa1=>{const _0x1a0320=_0x5880dc;_0x522607+=Math[_0x1a0320(0x3b8)](parseIndonesianNumber(_0x28dcd1[_0x5a4aa1]));});let _0x136883=0x0;_0x54d95f['forEach'](_0x38d0f8=>{const _0x52f440=_0x5880dc;_0x136883+=Math[_0x52f440(0x3b8)](parseIndonesianNumber(_0x28dcd1[_0x38d0f8]));});let _0x35abd4=0x0;_0x56010e[_0x5880dc(0x227)](_0x3a84a3=>{const _0x2668b4=_0x5880dc;_0x35abd4+=Math[_0x2668b4(0x3b8)](parseIndonesianNumber(_0x28dcd1[_0x3a84a3]));});let _0x35cf72=0x0;_0x185279['forEach'](_0x255e0e=>{const _0x5bda93=_0x5880dc;_0x35cf72+=Math[_0x5bda93(0x3b8)](parseIndonesianNumber(_0x28dcd1[_0x255e0e]));});let _0x4c512f=_0xe226ec[_0x5880dc(0x362)]();if(_0x522607>0x0&&_0x136883===0x0&&_0x35abd4===0x0&&_0x35cf72===0x0)_0x5928f6=_0x5880dc(0x45d);else{if(_0x136883>0x0&&_0x522607===0x0&&_0x35abd4===0x0&&_0x35cf72===0x0)_0x5928f6=_0x5880dc(0x381);else{if(_0x35abd4>0x0&&_0x522607===0x0&&_0x136883===0x0&&_0x35cf72===0x0)_0x5928f6='btt';else{if(_0x35cf72>0x0&&_0x522607===0x0&&_0x136883===0x0&&_0x35abd4===0x0)_0x5928f6=_0x5880dc(0x1f8);else{if(_0x4c512f['includes'](_0x5880dc(0x329))||_0x4c512f['includes']('darurat')||_0x4c512f['includes']('kejadian\x20luar\x20biasa'))_0x5928f6=_0x5880dc(0x1e3);else{if(_0x4c512f[_0x5880dc(0x437)]('transfer')||_0x4c512f['includes'](_0x5880dc(0x396))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x422))||_0x4c512f['includes'](_0x5880dc(0x427))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x338))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x35c))||_0x4c512f[_0x5880dc(0x437)]('dana\x20desa'))_0x5928f6='transfer';else{if(_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x232))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x3f5))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x41e))||_0x4c512f[_0x5880dc(0x437)]('makan')||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x37b))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x23d))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x3a5))||_0x4c512f['includes'](_0x5880dc(0x379))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x25d))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x316))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x339))||_0x4c512f['includes']('air')||_0x4c512f['includes'](_0x5880dc(0x441)))_0x5928f6=_0x5880dc(0x45d);else{if(_0x4c512f[_0x5880dc(0x437)]('modal')||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x393))||_0x4c512f['includes'](_0x5880dc(0x261))||_0x4c512f[_0x5880dc(0x437)]('mesin')||_0x4c512f['includes'](_0x5880dc(0x290))||_0x4c512f[_0x5880dc(0x437)](_0x5880dc(0x3ff))||_0x4c512f['includes'](_0x5880dc(0x45a))||_0x4c512f['includes'](_0x5880dc(0x3d1))||_0x4c512f['includes'](_0x5880dc(0x24b))||_0x4c512f[_0x5880dc(0x437)]('peralatan')||_0x4c512f['includes'](_0x5880dc(0x21f)))_0x5928f6=_0x5880dc(0x381);else{if(_0x2d0396[_0x5880dc(0x26b)](_0x5880dc(0x2fb))||_0x3d2e35[_0x5880dc(0x26b)]('5.1'))_0x5928f6=_0x5880dc(0x45d);else{if(_0x2d0396[_0x5880dc(0x26b)](_0x5880dc(0x33a))||_0x3d2e35[_0x5880dc(0x26b)](_0x5880dc(0x33a)))_0x5928f6='modal';else{if(_0x2d0396[_0x5880dc(0x26b)](_0x5880dc(0x1f0))||_0x3d2e35['startsWith']('5.3'))_0x5928f6=_0x5880dc(0x1e3);else{if(_0x2d0396[_0x5880dc(0x26b)](_0x5880dc(0x23a))||_0x3d2e35[_0x5880dc(0x26b)](_0x5880dc(0x23a)))_0x5928f6=_0x5880dc(0x1f8);else _0x5928f6=_0x5880dc(0x40b);}}}}}}}}}}}}_0x76851a[_0x5880dc(0x1e5)]['kategori']=_0x5928f6;_0x5b9d8d&&!_0x419982&&_0xe226ec['toLowerCase']()[_0x5880dc(0x437)](_0x5880dc(0x37b))?_0x76851a['dataset']['subKategori']='perjalanan':_0x76851a[_0x5880dc(0x1e5)][_0x5880dc(0x267)]=_0x5880dc(0x40b);_0x76851a[_0x5880dc(0x1e5)][_0x5880dc(0x28f)]=_0x1d262c||0x0,_0x76851a[_0x5880dc(0x1e5)][_0x5880dc(0x32a)]=_0x460307||0x0,_0x76851a[_0x5880dc(0x1e5)][_0x5880dc(0x378)]=_0x421c06,_0x76851a[_0x5880dc(0x1e5)]['oriReaStr']=_0x5abb47,_0x76851a['dataset'][_0x5880dc(0x380)]=_0x2dff6f,_0x76851a[_0x5880dc(0x1e5)]['oriPerStr']=_0x1640e1;let _0x156cd5=_0x419982?_0x5880dc(0x3eb):'uraian-cell';_0x419982&&_0x2dbd8d[_0x5880dc(0x362)]()['trim']()===_0x5880dc(0x2a5)&&(_0x2dbd8d=_0x5880dc(0x36b));let _0x1b435c='',_0x165ce2='';if(_0x16ad2d)_0x4f5406='',_0x2dbd8d=_0x5880dc(0x222),_0x156cd5='uraian-cell\x20text-dark\x20fw-bold\x20text-uppercase',_0x1b435c='border-bottom:\x20none\x20!important;',_0x165ce2='border-bottom:\x201px\x20solid\x20#000\x20!important;',_0x224475='',window['hapusGarisAtas']=!![];else window['hapusGarisAtas']&&(_0x1b435c=_0x5880dc(0x2dd),_0x165ce2=_0x5880dc(0x455),window[_0x5880dc(0x24c)]=![]);_0x76851a[_0x5880dc(0x3c2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20style=\x22'+_0x1b435c+'\x22>'+_0x4f5406+_0x5880dc(0x3ba)+_0x156cd5+_0x5880dc(0x270)+_0x165ce2+'\x22>'+_0x2dbd8d+_0x5880dc(0x454)+_0x1b435c+'\x22>'+_0x421c06+_0x5880dc(0x454)+_0x1b435c+'\x22>'+_0x5abb47+_0x5880dc(0x454)+_0x1b435c+'\x22>'+_0x2dff6f+_0x5880dc(0x22c)+_0x1b435c+'\x22>'+_0x1640e1+_0x5880dc(0x2f6)+_0x1b435c+'\x22>'+_0x224475+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0xdcd3a6['appendChild'](_0x76851a);}_0x138f7a['appendChild'](_0xdcd3a6);if(!kodeSkpdAktif){_0x138f7a[_0x5880dc(0x3c2)]=_0x5880dc(0x265),document['getElementById']('metaOrganisasi')[_0x5880dc(0x3e1)]=_0x5880dc(0x312),document[_0x5880dc(0x3e0)](_0x5880dc(0x2b2))[_0x5880dc(0x3e1)]=':\x20-';let _0x26bf4b=document[_0x5880dc(0x3e0)](_0x5880dc(0x226));_0x26bf4b&&(_0x26bf4b[_0x5880dc(0x3e1)]=_0x5880dc(0x31e));globalRawData=[],Swal[_0x5880dc(0x1ee)]({'icon':_0x5880dc(0x2f4),'title':_0x5880dc(0x2c1),'text':'Ini\x20bukan\x20file\x20LRA\x20SIPD\x20yang\x20sah.\x20Sistem\x20mendeteksi\x20tidak\x20ada\x20Kode\x20SKPD\x20yang\x20valid\x20di\x20dalamnya.','confirmButtonColor':'#d33'});return;}updateInfoTandaTangan(),terapkanFilterBelanja();if(typeof window[_0x5880dc(0x457)]===_0x5880dc(0x269))window['restoreBrankasDraf']();}function bukaKeterangan(_0x51c3e4,_0x4fcc6b,_0x53d791){const _0x5625d3=_0x5ce5bd;let _0x308504=document[_0x5625d3(0x3e0)]('val_'+_0x51c3e4)['value'];document[_0x5625d3(0x3e0)](_0x5625d3(0x426))[_0x5625d3(0x20a)]=_0x51c3e4;let _0xd7f8b8=_0x4fcc6b?_0x4fcc6b+_0x5625d3(0x2d7)+_0x53d791:_0x53d791;document[_0x5625d3(0x3e0)](_0x5625d3(0x366))['innerText']=_0xd7f8b8,document['getElementById'](_0x5625d3(0x376))['value']=_0x308504,modalKeterangan[_0x5625d3(0x28c)]();}function _0x3bed(_0x5bb18f,_0x2f6390){_0x5bb18f=_0x5bb18f-0x1e1;const _0x5b96a6=_0x5b96();let _0x3bedef=_0x5b96a6[_0x5bb18f];return _0x3bedef;}function simpanKeterangan(){const _0x431265=_0x5ce5bd;let _0x1c3921=document['getElementById'](_0x431265(0x426))[_0x431265(0x20a)],_0x365044=document[_0x431265(0x3e0)](_0x431265(0x376))[_0x431265(0x20a)];simpanKeKamus(_0x365044),document[_0x431265(0x3e0)](_0x431265(0x3c3)+_0x1c3921)['value']=_0x365044,document[_0x431265(0x3e0)]('val_'+_0x1c3921)[_0x431265(0x313)][_0x431265(0x2d8)](_0x431265(0x289)),document[_0x431265(0x3e0)](_0x431265(0x3cd)+_0x1c3921)[_0x431265(0x3e1)]=_0x365044;let _0x211c44=document[_0x431265(0x3e0)]('btn_'+_0x1c3921);_0x211c44&&(_0x365044[_0x431265(0x2f9)]()===''?(_0x211c44[_0x431265(0x208)]=_0x431265(0x256),_0x211c44[_0x431265(0x238)][_0x431265(0x403)]=_0x431265(0x242),_0x211c44[_0x431265(0x3c2)]='<i\x20class=\x22fa-regular\x20fa-comment-dots\x20text-muted\x20me-1\x22></i>'):(_0x211c44[_0x431265(0x208)]=_0x431265(0x353),_0x211c44[_0x431265(0x238)][_0x431265(0x403)]=_0x431265(0x2f7),_0x211c44[_0x431265(0x3c2)]=_0x431265(0x383))),modalKeterangan[_0x431265(0x3ac)]();}function hitungTotalDariTeks(_0x31f021){let _0x172752=0x0,_0x1bfa67=/=\s*([^#\n\r]+)/g,_0x3f4f29=_0x31f021['match'](_0x1bfa67);return _0x3f4f29&&_0x3f4f29['forEach'](_0x5cb779=>{const _0x4eb811=_0x3bed;let _0x2ca71f=_0x5cb779[_0x4eb811(0x3c1)](/=/g,'')[_0x4eb811(0x3c1)](/Rp/gi,'')[_0x4eb811(0x2f9)](),_0x3c6306=_0x2ca71f[_0x4eb811(0x2ae)](/^[\d\.,]+/);if(_0x3c6306){let _0x46e81f=_0x3c6306[0x0];_0x46e81f[_0x4eb811(0x437)](',')&&_0x46e81f[_0x4eb811(0x278)](',')[0x1][_0x4eb811(0x3a0)]<=0x2?_0x46e81f=_0x46e81f[_0x4eb811(0x3c1)](/\./g,'')[_0x4eb811(0x3c1)](',','.'):_0x46e81f=_0x46e81f[_0x4eb811(0x3c1)](/\./g,'')[_0x4eb811(0x3c1)](/,/g,'');let _0x4ea2d6=parseFloat(_0x46e81f);if(!isNaN(_0x4ea2d6))_0x172752+=_0x4ea2d6;}}),_0x172752;}function formatRibuan(_0x683767){const _0x1ba756=_0x5ce5bd;let _0x38eddd=_0x683767[_0x1ba756(0x20a)][_0x1ba756(0x3c1)](/[^,\d]/g,''),_0x370fc6=_0x38eddd[_0x1ba756(0x278)](','),_0x509e4f=_0x370fc6[0x0][_0x1ba756(0x3a0)]%0x3,_0x1f7960=_0x370fc6[0x0][_0x1ba756(0x3dc)](0x0,_0x509e4f),_0x2865dd=_0x370fc6[0x0][_0x1ba756(0x3dc)](_0x509e4f)[_0x1ba756(0x2ae)](/\d{3}/gi);if(_0x2865dd){let _0x1a3284=_0x509e4f?'.':'';_0x1f7960+=_0x1a3284+_0x2865dd[_0x1ba756(0x27d)]('.');}_0x683767[_0x1ba756(0x20a)]=_0x370fc6[0x1]!==undefined?_0x1f7960+','+_0x370fc6[0x1]:_0x1f7960;}function perbaruiTombolStatus(_0x50f25d,_0x3aa429,_0x38bd03){const _0x278d6d=_0x5ce5bd;let _0xc5ab23=document[_0x278d6d(0x3e0)](_0x278d6d(0x237)+_0x50f25d);if(!_0xc5ab23)return;let _0xebeab=hitungTotalDariTeks(_0x3aa429),_0x543b7d=_0xebeab-_0x38bd03,_0xb0dd96={'minimumFractionDigits':0x0},_0x27aa94=_0x3aa429[_0x278d6d(0x3c1)](/<[^>]*>?/gm,'')[_0x278d6d(0x2f9)](),_0x5128de=cekKualitasTeks(_0x27aa94);_0xc5ab23['className']=_0x278d6d(0x353);if(_0x27aa94===''){_0xc5ab23[_0x278d6d(0x238)][_0x278d6d(0x403)]=_0x278d6d(0x332),_0xc5ab23[_0x278d6d(0x3c2)]='<i\x20class=\x22fa-regular\x20fa-pen-to-square\x20me-1\x22\x20style=\x22color:\x20#475569;\x22></i>\x20Isi\x20Penjelasan\x20Rincian\x20Belanja';return;}if(_0x5128de!=='OK'){_0xc5ab23[_0x278d6d(0x238)]['cssText']=_0x278d6d(0x32c),_0xc5ab23[_0x278d6d(0x3c2)]=_0x278d6d(0x34e)+_0x5128de;return;}if(_0x38bd03===0x0){_0xc5ab23[_0x278d6d(0x238)][_0x278d6d(0x403)]=_0x278d6d(0x418),_0xc5ab23['innerHTML']=_0x278d6d(0x3d4);return;}if(Math[_0x278d6d(0x3b8)](_0x543b7d)<0x1)_0xc5ab23[_0x278d6d(0x238)][_0x278d6d(0x403)]=_0x278d6d(0x28b),_0xc5ab23[_0x278d6d(0x3c2)]='<i\x20class=\x22fa-solid\x20fa-check-double\x20me-1\x22></i>\x20Nilai\x20Rincian\x20VALID';else{if(_0x543b7d<0x0){let _0x445a78=Math['abs'](_0x543b7d)[_0x278d6d(0x3e6)]('id-ID',_0xb0dd96);_0xc5ab23['style']['cssText']=_0x278d6d(0x309),_0xc5ab23[_0x278d6d(0x3c2)]='<i\x20class=\x22fa-solid\x20fa-file-pen\x20me-1\x22></i>\x20Jumlah\x20Kurang\x20(Selisih)\x20Senilai\x20Rp\x20'+_0x445a78;}else{let _0x1118b6=_0x543b7d[_0x278d6d(0x3e6)]('id-ID',_0xb0dd96);_0xc5ab23[_0x278d6d(0x238)][_0x278d6d(0x403)]=_0x278d6d(0x371),_0xc5ab23[_0x278d6d(0x3c2)]=_0x278d6d(0x315)+_0x1118b6;}}}function setMode(){setTimeout(()=>{kalkulasiKombinasi();},0x64);}let groupIdCounter=0x0;function updateNomorUrutKelompok(){const _0x4f9b1c=_0x5ce5bd;let _0x5dbdee=document[_0x4f9b1c(0x3e8)]('#groupsContainer\x20.group-container');_0x5dbdee[_0x4f9b1c(0x227)]((_0x349082,_0xa5c5cb)=>{const _0x524052=_0x4f9b1c;let _0x589e54=_0x349082[_0x524052(0x268)]('.group-number-badge');if(_0x589e54)_0x589e54[_0x524052(0x3e1)]=_0xa5c5cb+0x1;});}function tambahKelompok(_0x288db7='',_0x2547c2=[]){const _0xd9ab0b=_0x5ce5bd;groupIdCounter++;let _0x25001a='group_'+groupIdCounter,_0x5b7c20=document['getElementById'](_0xd9ab0b(0x340)),_0x1b396c=document['createElement'](_0xd9ab0b(0x2de));_0x1b396c[_0xd9ab0b(0x208)]=_0xd9ab0b(0x357),_0x1b396c[_0xd9ab0b(0x238)][_0xd9ab0b(0x273)]=_0xd9ab0b(0x2a7),_0x1b396c['style']['border']='1px\x20solid\x20#e2e8f0',_0x1b396c['id']=_0x25001a,_0x1b396c[_0xd9ab0b(0x3c2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-sm\x20btn-outline-danger\x20position-absolute\x20top-0\x20end-0\x20m-3\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22document.getElementById(\x27'+_0x25001a+'\x27).remove();\x20kalkulasiKombinasi();\x20updateNomorUrutKelompok();\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20title=\x22Hapus\x20Kelompok\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22border-radius:\x2050%;\x20width:\x2032px;\x20height:\x2032px;\x20padding:\x200;\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-trash-can\x22\x20style=\x22font-size:\x2012px;\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20mb-3\x20pe-5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22form-label\x20fw-bold\x20text-secondary\x20d-flex\x20align-items-center\x22\x20style=\x22font-size:\x2010px;\x20text-transform:\x20uppercase;\x20letter-spacing:\x200.5px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22group-number-badge\x20text-white\x20bg-primary\x20d-flex\x20align-items-center\x20justify-content-center\x20me-2\x22\x20style=\x22width:\x2020px;\x20height:\x2020px;\x20border-radius:\x2050%;\x20font-size:\x2011px;\x22>1</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Keterangan\x20:\x20Kegiatan\x20/\x20Lokasi\x20/\x20Tanggal\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20class=\x22form-control\x20textarea-smart\x20p-2\x20uraian-sub\x22\x20rows=\x222\x22\x20placeholder=\x22Masukkan\x20Keterangan\x20Belanja\x20Anda....\x22\x20onkeyup=\x22kalkulasiKombinasi()\x22>'+_0x288db7+_0xd9ab0b(0x21c)+_0x25001a+'\x22\x20class=\x22item-rows-container\x20mb-3\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-sm\x20btn-outline-secondary\x20fw-bold\x20text-secondary\x20w-100\x20py-1\x22\x20onclick=\x22tambahBaris(\x27'+_0x25001a+_0xd9ab0b(0x364),_0x5b7c20['appendChild'](_0x1b396c),updateNomorUrutKelompok(),_0x2547c2[_0xd9ab0b(0x3a0)]===0x0?tambahBaris(_0x25001a):_0x2547c2[_0xd9ab0b(0x227)](_0x9eba11=>tambahBaris(_0x25001a,_0x9eba11['u'],_0x9eba11['v'],_0x9eba11['s'],_0x9eba11['h'])),kalkulasiKombinasi(),setTimeout(()=>{const _0x1143da=_0xd9ab0b;_0x1b396c['scrollIntoView']({'behavior':_0x1143da(0x26f),'block':'end'});},0x64);}function tambahBaris(_0x5e3ab2,_0x1f6ade='',_0x55064d='',_0x3e3fd0='',_0x35ce24=''){const _0x4e1c2f=_0x5ce5bd;let _0x2ba11b=document[_0x4e1c2f(0x3e0)]('rows_'+_0x5e3ab2),_0x3dc438=document[_0x4e1c2f(0x252)](_0x4e1c2f(0x2de));_0x3dc438['className']=_0x4e1c2f(0x30e);let _0x27334e=_0x35ce24?_0x35ce24[_0x4e1c2f(0x3e6)](_0x4e1c2f(0x29d)):'',_0x194083=amankanTeks(_0x1f6ade);_0x3dc438['innerHTML']=_0x4e1c2f(0x257)+_0x194083+_0x4e1c2f(0x299)+_0x55064d+_0x4e1c2f(0x260)+_0x3e3fd0+_0x4e1c2f(0x2ed)+_0x27334e+_0x4e1c2f(0x344),_0x2ba11b[_0x4e1c2f(0x2ff)](_0x3dc438),kalkulasiKombinasi();}function bukaAsisten(_0x36c2f5,_0x29952f,_0x489770,_0x48e6ec){const _0x3ce4c9=_0x5ce5bd;let _0x55ea9d=document[_0x3ce4c9(0x3e0)](_0x3ce4c9(0x3c3)+_0x36c2f5)['value'];_0x55ea9d==='[]'&&(_0x55ea9d='');document[_0x3ce4c9(0x3e0)](_0x3ce4c9(0x239))[_0x3ce4c9(0x20a)]=_0x36c2f5,document[_0x3ce4c9(0x3e0)](_0x3ce4c9(0x2e3))[_0x3ce4c9(0x20a)]=_0x48e6ec,document[_0x3ce4c9(0x3e0)]('modalUraian')[_0x3ce4c9(0x3e1)]=_0x29952f?_0x29952f+_0x3ce4c9(0x2d7)+_0x489770:_0x489770,document[_0x3ce4c9(0x3e0)](_0x3ce4c9(0x39b))[_0x3ce4c9(0x3e1)]=_0x3ce4c9(0x428)+_0x48e6ec[_0x3ce4c9(0x3e6)](_0x3ce4c9(0x29d)),document[_0x3ce4c9(0x3e0)](_0x3ce4c9(0x340))[_0x3ce4c9(0x3c2)]='',groupIdCounter=0x0;let _0x35253a=[];if(_0x55ea9d&&_0x55ea9d[_0x3ce4c9(0x2f9)]()!=='')try{let _0x102d89=JSON['parse'](_0x55ea9d);if(Array[_0x3ce4c9(0x32b)](_0x102d89)&&_0x102d89[_0x3ce4c9(0x3a0)]>0x0&&_0x102d89[0x0][_0x3ce4c9(0x311)]!==undefined)_0x35253a=_0x102d89;else{if(_0x102d89[_0x3ce4c9(0x311)]){let _0x2f2071=_0x102d89[_0x3ce4c9(0x206)]||_0x102d89[_0x3ce4c9(0x358)]||'';_0x35253a=[{'sub':_0x2f2071,'items':_0x102d89[_0x3ce4c9(0x311)]}];}else{if(_0x102d89[_0x3ce4c9(0x395)]&&Array[_0x3ce4c9(0x32b)](_0x102d89[_0x3ce4c9(0x395)]))_0x35253a=[{'sub':'','items':_0x102d89[_0x3ce4c9(0x395)]}];else _0x102d89[_0x3ce4c9(0x395)]&&typeof _0x102d89[_0x3ce4c9(0x395)]===_0x3ce4c9(0x405)&&(_0x35253a=[{'sub':_0x102d89[_0x3ce4c9(0x395)],'items':[]}]);}}}catch(_0x5d59b6){_0x35253a=[{'sub':_0x55ea9d,'items':[]}];}_0x35253a[_0x3ce4c9(0x3a0)]===0x0?tambahKelompok():_0x35253a['forEach'](_0x3a60eb=>tambahKelompok(_0x3a60eb[_0x3ce4c9(0x206)],_0x3a60eb['items'])),kalkulasiKombinasi(),modalAsisten[_0x3ce4c9(0x28c)]();}function kalkulasiKombinasi(){const _0x156708=_0x5ce5bd;let _0x2c26b3=parseFloat(document['getElementById']('modalTargetRealisasi')['value']),_0x5b209a=0x0,_0x1997ea=!![],_0x5c59a6='';document[_0x156708(0x3e8)](_0x156708(0x43a))[_0x156708(0x227)](_0x4e1b21=>{const _0x23ccd3=_0x156708;let _0x3423aa=_0x4e1b21['querySelector']('.uraian-sub')[_0x23ccd3(0x20a)][_0x23ccd3(0x2f9)]();_0x3423aa&&(_0x1997ea=![],_0x5c59a6+=_0x3423aa+'\x20'),_0x4e1b21[_0x23ccd3(0x3e8)](_0x23ccd3(0x2f2))[_0x23ccd3(0x227)](_0x5200a7=>{const _0x58593a=_0x23ccd3;let _0x2cb2b1=parseFloat(_0x5200a7[_0x58593a(0x268)]('.vol')[_0x58593a(0x20a)])||0x0,_0x438ee2=_0x5200a7[_0x58593a(0x268)](_0x58593a(0x43e))[_0x58593a(0x20a)]['replace'](/\./g,'')[_0x58593a(0x3c1)](/,/g,'.'),_0x3271ca=parseFloat(_0x438ee2)||0x0,_0x1da05d=_0x2cb2b1*_0x3271ca;_0x5200a7[_0x58593a(0x268)](_0x58593a(0x30b))[_0x58593a(0x3e1)]=_0x1da05d[_0x58593a(0x3e6)](_0x58593a(0x29d)),_0x5b209a+=_0x1da05d;let _0x90191a=_0x5200a7[_0x58593a(0x268)]('.uraian')['value']['trim']();if(_0x90191a||_0x2cb2b1>0x0||_0x3271ca>0x0)_0x1997ea=![];if(_0x90191a)_0x5c59a6+=_0x90191a+'\x20';});});let _0x1c6f45=document[_0x156708(0x3e0)](_0x156708(0x220)),_0x2b6fc1=document[_0x156708(0x3e0)](_0x156708(0x37a)),_0x4ccc35=document[_0x156708(0x3e0)]('titleSmart'),_0x15f6ff=document[_0x156708(0x3e0)](_0x156708(0x409)),_0x1ae6e1=_0x5b209a-_0x2c26b3,_0x1c06c0=document[_0x156708(0x3e0)](_0x156708(0x3c7)),_0x230b71=document[_0x156708(0x3e0)](_0x156708(0x218)),_0x40e424=cekKualitasTeks(_0x5c59a6),_0x4daccf=_0x2c26b3>0x0&&Math[_0x156708(0x3b8)](_0x1ae6e1)<0x1,_0x1a9b36=sessionStorage['getItem']('last_saved_text')||'',_0x8b1977=_0x5c59a6[_0x156708(0x3c1)](/[^a-zA-Z0-9]/g,'')[_0x156708(0x362)](),_0x463684=_0x8b1977['length']>0x14&&_0x1a9b36===_0x8b1977;if(_0x1997ea)_0x1c6f45['className']=_0x156708(0x23b),_0x2b6fc1['className']='fa-solid\x20fa-pen-to-square\x20fs-4\x20me-3\x20text-secondary',_0x4ccc35[_0x156708(0x3e1)]=_0x156708(0x44b),_0x15f6ff[_0x156708(0x3e1)]=_0x156708(0x387),_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)][_0x156708(0x1fa)]=_0x156708(0x35f),_0x230b71[_0x156708(0x238)][_0x156708(0x1fa)]=_0x156708(0x450));else{if(_0x2c26b3===0x0)_0x1c6f45['className']=_0x156708(0x23b),_0x2b6fc1[_0x156708(0x208)]=_0x156708(0x2bb),_0x4ccc35[_0x156708(0x3e1)]=_0x156708(0x327),_0x15f6ff[_0x156708(0x3e1)]=_0x156708(0x400),_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)][_0x156708(0x1fa)]=_0x156708(0x450),_0x230b71['style'][_0x156708(0x1fa)]=_0x156708(0x35f));else{if(_0x4daccf){if(_0x40e424!=='OK')_0x1c6f45[_0x156708(0x208)]=_0x156708(0x3a4),_0x2b6fc1['className']=_0x156708(0x2e6),_0x4ccc35['innerText']=_0x156708(0x343),_0x15f6ff[_0x156708(0x3c2)]=_0x156708(0x432)+_0x5b209a[_0x156708(0x3e6)](_0x156708(0x29d))+_0x156708(0x3c8)+_0x40e424+'</b>!',_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)][_0x156708(0x1fa)]='inline-block',_0x230b71[_0x156708(0x238)]['display']=_0x156708(0x450));else _0x463684?(_0x1c6f45[_0x156708(0x208)]=_0x156708(0x34a),_0x2b6fc1[_0x156708(0x208)]=_0x156708(0x1ea),_0x4ccc35['innerText']='INDIKASI\x20COPY-PASTE\x20TERDETEKSI!',_0x15f6ff[_0x156708(0x3c2)]=_0x156708(0x1e6),_0x1c06c0&&(_0x1c06c0['style'][_0x156708(0x1fa)]=_0x156708(0x35f),_0x230b71[_0x156708(0x238)]['display']=_0x156708(0x450))):(_0x1c6f45[_0x156708(0x208)]=_0x156708(0x30d),_0x2b6fc1[_0x156708(0x208)]=_0x156708(0x275),_0x4ccc35[_0x156708(0x3e1)]=_0x156708(0x274),_0x15f6ff['innerText']=_0x156708(0x420)+_0x5b209a[_0x156708(0x3e6)](_0x156708(0x29d))+_0x156708(0x421),_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)]['display']=_0x156708(0x450),_0x230b71[_0x156708(0x238)]['display']=_0x156708(0x35f)));}else _0x1ae6e1<0x0?(_0x1c6f45['className']=_0x156708(0x34a),_0x2b6fc1[_0x156708(0x208)]='fa-solid\x20fa-triangle-exclamation\x20fs-4\x20me-3\x20text-warning',_0x4ccc35['innerText']='NILAI\x20MASIH\x20KURANG\x20DARI\x20REALISASI',_0x15f6ff[_0x156708(0x3c2)]='Terinput:\x20<b>Rp'+_0x5b209a[_0x156708(0x3e6)](_0x156708(0x29d))+_0x156708(0x225)+Math[_0x156708(0x3b8)](_0x1ae6e1)['toLocaleString'](_0x156708(0x29d))+_0x156708(0x392),_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)][_0x156708(0x1fa)]=_0x156708(0x35f),_0x230b71[_0x156708(0x238)]['display']='none')):(_0x1c6f45[_0x156708(0x208)]=_0x156708(0x3a4),_0x2b6fc1[_0x156708(0x208)]=_0x156708(0x2e0),_0x4ccc35['innerText']=_0x156708(0x41d),_0x15f6ff['innerHTML']=_0x156708(0x34b)+_0x1ae6e1['toLocaleString'](_0x156708(0x29d))+_0x156708(0x3d7),_0x1c06c0&&(_0x1c06c0[_0x156708(0x238)]['display']=_0x156708(0x35f),_0x230b71[_0x156708(0x238)][_0x156708(0x1fa)]='none'));}}}function simpanDariModal(){const _0x5445f1=_0x5ce5bd;let _0x4c87f7=document['getElementById'](_0x5445f1(0x239))['value'],_0x49ec67=parseFloat(document[_0x5445f1(0x3e0)](_0x5445f1(0x2e3))[_0x5445f1(0x20a)]),_0x1d80ce=[],_0x5a9454='';document['querySelectorAll']('.group-container')[_0x5445f1(0x227)](_0x34a5e3=>{const _0x163624=_0x5445f1;let _0x31d25c=_0x34a5e3['querySelector']('.uraian-sub')['value'][_0x163624(0x2f9)](),_0x5be2c6=[],_0x4d2431='';_0x31d25c&&(_0x4d2431+=_0x31d25c+'\x0a\x0a',simpanKeKamus(_0x31d25c)),_0x34a5e3[_0x163624(0x3e8)](_0x163624(0x2f2))['forEach'](_0x5e224c=>{const _0x29b336=_0x163624;let _0x4e578f=_0x5e224c[_0x29b336(0x268)](_0x29b336(0x3c5))['value'][_0x29b336(0x2f9)](),_0x90cf17=_0x5e224c[_0x29b336(0x268)]('.vol')[_0x29b336(0x20a)][_0x29b336(0x2f9)](),_0x5c30a6=parseFloat(_0x90cf17)||0x0,_0x4c35fe=_0x5e224c[_0x29b336(0x268)]('.satuan')[_0x29b336(0x20a)][_0x29b336(0x2f9)](),_0x409f28=_0x5e224c[_0x29b336(0x268)]('.harga')[_0x29b336(0x20a)][_0x29b336(0x2f9)](),_0xb8593c=_0x409f28[_0x29b336(0x3c1)](/\./g,'')[_0x29b336(0x3c1)](/,/g,'.'),_0x227bfb=parseFloat(_0xb8593c)||0x0,_0x43656a=_0x5c30a6*_0x227bfb;if(_0x4e578f||_0x5c30a6>0x0||_0x227bfb>0x0){if(_0x4e578f)simpanKeKamus(_0x4e578f);if(_0x90cf17)simpanKamusKhusus(_0x90cf17,_0x29b336(0x2b4));if(_0x4c35fe)simpanKamusKhusus(_0x4c35fe,'satuan');if(_0x409f28&&_0x227bfb>0x0)simpanKamusKhusus(_0x409f28,_0x29b336(0x300));_0x5be2c6[_0x29b336(0x453)]({'u':_0x4e578f,'v':_0x5c30a6,'s':_0x4c35fe,'h':_0x227bfb,'t':_0x43656a});let _0xaca93e=_0x4c35fe?'\x20'+_0x4c35fe:'';_0x4d2431+='-\x20'+_0x4e578f+_0x29b336(0x3ab)+_0x5c30a6+'\x20'+_0xaca93e+_0x29b336(0x317)+_0x227bfb[_0x29b336(0x3e6)]('id-ID')+_0x29b336(0x397)+_0x43656a['toLocaleString'](_0x29b336(0x29d))+_0x29b336(0x2ad);}}),(_0x31d25c||_0x5be2c6[_0x163624(0x3a0)]>0x0)&&(_0x1d80ce['push']({'sub':_0x31d25c,'items':_0x5be2c6}),_0x5a9454+=_0x4d2431+'\x0a');});let _0x26690f=_0x5a9454[_0x5445f1(0x3c1)](/[^a-zA-Z0-9]/g,'')['toLowerCase']();_0x26690f[_0x5445f1(0x3a0)]>0x14&&sessionStorage[_0x5445f1(0x200)](_0x5445f1(0x34d),_0x26690f);let _0x33e8ad=JSON[_0x5445f1(0x2d9)](_0x1d80ce);document[_0x5445f1(0x3e0)](_0x5445f1(0x3c3)+_0x4c87f7)[_0x5445f1(0x20a)]=_0x33e8ad,document[_0x5445f1(0x3e0)](_0x5445f1(0x3c3)+_0x4c87f7)[_0x5445f1(0x313)][_0x5445f1(0x2d8)](_0x5445f1(0x289)),document[_0x5445f1(0x3e0)]('print_'+_0x4c87f7)[_0x5445f1(0x3c2)]=_0x5a9454[_0x5445f1(0x2f9)](),perbaruiTombolStatus(_0x4c87f7,_0x5a9454,_0x49ec67),modalAsisten[_0x5445f1(0x3ac)]();}function binarySearchFit(_0x41dfe0,_0x12f77e,_0x445977,_0x2876cf,_0x15b906){const _0x27ac54=_0x5ce5bd;let _0x1d830a=0x0,_0xd2af8b=_0x15b906,_0x51765e=0x0;while(_0x1d830a<=_0xd2af8b){let _0x1bbe1f=Math[_0x27ac54(0x3f7)]((_0x1d830a+_0xd2af8b)/0x2),_0x3a5ad4=_0x41dfe0(_0x1bbe1f);_0x12f77e[_0x27ac54(0x2ff)](_0x3a5ad4);let _0x22ec50=_0x445977[_0x27ac54(0x341)]()[_0x27ac54(0x3b9)];_0x12f77e[_0x27ac54(0x335)](_0x3a5ad4),_0x22ec50<=_0x2876cf?(_0x51765e=_0x1bbe1f,_0x1d830a=_0x1bbe1f+0x1):_0xd2af8b=_0x1bbe1f-0x1;}return _0x51765e;}function findWordBoundary(_0x4feaab,_0xa7a558){const _0x53faaa=_0x5ce5bd;let _0xd38f73=_0xa7a558,_0xa4c945=_0x4feaab[_0x53faaa(0x3f4)]('\x0a',_0xa7a558-0x1);if(_0xa4c945>_0xa7a558*0.5)return _0xa4c945+0x1;let _0x46195d=_0x4feaab[_0x53faaa(0x3f4)]('\x20',_0xa7a558-0x1);if(_0x46195d>_0xa7a558*0.5)return _0x46195d+0x1;return _0xd38f73;}function trySplitPenjelasan(_0x12dded,_0x11085d){const _0x1c0451=_0x5ce5bd;let _0x312fd3=_0x12dded['querySelector']('.print-view-text');if(!_0x312fd3)return{'success':![]};let _0x48bae8=_0x312fd3[_0x1c0451(0x3c2)],_0x4c9ece=_0x312fd3[_0x1c0451(0x3e1)];if(!_0x4c9ece[_0x1c0451(0x2f9)]())return{'success':![]};_0x312fd3['innerHTML']='';let _0x4e5429=_0x12dded[_0x1c0451(0x341)]()[_0x1c0451(0x3b9)];if(_0x4e5429>_0x11085d)return _0x312fd3['innerHTML']=_0x48bae8,{'success':![]};let _0x452707=_0x11085d-_0x4e5429;if(_0x452707<0xe)return _0x312fd3['innerHTML']=_0x48bae8,{'success':![]};_0x312fd3[_0x1c0451(0x3c2)]=_0x48bae8;let _0x2c5290=Array['from'](_0x312fd3[_0x1c0451(0x2e4)]);_0x312fd3[_0x1c0451(0x3c2)]='';let _0x47fd5e=[],_0x69ded1=![];for(let _0x57f720 of _0x2c5290){if(_0x69ded1){_0x47fd5e[_0x1c0451(0x453)](_0x57f720);continue;}_0x312fd3['appendChild'](_0x57f720[_0x1c0451(0x2fe)](!![]));let _0x4842e6=_0x12dded[_0x1c0451(0x341)]()['bottom'];if(_0x4842e6>_0x11085d){_0x312fd3[_0x1c0451(0x335)](_0x312fd3[_0x1c0451(0x347)]);let _0x483cda=![];if(_0x57f720[_0x1c0451(0x359)]===Node[_0x1c0451(0x333)]){let _0x32f948=_0x57f720[_0x1c0451(0x1f2)],_0x5fb7e2=binarySearchFit(_0x3efacd=>document['createTextNode'](_0x32f948['substring'](0x0,_0x3efacd)),_0x312fd3,_0x12dded,_0x11085d,_0x32f948['length']);if(_0x5fb7e2>0x0){let _0x5e820a=findWordBoundary(_0x32f948,_0x5fb7e2),_0x123958=_0x32f948[_0x1c0451(0x377)](0x0,_0x5e820a),_0x4d8b6b=_0x32f948[_0x1c0451(0x377)](_0x5e820a);if(_0x123958[_0x1c0451(0x2f9)]())_0x312fd3[_0x1c0451(0x2ff)](document[_0x1c0451(0x3b4)](_0x123958));if(_0x4d8b6b[_0x1c0451(0x2f9)]())_0x47fd5e[_0x1c0451(0x214)](document[_0x1c0451(0x3b4)](_0x4d8b6b));_0x483cda=!![];}}!_0x483cda&&_0x47fd5e[_0x1c0451(0x214)](_0x57f720),_0x69ded1=!![];}}let _0xac8844=_0x312fd3[_0x1c0451(0x3e1)]['trim']();if(!_0xac8844||_0x47fd5e[_0x1c0451(0x3a0)]===0x0)return _0x312fd3[_0x1c0451(0x3c2)]=_0x48bae8,{'success':![]};let _0x3a4f0e=document[_0x1c0451(0x252)](_0x1c0451(0x2de));return _0x47fd5e[_0x1c0451(0x227)](_0x188040=>_0x3a4f0e[_0x1c0451(0x2ff)](_0x188040)),{'success':!![],'remainingHTML':_0x3a4f0e[_0x1c0451(0x3c2)]};}function buildContinuationRow(_0xdf3da0,_0x3e79e6){const _0x2771ee=_0x5ce5bd;let _0x180624=document['createElement']('tr');return _0x180624[_0x2771ee(0x208)]='pad-lvl-'+_0x3e79e6+'\x20style-rincian\x20continuation-row',_0x180624[_0x2771ee(0x1e5)]['pad']=_0x3e79e6,_0x180624[_0x2771ee(0x3c2)]=_0x2771ee(0x42d)+_0xdf3da0+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20',_0x180624;}function validasiCetak(){const _0x5d8a0f=_0x5ce5bd;let _0x20c334=document['getElementById'](_0x5d8a0f(0x388));if(_0x20c334['value']===''){Swal[_0x5d8a0f(0x1ee)]({'icon':_0x5d8a0f(0x2a4),'title':'Tunggu\x20Dulu!','text':'Silakan\x20pilih\x20Periode/Semester\x20terlebih\x20dahulu\x20sebelum\x20melanjutkan\x20proses\x20cetak.','confirmButtonColor':'#3b82f6','confirmButtonText':'Baik,\x20Saya\x20Pilih\x20Dulu'})[_0x5d8a0f(0x30f)](()=>{const _0x801cc1=_0x5d8a0f;_0x20c334[_0x801cc1(0x1f3)](),_0x20c334['style'][_0x801cc1(0x21b)]=_0x801cc1(0x2e2),setTimeout(()=>_0x20c334['style'][_0x801cc1(0x21b)]='',0x7d0);});return;}cetakPro();}async function cetakPro(){const _0x54b115=_0x5ce5bd;let _0xb3b0e3=document[_0x54b115(0x3e0)](_0x54b115(0x42a));if(_0xb3b0e3[_0x54b115(0x258)][_0x54b115(0x3a0)]===0x0||_0xb3b0e3[_0x54b115(0x3e1)][_0x54b115(0x437)](_0x54b115(0x407))){Swal[_0x54b115(0x1ee)](_0x54b115(0x39e),'Upload\x20Excel\x20LRA\x20Per\x20Pogram\x20dari\x20SIPD\x20terlebih\x20dahulu.',_0x54b115(0x2a4));return;}Swal[_0x54b115(0x1ee)]({'title':_0x54b115(0x2b0),'text':_0x54b115(0x2a2),'allowOutsideClick':![],'didOpen':()=>{const _0x538c6a=_0x54b115;Swal[_0x538c6a(0x394)]();}});let _0x3850f1=parseInt(document[_0x54b115(0x3e0)](_0x54b115(0x323))['value'])||0x1,_0xe6e413=Array[_0x54b115(0x3d8)](_0xb3b0e3[_0x54b115(0x258)]),_0x36633b=document[_0x54b115(0x3e0)](_0x54b115(0x3c0));_0x36633b[_0x54b115(0x3c2)]='',_0x36633b[_0x54b115(0x238)][_0x54b115(0x1fa)]='block',document[_0x54b115(0x268)]('.container-fluid')[_0x54b115(0x238)][_0x54b115(0x1fa)]=_0x54b115(0x450),document[_0x54b115(0x268)](_0x54b115(0x22d))[_0x54b115(0x238)]['display']=_0x54b115(0x450);let _0x1cf447=_0x3850f1,_0x16e54d=0x1,_0x2685c8=createPageTemplate(_0x1cf447,!![],_0x16e54d);_0x36633b['appendChild'](_0x2685c8);let _0x4e58ec=_0x2685c8[_0x54b115(0x268)](_0x54b115(0x1fc)),_0x3bfd18=_0x2685c8[_0x54b115(0x268)](_0x54b115(0x3f9)),_0x46e6f9=_0xe6e413['map'](_0x593fcc=>({'type':_0x54b115(0x1f9),'source':_0x593fcc,'padLevel':parseInt(_0x593fcc[_0x54b115(0x1e5)][_0x54b115(0x411)])||0x0})),_0x377d10=0x0;const _0x5798e1=0x2710;while(_0x46e6f9[_0x54b115(0x3a0)]>0x0&&_0x377d10<_0x5798e1){_0x377d10++;if(_0x377d10===0x1){var _0x3208ac=performance[_0x54b115(0x2ec)]();for(var _0x3b9a38=0x0;_0x3b9a38<0x1388;_0x3b9a38++){Math[_0x54b115(0x40a)](_0x3b9a38);}var _0xe0b89e=performance[_0x54b115(0x2ec)]()-_0x3208ac;window[_0x54b115(0x37d)]=_0xe0b89e<0x3?0xf:_0xe0b89e<0x8?0x19:0x28,window['_v5YieldInterval']=window['_v5YieldMs']<=0xf?0xa:0x7;}_0x377d10%(window[_0x54b115(0x3d6)]||0xa)===0x0&&await new Promise(_0x243e7e=>setTimeout(_0x243e7e,window[_0x54b115(0x37d)]||0xf));let _0x200f41=_0x46e6f9[_0x54b115(0x404)](),_0x273cd7;_0x200f41['type']===_0x54b115(0x1f9)?_0x273cd7=_0x200f41[_0x54b115(0x2d3)]['cloneNode'](!![]):_0x273cd7=buildContinuationRow(_0x200f41[_0x54b115(0x2aa)],_0x200f41['padLevel']);_0x4e58ec[_0x54b115(0x2ff)](_0x273cd7);let _0x4f0dc9=_0x273cd7['getBoundingClientRect'](),_0x1357dd=_0x3bfd18[_0x54b115(0x341)](),_0x1d595f=_0x1357dd['top']-0x1;if(_0x4f0dc9[_0x54b115(0x3b9)]<=_0x1d595f)continue;let _0x54d2a7=trySplitPenjelasan(_0x273cd7,_0x1d595f);if(_0x54d2a7[_0x54b115(0x402)])_0x46e6f9[_0x54b115(0x214)]({'type':_0x54b115(0x310),'remainingHTML':_0x54d2a7['remainingHTML'],'padLevel':_0x200f41[_0x54b115(0x204)]});else{_0x4e58ec[_0x54b115(0x335)](_0x273cd7);let _0x23d125=_0x4e58ec[_0x54b115(0x41c)];if(_0x23d125){let _0x53f357=_0x1d595f-_0x23d125['getBoundingClientRect']()[_0x54b115(0x3b9)];if(_0x53f357>0x2){let _0x54ede7=document[_0x54b115(0x252)]('tr');_0x54ede7[_0x54b115(0x3c2)]=_0x54b115(0x435),_0x54ede7[_0x54b115(0x238)][_0x54b115(0x410)]=_0x53f357+'px',_0x4e58ec[_0x54b115(0x2ff)](_0x54ede7);}else Array[_0x54b115(0x3d8)](_0x23d125['children'])[_0x54b115(0x227)](_0x300eb2=>_0x300eb2[_0x54b115(0x238)][_0x54b115(0x25b)]=_0x54b115(0x229));}_0x1cf447++,_0x16e54d++,_0x2685c8=createPageTemplate(_0x1cf447,![],_0x16e54d),_0x36633b[_0x54b115(0x2ff)](_0x2685c8),_0x4e58ec=_0x2685c8['querySelector']('.tbody-render'),_0x3bfd18=_0x2685c8[_0x54b115(0x268)](_0x54b115(0x3f9)),_0x4e58ec['appendChild'](_0x273cd7);let _0x313cbd=_0x273cd7[_0x54b115(0x341)](),_0x1464e9=_0x3bfd18[_0x54b115(0x341)](),_0x3391c9=_0x1464e9[_0x54b115(0x3ea)]-0x1;if(_0x313cbd[_0x54b115(0x3b9)]>_0x3391c9){let _0x17a941=trySplitPenjelasan(_0x273cd7,_0x3391c9);_0x17a941[_0x54b115(0x402)]&&_0x46e6f9['unshift']({'type':'continuation','remainingHTML':_0x17a941[_0x54b115(0x2aa)],'padLevel':_0x200f41[_0x54b115(0x204)]});}}}let _0x2ae867=document[_0x54b115(0x3e0)]('ttd-tanggal')['innerText'],_0x2bc4b0=document[_0x54b115(0x3e0)](_0x54b115(0x2e7))[_0x54b115(0x3e1)],_0x473345=document[_0x54b115(0x3e0)](_0x54b115(0x3f1))[_0x54b115(0x3e1)],_0x310374=document[_0x54b115(0x3e0)](_0x54b115(0x235))[_0x54b115(0x3e1)],_0xd232ca=document[_0x54b115(0x252)](_0x54b115(0x2de));_0xd232ca[_0x54b115(0x238)]=_0x54b115(0x322),_0xd232ca['innerHTML']=_0x54b115(0x330)+_0x2ae867+_0x54b115(0x2c9)+_0x2bc4b0+_0x54b115(0x36d)+_0x473345+_0x54b115(0x3ec)+_0x310374+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',_0x2685c8['insertBefore'](_0xd232ca,_0x3bfd18);let _0x33ff68=_0xd232ca[_0x54b115(0x341)](),_0x5c1b11=_0x3bfd18['getBoundingClientRect']();if(_0x33ff68['bottom']>_0x5c1b11['top']-0x5){_0x2685c8[_0x54b115(0x335)](_0xd232ca);let _0x1a97e8=_0x4e58ec[_0x54b115(0x41c)];if(_0x1a97e8){let _0x1f2b3a=_0x5c1b11['top']-0x1-_0x1a97e8[_0x54b115(0x341)]()[_0x54b115(0x3b9)];if(_0x1f2b3a>0x2){let _0x2adeb9=document[_0x54b115(0x252)]('tr');_0x2adeb9['innerHTML']=_0x54b115(0x435),_0x2adeb9[_0x54b115(0x238)][_0x54b115(0x410)]=_0x1f2b3a+'px',_0x4e58ec[_0x54b115(0x2ff)](_0x2adeb9);}else Array[_0x54b115(0x3d8)](_0x1a97e8[_0x54b115(0x258)])[_0x54b115(0x227)](_0x498bff=>_0x498bff[_0x54b115(0x238)][_0x54b115(0x25b)]=_0x54b115(0x229));}_0x1cf447++,_0x16e54d++,_0x2685c8=createPageTemplate(_0x1cf447,![],_0x16e54d),_0x36633b[_0x54b115(0x2ff)](_0x2685c8),_0x4e58ec=_0x2685c8['querySelector']('.tbody-render'),_0x3bfd18=_0x2685c8[_0x54b115(0x268)](_0x54b115(0x3f9)),_0x2685c8[_0x54b115(0x360)](_0xd232ca,_0x3bfd18);let _0x2e5f54=_0xd232ca['getBoundingClientRect']()['top'],_0x3c3c50=_0x4e58ec[_0x54b115(0x341)]()[_0x54b115(0x3ea)],_0x27c26d=_0x2e5f54-_0x3c3c50-0xf;if(_0x27c26d>0xa){let _0x562854=document[_0x54b115(0x252)]('tr');_0x562854['innerHTML']=_0x54b115(0x435),_0x562854[_0x54b115(0x238)][_0x54b115(0x410)]=_0x27c26d+'px',_0x4e58ec[_0x54b115(0x2ff)](_0x562854);}}else{let _0x42533b=_0x4e58ec['lastElementChild'];if(_0x42533b){let _0x3c0c60=_0xd232ca[_0x54b115(0x341)]()['top']-_0x42533b['getBoundingClientRect']()[_0x54b115(0x3b9)]-0xf;if(_0x3c0c60>0x2){let _0x42eb3c=document[_0x54b115(0x252)]('tr');_0x42eb3c[_0x54b115(0x3c2)]='<td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td>',_0x42eb3c[_0x54b115(0x238)][_0x54b115(0x410)]=_0x3c0c60+'px',_0x4e58ec[_0x54b115(0x2ff)](_0x42eb3c);}else Array[_0x54b115(0x3d8)](_0x42533b['children'])['forEach'](_0x34d5a5=>_0x34d5a5[_0x54b115(0x238)][_0x54b115(0x25b)]='2px\x20solid\x20#000\x20!important');}}Swal['close']();let _0x326ee1=_0x36633b[_0x54b115(0x3e8)](_0x54b115(0x318))[_0x54b115(0x3a0)];document['body'][_0x54b115(0x313)][_0x54b115(0x2d8)](_0x54b115(0x39f));let _0x40b7ac=document[_0x54b115(0x3e0)](_0x54b115(0x3c0));_0x40b7ac[_0x54b115(0x313)][_0x54b115(0x2d8)](_0x54b115(0x39f));let _0x2b585e=document[_0x54b115(0x3e0)](_0x54b115(0x2dc)),_0x36e3f2=document[_0x54b115(0x3e0)](_0x54b115(0x41f))[_0x54b115(0x3e1)],_0x293f46=_0x36e3f2[_0x54b115(0x3c1)](/.*:\s*[0-9\.\-]+\s*/,'');if(_0x293f46==='-'||_0x293f46==='')_0x293f46=_0x54b115(0x2db);let _0x1e7307=_0x2b585e['querySelector']('.text-white.fw-bold.d-flex\x20span');_0x1e7307&&(_0x1e7307[_0x54b115(0x3c2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20MODE\x20PRATINJAU\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x20ms-2\x20px-2\x20py-1\x22\x20style=\x22background-color:\x20#1e293b;\x20color:\x20#f8fafc;\x20border:\x201px\x20solid\x20#475569;\x20font-size:\x2011px;\x20border-radius:\x206px;\x20box-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.2);\x20vertical-align:\x20text-bottom;\x20letter-spacing:\x200.5px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-building\x20me-1\x22\x20style=\x22color:\x20#94a3b8;\x22></i>\x20'+_0x293f46[_0x54b115(0x1eb)]()+_0x54b115(0x29f)+_0x326ee1+'\x20Lembar\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22badgeLiveReader\x22\x20class=\x22badge\x20ms-2\x20px-2\x20py-1\x22\x20style=\x22background-color:\x20rgba(14,\x20165,\x20233,\x200.1);\x20color:\x20#38bdf8;\x20border:\x201px\x20solid\x20rgba(14,\x20165,\x20233,\x200.3);\x20font-size:\x2011px;\x20border-radius:\x206px;\x20box-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.2);\x20vertical-align:\x20text-bottom;\x20transition:\x20all\x200.3s;\x20letter-spacing:\x200.5px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-eye\x20me-1\x22></i>\x20Lembaran\x20:\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<br><small\x20style=\x22font-size:\x2010px;\x20font-weight:\x20normal;\x20color:\x20#cbd5e1;\x22>Periksa\x20Halaman\x20Sebelum\x20Lanjut\x20Mencetak</small>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'),_0x2b585e[_0x54b115(0x238)][_0x54b115(0x1fa)]='flex',window[_0x54b115(0x263)]&&window[_0x54b115(0x263)][_0x54b115(0x297)](),window[_0x54b115(0x263)]=new IntersectionObserver(_0x1e02e=>{const _0x298d05=_0x54b115;_0x1e02e[_0x298d05(0x227)](_0x1f93db=>{const _0x48fe43=_0x298d05;if(_0x1f93db[_0x48fe43(0x3db)]){let _0x4f19a1=_0x1f93db[_0x48fe43(0x3f0)]['dataset'][_0x48fe43(0x40c)],_0x57b1e8=document[_0x48fe43(0x3e0)](_0x48fe43(0x42e));_0x57b1e8&&(_0x57b1e8[_0x48fe43(0x3c2)]=_0x48fe43(0x356)+_0x4f19a1);}});},{'threshold':0.3}),_0x36633b['querySelectorAll']('.page-pro')[_0x54b115(0x227)](_0x46f505=>{const _0x6d6f6f=_0x54b115;window[_0x6d6f6f(0x263)][_0x6d6f6f(0x2a8)](_0x46f505);});}function createPageTemplate(_0x5110d1,_0x67c956,_0xc4a65c){const _0x508a01=_0x5ce5bd;let _0x472451=document[_0x508a01(0x252)]('div');_0x472451[_0x508a01(0x208)]=_0x508a01(0x23f),_0x472451[_0x508a01(0x1e5)][_0x508a01(0x40c)]=_0xc4a65c,_0x472451[_0x508a01(0x238)]['cssText']=_0x508a01(0x27f);let _0x577e77=document[_0x508a01(0x3e0)](_0x508a01(0x35d))[_0x508a01(0x20a)],_0x4dc8c1=document['getElementById'](_0x508a01(0x388))[_0x508a01(0x20a)],_0x15711c=document[_0x508a01(0x3e0)](_0x508a01(0x2b2))[_0x508a01(0x3e1)],_0x3fcb9e=document[_0x508a01(0x3e0)]('metaOrganisasi')[_0x508a01(0x3e1)],_0x5a000a=_0x3fcb9e[_0x508a01(0x3c1)](/.*:\s*[0-9\.\-]+\s*/,''),_0x3e8883=_0x508a01(0x3b7)+_0x577e77;_0x4dc8c1[_0x508a01(0x437)]('Juni')&&(_0x3e8883=_0x508a01(0x314)+_0x577e77+_0x508a01(0x3af)+_0x577e77);let _0x39d513='',_0x115d51='';return _0x67c956?_0x39d513=_0x508a01(0x354)+_0x3e8883+'</h6>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fw-bold\x20mb-2\x22\x20style=\x22font-size:\x2011px;\x20font-family:\x20Arial,\x20sans-serif;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20style=\x22width:\x20100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td\x20style=\x22width:\x2022%;\x22>Urusan\x20Pemerintahan</td><td>'+_0x15711c+_0x508a01(0x281)+_0x3fcb9e+'</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20':_0x115d51=_0x508a01(0x38b),_0x472451[_0x508a01(0x3c2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20'+_0x39d513+_0x508a01(0x2ab)+_0x115d51+_0x508a01(0x33e)+_0x4dc8c1+'\x20'+_0x577e77+_0x508a01(0x2d4)+_0x5a000a+_0x508a01(0x452)+_0x5110d1+_0x508a01(0x2c8),_0x472451;}function tutupPreviewCetak(){const _0x5aa4ed=_0x5ce5bd;document[_0x5aa4ed(0x438)][_0x5aa4ed(0x313)]['remove'](_0x5aa4ed(0x39f));let _0x24bb5c=document[_0x5aa4ed(0x3e0)](_0x5aa4ed(0x3c0));_0x24bb5c&&(_0x24bb5c[_0x5aa4ed(0x313)][_0x5aa4ed(0x2a9)](_0x5aa4ed(0x39f)),_0x24bb5c[_0x5aa4ed(0x238)]['display']=_0x5aa4ed(0x450),_0x24bb5c[_0x5aa4ed(0x3c2)]=''),document[_0x5aa4ed(0x3e0)]('previewControlBar')[_0x5aa4ed(0x238)][_0x5aa4ed(0x1fa)]=_0x5aa4ed(0x450),document[_0x5aa4ed(0x268)](_0x5aa4ed(0x3e5))[_0x5aa4ed(0x238)]['display']='block',document[_0x5aa4ed(0x268)](_0x5aa4ed(0x22d))[_0x5aa4ed(0x238)]['display']='block',window[_0x5aa4ed(0x263)]&&window['pageObserver'][_0x5aa4ed(0x297)]();}window[_0x5ce5bd(0x248)](_0x5ce5bd(0x36e),()=>{tutupPreviewCetak();});function exportToExcelRapi(){const _0x426b95=_0x5ce5bd;if(globalRawData[_0x426b95(0x3a0)]===0x0){Swal[_0x426b95(0x1ee)](_0x426b95(0x39e),_0x426b95(0x331),_0x426b95(0x2a4));return;}let _0x230558=XLSX['utils'][_0x426b95(0x386)](),_0x446ee8=[];_0x446ee8[_0x426b95(0x453)](['KODE\x20REKENING',_0x426b95(0x306),_0x426b95(0x2bc),_0x426b95(0x3a2),_0x426b95(0x413),'%',_0x426b95(0x3f6)]),document[_0x426b95(0x3e8)](_0x426b95(0x26c))['forEach'](_0xd6b27=>{const _0xb39a8b=_0x426b95;let _0x249a8a=_0xd6b27[_0xb39a8b(0x3e8)]('td');if(_0x249a8a['length']<0x7)return;let _0x299f4b=parseInt(_0xd6b27['dataset'][_0xb39a8b(0x411)])||0x0,_0x1620c4=_0x249a8a[0x0]['innerText']['trim'](),_0x2ccaa3=_0x249a8a[0x1][_0xb39a8b(0x3e1)][_0xb39a8b(0x2f9)](),_0x234ba8=_0xd6b27[_0xb39a8b(0x268)]('.print-view-text'),_0x4f8ca1=_0x234ba8?_0x234ba8['innerText'][_0xb39a8b(0x2f9)]():'',_0x4d5b6a=_0xb39a8b(0x423)['repeat'](_0x299f4b);_0x446ee8[_0xb39a8b(0x453)]([_0x1620c4,_0x4d5b6a+_0x2ccaa3,_0x249a8a[0x2][_0xb39a8b(0x3e1)][_0xb39a8b(0x2f9)](),_0x249a8a[0x3][_0xb39a8b(0x3e1)][_0xb39a8b(0x2f9)](),_0x249a8a[0x4][_0xb39a8b(0x3e1)][_0xb39a8b(0x2f9)](),_0x249a8a[0x5][_0xb39a8b(0x3e1)][_0xb39a8b(0x2f9)](),_0x4f8ca1]);});let _0x269236=XLSX[_0x426b95(0x3fd)][_0x426b95(0x458)](_0x446ee8);_0x269236[_0x426b95(0x434)]=[{'wch':0x1c},{'wch':0x3c},{'wch':0x12},{'wch':0x12},{'wch':0x12},{'wch':0x8},{'wch':0x3c}];let _0x1ed451=document[_0x426b95(0x3e0)](_0x426b95(0x41f))['innerText'],_0xb9ed57=_0x1ed451[_0x426b95(0x278)]('\x20')[_0x426b95(0x2b1)](0x1)[_0x426b95(0x27d)]('\x20')[_0x426b95(0x3c1)](/^[0-9\.\- ]+/g,'');XLSX[_0x426b95(0x3fd)][_0x426b95(0x3a9)](_0x230558,_0x269236,'Penjabaran_LRA'),XLSX['writeFile'](_0x230558,'LRA_'+(_0xb9ed57||_0x426b95(0x262))+_0x426b95(0x24d));}async function simpanKeCloud(){const _0x2f5836=_0x5ce5bd,_0x62f00c=_0x2f5836(0x296);let _0x846e0b=window['location']['hostname'];if(_0x846e0b!==_0x62f00c&&_0x846e0b!==_0x2f5836(0x29a)){Swal[_0x2f5836(0x1ee)](_0x2f5836(0x430),_0x2f5836(0x3da),_0x2f5836(0x2f4));return;}if(SCRIPT_URL_DATABASE['includes'](_0x2f5836(0x2b7))){Swal['fire']('Peringatan',_0x2f5836(0x1f5),_0x2f5836(0x2a4));return;}if(!kodeSkpdAktif){Swal[_0x2f5836(0x1ee)](_0x2f5836(0x1e7),_0x2f5836(0x301),_0x2f5836(0x2a4));return;}let _0x360517=document[_0x2f5836(0x3e0)](_0x2f5836(0x35d))[_0x2f5836(0x20a)],_0x4df1d4=[];document[_0x2f5836(0x3e8)]('.input-database.is-dirty')['forEach'](_0x3fe349=>{const _0x3c8c01=_0x2f5836;_0x4df1d4[_0x3c8c01(0x453)]({'row_id':_0x3fe349[_0x3c8c01(0x21a)](_0x3c8c01(0x38c)),'penjelasan':_0x3fe349[_0x3c8c01(0x20a)][_0x3c8c01(0x2f9)]()});});if(_0x4df1d4[_0x2f5836(0x3a0)]===0x0){Swal[_0x2f5836(0x1ee)](_0x2f5836(0x201),_0x2f5836(0x385),'info');return;}const _0xaa5e49=0x96,_0x200c98=Math[_0x2f5836(0x2a1)](_0x4df1d4['length']/_0xaa5e49);Swal[_0x2f5836(0x1ee)]({'title':'Menyimpan\x20Data...','html':_0x2f5836(0x25e),'allowOutsideClick':![],'didOpen':()=>{const _0x328c46=_0x2f5836;Swal[_0x328c46(0x394)]();}});let _0x123b36=0x0;for(let _0xa21fdd=0x0;_0xa21fdd<_0x200c98;_0xa21fdd++){let _0x4d44d8=_0x4df1d4[_0x2f5836(0x2b1)](_0xa21fdd*_0xaa5e49,(_0xa21fdd+0x1)*_0xaa5e49);_0x200c98>0x1&&Swal[_0x2f5836(0x298)]({'html':_0x2f5836(0x3a8)+(_0xa21fdd+0x1)+_0x2f5836(0x2f5)+_0x200c98+'</b>\x20ke\x20server\x20aman...'});try{var _0x12ff8f={'token':SESSION_TOKEN||undefined,'secret_key':SESSION_TOKEN?undefined:SECRET_KEY,'tahun':_0x360517,'kode_skpd':kodeSkpdAktif,'data':_0x4d44d8[_0x2f5836(0x2bf)](function(_0x3f98fd){const _0x424fbc=_0x2f5836;return{'row_id':_0x3f98fd['row_id'],'penjelasan':_sanitizeInput(_0x3f98fd[_0x424fbc(0x249)])};}),'user_agent':getUserAgentUntukAudit()},_0x428e0a=await _enqueueRequest({'url':SCRIPT_URL_DATABASE,'method':_0x2f5836(0x321),'body':JSON[_0x2f5836(0x2d9)](_0x12ff8f)});if(_0x428e0a[_0x2f5836(0x219)]===_0x2f5836(0x402))_0x4d44d8[_0x2f5836(0x227)](_0x523f0a=>{const _0xbd1fdd=_0x2f5836;let _0x386f36=document['getElementById'](_0xbd1fdd(0x3c3)+_0x523f0a['row_id']);if(_0x386f36)_0x386f36[_0xbd1fdd(0x313)][_0xbd1fdd(0x2a9)]('is-dirty');}),_0x123b36+=_0x4d44d8['length'];else{if(_0x428e0a[_0x2f5836(0x219)]===_0x2f5836(0x2c7)){Swal[_0x2f5836(0x1ee)]({'icon':_0x2f5836(0x2a4),'title':_0x2f5836(0x398),'text':_0x2f5836(0x36c),'confirmButtonText':_0x2f5836(0x456)});return;}else{if(_0x428e0a[_0x2f5836(0x219)]===_0x2f5836(0x2f4)&&_0x428e0a[_0x2f5836(0x2cb)]&&_0x428e0a[_0x2f5836(0x2cb)]['includes']('Sesi\x20tidak\x20valid')){perpanjangSesiMulus();return;}else{Swal['fire'](_0x2f5836(0x22a),_0x428e0a[_0x2f5836(0x2cb)]||_0x2f5836(0x2d5),'error');return;}}}}catch(_0x5501a3){Swal[_0x2f5836(0x1ee)](_0x2f5836(0x367),_0x2f5836(0x234),_0x2f5836(0x2f4));return;}}Swal[_0x2f5836(0x1ee)]({'icon':_0x2f5836(0x402),'title':'Tersimpan\x20(Lengkap)','text':_0x123b36+'\x20penjelasan\x20berhasil\x20diamankan\x20ke\x20server.','timer':0x7d0,'showConfirmButton':![],'timerProgressBar':!![]}),setTimeout(()=>{if(typeof tarikDataSiluman==='function')tarikDataSiluman();},0x9c4);}function muatDataDariCloud(){const _0x2ae5b8=_0x5ce5bd,_0x1e8ff6=_0x2ae5b8(0x296);let _0x2bdf0a=window[_0x2ae5b8(0x3ad)][_0x2ae5b8(0x348)];if(_0x2bdf0a!==_0x1e8ff6){Swal[_0x2ae5b8(0x1ee)](_0x2ae5b8(0x430),_0x2ae5b8(0x3df),_0x2ae5b8(0x2f4));return;}if(SCRIPT_URL_DATABASE[_0x2ae5b8(0x437)](_0x2ae5b8(0x2b7))){Swal[_0x2ae5b8(0x1ee)](_0x2ae5b8(0x25a),'URL\x20Google\x20Apps\x20Script\x20belum\x20diset.',_0x2ae5b8(0x2a4));return;}if(!kodeSkpdAktif){Swal[_0x2ae5b8(0x1ee)](_0x2ae5b8(0x1e7),_0x2ae5b8(0x301),_0x2ae5b8(0x2a4));return;}let _0x3d05b8=document[_0x2ae5b8(0x3e8)]('.input-database.is-dirty')[_0x2ae5b8(0x3a0)];_0x3d05b8>0x0?Swal[_0x2ae5b8(0x1ee)]({'title':'Ada\x20Draf\x20Belum\x20Disimpan!','html':'Anda\x20memiliki\x20<b>'+_0x3d05b8+_0x2ae5b8(0x2f1),'icon':_0x2ae5b8(0x2a4),'showCancelButton':!![],'confirmButtonColor':_0x2ae5b8(0x279),'cancelButtonColor':_0x2ae5b8(0x41a),'confirmButtonText':_0x2ae5b8(0x431),'cancelButtonText':_0x2ae5b8(0x29b)})[_0x2ae5b8(0x30f)](_0x399b8f=>{const _0x524dcf=_0x2ae5b8;_0x399b8f['isConfirmed']&&(document[_0x524dcf(0x3e8)](_0x524dcf(0x408))[_0x524dcf(0x227)](_0xff97d7=>_0xff97d7[_0x524dcf(0x313)][_0x524dcf(0x2a9)]('is-dirty')),eksekusiTarikDataLRA());}):eksekusiTarikDataLRA();}function eksekusiTarikDataLRA(){const _0x3471a1=_0x5ce5bd;let _0x497141=document['getElementById'](_0x3471a1(0x35d))[_0x3471a1(0x20a)];Swal[_0x3471a1(0x1ee)]({'title':_0x3471a1(0x1ff),'allowOutsideClick':![],'didOpen':()=>{Swal['showLoading']();}});var _0x3bc139=SESSION_TOKEN?_0x3471a1(0x24a)+SESSION_TOKEN:_0x3471a1(0x373)+SECRET_KEY;let _0x5626c0=SCRIPT_URL_DATABASE+_0x3471a1(0x271)+_0x497141+_0x3471a1(0x44d)+kodeSkpdAktif+'&'+_0x3bc139;_smartFetch({'url':_0x5626c0})[_0x3471a1(0x30f)](function(_0x308fa9){return _0x308fa9;})[_0x3471a1(0x30f)](function(_0x45c0bd){const _0x562ad2=_0x3471a1;if(_0x45c0bd[_0x562ad2(0x219)]==='success'){let _0x577628=_0x45c0bd[_0x562ad2(0x395)],_0x3417e9=0x0;document['querySelectorAll'](_0x562ad2(0x448))[_0x562ad2(0x227)](_0x3ed597=>{const _0x35a5cd=_0x562ad2;let _0x40aac9=_0x3ed597[_0x35a5cd(0x21a)](_0x35a5cd(0x38c)),_0x6bd83e=parseFloat(_0x3ed597[_0x35a5cd(0x21a)](_0x35a5cd(0x2a0)));if(_0x577628[_0x40aac9]){_0x3ed597[_0x35a5cd(0x20a)]=_0x577628[_0x40aac9];let _0x510cd7=formatTeksPenjelasan(_0x577628[_0x40aac9]);document[_0x35a5cd(0x3e0)]('print_'+_0x40aac9)[_0x35a5cd(0x3c2)]=_0x510cd7;let _0x4e35ac=document[_0x35a5cd(0x3e0)](_0x35a5cd(0x237)+_0x40aac9);if(_0x4e35ac){let _0x1496fa=_0x4e35ac[_0x35a5cd(0x21a)]('onclick')&&_0x4e35ac[_0x35a5cd(0x21a)](_0x35a5cd(0x3e7))['includes'](_0x35a5cd(0x361));_0x1496fa?_0x510cd7['trim']()===''?(_0x4e35ac[_0x35a5cd(0x208)]=_0x35a5cd(0x256),_0x4e35ac[_0x35a5cd(0x238)]['cssText']=_0x35a5cd(0x242),_0x4e35ac[_0x35a5cd(0x3c2)]=_0x35a5cd(0x245)):(_0x4e35ac[_0x35a5cd(0x208)]=_0x35a5cd(0x353),_0x4e35ac[_0x35a5cd(0x238)][_0x35a5cd(0x403)]=_0x35a5cd(0x2f7),_0x4e35ac[_0x35a5cd(0x3c2)]='<i\x20class=\x22fa-solid\x20fa-check\x20text-muted\x20me-1\x22></i>\x20Keterangan\x20Disimpan'):perbaruiTombolStatus(_0x40aac9,_0x510cd7,_0x6bd83e);}_0x3417e9++;}}),Swal[_0x562ad2(0x1ee)]({'icon':'success','title':'Data\x20Ditarik','text':_0x3417e9+_0x562ad2(0x451),'timer':0x7d0,'showConfirmButton':![],'timerProgressBar':!![]});}else{if(_0x45c0bd[_0x562ad2(0x219)]===_0x562ad2(0x2c7))Swal[_0x562ad2(0x1ee)]({'icon':'warning','title':'Mohon\x20Tunggu\x20Sebentar','text':_0x45c0bd['message']||'Sistem\x20sedang\x20memproses\x20permintaan\x20lain.\x20Silakan\x20coba\x20Tarik\x20Data\x20kembali\x20dalam\x201\x20menit.','confirmButtonText':'Baik,\x20Saya\x20Mengerti','confirmButtonColor':_0x562ad2(0x3f8)});else{if(_0x45c0bd[_0x562ad2(0x219)]===_0x562ad2(0x2f4))Swal[_0x562ad2(0x1ee)]({'icon':_0x562ad2(0x2f4),'title':'Akses\x20Ditolak','text':_0x45c0bd['message'],'confirmButtonText':'OK'});else Swal['fire']({'icon':_0x562ad2(0x445),'title':_0x562ad2(0x440),'text':'Belum\x20ada\x20penjelasan\x20yang\x20tersimpan.','confirmButtonText':'OK'});}}})['catch'](()=>Swal[_0x3471a1(0x1ee)]({'icon':_0x3471a1(0x2f4),'title':_0x3471a1(0x367),'text':_0x3471a1(0x2af),'confirmButtonText':'OK'}));}function terapkanFilterBelanja(){const _0x28cdf0=_0x5ce5bd;let _0x352ea5=document[_0x28cdf0(0x3e0)](_0x28cdf0(0x3a1));if(!_0x352ea5)return;let _0x4f1f4f=_0x352ea5[_0x28cdf0(0x20a)],_0x1f32d0=document[_0x28cdf0(0x3e0)]('containerRender'),_0x5b1d6f=document[_0x28cdf0(0x3e0)](_0x28cdf0(0x30c));if(_0x5b1d6f)_0x5b1d6f['remove']();let _0x1b02b1=Array[_0x28cdf0(0x3d8)](document['querySelectorAll']('#containerRender\x20tr'));_0x1b02b1[_0x28cdf0(0x227)](_0x4541da=>{const _0xbd1074=_0x28cdf0;let _0x58036b=_0x4541da['dataset'][_0xbd1074(0x363)],_0x524b8c=_0x4541da[_0xbd1074(0x1e5)]['subKategori'];_0x4541da[_0xbd1074(0x238)][_0xbd1074(0x1fa)]='';if(_0x4f1f4f!==_0xbd1074(0x3e9)){if(_0x58036b!==_0xbd1074(0x3ed)){if(_0x4f1f4f===_0xbd1074(0x37b)){if(_0x524b8c!=='perjalanan')_0x4541da['style'][_0xbd1074(0x1fa)]=_0xbd1074(0x450);}else{if(_0x4f1f4f===_0xbd1074(0x3bf)){if(_0x58036b!=='operasi'||_0x524b8c===_0xbd1074(0x37b))_0x4541da['style'][_0xbd1074(0x1fa)]='none';}else{if(_0x4f1f4f===_0xbd1074(0x45d)){if(_0x58036b!==_0xbd1074(0x45d))_0x4541da[_0xbd1074(0x238)][_0xbd1074(0x1fa)]='none';}else{if(_0x58036b!==_0x4f1f4f)_0x4541da[_0xbd1074(0x238)][_0xbd1074(0x1fa)]=_0xbd1074(0x450);}}}}}});if(_0x4f1f4f!=='semua')for(let _0x4198be=_0x1b02b1[_0x28cdf0(0x3a0)]-0x1;_0x4198be>=0x0;_0x4198be--){let _0x1be2cb=_0x1b02b1[_0x4198be];if(_0x1be2cb[_0x28cdf0(0x1e5)][_0x28cdf0(0x363)]===_0x28cdf0(0x3ed)){let _0x165b03=parseInt(_0x1be2cb[_0x28cdf0(0x1e5)][_0x28cdf0(0x411)])||0x0,_0xe7e9d7=![];for(let _0xa76296=_0x4198be+0x1;_0xa76296<_0x1b02b1['length'];_0xa76296++){let _0x7846ba=_0x1b02b1[_0xa76296],_0xbba0d9=parseInt(_0x7846ba[_0x28cdf0(0x1e5)][_0x28cdf0(0x411)])||0x0;if(_0xbba0d9<=_0x165b03)break;if(_0x7846ba['style'][_0x28cdf0(0x1fa)]!=='none'){_0xe7e9d7=!![];break;}}if(!_0xe7e9d7)_0x1be2cb['style'][_0x28cdf0(0x1fa)]=_0x28cdf0(0x450);}}let _0x69ae45=0x0,_0x49c061=0x0;_0x4f1f4f===_0x28cdf0(0x3e9)?_0x1b02b1[_0x28cdf0(0x227)](_0x2fa69d=>{const _0x3f03ac=_0x28cdf0;let _0x450987=_0x2fa69d[_0x3f03ac(0x258)][0x2],_0x448dcd=_0x2fa69d['children'][0x3],_0x2c05a1=_0x2fa69d[_0x3f03ac(0x258)][0x4],_0x1571c3=_0x2fa69d[_0x3f03ac(0x258)][0x5];if(_0x450987&&_0x2fa69d[_0x3f03ac(0x1e5)][_0x3f03ac(0x378)]!==undefined)_0x450987[_0x3f03ac(0x3e1)]=_0x2fa69d['dataset'][_0x3f03ac(0x378)];if(_0x448dcd&&_0x2fa69d['dataset'][_0x3f03ac(0x1e1)]!==undefined)_0x448dcd[_0x3f03ac(0x3e1)]=_0x2fa69d[_0x3f03ac(0x1e5)]['oriReaStr'];if(_0x2c05a1&&_0x2fa69d['dataset'][_0x3f03ac(0x380)]!==undefined)_0x2c05a1['innerText']=_0x2fa69d['dataset'][_0x3f03ac(0x380)];if(_0x1571c3&&_0x2fa69d[_0x3f03ac(0x1e5)][_0x3f03ac(0x38f)]!==undefined)_0x1571c3[_0x3f03ac(0x3e1)]=_0x2fa69d[_0x3f03ac(0x1e5)][_0x3f03ac(0x38f)];}):_0x1b02b1[_0x28cdf0(0x227)]((_0x2790f7,_0x213b1a)=>{const _0x305850=_0x28cdf0;if(_0x2790f7['style'][_0x305850(0x1fa)]===_0x305850(0x450))return;if(_0x2790f7[_0x305850(0x1e5)][_0x305850(0x363)]===_0x305850(0x3ed)){let _0x295fdb=_0x2790f7[_0x305850(0x258)][0x1][_0x305850(0x3e1)][_0x305850(0x362)](),_0x30d378=_0x295fdb[_0x305850(0x437)](_0x305850(0x2a5))||_0x295fdb===_0x305850(0x22e)||_0x295fdb[_0x305850(0x437)](_0x305850(0x253))||_0x295fdb['includes'](_0x305850(0x3ee)),_0x5bc92e=parseInt(_0x2790f7[_0x305850(0x1e5)][_0x305850(0x411)])||0x0,_0x4cbc08=0x0,_0x4879a7=0x0;if(_0x30d378)_0x2790f7[_0x305850(0x238)][_0x305850(0x1fa)]=_0x305850(0x450);else{for(let _0x329746=_0x213b1a+0x1;_0x329746<_0x1b02b1[_0x305850(0x3a0)];_0x329746++){let _0x3e7bcb=_0x1b02b1[_0x329746],_0x1a83b9=parseInt(_0x3e7bcb[_0x305850(0x1e5)][_0x305850(0x411)])||0x0;if(_0x1a83b9<=_0x5bc92e)break;_0x3e7bcb[_0x305850(0x238)][_0x305850(0x1fa)]!==_0x305850(0x450)&&_0x3e7bcb[_0x305850(0x1e5)][_0x305850(0x363)]!=='induk'&&(_0x4cbc08+=parseFloat(_0x3e7bcb[_0x305850(0x1e5)][_0x305850(0x28f)])||0x0,_0x4879a7+=parseFloat(_0x3e7bcb[_0x305850(0x1e5)][_0x305850(0x32a)])||0x0);}let _0x5b0ed8=_0x4879a7-_0x4cbc08,_0x1026dd=_0x4cbc08>0x0?(_0x4879a7/_0x4cbc08*0x64)['toFixed'](0x2):_0x305850(0x2ef),_0x4b54b0={'minimumFractionDigits':0x2,'maximumFractionDigits':0x2},_0x16219f=_0x4cbc08!==0x0?_0x4cbc08[_0x305850(0x3e6)]('id-ID',_0x4b54b0):_0x305850(0x2ef),_0x527b7f=_0x4879a7!==0x0?_0x4879a7[_0x305850(0x3e6)](_0x305850(0x29d),_0x4b54b0):_0x305850(0x2ef),_0x22f995=_0x5b0ed8!==0x0?_0x5b0ed8<0x0?'('+Math[_0x305850(0x3b8)](_0x5b0ed8)['toLocaleString'](_0x305850(0x29d),_0x4b54b0)+')':_0x5b0ed8['toLocaleString'](_0x305850(0x29d),_0x4b54b0):_0x305850(0x2ef),_0xe0c7eb=_0x1026dd[_0x305850(0x3c1)]('.',',');_0x2790f7[_0x305850(0x1e5)][_0x305850(0x378)]===''&&(_0x16219f='',_0x527b7f='',_0x22f995='',_0xe0c7eb='');let _0x516615=_0x2790f7[_0x305850(0x258)][0x2],_0x139d48=_0x2790f7[_0x305850(0x258)][0x3],_0x17aa4c=_0x2790f7[_0x305850(0x258)][0x4],_0x1a838b=_0x2790f7[_0x305850(0x258)][0x5];if(_0x516615)_0x516615[_0x305850(0x3e1)]=_0x16219f;if(_0x139d48)_0x139d48['innerText']=_0x527b7f;if(_0x17aa4c)_0x17aa4c[_0x305850(0x3e1)]=_0x22f995;if(_0x1a838b)_0x1a838b[_0x305850(0x3e1)]=_0xe0c7eb;}}else _0x69ae45+=parseFloat(_0x2790f7[_0x305850(0x1e5)][_0x305850(0x28f)])||0x0,_0x49c061+=parseFloat(_0x2790f7[_0x305850(0x1e5)][_0x305850(0x32a)])||0x0;});if(_0x4f1f4f!=='semua'){let _0x2bc4a6=_0x28cdf0(0x250);if(_0x4f1f4f===_0x28cdf0(0x45d))_0x2bc4a6=_0x28cdf0(0x2eb);else{if(_0x4f1f4f===_0x28cdf0(0x3bf))_0x2bc4a6=_0x28cdf0(0x415);else{if(_0x4f1f4f===_0x28cdf0(0x381))_0x2bc4a6=_0x28cdf0(0x308);else{if(_0x4f1f4f==='btt')_0x2bc4a6=_0x28cdf0(0x3d2);else{if(_0x4f1f4f===_0x28cdf0(0x1f8))_0x2bc4a6=_0x28cdf0(0x433);else{if(_0x4f1f4f===_0x28cdf0(0x37b))_0x2bc4a6='BELANJA\x20PERJALANAN\x20DINAS';}}}}}let _0x2e0813=_0x49c061-_0x69ae45,_0x2443e7=_0x69ae45>0x0?(_0x49c061/_0x69ae45*0x64)[_0x28cdf0(0x324)](0x2)['replace']('.',','):'0,00',_0x1798f3={'minimumFractionDigits':0x2,'maximumFractionDigits':0x2},_0x787024=document[_0x28cdf0(0x252)]('tr');_0x787024['id']='rowDynamicTotal',_0x787024['className']='pad-lvl-1\x20style-bold',_0x787024[_0x28cdf0(0x238)][_0x28cdf0(0x375)]=_0x28cdf0(0x2c4),_0x787024[_0x28cdf0(0x238)][_0x28cdf0(0x2cd)]=_0x28cdf0(0x2da),_0x787024[_0x28cdf0(0x238)][_0x28cdf0(0x25b)]='2px\x20solid\x20#000',_0x787024[_0x28cdf0(0x1e5)][_0x28cdf0(0x411)]=0x1,_0x787024[_0x28cdf0(0x3c2)]=_0x28cdf0(0x26a)+_0x2bc4a6+_0x28cdf0(0x429)+(_0x69ae45!==0x0?_0x69ae45[_0x28cdf0(0x3e6)](_0x28cdf0(0x29d),_0x1798f3):_0x28cdf0(0x2ef))+_0x28cdf0(0x429)+(_0x49c061!==0x0?_0x49c061[_0x28cdf0(0x3e6)](_0x28cdf0(0x29d),_0x1798f3):_0x28cdf0(0x2ef))+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22text-end\x20text-dark\x22\x20style=\x22font-weight:\x20800;\x22>'+(_0x2e0813!==0x0?_0x2e0813<0x0?'('+Math[_0x28cdf0(0x3b8)](_0x2e0813)[_0x28cdf0(0x3e6)]('id-ID',_0x1798f3)+')':_0x2e0813['toLocaleString'](_0x28cdf0(0x29d),_0x1798f3):_0x28cdf0(0x2ef))+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22text-center\x20text-dark\x22\x20style=\x22font-weight:\x20800;\x22>'+_0x2443e7+_0x28cdf0(0x39a),_0x1f32d0[_0x28cdf0(0x2ff)](_0x787024);}}function cekKualitasTeks(_0x4a091e){const _0x50a4b3=_0x5ce5bd;let _0x52055c=_0x4a091e[_0x50a4b3(0x3c1)](/<[^>]*>?/gm,'')[_0x50a4b3(0x2f9)]();if(_0x52055c==='')return'OK';let _0x1a745e=_0x52055c['replace'](/[^a-zA-Z]/g,'');if(_0x1a745e[_0x50a4b3(0x3a0)]<0xf)return _0x50a4b3(0x350);if(/(.)\1{4,}/[_0x50a4b3(0x259)](_0x52055c['toLowerCase']()))return _0x50a4b3(0x384);if(/[bcdfghjklmnpqrstvwxyz]{6,}/i['test'](_0x52055c))return _0x50a4b3(0x425);if(/\b[a-zA-Z]{25,}\b/['test'](_0x52055c))return _0x50a4b3(0x20c);return'OK';}function backupDaruratOffline(){const _0x3c5147=_0x5ce5bd;if(!kodeSkpdAktif){Swal[_0x3c5147(0x1ee)]('Error',_0x3c5147(0x301),_0x3c5147(0x2a4));return;}let _0x29de21=document[_0x3c5147(0x3e0)](_0x3c5147(0x35d))[_0x3c5147(0x20a)],_0x9e79d3={},_0x2865e2=0x0;document['querySelectorAll'](_0x3c5147(0x448))[_0x3c5147(0x227)](_0x2980d1=>{const _0x1eb027=_0x3c5147;_0x2980d1[_0x1eb027(0x20a)]['trim']()!==''&&(_0x9e79d3[_0x2980d1[_0x1eb027(0x21a)]('data-rowid')]=_0x2980d1['value'][_0x1eb027(0x2f9)](),_0x2865e2++);});if(_0x2865e2===0x0){Swal['fire'](_0x3c5147(0x201),_0x3c5147(0x424),_0x3c5147(0x445));return;}let _0x585099={'app':_0x3c5147(0x2e8),'tahun':_0x29de21,'kode_skpd':kodeSkpdAktif,'timestamp':new Date()[_0x3c5147(0x42b)](),'data':_0x9e79d3},_0x4a06cd=JSON['stringify'](_0x585099),_0x3129e0=new Blob([_0x4a06cd],{'type':_0x3c5147(0x3b3)}),_0x2071a5=URL[_0x3c5147(0x36a)](_0x3129e0),_0x4a0aa6=document[_0x3c5147(0x252)]('a');_0x4a0aa6[_0x3c5147(0x25f)](_0x3c5147(0x29c),_0x2071a5);let _0x1e29a4=_0x3c5147(0x30a)+_0x29de21+'_'+kodeSkpdAktif[_0x3c5147(0x3c1)](/\./g,'')+_0x3c5147(0x38e);_0x4a0aa6['setAttribute']('download',_0x1e29a4),document['body'][_0x3c5147(0x2ff)](_0x4a0aa6),_0x4a0aa6[_0x3c5147(0x2bd)](),_0x4a0aa6[_0x3c5147(0x2a9)](),setTimeout(()=>URL['revokeObjectURL'](_0x2071a5),0x3e8),Swal['fire'](_0x3c5147(0x243),_0x3c5147(0x42f)+_0x2865e2+'\x20rincian).<br><br><b>PENTING:</b>\x20Harap\x20simpan\x20Baik-baik\x20data\x20Backup\x20anda\x20dikomputer/laptop','success');}function prosesRestoreOffline(_0x47521f){const _0x48a4a9=_0x5ce5bd,_0x2fedc2=_0x47521f[_0x48a4a9(0x3f0)][_0x48a4a9(0x276)][0x0];if(!_0x2fedc2)return;if(!kodeSkpdAktif){Swal[_0x48a4a9(0x1ee)]('Error',_0x48a4a9(0x26e),_0x48a4a9(0x2a4)),_0x47521f[_0x48a4a9(0x3f0)][_0x48a4a9(0x20a)]='';return;}const _0x547ee8=new FileReader();_0x547ee8[_0x48a4a9(0x24e)]=function(_0x133119){const _0x3114d2=_0x48a4a9;try{let _0x517fab=JSON[_0x3114d2(0x459)](_0x133119['target'][_0x3114d2(0x20e)]);if(_0x517fab['app']!==_0x3114d2(0x2e8)){Swal[_0x3114d2(0x1ee)]('File\x20Ditolak','Ini\x20bukan\x20file\x20backup\x20resmi\x20dari\x20Aplikasi\x20LRA\x20Luwu.','error');return;}let _0x1a3181=document[_0x3114d2(0x3e0)](_0x3114d2(0x35d))[_0x3114d2(0x20a)],_0x22fbc4=![],_0xcf1172='';_0x517fab[_0x3114d2(0x2fd)]!==_0x1a3181&&(_0x22fbc4=!![],_0xcf1172+=_0x3114d2(0x1fe)+_0x517fab['tahun']+_0x3114d2(0x1f6)+_0x1a3181+')'),_0x517fab[_0x3114d2(0x3aa)]!==kodeSkpdAktif&&(_0x22fbc4=!![],_0xcf1172+='<br>-\x20Kode\x20SKPD\x20milik\x20dinas\x20lain'),_0x22fbc4?Swal['fire']({'title':_0x3114d2(0x2f0),'html':_0x3114d2(0x43b)+_0xcf1172+_0x3114d2(0x34f),'icon':_0x3114d2(0x2a4),'showCancelButton':!![],'confirmButtonColor':_0x3114d2(0x279),'cancelButtonColor':'#3085d6','confirmButtonText':'Ya,\x20Paksa\x20Restore'})[_0x3114d2(0x30f)](_0x2a6d1c=>{const _0x17b3fb=_0x3114d2;if(_0x2a6d1c[_0x17b3fb(0x328)])eksekusiRestoreLokal(_0x517fab['data']);}):eksekusiRestoreLokal(_0x517fab['data']);}catch(_0x193626){Swal['fire'](_0x3114d2(0x1e7),_0x3114d2(0x39d),_0x3114d2(0x2f4));}_0x47521f[_0x3114d2(0x3f0)]['value']='';},_0x547ee8[_0x48a4a9(0x3cc)](_0x2fedc2);}function eksekusiRestoreLokal(_0x284dfb){let _0x5d373e=0x0;Swal['fire']({'title':'Merestore\x20Data...','allowOutsideClick':![],'didOpen':()=>{const _0x2e05a2=_0x3bed;Swal[_0x2e05a2(0x394)]();}}),setTimeout(()=>{const _0x1e1bfa=_0x3bed;document[_0x1e1bfa(0x3e8)](_0x1e1bfa(0x448))[_0x1e1bfa(0x227)](_0x274dcd=>{const _0x3745b7=_0x1e1bfa;let _0x40a736=_0x274dcd[_0x3745b7(0x21a)](_0x3745b7(0x38c)),_0x5591c4=parseFloat(_0x274dcd['getAttribute'](_0x3745b7(0x2a0)));if(_0x284dfb[_0x40a736]){_0x274dcd[_0x3745b7(0x20a)]=_0x284dfb[_0x40a736],_0x274dcd[_0x3745b7(0x313)][_0x3745b7(0x2d8)]('is-dirty');let _0x161e75=formatTeksPenjelasan(_0x284dfb[_0x40a736]);document[_0x3745b7(0x3e0)](_0x3745b7(0x3cd)+_0x40a736)[_0x3745b7(0x3c2)]=_0x161e75;let _0x152264=document[_0x3745b7(0x3e0)]('btn_'+_0x40a736);_0x152264&&_0x152264[_0x3745b7(0x3c2)][_0x3745b7(0x437)]('Isi\x20Keterangan')?(_0x152264[_0x3745b7(0x208)]=_0x3745b7(0x353),_0x152264[_0x3745b7(0x238)][_0x3745b7(0x403)]=_0x3745b7(0x2b6),_0x152264['innerHTML']=_0x3745b7(0x383)):perbaruiTombolStatus(_0x40a736,_0x161e75,_0x5591c4),_0x5d373e++;}}),Swal[_0x1e1bfa(0x1ee)]('Restore\x20Berhasil\x20dimuat!',_0x5d373e+_0x1e1bfa(0x3f2),'success');},0x258);}function cekKoneksiServer(){const _0x47af70=_0x5ce5bd;let _0x1dade0=document[_0x47af70(0x3e0)](_0x47af70(0x3c9)),_0x29b8e8=document[_0x47af70(0x3e0)](_0x47af70(0x369)),_0x2f977a=_0x1dade0[_0x47af70(0x268)]('i');if(!SCRIPT_URL_DATABASE||SCRIPT_URL_DATABASE['includes']('ISI_DENGAN_URL')){_0x1dade0['className']=_0x47af70(0x2c5),_0x2f977a[_0x47af70(0x208)]=_0x47af70(0x38a),_0x29b8e8['innerText']=_0x47af70(0x3ca);return;}let _0x4e2f0b=SESSION_TOKEN?_0x47af70(0x24a)+SESSION_TOKEN:_0x47af70(0x373)+SECRET_KEY,_0x10313f=SCRIPT_URL_DATABASE+'?'+_0x4e2f0b+'&action=ping';_smartFetch({'url':_0x10313f})[_0x47af70(0x30f)](function(_0x505723){return _0x505723;})[_0x47af70(0x30f)](_0x226db2=>{const _0x7a50c0=_0x47af70;if(_0x226db2&&_0x226db2[_0x7a50c0(0x219)]===_0x7a50c0(0x402))_0x1dade0['className']=_0x7a50c0(0x417),_0x2f977a['className']=_0x7a50c0(0x36f),_0x29b8e8[_0x7a50c0(0x3e1)]=_0x7a50c0(0x1e9);else throw new Error('Invalid\x20response');})[_0x47af70(0x401)](_0x241877=>{const _0x40b24=_0x47af70;_0x1dade0[_0x40b24(0x208)]=_0x40b24(0x2c5),_0x2f977a[_0x40b24(0x208)]=_0x40b24(0x305),_0x29b8e8[_0x40b24(0x3e1)]=_0x40b24(0x3fb);});}function pulihkanDataSesiLokal(){const _0xf817f5=_0x5ce5bd;let _0x193b9a=sessionStorage['getItem'](_0xf817f5(0x2b9));if(_0x193b9a)try{globalRawData=JSON['parse'](_0x193b9a);if(globalRawData&&globalRawData[_0xf817f5(0x3a0)]>0x0){processAndBuildLRA();let _0x56aae6=sessionStorage['getItem'](_0xf817f5(0x44f));_0x56aae6&&(globalRawPAD=JSON[_0xf817f5(0x459)](_0x56aae6),globalRawPAD&&globalRawPAD['length']>0x0&&typeof injeksiDataPADkeTabel==='function'&&setTimeout(()=>{injeksiDataPADkeTabel();},0x1f4));}}catch(_0x3636b4){console[_0xf817f5(0x2f4)](_0xf817f5(0x213),_0x3636b4);}}function fungsiKeluarAplikasi(){const _0x3e3ae8=_0x5ce5bd;Swal[_0x3e3ae8(0x1ee)]({'title':'Anda\x20Yakin\x20ingin\x20keluar?','html':'','icon':_0x3e3ae8(0x2a4),'showCancelButton':!![],'confirmButtonColor':'#ef4444','cancelButtonColor':'#64748b','confirmButtonText':_0x3e3ae8(0x244),'cancelButtonText':'TIDAK'})['then'](_0x3f83a4=>{const _0x2cd8bb=_0x3e3ae8;_0x3f83a4[_0x2cd8bb(0x328)]&&(sessionStorage[_0x2cd8bb(0x294)](_0x2cd8bb(0x2b9)),sessionStorage[_0x2cd8bb(0x294)]('PAD_RAW_DATA'),sessionStorage['removeItem']('LRA_AUTH_KEY'),sessionStorage[_0x2cd8bb(0x294)]('LRA_TOKEN'),SECRET_KEY='',SESSION_TOKEN='',kodeSkpdAktif='',window[_0x2cd8bb(0x3ad)]['reload']());});}function tampilkanGerbangKeamanan(){const _0x518028=_0x5ce5bd;if(SESSION_TOKEN!==''){document['body']['style']['overflow']=_0x518028(0x3cf),document['querySelectorAll'](_0x518028(0x27a))[_0x518028(0x227)](_0x3f067c=>{const _0xda9ea=_0x518028;_0x3f067c[_0xda9ea(0x238)][_0xda9ea(0x439)]=_0xda9ea(0x450),_0x3f067c[_0xda9ea(0x238)][_0xda9ea(0x3f3)]='auto';}),pulihkanDataSesiLokal(),cekKoneksiServer();return;}Swal[_0x518028(0x1ee)]({'title':_0x518028(0x355),'html':_0x518028(0x444),'allowOutsideClick':![],'allowEscapeKey':![],'showConfirmButton':!![],'confirmButtonText':_0x518028(0x45b),'confirmButtonColor':'#0f172a','showLoaderOnConfirm':!![],'didOpen':()=>{const _0x3e1007=_0x518028;document[_0x3e1007(0x438)][_0x3e1007(0x238)][_0x3e1007(0x2d6)]='hidden',document[_0x3e1007(0x3e8)](_0x3e1007(0x27a))['forEach'](_0x2e4abb=>{const _0x97877f=_0x3e1007;_0x2e4abb[_0x97877f(0x238)][_0x97877f(0x439)]=_0x97877f(0x264),_0x2e4abb[_0x97877f(0x238)]['pointerEvents']=_0x97877f(0x450);});const _0x265843=document[_0x3e1007(0x3e0)](_0x3e1007(0x31c)),_0x143b94=document[_0x3e1007(0x3e0)](_0x3e1007(0x3e4));_0x265843['addEventListener']('click',()=>{const _0xdc886a=_0x3e1007,_0x4f0a5f=_0x143b94[_0xdc886a(0x21a)]('type')===_0xdc886a(0x293);_0x143b94[_0xdc886a(0x25f)](_0xdc886a(0x31a),_0x4f0a5f?_0xdc886a(0x255):_0xdc886a(0x293)),_0x265843['innerHTML']=_0x4f0a5f?_0xdc886a(0x1f4):_0xdc886a(0x406);}),_0x143b94[_0x3e1007(0x248)]('keypress',function(_0x3aef8d){const _0xb41e81=_0x3e1007;if(_0x3aef8d['key']===_0xb41e81(0x390))Swal[_0xb41e81(0x284)]();});},'preConfirm':()=>{const _0x24abab=_0x518028,_0x303326=document['getElementById'](_0x24abab(0x3e4))[_0x24abab(0x20a)];if(!_0x303326)return Swal['showValidationMessage'](_0x24abab(0x41b)),![];return fetch(SCRIPT_URL_DATABASE,{'method':_0x24abab(0x321),'body':JSON[_0x24abab(0x2d9)]({'secret_key':_0x303326,'action':_0x24abab(0x210)})})['then'](function(_0x2e25b4){return _0x2e25b4['json']();})[_0x24abab(0x30f)](function(_0x87299){const _0x1b7ca7=_0x24abab;if(_0x87299[_0x1b7ca7(0x219)]==='error')return Swal['showValidationMessage'](_0x1b7ca7(0x382)),![];return _0x87299;})[_0x24abab(0x401)](function(_0x51bd89){const _0x1e8674=_0x24abab;return Swal[_0x1e8674(0x3a3)](_0x1e8674(0x351)),![];});}})[_0x518028(0x30f)](_0x280b0a=>{const _0x336732=_0x518028;if(_0x280b0a[_0x336732(0x328)]){var _0x411487=_0x280b0a['value'];SECRET_KEY='',SESSION_TOKEN=_0x411487[_0x336732(0x37f)]||'',sessionStorage['setItem'](_0x336732(0x266),SESSION_TOKEN),sessionStorage[_0x336732(0x294)](_0x336732(0x27c)),document[_0x336732(0x438)][_0x336732(0x238)][_0x336732(0x2d6)]=_0x336732(0x3cf),document[_0x336732(0x3e8)]('.container-fluid,\x20.print-page')[_0x336732(0x227)](_0x4f3479=>{const _0x3658fc=_0x336732;_0x4f3479[_0x3658fc(0x238)][_0x3658fc(0x439)]=_0x3658fc(0x450),_0x4f3479['style'][_0x3658fc(0x3f3)]=_0x3658fc(0x3cf);}),Swal[_0x336732(0x1ee)]({'icon':_0x336732(0x402),'title':_0x336732(0x2ce),'text':_0x336732(0x1f1),'timer':0x5dc,'showConfirmButton':![]}),pulihkanDataSesiLokal(),cekKoneksiServer();if(typeof jalankanWekerSiluman===_0x336732(0x269))jalankanWekerSiluman();}});}let kamusPengetikan=JSON[_0x5ce5bd(0x459)](localStorage[_0x5ce5bd(0x2d0)](_0x5ce5bd(0x3b1)))||[],kamusSatuan=JSON[_0x5ce5bd(0x459)](localStorage[_0x5ce5bd(0x2d0)](_0x5ce5bd(0x443)))||[],kamusHarga=JSON['parse'](localStorage[_0x5ce5bd(0x2d0)](_0x5ce5bd(0x2a6)))||[],kamusVol=JSON[_0x5ce5bd(0x459)](localStorage['getItem'](_0x5ce5bd(0x2b3)))||[];function simpanKeKamus(_0x5b9322){const _0x57c283=_0x5ce5bd;if(!_0x5b9322||_0x5b9322[_0x57c283(0x2f9)]()[_0x57c283(0x3a0)]<0x4)return;let _0x4d449e=_0x5b9322['trim']();if(!kamusPengetikan[_0x57c283(0x437)](_0x4d449e)){kamusPengetikan[_0x57c283(0x214)](_0x4d449e);if(kamusPengetikan[_0x57c283(0x3a0)]>0xfa)kamusPengetikan[_0x57c283(0x2b8)]();localStorage[_0x57c283(0x200)](_0x57c283(0x3b1),JSON[_0x57c283(0x2d9)](kamusPengetikan));}}function simpanKamusKhusus(_0x174b55,_0x1b50a6){const _0x3da1c5=_0x5ce5bd;if(!_0x174b55)return;let _0x18afc0=String(_0x174b55)[_0x3da1c5(0x2f9)]();if(_0x18afc0===''||_0x18afc0==='0')return;let _0x18558e,_0x4eeb92;if(_0x1b50a6===_0x3da1c5(0x43d))_0x18558e=kamusSatuan,_0x4eeb92=_0x3da1c5(0x443);else{if(_0x1b50a6===_0x3da1c5(0x300))_0x18558e=kamusHarga,_0x4eeb92=_0x3da1c5(0x2a6);else _0x1b50a6===_0x3da1c5(0x2b4)&&(_0x18558e=kamusVol,_0x4eeb92=_0x3da1c5(0x2b3));}if(!_0x18558e[_0x3da1c5(0x437)](_0x18afc0)){_0x18558e['unshift'](_0x18afc0);if(_0x18558e[_0x3da1c5(0x3a0)]>0x1e)_0x18558e['pop']();localStorage[_0x3da1c5(0x200)](_0x4eeb92,JSON['stringify'](_0x18558e));}}let boxSaran=document[_0x5ce5bd(0x252)](_0x5ce5bd(0x2de));boxSaran['id']=_0x5ce5bd(0x280),boxSaran[_0x5ce5bd(0x238)]['cssText']=_0x5ce5bd(0x40d),document[_0x5ce5bd(0x438)]['appendChild'](boxSaran);let activeInput=null;document[_0x5ce5bd(0x248)](_0x5ce5bd(0x307),function(_0x44d8d0){const _0x4bdfdd=_0x5ce5bd;let _0x42d69b=_0x44d8d0[_0x4bdfdd(0x3f0)][_0x4bdfdd(0x313)][_0x4bdfdd(0x1fd)](_0x4bdfdd(0x2c6)),_0x4bf68f=_0x44d8d0[_0x4bdfdd(0x3f0)][_0x4bdfdd(0x313)][_0x4bdfdd(0x1fd)](_0x4bdfdd(0x43d)),_0x286ffc=_0x44d8d0[_0x4bdfdd(0x3f0)][_0x4bdfdd(0x313)][_0x4bdfdd(0x1fd)](_0x4bdfdd(0x300)),_0x5771ea=_0x44d8d0['target']['classList'][_0x4bdfdd(0x1fd)]('vol');if(_0x42d69b||_0x4bf68f||_0x286ffc||_0x5771ea){let _0x5afd8b=_0x44d8d0[_0x4bdfdd(0x3f0)]['value'][_0x4bdfdd(0x362)]()[_0x4bdfdd(0x2f9)](),_0x5e254d=[],_0x2980af=0x2,_0xe46215='';_0x42d69b&&(_0x5e254d=kamusPengetikan,_0x2980af=0x2,_0xe46215='uraian');_0x4bf68f&&(_0x5e254d=kamusSatuan,_0x2980af=0x1,_0xe46215=_0x4bdfdd(0x43d));_0x286ffc&&(_0x5e254d=kamusHarga,_0x2980af=0x1,_0xe46215='harga');_0x5771ea&&(_0x5e254d=kamusVol,_0x2980af=0x1,_0xe46215='vol');if(_0x5afd8b[_0x4bdfdd(0x3a0)]<_0x2980af){boxSaran['style'][_0x4bdfdd(0x1fa)]=_0x4bdfdd(0x450);return;}let _0x4244f6=_0x5e254d[_0x4bdfdd(0x439)](_0x41d89b=>_0x41d89b[_0x4bdfdd(0x362)]()[_0x4bdfdd(0x437)](_0x5afd8b));if(_0x4244f6['length']>0x0){activeInput=_0x44d8d0[_0x4bdfdd(0x3f0)],boxSaran['innerHTML']='',_0x4244f6['slice'](0x0,0x8)[_0x4bdfdd(0x227)](_0x5ab729=>{const _0x1b9582=_0x4bdfdd;let _0xc31421=document[_0x1b9582(0x252)]('div');_0xc31421['className']=_0x1b9582(0x1ec),_0xc31421[_0x1b9582(0x238)][_0x1b9582(0x403)]=_0x1b9582(0x38d);let _0x47e4c2=document[_0x1b9582(0x252)]('span');_0x47e4c2[_0x1b9582(0x208)]='text-truncate',_0x47e4c2[_0x1b9582(0x238)]['cssText']=_0x1b9582(0x336),_0x47e4c2[_0x1b9582(0x3e1)]=_0x5ab729,_0x47e4c2[_0x1b9582(0x3e7)]=function(){const _0x5ec19a=_0x1b9582;activeInput[_0x5ec19a(0x20a)]=_0x5ab729,boxSaran[_0x5ec19a(0x238)]['display']=_0x5ec19a(0x450);if(_0x286ffc)formatRibuan(activeInput);if(typeof kalkulasiKombinasi==='function')kalkulasiKombinasi();activeInput[_0x5ec19a(0x1f3)]();};let _0x3188fd=document[_0x1b9582(0x252)]('i');_0x3188fd[_0x1b9582(0x208)]=_0x1b9582(0x28d),_0x3188fd[_0x1b9582(0x238)][_0x1b9582(0x403)]=_0x1b9582(0x35b),_0x3188fd[_0x1b9582(0x43f)]=_0x1b9582(0x2f8),_0x3188fd['onmouseover']=function(){const _0x533b73=_0x1b9582;this[_0x533b73(0x238)]['opacity']='1',this[_0x533b73(0x238)][_0x533b73(0x375)]=_0x533b73(0x3e3);},_0x3188fd[_0x1b9582(0x32e)]=function(){const _0x4b4a75=_0x1b9582;this[_0x4b4a75(0x238)][_0x4b4a75(0x33c)]=_0x4b4a75(0x241),this[_0x4b4a75(0x238)]['backgroundColor']=_0x4b4a75(0x368);},_0x3188fd[_0x1b9582(0x3e7)]=function(_0x569ea5){const _0x4d0fa5=_0x1b9582;_0x569ea5[_0x4d0fa5(0x2cc)]();if(_0xe46215===_0x4d0fa5(0x346))kamusPengetikan=kamusPengetikan[_0x4d0fa5(0x439)](_0x398c58=>_0x398c58!==_0x5ab729),localStorage[_0x4d0fa5(0x200)]('KAMUS_LRA_LUWU',JSON[_0x4d0fa5(0x2d9)](kamusPengetikan));else{if(_0xe46215===_0x4d0fa5(0x43d))kamusSatuan=kamusSatuan[_0x4d0fa5(0x439)](_0xf465bd=>_0xf465bd!==_0x5ab729),localStorage[_0x4d0fa5(0x200)](_0x4d0fa5(0x443),JSON[_0x4d0fa5(0x2d9)](kamusSatuan));else{if(_0xe46215===_0x4d0fa5(0x300))kamusHarga=kamusHarga[_0x4d0fa5(0x439)](_0x299fb6=>_0x299fb6!==_0x5ab729),localStorage[_0x4d0fa5(0x200)](_0x4d0fa5(0x2a6),JSON[_0x4d0fa5(0x2d9)](kamusHarga));else _0xe46215===_0x4d0fa5(0x2b4)&&(kamusVol=kamusVol[_0x4d0fa5(0x439)](_0x3cb7f1=>_0x3cb7f1!==_0x5ab729),localStorage['setItem'](_0x4d0fa5(0x2b3),JSON[_0x4d0fa5(0x2d9)](kamusVol)));}}_0xc31421['remove']();if(boxSaran[_0x4d0fa5(0x258)][_0x4d0fa5(0x3a0)]===0x0)boxSaran['style']['display']=_0x4d0fa5(0x450);},_0xc31421['onmouseover']=function(){const _0x124814=_0x1b9582;this[_0x124814(0x238)][_0x124814(0x375)]=_0x124814(0x2be),_0x47e4c2[_0x124814(0x238)][_0x124814(0x37e)]=_0x124814(0x254);},_0xc31421[_0x1b9582(0x32e)]=function(){const _0x3141a0=_0x1b9582;this['style'][_0x3141a0(0x375)]=_0x3141a0(0x246),_0x47e4c2['style'][_0x3141a0(0x37e)]='';},_0xc31421[_0x1b9582(0x2ff)](_0x47e4c2),_0xc31421[_0x1b9582(0x2ff)](_0x3188fd),boxSaran['appendChild'](_0xc31421);});let _0x23218d=_0x44d8d0[_0x4bdfdd(0x3f0)]['getBoundingClientRect']();boxSaran['style'][_0x4bdfdd(0x21d)]=_0x23218d['left']+window['scrollX']+'px',boxSaran[_0x4bdfdd(0x238)][_0x4bdfdd(0x3ea)]=_0x23218d[_0x4bdfdd(0x3b9)]+window[_0x4bdfdd(0x282)]+0x2+'px',boxSaran[_0x4bdfdd(0x238)]['width']=_0x23218d[_0x4bdfdd(0x391)]+'px',boxSaran[_0x4bdfdd(0x238)][_0x4bdfdd(0x1fa)]=_0x4bdfdd(0x349);}else boxSaran[_0x4bdfdd(0x238)][_0x4bdfdd(0x1fa)]=_0x4bdfdd(0x450);}}),document[_0x5ce5bd(0x248)](_0x5ce5bd(0x2bd),function(_0x59be5b){const _0x375ef3=_0x5ce5bd;_0x59be5b[_0x375ef3(0x3f0)]['id']!==_0x375ef3(0x280)&&!_0x59be5b[_0x375ef3(0x3f0)][_0x375ef3(0x34c)]('#boxSaranLRA')&&!_0x59be5b[_0x375ef3(0x3f0)][_0x375ef3(0x313)][_0x375ef3(0x1fd)](_0x375ef3(0x2c6))&&!_0x59be5b[_0x375ef3(0x3f0)][_0x375ef3(0x313)][_0x375ef3(0x1fd)]('satuan')&&!_0x59be5b['target'][_0x375ef3(0x313)][_0x375ef3(0x1fd)](_0x375ef3(0x300))&&!_0x59be5b[_0x375ef3(0x3f0)][_0x375ef3(0x313)][_0x375ef3(0x1fd)](_0x375ef3(0x2b4))&&(boxSaran[_0x375ef3(0x238)]['display']='none');}),document['addEventListener']('scroll',function(){const _0x132900=_0x5ce5bd;boxSaran[_0x132900(0x238)][_0x132900(0x1fa)]=_0x132900(0x450);},!![]);function cekResolusiLayar(){const _0x547578=_0x5ce5bd;if(window[_0x547578(0x3d9)]<0x400){document[_0x547578(0x438)][_0x547578(0x238)][_0x547578(0x2d6)]='hidden';let _0x4f0f77=document['getElementById']('mobileBlockerLRA');!_0x4f0f77&&(_0x4f0f77=document[_0x547578(0x252)]('div'),_0x4f0f77['id']=_0x547578(0x240),_0x4f0f77[_0x547578(0x238)][_0x547578(0x403)]=_0x547578(0x3bb),_0x4f0f77[_0x547578(0x3c2)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-laptop-code\x20text-primary\x20mb-4\x22\x20style=\x22font-size:\x2060px;\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22font-weight:\x20bold;\x20margin-bottom:\x2015px;\x20letter-spacing:\x201px;\x22>Mode\x20Desktop\x20Diperlukan</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x2014px;\x20color:\x20#94a3b8;\x20line-height:\x201.6;\x20max-width:\x20400px;\x20margin:\x200\x20auto\x2025px\x20auto;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Aplikasi\x20Penjabaran\x20LRA\x20Pemkab\x20Luwu\x20memuat\x20data\x20tabel\x20dan\x20fitur\x20cetak\x20yang\x20sangat\x20kompleks.<br><br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Untuk\x20pengalaman\x20kerja\x20dan\x20keamanan\x20data\x20terbaik,\x20mohon\x20buka\x20aplikasi\x20ini\x20menggunakan\x20<b>PC\x20atau\x20Laptop</b>.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px\x2020px;\x20background-color:\x20rgba(255,\x20255,\x20255,\x200.1);\x20border-radius:\x208px;\x20font-size:\x2011px;\x20color:\x20#cbd5e1;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Resolusi\x20minimum\x20yang\x20disarankan:\x201024px\x20(Landscape)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',document[_0x547578(0x438)]['appendChild'](_0x4f0f77)),_0x4f0f77[_0x547578(0x238)]['display']=_0x547578(0x345);}else{let _0x164cf0=document['getElementById']('mobileBlockerLRA');_0x164cf0&&(_0x164cf0['style']['display']=_0x547578(0x450),document[_0x547578(0x438)][_0x547578(0x238)]['overflow']=_0x547578(0x3cf));}}window[_0x5ce5bd(0x248)](_0x5ce5bd(0x251),cekResolusiLayar),window['addEventListener']('resize',cekResolusiLayar),window['brankasDraf']=[],window[_0x5ce5bd(0x436)]=function(){const _0x494d74=_0x5ce5bd;let _0x28ad0c=![],_0x5117f6=[];document[_0x494d74(0x3e8)](_0x494d74(0x448))['forEach'](_0xcbcba=>{const _0x1c7872=_0x494d74;let _0x3b8843=_0xcbcba[_0x1c7872(0x21a)]('data-rowid');_0xcbcba[_0x1c7872(0x20a)][_0x1c7872(0x2f9)]()!==''&&(_0x28ad0c=!![],_0x5117f6[_0x1c7872(0x453)]({'id':_0x3b8843,'val':_0xcbcba[_0x1c7872(0x20a)],'isDirty':_0xcbcba[_0x1c7872(0x313)][_0x1c7872(0x1fd)](_0x1c7872(0x289)),'printHtml':document['getElementById']('print_'+_0x3b8843)?document['getElementById'](_0x1c7872(0x3cd)+_0x3b8843)[_0x1c7872(0x3c2)]:'','btnOuter':document[_0x1c7872(0x3e0)]('btn_'+_0x3b8843)?document[_0x1c7872(0x3e0)](_0x1c7872(0x237)+_0x3b8843)[_0x1c7872(0x325)]:''}));}),_0x28ad0c&&(window[_0x494d74(0x303)]=_0x5117f6);},window['restoreBrankasDraf']=function(){const _0x2e62d2=_0x5ce5bd;if(!window[_0x2e62d2(0x303)]||window[_0x2e62d2(0x303)][_0x2e62d2(0x3a0)]===0x0)return;window[_0x2e62d2(0x303)]['forEach'](_0x4dc92e=>{const _0x22730e=_0x2e62d2;let _0x3e3720=document[_0x22730e(0x3e0)](_0x22730e(0x3c3)+_0x4dc92e['id']);if(_0x3e3720){_0x3e3720[_0x22730e(0x20a)]=_0x4dc92e['val'];if(_0x4dc92e['isDirty'])_0x3e3720[_0x22730e(0x313)]['add'](_0x22730e(0x289));let _0x358ae0=document[_0x22730e(0x3e0)](_0x22730e(0x3cd)+_0x4dc92e['id']);if(_0x358ae0&&_0x4dc92e['printHtml'])_0x358ae0[_0x22730e(0x3c2)]=_0x4dc92e[_0x22730e(0x2df)];let _0xbe1555=document[_0x22730e(0x3e0)](_0x22730e(0x237)+_0x4dc92e['id']);_0xbe1555&&_0x4dc92e[_0x22730e(0x215)]&&(_0xbe1555[_0x22730e(0x325)]=_0x4dc92e[_0x22730e(0x215)]);}});};let waktuTerakhirSiluman=0x0;function tarikDataSiluman(_0x13b99f=![]){const _0x377d9f=_0x5ce5bd;if(!kodeSkpdAktif)return;let _0x39b4b6=Date[_0x377d9f(0x2ec)]();if(_0x39b4b6-waktuTerakhirSiluman<0x3a98)return;waktuTerakhirSiluman=_0x39b4b6;let _0x4abc73=document['getElementById'](_0x377d9f(0x35d))[_0x377d9f(0x20a)];var _0x303537=SESSION_TOKEN?'token='+SESSION_TOKEN:_0x377d9f(0x373)+SECRET_KEY;let _0x5930df=SCRIPT_URL_DATABASE+_0x377d9f(0x271)+_0x4abc73+_0x377d9f(0x44d)+kodeSkpdAktif+'&'+_0x303537+_0x377d9f(0x24f)+_0x39b4b6,_0x579830=document[_0x377d9f(0x3e0)](_0x377d9f(0x3c9)),_0x27e20a=_0x579830[_0x377d9f(0x3c2)],_0x55d180=_0x579830[_0x377d9f(0x208)];_0x13b99f&&(_0x579830['className']=_0x377d9f(0x2c3),_0x579830['innerHTML']=_0x377d9f(0x389)),fetch(_0x5930df,{'cache':_0x377d9f(0x224)})['then'](_0x87e286=>_0x87e286[_0x377d9f(0x2ac)]())['then'](_0x1142ef=>{const _0x4419bc=_0x377d9f;if(_0x1142ef[_0x4419bc(0x219)]===_0x4419bc(0x402)){let _0x355ec6=_0x1142ef[_0x4419bc(0x395)],_0x1837c7=![];document[_0x4419bc(0x3e8)](_0x4419bc(0x448))[_0x4419bc(0x227)](_0x3a3c0e=>{const _0x1a3585=_0x4419bc;let _0x3b0ab4=_0x3a3c0e[_0x1a3585(0x21a)](_0x1a3585(0x38c)),_0x49e667=parseFloat(_0x3a3c0e[_0x1a3585(0x21a)](_0x1a3585(0x2a0)));if(_0x355ec6[_0x3b0ab4]!==undefined&&!_0x3a3c0e[_0x1a3585(0x313)][_0x1a3585(0x1fd)]('is-dirty')){if(_0x3a3c0e['value']!==_0x355ec6[_0x3b0ab4]){_0x3a3c0e['value']=_0x355ec6[_0x3b0ab4],_0x1837c7=!![];let _0x18afef=formatTeksPenjelasan(_0x355ec6[_0x3b0ab4]),_0x33d3d4=document[_0x1a3585(0x3e0)]('print_'+_0x3b0ab4);if(_0x33d3d4)_0x33d3d4[_0x1a3585(0x3c2)]=_0x18afef;let _0x531f94=document[_0x1a3585(0x3e0)](_0x1a3585(0x237)+_0x3b0ab4);if(_0x531f94){let _0x17a627=_0x531f94[_0x1a3585(0x21a)](_0x1a3585(0x3e7))&&_0x531f94['getAttribute'](_0x1a3585(0x3e7))['includes']('bukaKeterangan');if(_0x17a627)_0x18afef[_0x1a3585(0x2f9)]()===''?(_0x531f94[_0x1a3585(0x208)]=_0x1a3585(0x256),_0x531f94[_0x1a3585(0x238)]['cssText']='font-family:Arial;\x20font-size:11px;\x20padding:\x204px\x208px;\x20background-color:\x20#ffffff;\x20border:\x201px\x20solid\x20#e2e8f0;\x20color:\x20#64748b;\x20border-radius:\x204px;',_0x531f94[_0x1a3585(0x3c2)]=_0x1a3585(0x245)):(_0x531f94[_0x1a3585(0x208)]=_0x1a3585(0x353),_0x531f94['style'][_0x1a3585(0x403)]=_0x1a3585(0x2f7),_0x531f94[_0x1a3585(0x3c2)]=_0x1a3585(0x383));else{if(typeof perbaruiTombolStatus===_0x1a3585(0x269))perbaruiTombolStatus(_0x3b0ab4,_0x18afef,_0x49e667);}}}}});if(_0x1837c7)_0x579830[_0x4419bc(0x208)]=_0x4419bc(0x417),_0x579830[_0x4419bc(0x3c2)]=_0x4419bc(0x32d),setTimeout(()=>{const _0x51355a=_0x4419bc;_0x579830['className']=_0x55d180,_0x579830[_0x51355a(0x3c2)]=_0x27e20a;},0xfa0);else _0x13b99f&&(_0x579830[_0x4419bc(0x208)]=_0x55d180,_0x579830[_0x4419bc(0x3c2)]=_0x27e20a);}})[_0x377d9f(0x401)](()=>{_0x13b99f&&(_0x579830['className']=_0x55d180,_0x579830['innerHTML']=_0x27e20a);});}function formatTeksPenjelasan(_0x43d100){const _0x2763d5=_0x5ce5bd;if(!_0x43d100||_0x43d100==='[]'||_0x43d100==='\x22\x22')return'';let _0x48fc18=_0x43d100;try{let _0x46fb24=JSON[_0x2763d5(0x459)](_0x43d100),_0x498ba3='';if(Array['isArray'](_0x46fb24)&&_0x46fb24['length']>0x0&&_0x46fb24[0x0]['items']!==undefined)_0x46fb24[_0x2763d5(0x227)](_0x32416e=>{const _0x4916ce=_0x2763d5;if(_0x32416e['sub'])_0x498ba3+=_0x32416e[_0x4916ce(0x206)]+'\x0a\x0a';_0x32416e[_0x4916ce(0x311)]&&_0x32416e[_0x4916ce(0x311)][_0x4916ce(0x227)](_0x1c3027=>{const _0x24804d=_0x4916ce;let _0x4f2a85=_0x1c3027['s']?'\x20'+_0x1c3027['s']:'';_0x498ba3+='-\x20'+_0x1c3027['u']+_0x24804d(0x3ab)+_0x1c3027['v']+'\x20'+_0x4f2a85+_0x24804d(0x317)+_0x1c3027['h']['toLocaleString'](_0x24804d(0x29d))+_0x24804d(0x397)+_0x1c3027['t']['toLocaleString'](_0x24804d(0x29d))+'</em></div>';}),_0x498ba3+='\x0a';}),_0x48fc18=_0x498ba3[_0x2763d5(0x2f9)]();else{if(_0x46fb24&&_0x46fb24[_0x2763d5(0x311)]){let _0x150d44=_0x46fb24['sub']||_0x46fb24[_0x2763d5(0x358)]||'';if(_0x150d44)_0x498ba3+=_0x150d44+'\x0a\x0a';_0x46fb24[_0x2763d5(0x311)][_0x2763d5(0x227)](_0x5bceb3=>{const _0x5d0c21=_0x2763d5;let _0x5ed302=_0x5bceb3['s']?'\x20'+_0x5bceb3['s']:'';_0x498ba3+='-\x20'+_0x5bceb3['u']+_0x5d0c21(0x3ab)+_0x5bceb3['v']+'\x20'+_0x5ed302+'\x20x\x20Rp\x20'+_0x5bceb3['h'][_0x5d0c21(0x3e6)](_0x5d0c21(0x29d))+'\x20=\x20Rp\x20'+_0x5bceb3['t'][_0x5d0c21(0x3e6)]('id-ID')+'</em></div>';}),_0x48fc18=_0x498ba3;}else{if(_0x46fb24&&_0x46fb24[_0x2763d5(0x2e5)]==='auto')_0x48fc18=_0x46fb24['data'][_0x2763d5(0x2bf)](_0x13ad19=>{const _0x73ec09=_0x2763d5;let _0x4d60db=_0x13ad19['s']?'\x20'+_0x13ad19['s']:'';return'-\x20'+_0x13ad19['u']+':\x20'+_0x13ad19['v']+_0x4d60db+_0x73ec09(0x1ed)+_0x13ad19['h'][_0x73ec09(0x3e6)]('id-ID')+_0x73ec09(0x247)+_0x13ad19['t'][_0x73ec09(0x3e6)](_0x73ec09(0x29d));})[_0x2763d5(0x27d)]('\x0a');else _0x46fb24&&_0x46fb24['mode']===_0x2763d5(0x22f)&&(_0x48fc18=_0x46fb24['data']);}}}catch(_0x31c5cc){}return _0x48fc18;}let waktuAktivitasTerakhir=Date[_0x5ce5bd(0x2ec)](),statusTabAktif=!![];function resetWaktuAktivitas(){const _0xfbec68=_0x5ce5bd;waktuAktivitasTerakhir=Date[_0xfbec68(0x2ec)]();}function _0x5b96(){const _0x376d4f=['</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>','induk','defisit','hidden','target','ttd-nama','\x20baris\x20data\x20berhasil\x20dikembalikan\x20dari\x20file\x20Backup\x20Lokal\x20Anda.','pointerEvents','lastIndexOf','jasa','PENJELASAN\x20SKPD','floor','#f59e0b','.pdf-footer-pro','method','Server\x20Offline','Nanti\x20Saja','utils','Silakan\x20isi\x20ulang\x20tanda\x20tangan\x20baru.','bangunan','Catatan\x20akan\x20dilampirkan\x20sebagai\x20penjelas\x20nilai\x20kosong\x20ini.','catch','success','cssText','shift','string','<i\x20class=\x22fa-regular\x20fa-eye\x22></i>','Menunggu','.input-database.is-dirty','descSmart','sqrt','lainnya','lembar','display:none;\x20position:absolute;\x20z-index:10000;\x20max-height:220px;\x20overflow-y:auto;\x20font-family:Arial;\x20font-size:12px;\x20background:#ffffff;\x20border:1px\x20solid\x20#94a3b8;\x20border-radius:6px;\x20box-shadow:0\x2010px\x2025px\x20rgba(0,0,0,0.15);','style-bold','Tersimpan\x20di\x20cloud','height','pad','opts','BERTAMBAH/(BERKURANG)','loading','BELANJA\x20OPERASI\x20(TANPA\x20PERJALANAN\x20DINAS)','url','connection-badge\x20online\x20shadow-sm','font-family:Arial;\x20font-size:11px;\x20font-weight:700;\x20padding:\x204px\x208px;\x20background-color:\x20#fde047;\x20border:\x201px\x20solid\x20#eab308;\x20color:\x20#713f12;\x20border-radius:\x204px;','Belopa,\x2030\x20Juni\x20','#3085d6','Password\x20tidak\x20boleh\x20kosong!','lastElementChild','JUMLAH\x20MELEBIHI\x20REALISASI','barang','metaOrganisasi','Perhitungan\x20Rp','\x20SESUAI,\x20Silahkan\x20Simpan\x20Rincian\x20Penjelasan\x20Anda','bagi\x20hasil','\x20\x20\x20','Belum\x20ada\x20data\x20rincian\x20yang\x20diketik\x20untuk\x20di-backup.','Terdeteksi\x20Ketikan\x20Ngawur\x20(Konsonan\x20Beruntun)','modalKetTargetRow','bantuan\x20sosial','Rp\x20','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22text-end\x20text-dark\x22\x20style=\x22font-weight:\x20800;\x22>','containerRender','toISOString','pad-lvl-','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22uraian-cell\x22\x20style=\x22font-style:\x20italic;\x20color:\x20#555555;\x20font-size:\x209px;\x20padding-top:\x205px;\x20vertical-align:\x20top\x20!important;\x22></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22cell-penjelasan\x22\x20style=\x22vertical-align:\x20top\x20!important;\x20padding-top:\x205px\x20!important;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22print-view-text\x22\x20style=\x22margin-top:\x200;\x22>','badgeLiveReader','File\x20Backup\x20berhasil\x20diunduh\x20(','Akses\x20Ilegal','Ya,\x20Timpa\x20Data\x20Saya\x20(Hapus\x20Draf)','Total\x20Rp','BELANJA\x20TRANSFER','!cols','<td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td><td\x20style=\x22border-bottom:\x202px\x20solid\x20#000\x20!important;\x22></td>','backupBrankasDraf','includes','body','filter','.group-container','File\x20backup\x20ini\x20memiliki\x20ketidaksesuaian:','\x20Lokal','satuan','.harga','title','Data\x20tidak\x20ditemukan','sewa','name','KAMUS_SATUAN_LUWU','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20mt-2\x20text-start\x22\x20style=\x22font-family:\x20Arial;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22form-label\x20fw-bold\x20text-secondary\x22\x20style=\x22font-size:12px;\x22>Masukkan\x20Password\x20Akses\x20SKPD:</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22swal-input-password\x22\x20class=\x22form-control\x20form-control-lg\x20shadow-none\x20border-secondary\x22\x20placeholder=\x22Ketik\x20sandi\x20disini...\x22\x20style=\x22font-size:\x2014px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-outline-secondary\x22\x20type=\x22button\x22\x20id=\x22togglePassword\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-regular\x20fa-eye\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-2\x20text-muted\x22\x20style=\x22font-size:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-circle-info\x20text-primary\x20me-1\x22></i>\x20Sesi\x20akan\x20aktif\x20selama\x20browser\x20belum\x20ditutup.\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','info','warn','Maaf,\x20file\x20yang\x20diupload\x20bukan\x20Excel.\x20Silakan\x20gunakan\x20file\x20LRA\x20resmi!','.input-database','Gagal','Gagal\x20Membaca\x20File!','Mari\x20Mulai\x20Mengisi\x20Rincian\x20Belanja','tahun\x20anggaran','&kode_skpd=','.xlsx','PAD_RAW_DATA','none','\x20baris\x20penjelasan\x20berhasil\x20dimuat\x20dari\x20server.','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22page-number-indicator\x22>Halaman\x20','push','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22text-end\x22\x20style=\x22','border-top:\x201px\x20solid\x20#000\x20!important;','Baik,\x20Saya\x20Mengerti','restoreBrankasDraf','aoa_to_sheet','parse','jalan','Masuk\x20<i\x20class=\x22fa-solid\x20fa-arrow-right-to-bracket\x20ms-1\x22></i>','SheetNames','operasi','oriReaStr','not_found','btt','nama','dataset','Penjelasan\x20Anda\x20100%\x20mirip\x20dengan\x20rincian\x20yang\x20baru\x20saja\x20Anda\x20simpan.\x20Bedakan\x20isinya!','Error','local_only','Terhubung','fa-solid\x20fa-copy\x20fs-4\x20me-3\x20text-warning','toUpperCase','p-2\x20border-bottom\x20text-secondary\x20fw-bold\x20d-flex\x20justify-content-between\x20align-items-center','\x20x\x20Rp','fire','offline','5.3','Selamat\x20bekerja!','textContent','focus','<i\x20class=\x22fa-regular\x20fa-eye-slash\x22></i>','URL\x20Google\x20Apps\x20Script\x20belum\x20diset.',')\x20beda\x20dengan\x20tahun\x20aktif\x20(','Gagal\x20koneksi:\x20','transfer','row','display','kab.\x20luwu','.tbody-render','contains','<br>-\x20Tahun\x20file\x20(','Sedang\x20Menarik\x20Data','setItem','Info',')\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-regular\x20fa-pen-to-square\x20me-1\x22\x20style=\x22color:\x20#475569;\x22></i>\x20Isi\x20Penjelasan\x20Rincian\x20Belanja\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22print_','532834UhYxSw','padLevel','3haqnQH','sub','\x20text-dark','className','2582723ziKZSV','value','off','Terdeteksi\x20Ketikan\x20Ngawur\x20(Kata\x20Terlalu\x20Panjang)','resolve','result','.0000','login','\x22\x20class=\x22print-view-text\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22hidden\x22\x20id=\x22val_','nip','Gagal\x20memulihkan\x20memori\x20lokal:','unshift','btnOuter','read','&#039;','btnSimpanFinal','status','getAttribute','boxShadow','</textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20mb-2\x20fw-bold\x20text-secondary\x20pb-1\x22\x20style=\x22font-size:\x2010px;\x20font-family:\x20Arial,\x20sans-serif;\x20text-transform:\x20uppercase;\x20letter-spacing:\x200.5px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-4\x22>Uraian\x20Rincian\x20Belanja</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-2\x20text-center\x22>Vol</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-2\x20text-center\x22>Satuan</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-3\x20text-end\x22>Harga\x20(Rp)</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-1\x20text-end\x22>Total</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22rows_','left','File\x20rusak\x20atau\x20tidak\x20dapat\x20dibaca\x20oleh\x20sistem.\x20Silakan\x20download\x20ulang\x20dari\x20SIPD.','kendaraan','alertSmart','\x20Offline','BELANJA\x20DAERAH','bg-secondary','no-store','</b>.\x20Masih\x20Kurang\x20Senilai:\x20<b>Rp','headerNamaSkpd','forEach','blur','2px\x20solid\x20#000\x20!important','Gagal\x20Menyimpan','kode','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22text-center\x22\x20style=\x22','.print-page','total','manual','TTD_NIP_','1738432vqQUpy','honor','anggaran','Gagal\x20terhubung\x20ke\x20server\x20di\x20tengah\x20proses.\x20Silakan\x20periksa\x20internet\x20Anda\x20dan\x20coba\x20lagi.','ttd-nip','\x27,\x20\x27','btn_','style','modalTargetRow','5.4','alert\x20alert-pro\x20alert-pro-info\x20d-flex\x20align-items-center\x20mb-0\x20py-2\x20px-3','&lt;','atk','uraian\x20urusan,\x20organisasi','page-pro','mobileBlockerLRA','0.5','font-family:Arial;\x20font-size:11px;\x20padding:\x204px\x208px;\x20background-color:\x20#ffffff;\x20border:\x201px\x20solid\x20#e2e8f0;\x20color:\x20#64748b;\x20border-radius:\x204px;','Berhasil','<i\x20class=\x22fa-solid\x20fa-power-off\x20me-1\x22></i>\x20YA','<i\x20class=\x22fa-regular\x20fa-comment-dots\x20text-muted\x20me-1\x22></i>','#fff','\x20=\x20Rp','addEventListener','penjelasan','token=','irigasi','hapusGarisAtas','_2026.xlsx','onload','&warm=true&t=','KESELURUHAN','load','createElement','surplus','#0f172a','text','btn\x20btn-sm\x20w-100\x20text-start','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20class=\x22form-control\x20textarea-smart\x20p-2\x20uraian\x22\x20rows=\x222\x22\x20placeholder=\x22Masukkan\x20Nama\x20Belanja\x20Anda...\x22\x20style=\x22font-size:\x2012px;\x20resize:\x20vertical;\x22>','children','test','Peringatan','borderBottom','408oDPtTq','cetak','Menyiapkan\x20pengiriman\x20data\x20ke\x20server...','setAttribute','\x22\x20style=\x22font-size:\x2012px;\x20background-color:\x20#f8fafc;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20form-control-sm\x20text-center\x20border-light-subtle\x20shadow-none\x20satuan\x22\x20placeholder=\x22Satuan\x22\x20value=\x22','tanah','SKPD','pageObserver','blur(10px)\x20grayscale(20%)','<tr><td\x20colspan=\x227\x22\x20class=\x22text-center\x20text-muted\x20py-5\x22\x20style=\x22font-family:\x20Arial,\x20sans-serif;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-triangle-exclamation\x20text-danger\x20mb-3\x22\x20style=\x22font-size:\x2050px;\x22></i><br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h5\x20class=\x22fw-bold\x20text-dark\x22>DOKUMEN\x20DITOLAK:\x20Format\x20Tidak\x20Dikenali</h5>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20File\x20Excel\x20yang\x20Anda\x20upload\x20tidak\x20memiliki\x20struktur\x20Kode\x20Rekening\x20SKPD\x20standar\x20SIPD\x20Pemerintah\x20Daerah.<br>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Sistem\x20membatalkan\x20proses\x20agar\x20database\x20tidak\x20rusak\x20oleh\x20data\x20yang\x20salah.\x0a\x20\x20\x20\x20\x20\x20\x20\x20</td></tr>','LRA_TOKEN','subKategori','querySelector','function','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22uraian-cell\x20text-center\x20text-uppercase\x20text-dark\x22\x20style=\x22font-size:\x2012px;\x20font-weight:\x20800;\x20letter-spacing:\x200.5px;\x22>Total\x20','startsWith','#containerRender\x20tr','bg-success','Harap\x20upload\x20LRA\x20Excel\x20dari\x20SIPD\x20terlebih\x20dahulu\x20di\x20layar\x20utama\x20sebelum\x20melakukan\x20Restore!','smooth','\x22\x20style=\x22','?action=load&tahun=','bg-warning','borderRadius','Rincian\x20Realisasi\x20VALID','fa-solid\x20fa-check-double\x20fs-4\x20me-3\x20text-success','files','Silakan\x20upload\x20file\x20Excel\x20LRA\x20terlebih\x20dahulu.','split','#d33','.container-fluid,\x20.print-page','Membaca\x20File\x20Data\x20Belanja\x20Anda...','LRA_AUTH_KEY','join','visibilitychange','position:\x20relative;\x20width:\x20330mm;\x20height:\x20215.9mm;\x20padding:\x2010mm\x205mm\x2010mm\x2015mm;\x20margin:\x200\x20auto\x2020px\x20auto;\x20background:\x20#fff;\x20box-sizing:\x20border-box;\x20overflow:\x20hidden;\x20page-break-after:\x20always;','boxSaranLRA','</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td>Unit\x20Organisasi</td><td>','scrollY','<i\x20class=\x22fa-solid\x20fa-unlock-keyhole\x20me-1\x22></i>\x20Perpanjang\x20Sesi','clickConfirm','endsWith','TTD_NAMA_','getFullYear','\x22\x20class=\x22btn\x20btn-sm\x20w-100\x20text-start\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22font-family:Arial;\x20font-size:11px;\x20font-weight:600;\x20padding:\x204px\x208px;\x20background-color:\x20#ffffff;\x20border:\x201px\x20solid\x20#94a3b8;\x20color:\x20#1e293b;\x20border-radius:\x204px;\x20transition:\x20all\x200.2s;\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22bukaAsisten(\x27','is-dirty','number','font-family:Arial;\x20font-size:11px;\x20font-weight:700;\x20padding:\x204px\x208px;\x20background-color:\x20#22c55e;\x20border:\x201px\x20solid\x20#15803d;\x20color:\x20#ffffff;\x20border-radius:\x204px;','show','fa-solid\x20fa-xmark\x20text-danger','4530LHNnIo','oriAng','gedung','rekapitulasi','Sheets','password','removeItem','Gagal\x20koneksi,\x20pakai\x20data\x20lokal','bkadakuntansiluwu.github.io','disconnect','update','</textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20form-control-sm\x20text-center\x20border-light-subtle\x20shadow-none\x20vol\x22\x20placeholder=\x22Vol\x22\x20oninput=\x22kalkulasiKombinasi()\x22\x20value=\x22','localhost','Batal\x20(Saya\x20Mau\x20Simpan\x20Dulu)','href','id-ID','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22badgeInfoTotalHalaman\x22\x20class=\x22badge\x20ms-2\x20px-2\x20py-1\x22\x20style=\x22background-color:\x20#0f172a;\x20color:\x20#e2e8f0;\x20border:\x201px\x20solid\x20#334155;\x20font-size:\x2011px;\x20border-radius:\x206px;\x20box-shadow:\x200\x202px\x204px\x20rgba(0,0,0,0.2);\x20vertical-align:\x20text-bottom;\x20letter-spacing:\x200.5px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-copy\x20me-1\x22\x20style=\x22color:\x20#64748b;\x22></i>\x20Total:\x20','data-realisasi','ceil','Halaman\x20Sedang\x20diproses...','\x27,\x20','warning','jumlah','KAMUS_HARGA_LUWU','10px','observe','remove','remainingHTML','\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22table-lra\x22\x20style=\x22','json','</em></div>','match','Gagal\x20terhubung\x20ke\x20server.\x20Periksa\x20koneksi\x20internet\x20Anda,\x20lalu\x20coba\x20Tarik\x20Data\x20kembali.','Tunggu...','slice','metaUrusan','KAMUS_VOL_LUWU','vol','excelFile','font-family:Arial;\x20font-size:11px;\x20padding:\x204px\x208px;\x20background-color:\x20#f8fafc;\x20border:\x201px\x20solid\x20#cbd5e1;\x20color:\x20#334155;\x20border-radius:\x204px;','ISI_DENGAN_URL','pop','LRA_RAW_DATA','Batal','fa-solid\x20fa-info-circle\x20fs-4\x20me-3\x20text-info','ANGGARAN\x20(Rp)','click','#f1f5f9','map','PENGGUNA\x20ANGGARAN','Format\x20Excel\x20Ilegal!','TTD_JAB_','connection-badge\x20checking\x20shadow-sm','#f8fafc','connection-badge\x20offline\x20shadow-sm','textarea-smart','busy','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fw-bold\x22>','delete_ttd','message','stopPropagation','borderTop','Berhasil\x20Login','beserta\x20hasil','getItem','unknown','option','source','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-uppercase\x22>','Terjadi\x20kesalahan\x20sistem.','overflow','\x20-\x20','add','stringify','2px\x20solid\x20#000','BELUM\x20ADA\x20DATA\x20SKPD','previewControlBar','border-top:\x20none\x20!important;','div','printHtml','fa-solid\x20fa-circle-xmark\x20fs-4\x20me-3\x20text-danger','26064PlIIxn','0\x200\x200\x204px\x20rgba(239,68,68,0.4)','modalTargetRealisasi','childNodes','mode','fa-solid\x20fa-circle-exclamation\x20fs-4\x20me-3\x20text-danger','ttd-jabatan','LRA_LUWU','\x20Memuat','Format\x20Ditolak!','BELANJA\x20OPERASI','now','\x22\x20style=\x22font-size:\x2012px;\x20background-color:\x20#f8fafc;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20form-control-sm\x20text-end\x20border-light-subtle\x20shadow-none\x20harga\x22\x20placeholder=\x22Harga\x20(Rp)\x22\x20oninput=\x22formatRibuan(this);\x20kalkulasiKombinasi()\x22\x20value=\x22','touchstart','0,00','Peringatan\x20Data\x20Tidak\x20Cocok!','\x20rincian</b>\x20yang\x20belum\x20di-Simpan\x20Draft\x20ke\x20Cloud.<br><br>Jika\x20Anda\x20Menarik\x20Data\x20sekarang,\x20ketikan\x20Anda\x20tersebut\x20akan\x20<b>TERTIMPA/HILANG</b>\x20oleh\x20data\x20lama\x20dari\x20server.','.item-rows-container\x20.row','bg-danger','error','</b>\x20dari\x20<b>','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22cell-penjelasan\x22\x20style=\x22','font-family:Arial;\x20font-size:10px;\x20padding:\x204px\x208px;\x20background-color:\x20#f8fafc;\x20border:\x201px\x20solid\x20#cbd5e1;\x20color:\x20#334155;\x20border-radius:\x204px;','Hapus\x20saran\x20ini','trim','\x20Tersimpan','5.1','class','tahun','cloneNode','appendChild','harga','Harap\x20upload\x20LRA\x20Excel\x20terlebih\x20dahulu!','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22no-print\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22btn_','brankasDraf','NAMA\x20KEPALA\x20SKPD','fa-solid\x20fa-server','URAIAN','input','BELANJA\x20MODAL','font-family:Arial;\x20font-size:11px;\x20font-weight:700;\x20padding:\x204px\x208px;\x20background-color:\x20#fb923c;\x20border:\x201px\x20solid\x20#c2410c;\x20color:\x20#ffffff;\x20border-radius:\x204px;','Backup_LRA_LUWU_','.subtotal-txt','rowDynamicTotal','alert\x20alert-pro\x20alert-pro-success\x20d-flex\x20align-items-center\x20mb-0\x20py-2\x20px-3','row\x20mb-3\x20align-items-center\x20pb-2\x20border-bottom\x20border-light','then','continuation','items',':\x20-','classList','Periode\x201\x20Januari\x20','<i\x20class=\x22fa-solid\x20fa-circle-xmark\x20me-1\x22></i>\x20Jumlah\x20Lebih\x20(Selisih)\x20Senilai\x20Rp\x20','habis\x20pakai','\x20x\x20Rp\x20','.page-pro','synced','type','Sementara\x20Proses...','togglePassword','scroll','belum\x20ada\x20data\x20skpd','keypress','Gagal\x20menghubungi\x20server.\x20Periksa\x20koneksi\x20internet!','POST','display:\x20flex;\x20justify-content:\x20flex-end;\x20padding-right:\x2050px;\x20margin-top:\x2020px;','inputHalaman','toFixed','outerHTML','selected','Nilai\x20Realisasi\x20Nol\x20(0)','isConfirmed','tak\x20terduga','oriRea','isArray','font-family:Arial;\x20font-size:11px;\x20font-weight:700;\x20padding:\x204px\x208px;\x20background-color:\x20#ef4444;\x20border:\x201px\x20solid\x20#e11d48;\x20color:\x20#881337;\x20border-radius:\x204px;','<i\x20class=\x22fa-solid\x20fa-check-double\x22></i>\x20Data\x20Tim\x20Masuk!','onmouseout','finally','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x22\x20style=\x22width:\x20250px;\x20font-family:\x20Arial,\x20sans-serif;\x20font-size:\x2011px;\x20color:\x20#000;\x20line-height:\x201.4;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x202px;\x22>','Upload\x20file\x20Excel\x20SIPD\x20terlebih\x20dahulu.','font-family:Arial;\x20font-size:11px;\x20font-weight:600;\x20padding:\x204px\x208px;\x20background-color:\x20#ffffff;\x20border:\x201px\x20solid\x20#94a3b8;\x20color:\x20#1e293b;\x20border-radius:\x204px;\x20transition:\x20all\x200.2s;','TEXT_NODE','style-header','removeChild','flex:\x201;\x20cursor:\x20pointer;\x20padding-right:\x2010px;','createDocumentFragment','hibah','listrik','5.2','\x22\x20data-realisasi=\x22','opacity','12IDBhVT','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<colgroup>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2018%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2024%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2011%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2011%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2011%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x204%;\x22>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<col\x20style=\x22width:\x2025%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</colgroup>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>KODE\x20REKENING</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>URAIAN</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>ANGGARAN\x20(Rp)</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>REALISASI\x20(Rp)</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>BERTAMBAH/<br>(BERKURANG)\x20(Rp)</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>(%)</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>PENJELASAN</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr\x20style=\x22font-size:\x209px;\x20background-color:\x20#fafafa;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20class=\x22tbody-render\x22></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22pdf-footer-pro\x22\x20style=\x22position:\x20absolute;\x20bottom:\x2010mm;\x20left:\x2015mm;\x20right:\x205mm;\x20display:\x20flex;\x20justify-content:\x20space-between;\x20font-size:\x2010px;\x20font-weight:\x20bold;\x20font-family:\x20Arial,\x20sans-serif;\x20border-top:\x202px\x20solid\x20#000;\x20padding-top:\x208px;\x20color:\x20#000;\x20background:\x20#fff;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>','&amp;','groupsContainer','getBoundingClientRect','Hapus\x20Tanda\x20Tangan?','ANGKA\x20SESUAI,\x20TAPI\x20PENJELASAN\x20DITOLAK!','\x22\x20style=\x22font-size:\x2012px;\x20background-color:\x20#f8fafc;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-1\x20d-flex\x20flex-column\x20align-items-end\x20justify-content-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fw-bold\x20subtotal-txt\x20text-dark\x20mb-1\x22\x20style=\x22font-size:\x2012px;\x20letter-spacing:\x200.3px;\x22>0</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn\x20btn-sm\x20p-0\x20border-0\x20shadow-none\x20text-danger\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22opacity:\x200.5;\x20transition:\x20all\x200.2s\x20ease-in-out;\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseover=\x22this.style.opacity=\x271\x27;\x20this.style.transform=\x27scale(1.1)\x27;\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onmouseout=\x22this.style.opacity=\x270.5\x27;\x20this.style.transform=\x27scale(1)\x27;\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22this.parentElement.parentElement.remove();\x20kalkulasiKombinasi();\x22\x20title=\x22Hapus\x20Baris\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-regular\x20fa-trash-can\x22\x20style=\x22font-size:\x2014px;\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','flex','uraian','lastChild','hostname','block','alert\x20alert-pro\x20alert-pro-warning\x20d-flex\x20align-items-center\x20mb-0\x20py-2\x20px-3','Melebihi\x20Nilai\x20Realisasi\x20Sebesar\x20<b>Rp','closest','last_saved_text','<i\x20class=\x22fa-solid\x20fa-circle-exclamation\x20me-1\x22></i>\x20Draf:\x20','<br><br>Apakah\x20Anda\x20yakin\x20ingin\x20memaksakan\x20restore?\x20Data\x20baris\x20yang\x20tidak\x20cocok\x20akan\x20diabaikan\x20oleh\x20sistem.','Teks\x20Kurang\x20(Min.\x2015\x20Kata)','[X]\x20Gagal\x20cek\x20server.\x20Pastikan\x20internet\x20aktif!','jabatan','btn\x20btn-sm\x20w-100\x20text-start\x20fw-bold','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20border-bottom:\x203px\x20solid\x20#000;\x20padding-bottom:\x2010px;\x20margin-bottom:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22img/luwu.png\x22\x20style=\x22height:\x2065px;\x20width:\x20auto;\x20margin-right:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex:\x201;\x20text-align:\x20center;\x20margin-left:\x20-65px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22fw-bold\x20m-0\x22\x20style=\x22letter-spacing:\x201px;\x20font-size:\x2016px;\x22>PEMERINTAH\x20KABUPATEN\x20LUWU</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h5\x20class=\x22fw-bold\x20m-0\x20mt-1\x22\x20style=\x22font-size:\x2013px;\x22>PENJABARAN\x20LAPORAN\x20REALISASI\x20ANGGARAN\x20PENDAPATAN\x20DAN\x20BELANJA\x20DAERAH</h5>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h6\x20class=\x22fw-bold\x20mt-1\x22\x20style=\x22font-size:\x2013px;\x22>','<strong\x20style=\x22font-family:\x20Arial;\x22>Login\x20Aplikasi\x20LRA\x20<i\x20class=\x22fa-solid\x20fa-lock\x20text-dark\x20ms-1\x22></i></strong>','<i\x20class=\x22fa-solid\x20fa-eye\x20me-1\x22></i>\x20Lembaran\x20:\x20','group-container\x20border\x20bg-white\x20p-4\x20mb-4\x20position-relative\x20shadow-sm','judul','nodeType','.csv','cursor:\x20pointer;\x20padding:\x204px\x208px;\x20border-radius:\x204px;\x20opacity:\x200.5;\x20transition:\x200.2s;\x20font-size:\x2014px;','subsidi','selectTahun','reject','inline-block','insertBefore','bukaKeterangan','toLowerCase','kategori','\x27)\x22\x20style=\x22font-size:\x2011px;\x20border-radius:\x206px;\x20border-style:\x20dashed;\x20border-width:\x201px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-solid\x20fa-plus\x20me-1\x22></i>\x20Tambah\x20Baris\x20Rincian\x0a\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20','1129295PBtvQo','modalKetUraian','Koneksi\x20Terputus','transparent','teksKoneksi','createObjectURL','SURPLUS\x20/\x20(DEFISIT)','Server\x20sedang\x20antre\x20ketat.\x20Sebagian\x20data\x20Anda\x20tertunda,\x20silakan\x20klik\x20Simpan\x20Draft\x20lagi\x20sebentar\x20lagi.','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22height:\x2055px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22fw-bold\x20text-decoration-underline\x22>','afterprint','fa-solid\x20fa-wifi','sheet_to_json','font-family:Arial;\x20font-size:11px;\x20font-weight:700;\x20padding:\x204px\x208px;\x20background-color:\x20#ef4444;\x20border:\x201px\x20solid\x20#b91c1c;\x20color:\x20#ffffff;\x20border-radius:\x204px;','\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa-regular\x20fa-comment-dots\x20text-muted\x20me-1\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22print_','secret_key=','badge\x20','backgroundColor','modalKetTextarea','substring','oriAngStr','kertas','iconSmart','perjalanan','empty','_v5YieldMs','color','token','oriSelStr','modal','Password\x20Salah!\x20Akses\x20ditolak.','<i\x20class=\x22fa-solid\x20fa-check\x20text-muted\x20me-1\x22></i>\x20Keterangan\x20Disimpan','Terdeteksi\x20Ketikan\x20Ngawur\x20(Karakter\x20Berulang)','Belum\x20ada\x20draf\x20baru\x20yang\x20diketik\x20untuk\x20disimpan.','book_new','Silakan\x20ketik\x20nama\x20barang\x20atau\x20jasa\x20yang\x20dibayar.\x20Pastikan\x20total\x20hitungannya\x20pas\x20dengan\x20Nilai\x20Realisasi\x20di\x20atas.','selectPeriode','<i\x20class=\x22fa-solid\x20fa-rotate\x20fa-spin\x22></i>\x20Menyinkronkan...','fa-solid\x20fa-triangle-exclamation','margin-top:\x2035px;','data-rowid','transition:0.2s;\x20background:#fff;','.json','oriPerStr','Enter','width','</b>.','aset','showLoading','data','bantuan\x20keuangan','\x20=\x20Rp\x20','Jalur\x20Sedang\x20Penuh','NIP.\x20xxxxxxxx','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','modalRealisasiTxt','readAsArrayBuffer','File\x20backup\x20rusak\x20atau\x20gagal\x20dibaca.','Data\x20Kosong','preview-active','length','selectFilterBelanja','REALISASI\x20(Rp)','showValidationMessage','alert\x20alert-pro\x20alert-pro-danger\x20d-flex\x20align-items-center\x20mb-0\x20py-2\x20px-3','gaji','27223eiLhnd','array','Mengirim\x20paket\x20<b>','book_append_sheet','kode_skpd','\x0a<div\x20style=\x22border-bottom:\x201px\x20dashed\x20#666;\x20padding-bottom:\x204px;\x20margin-bottom:\x204px;\x22><em>','hide','location','Sedang\x20ambil\x20data\x20dari\x20cloud','\x20s/d\x2030\x20Juni\x20','load_ttd','KAMUS_LRA_LUWU','Juni','application/json','createTextNode','.xls','\x22\x20class=\x22btn\x20btn-sm\x20w-100\x20text-start\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20style=\x22font-family:Arial;\x20font-size:11px;\x20padding:\x204px\x208px;\x20background-color:\x20#ffffff;\x20border:\x201px\x20solid\x20#e2e8f0;\x20color:\x20#64748b;\x20border-radius:\x204px;\x20transition:\x20all\x200.2s;\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onclick=\x22bukaKeterangan(\x27','TAHUN\x20ANGGARAN\x20','abs','bottom','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22','position:fixed;\x20top:0;\x20left:0;\x20width:100%;\x20height:100%;\x20background-color:#0f172a;\x20z-index:999999;\x20display:flex;\x20flex-direction:column;\x20align-items:center;\x20justify-content:center;\x20text-align:center;\x20padding:30px;\x20color:#f8fafc;\x20font-family:Arial,\x20sans-serif;','Hanya\x20tersimpan\x20di\x20browser\x20ini','ttdStatusBadge','bg-light','operasi_non_perjalanan','printWrapper','replace','innerHTML','val_','&quot;','.uraian','Sandi\x20Salah!\x20Coba\x20lagi.','btnSimpanDraft','\x20sesuai,\x20tapi\x20<b>','statusKoneksi','Offline\x20(URL\x20Kosong)','Menghapus...','readAsText','print_','134660UOQIRD','auto','\x22\x20data-realisasi=\x220\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','jaringan','BELANJA\x20TAK\x20TERDUGA','https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec','<i\x20class=\x22fa-solid\x20fa-check-double\x20me-1\x22></i>\x20Hanya\x20Tersimpan\x20Sebagai\x20Catatan','Modal','_v5YieldInterval','</b>.\x20Periksa\x20angka\x20Anda!','from','innerWidth','Aplikasi\x20dijalankan\x20dari\x20server\x20tidak\x20resmi!\x20Koneksi\x20diblokir.','isIntersecting','substr','Terjadi\x20kesalahan.','18TAnnBy','Aplikasi\x20dijalankan\x20dari\x20server\x20tidak\x20resmi!\x20Tarik\x20data\x20ditolak.','getElementById','innerText','\x22\x20class=\x22input-database\x22\x20data-rowid=\x22','#fee2e2','swal-input-password','.container-fluid','toLocaleString','onclick','querySelectorAll','semua','top','uraian-cell\x20text-center\x20text-uppercase\x20fw-bold\x20text-dark'];_0x5b96=function(){return _0x376d4f;};return _0x5b96();}document[_0x5ce5bd(0x248)]('mousemove',resetWaktuAktivitas),document[_0x5ce5bd(0x248)](_0x5ce5bd(0x31f),resetWaktuAktivitas),document['addEventListener'](_0x5ce5bd(0x31d),resetWaktuAktivitas),document[_0x5ce5bd(0x248)](_0x5ce5bd(0x2ee),resetWaktuAktivitas),document[_0x5ce5bd(0x248)](_0x5ce5bd(0x27e),function(){const _0x3af32d=_0x5ce5bd;statusTabAktif=!document[_0x3af32d(0x3ef)],statusTabAktif&&kodeSkpdAktif!==''&&(resetWaktuAktivitas(),tarikDataSiluman(![]));});function jalankanWekerSiluman(){let _0xc100f9=0x2bf20+Math['floor'](Math['random']()*0xea60);setTimeout(function(){let _0x41db48=Date['now']()-waktuAktivitasTerakhir;kodeSkpdAktif!==''&&statusTabAktif&&_0x41db48<=0x493e0&&tarikDataSiluman(![]),jalankanWekerSiluman();},_0xc100f9);}function perpanjangSesiMulus(){const _0x57084e=_0x5ce5bd;Swal[_0x57084e(0x1ee)]({'title':'Waktu\x20Sesi\x20Berakhir\x20(8\x20Jam)','text':'Draf\x20ketikan\x20Anda\x20sangat\x20aman\x20di\x20layar!\x20Silakan\x20masukkan\x20kembali\x20sandi\x20SKPD\x20untuk\x20memperpanjang\x20sesi\x20lembur\x20Anda:','input':_0x57084e(0x293),'inputAttributes':{'autocapitalize':_0x57084e(0x20b),'autocorrect':_0x57084e(0x20b)},'showCancelButton':!![],'confirmButtonText':_0x57084e(0x283),'cancelButtonText':_0x57084e(0x3fc),'showLoaderOnConfirm':!![],'allowOutsideClick':![],'preConfirm':_0x3745ed=>{const _0x19e405=_0x57084e;if(!_0x3745ed)return Swal['showValidationMessage']('Sandi\x20wajib\x20diisi!'),![];return fetch(SCRIPT_URL_DATABASE,{'method':_0x19e405(0x321),'body':JSON[_0x19e405(0x2d9)]({'secret_key':_0x3745ed,'action':_0x19e405(0x210)})})[_0x19e405(0x30f)](_0x4feeff=>_0x4feeff[_0x19e405(0x2ac)]())[_0x19e405(0x30f)](_0x2af407=>{const _0x388c64=_0x19e405;if(_0x2af407['status']===_0x388c64(0x2f4))return Swal[_0x388c64(0x3a3)](_0x388c64(0x3c6)),![];return _0x2af407;})['catch'](_0x3e0bb7=>{const _0x25c6d0=_0x19e405;return Swal[_0x25c6d0(0x3a3)](_0x25c6d0(0x320)),![];});}})[_0x57084e(0x30f)](_0x5457e9=>{const _0x36f1cc=_0x57084e;_0x5457e9[_0x36f1cc(0x328)]&&(SESSION_TOKEN=_0x5457e9[_0x36f1cc(0x20a)][_0x36f1cc(0x37f)],sessionStorage[_0x36f1cc(0x200)](_0x36f1cc(0x266),SESSION_TOKEN),Swal[_0x36f1cc(0x1ee)]({'icon':_0x36f1cc(0x402),'title':'Sesi\x20Diperpanjang!','text':'Sistem\x20berhasil\x20diaktifkan\x20kembali.\x20Silakan\x20klik\x20tombol\x20\x22Simpan\x20Data\x22\x20untuk\x20melanjutkan\x20penyimpanan.','timer':0xfa0,'showConfirmButton':![]}));});}
+const SCRIPT_URL_DATABASE = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
+let SECRET_KEY = sessionStorage.getItem('LRA_AUTH_KEY') || "";
+let SESSION_TOKEN = sessionStorage.getItem('LRA_TOKEN') || "";
+let globalRawData = [];
+let kodeSkpdAktif = ""; 
+let modalAsisten;
+let modalKeterangan;
+
+// === STATE TTD CLOUD SYNC (v4.0 - SILENT, NO POPUP RIBET) ===
+let ttdSyncTimer = null;
+let ttdSyncInProgress = false;
+
+
+// === v5 ENGINE: Request Queue + Smart Fetch + Retry ===
+let _fetchQueue = [];
+let _fetchProcessing = false;
+
+function _enqueueRequest(opts) {
+    return new Promise(function(resolve, reject) {
+        _fetchQueue.push({ opts: opts, resolve: resolve, reject: reject });
+        _processQueue();
+    });
+}
+
+function _processQueue() {
+    if (_fetchProcessing || _fetchQueue.length === 0) return;
+    _fetchProcessing = true;
+    var item = _fetchQueue.shift();
+    _smartFetch(item.opts).then(item.resolve).catch(item.reject).finally(function() {
+        _fetchProcessing = false;
+        _processQueue();
+    });
+}
+
+function _smartFetch(opts) {
+    var url = opts.url || '';
+    var method = opts.method || 'GET';
+    var body = opts.body || null;
+    var maxRetries = opts.retries || 2;
+    var attempt = 0;
+
+    function doAttempt() {
+        return new Promise(function(resolve, reject) {
+            var fetchOpts = { method: method, headers: {} };
+            if (body) fetchOpts.body = body;
+
+            fetch(url, fetchOpts).then(function(r) {
+                return r.text().then(function(txt) {
+                    try { var json = JSON.parse(txt); resolve(json); }
+                    catch(e) { reject(new Error('Server response bukan JSON')); }
+                });
+            }).catch(function(err) {
+                attempt++;
+                if (attempt <= maxRetries) {
+                    var delay = Math.pow(2, attempt) * 1000;
+                    setTimeout(function() { doAttempt().then(resolve).catch(reject); }, delay);
+                } else {
+                    reject(err);
+                }
+            });
+        });
+    }
+    return doAttempt();
+}
+
+function _sanitizeInput(val) {
+    if (typeof val !== 'string') return val;
+    var s = val.trim();
+    if (s.length > 0 && (s[0] === '=' || s[0] === '+')) return s.substring(1).trim();
+    return s;
+}
+
+function amankanTeks(teks) {
+    if (!teks) return "";
+    return teks.replace(/&/g, "&amp;")
+               .replace(/</g, "&lt;")
+               .replace(/>/g, "&gt;")
+               .replace(/"/g, "&quot;")
+               .replace(/'/g, "&#039;");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    modalAsisten = new bootstrap.Modal(document.getElementById('modalPenjelasan'));
+    modalKeterangan = new bootstrap.Modal(document.getElementById('modalKeterangan'));
+    
+    isiDropdownTahunOtomatis();
+        tampilkanGerbangKeamanan();
+    
+        // [v5] MENCEGAH BUG TTD MENGUAP (KUNCI SEBELUM UPLOAD EXCEL)
+    ['ttd-jabatan', 'ttd-nama', 'ttd-nip'].forEach(id => {
+        document.getElementById(id).addEventListener('focus', function(e) {
+            if(!kodeSkpdAktif) {
+                e.target.blur(); // Usir kursor paksa
+                Swal.fire('Peringatan', 'Harap Upload file Excel LRA terlebih dahulu!', 'warning');
+            }
+        });
+    });
+        
+    // === SENSOR AUTO-SAVE TANDA TANGAN (LOCAL + CLOUD SYNC SILENT) ===
+    document.getElementById('ttd-jabatan').addEventListener('input', function() { 
+        if(kodeSkpdAktif) {
+            localStorage.setItem('TTD_JAB_' + kodeSkpdAktif, this.innerText); 
+            jadwalSyncTTDKeCloud();
+        }
+    });
+    document.getElementById('ttd-nama').addEventListener('input', function() { 
+        if(kodeSkpdAktif) {
+            localStorage.setItem('TTD_NAMA_' + kodeSkpdAktif, this.innerText); 
+            jadwalSyncTTDKeCloud();
+        }
+    });
+    document.getElementById('ttd-nip').addEventListener('input', function() { 
+        if(kodeSkpdAktif) {
+            localStorage.setItem('TTD_NIP_' + kodeSkpdAktif, this.innerText); 
+            jadwalSyncTTDKeCloud();
+        }
+    });
+});
+
+// =========================================================================
+// USER AGENT UNTUK AUDIT LOG (v4.0 - PAKAI NAMA TTD OTOMATIS)
+// =========================================================================
+function getUserAgentUntukAudit() {
+    let browser = navigator.userAgent.substring(0, 120);
+    let namaTTD = document.getElementById('ttd-nama') 
+        ? document.getElementById('ttd-nama').innerText.trim().substring(0, 40) 
+        : '';
+    return namaTTD ? `${namaTTD} | ${browser}` : browser;
+}
+
+function jadwalSyncTTDKeCloud() {
+    if (ttdSyncTimer) clearTimeout(ttdSyncTimer);
+    ttdSyncTimer = setTimeout(() => syncTTDKeCloud(), 2000);
+}
+
+function syncTTDKeCloud() {
+    if (!kodeSkpdAktif || ttdSyncInProgress) return;
+    
+    let tahun = document.getElementById('selectTahun').value;
+    let jabatan = document.getElementById('ttd-jabatan').innerText.trim();
+    let nama = document.getElementById('ttd-nama').innerText.trim();
+    let nip = document.getElementById('ttd-nip').innerText.trim();
+    
+    if (!jabatan && !nama && !nip) return;
+    
+    let payload = {
+        token: SESSION_TOKEN || undefined,
+        secret_key: SESSION_TOKEN ? undefined : SECRET_KEY,
+        action: 'save_ttd',
+        tahun: tahun,
+        kode_skpd: kodeSkpdAktif,
+        jabatan: jabatan,
+        nama: nama,
+        nip: nip,
+        updated_by: nama || 'unknown',
+        user_agent: getUserAgentUntukAudit()
+    };
+    
+    fetch(SCRIPT_URL_DATABASE, {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.status === 'success') {
+            perbaruiBadgeTTD('synced');
+        } else if (res.status === 'busy') {
+            perbaruiBadgeTTD('local_only');
+            setTimeout(() => syncTTDKeCloud(), 10000);
+        } else {
+            perbaruiBadgeTTD('local_only');
+        }
+    })
+    .catch(() => perbaruiBadgeTTD('offline'));
+}
+
+function muatTTDDariCloud() {
+    if (!kodeSkpdAktif) return;
+    
+    perbaruiBadgeTTD('loading');
+    
+    let tahun = document.getElementById('selectTahun').value;
+    
+    // Membungkus parameter keamanan di dalam payload yang elegan, bukan di URL
+    let payload = {
+        action: 'load_ttd',
+        tahun: tahun,
+        kode_skpd: kodeSkpdAktif,
+        token: SESSION_TOKEN || undefined,
+        secret_key: SESSION_TOKEN ? undefined : SECRET_KEY
+    };
+    
+    // Menggunakan metode POST untuk keamanan maksimal
+    fetch(SCRIPT_URL_DATABASE, {
+        method: "POST", 
+        body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(res => {
+        ttdSyncInProgress = true;
+        
+        if (res.status === 'success' && res.data) {
+            let data = res.data;
+            if (data.jabatan) document.getElementById('ttd-jabatan').innerText = data.jabatan;
+            if (data.nama) document.getElementById('ttd-nama').innerText = data.nama;
+            if (data.nip) document.getElementById('ttd-nip').innerText = data.nip;
+            
+            localStorage.setItem('TTD_JAB_' + kodeSkpdAktif, data.jabatan || '');
+            localStorage.setItem('TTD_NAMA_' + kodeSkpdAktif, data.nama || '');
+            localStorage.setItem('TTD_NIP_' + kodeSkpdAktif, data.nip || '');
+            
+            perbaruiBadgeTTD('synced', data.updated_at);
+        } else {
+            let localJab = localStorage.getItem('TTD_JAB_' + kodeSkpdAktif);
+            let localNma = localStorage.getItem('TTD_NAMA_' + kodeSkpdAktif);
+            let localNip = localStorage.getItem('TTD_NIP_' + kodeSkpdAktif);
+            
+            if (localJab || localNma || localNip) {
+                if (localJab) document.getElementById('ttd-jabatan').innerText = localJab;
+                if (localNma) document.getElementById('ttd-nama').innerText = localNma;
+                if (localNip) document.getElementById('ttd-nip').innerText = localNip;
+                setTimeout(() => syncTTDKeCloud(), 500);
+                perbaruiBadgeTTD('local_only');
+            } else {
+                document.getElementById('ttd-jabatan').innerText = 'PENGGUNA ANGGARAN';
+                document.getElementById('ttd-nama').innerText = 'NAMA KEPALA SKPD';
+                document.getElementById('ttd-nip').innerText = 'NIP. xxxxxxxx';
+                perbaruiBadgeTTD('empty');
+            }
+        }
+        
+        setTimeout(() => { ttdSyncInProgress = false; }, 500);
+    })
+    .catch(() => {
+        let localJab = localStorage.getItem('TTD_JAB_' + kodeSkpdAktif);
+        let localNma = localStorage.getItem('TTD_NAMA_' + kodeSkpdAktif);
+        let localNip = localStorage.getItem('TTD_NIP_' + kodeSkpdAktif);
+        
+        if (localJab) document.getElementById('ttd-jabatan').innerText = localJab;
+        if (localNma) document.getElementById('ttd-nama').innerText = localNma;
+        if (localNip) document.getElementById('ttd-nip').innerText = localNip;
+        
+        ttdSyncInProgress = false;
+        perbaruiBadgeTTD('offline');
+    });
+}
+
+function perbaruiBadgeTTD(status, updatedAt) {
+    let badge = document.getElementById('ttdStatusBadge');
+    if (!badge) return;
+    
+    let config = {
+        loading:    { class: 'bg-secondary', text: ' Memuat', title: 'Sedang ambil data dari cloud' },
+        synced:     { class: 'bg-success',   text: ' Tersimpan', title: 'Tersimpan di cloud' },
+        local_only: { class: 'bg-warning',   text: ' Lokal', title: 'Hanya tersimpan di browser ini' },
+        empty:      { class: 'bg-light',     text: ' Kosong', title: 'Ketik TTD untuk menyimpan' },
+        offline:    { class: 'bg-danger',    text: ' Offline', title: 'Gagal koneksi, pakai data lokal' }
+    };
+    
+    let cfg = config[status] || config.empty;
+    badge.className = `badge ${cfg.class} text-dark`;
+    badge.innerText = cfg.text;
+    badge.title = cfg.title;
+}
+
+function hapusTTDDariCloud() {
+    if (!kodeSkpdAktif) {
+        Swal.fire('Info', 'Silakan upload file Excel LRA terlebih dahulu.', 'info');
+        return;
+    }
+    
+    Swal.fire({
+        title: 'Hapus Tanda Tangan?',
+        text: 'Tanda tangan akan dihapus dari database. Anda dapat mengisi ulang setelah ini.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, Hapus',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (!result.isConfirmed) return;
+        
+        Swal.fire({ title: 'Menghapus...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+        
+        let payload = {
+            token: SESSION_TOKEN || undefined,
+            secret_key: SESSION_TOKEN ? undefined : SECRET_KEY,
+            action: 'delete_ttd',
+            tahun: document.getElementById('selectTahun').value,
+            kode_skpd: kodeSkpdAktif,
+            updated_by: document.getElementById('ttd-nama').innerText.trim() || 'unknown'
+        };
+        
+        fetch(SCRIPT_URL_DATABASE, {
+            method: "POST",
+            body: JSON.stringify(payload)
+        })
+        .then(r => r.json())
+        .then(res => {
+            if (res.status === 'success' || res.status === 'not_found') {
+                ttdSyncInProgress = true;
+                document.getElementById('ttd-jabatan').innerText = 'PENGGUNA ANGGARAN';
+                document.getElementById('ttd-nama').innerText = 'NAMA KEPALA SKPD';
+                document.getElementById('ttd-nip').innerText = 'NIP. xxxxxxxx';
+                
+                localStorage.removeItem('TTD_JAB_' + kodeSkpdAktif);
+                localStorage.removeItem('TTD_NAMA_' + kodeSkpdAktif);
+                localStorage.removeItem('TTD_NIP_' + kodeSkpdAktif);
+                
+                perbaruiBadgeTTD('empty');
+                setTimeout(() => { ttdSyncInProgress = false; }, 500);
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tanda Tangan Dihapus',
+                    text: 'Silakan isi ulang tanda tangan baru.',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            } else {
+                Swal.fire('Gagal', res.message || 'Terjadi kesalahan.', 'error');
+            }
+        })
+        .catch(err => Swal.fire('Error', 'Gagal koneksi: ' + err.message, 'error'));
+    });
+}
+
+function isiDropdownTahunOtomatis() {
+    let select = document.getElementById('selectTahun');
+    let tahunSekarang = new Date().getFullYear(); 
+    let tahunMulai = 2026; 
+    let tahunSelesai = tahunSekarang + 0; 
+
+    select.innerHTML = ''; 
+    for (let t = tahunMulai; t <= tahunSelesai; t++) {
+        let opt = document.createElement('option');
+        opt.value = t;
+        opt.innerText = t;
+        if (t === tahunSekarang) opt.selected = true;
+        select.appendChild(opt);
+    }
+}
+
+function updateInfoTandaTangan() {
+    let tahun = document.getElementById('selectTahun').value;
+    let periodeStr = document.getElementById('selectPeriode').value;
+    let tglElement = document.getElementById('ttd-tanggal');
+    
+    if (periodeStr.includes("Juni")) {
+        tglElement.innerText = "Belopa, 30 Juni " + tahun;
+    } else {
+        tglElement.innerText = "Belopa, 31 Desember " + tahun;
+    }
+
+    if(!kodeSkpdAktif) return;
+    muatTTDDariCloud();
+}
+
+// ========================================================
+// MESIN PEMBACA ANGKA CERDAS (ANTI ERROR & PAHAM MINUS)
+// ========================================================
+function parseIndonesianNumber(val) {
+    if (val === undefined || val === null || val === '') return 0;
+    if (typeof val === 'number') return val;
+    
+    let str = String(val).trim();
+    if (str === '-' || str === '') return 0;
+
+    let isNegative = false;
+    if (str.startsWith('(') && str.endsWith(')')) {
+        isNegative = true;
+        str = str.substring(1, str.length - 1).trim();
+    } else if (str.startsWith('-')) {
+        isNegative = true;
+        str = str.substring(1).trim();
+    }
+
+    str = str.replace(/\s/g, '').replace(/%/g, '').replace(/Rp/gi, '');
+
+    if (str.includes('.') && str.includes(',')) {
+        str = str.replace(/\./g, '').replace(/,/g, '.'); 
+    } else if (str.includes(',') && !str.includes('.')) {
+        let parts = str.split(',');
+        if (parts[parts.length - 1].length <= 2) {
+            str = str.replace(/,/g, '.'); 
+        } else {
+            str = str.replace(/,/g, ''); 
+        }
+    } else if (str.includes('.') && !str.includes(',')) {
+        let parts = str.split('.');
+        if (parts[parts.length - 1].length === 2 && parts.length === 2) {
+            // Biarkan
+        } else {
+            str = str.replace(/\./g, ''); 
+        }
+    }
+
+    let num = parseFloat(str);
+    if (isNaN(num)) return 0;
+    return isNegative ? -num : num;
+}
+
+// =========================================================================
+// SENSOR UPLOAD LRA BELANJA
+// =========================================================================
+document.getElementById('excelFile').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const namaFile = file.name.toLowerCase();
+    if (!namaFile.endsWith('.xlsx') && !namaFile.endsWith('.xls') && !namaFile.endsWith('.csv')) {
+        Swal.fire({ icon: 'error', title: 'Format Ditolak!', text: 'Maaf, file yang diupload bukan Excel. Silakan gunakan file LRA resmi!', confirmButtonColor: '#d33' });
+        e.target.value = ''; return;
+    }
+
+    Swal.fire({ title: 'Sementara Proses...', text: 'Membaca File Data Belanja Anda...', allowOutsideClick: false, didOpen: () => { Swal.showLoading(); }});
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        try {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+            let rawData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
+            
+            let formatValid = false;
+            for (let r = 0; r < 20 && r < rawData.length; r++) {
+                let barisString = String(rawData[r] || '').toLowerCase();
+                if (barisString.includes('anggaran') && barisString.includes('realisasi')) { 
+                    formatValid = true; break; 
+                }
+            }
+            
+            if (!formatValid) {
+                Swal.fire({ icon: 'warning', title: 'Isi Dokumen Tidak Sesuai!', html: 'Maaf, file ini bukan format LRA standar.<br>Tidak ditemukan kolom <b>Anggaran</b> & <b>Realisasi</b>.', confirmButtonColor: '#f59e0b' });
+                e.target.value = ''; return;
+            }
+
+            globalRawData = rawData;
+                        try {
+                sessionStorage.setItem('LRA_RAW_DATA', JSON.stringify(rawData));
+            } catch (err) {
+                console.warn("Memori browser penuh, data gagal dicadangkan.");
+            }
+            processAndBuildLRA(); 
+            e.target.value = ''; 
+            
+            Swal.fire({ icon: 'success', title: 'Tabel Belanja Berhasil Dimuat', timer: 2000, showConfirmButton: false });
+        } catch (error) {
+            Swal.fire({ icon: 'error', title: 'Gagal Membaca File!', text: 'File rusak atau tidak dapat dibaca oleh sistem. Silakan download ulang dari SIPD.', confirmButtonColor: '#d33' });
+            e.target.value = ''; 
+        }
+    };
+    reader.readAsArrayBuffer(file);
+});
+
+function applyFilters() {
+    gantiSemester(); 
+    if(globalRawData.length > 0) processAndBuildLRA();
+}
+
+function gantiSemester() {
+    let tahun = document.getElementById('selectTahun').value;
+    let periodeStr = document.getElementById('selectPeriode').value;
+    let headerTahun = document.getElementById('headerTahun');
+    
+    if (periodeStr.includes("Juni")) {
+        headerTahun.innerText = "Periode 1 Januari " + tahun + " s/d 30 Juni " + tahun;
+    } else {
+        headerTahun.innerText = "TAHUN ANGGARAN " + tahun;
+    }
+    
+    updateInfoTandaTangan(); 
+}
+
+function processAndBuildLRA() {
+    const tbody = document.getElementById('containerRender');
+        if (typeof window.backupBrankasDraf === 'function') window.backupBrankasDraf();
+    tbody.innerHTML = '';
+    let fragmentBelanja = document.createDocumentFragment();
+    let urusanDitemukan = false;
+    kodeSkpdAktif = ""; 
+    let trackerKode = "";
+        let trackerUnitAktif = "";
+
+    let colAnggaran = [];
+    let colRealisasi = [];
+    let colOperasi = []; 
+    let colModal = [];   
+    let colBtt = [];      
+    let colTransfer = []; 
+    let maxAnggaranCount = 0;
+
+    for (let r = 0; r < 15 && r < globalRawData.length; r++) {
+        let rowObj = globalRawData[r];
+        if (!rowObj) continue;
+        
+        let tempAng = []; let tempRea = [];
+        
+        for (let c = 4; c < rowObj.length; c++) {
+            let cellVal = String(rowObj[c] || '').toLowerCase().trim();
+            
+            if (cellVal === 'anggaran') tempAng.push(c);
+            else if (cellVal === 'realisasi') tempRea.push(c);
+            
+            if (cellVal === 'operasi') { colOperasi.push(c); colOperasi.push(c + 1); } 
+            else if (cellVal === 'modal') { colModal.push(c); colModal.push(c + 1); }
+            else if (cellVal.includes('tak terduga')) { colBtt.push(c); colBtt.push(c + 1); }
+            else if (cellVal.includes('transfer')) { colTransfer.push(c); colTransfer.push(c + 1); }
+        }
+        
+        if (tempAng.length > maxAnggaranCount) {
+            maxAnggaranCount = tempAng.length;
+            colAnggaran = tempAng; colRealisasi = tempRea;
+        }
+    }
+
+    if (colAnggaran.length === 0) colAnggaran = [5, 7, 9, 11];
+    if (colRealisasi.length === 0) colRealisasi = [6, 8, 10, 12];
+    if (colOperasi.length === 0) colOperasi = [5, 6]; 
+    if (colModal.length === 0) colModal = [7, 8];     
+
+    for (let i = 0; i < globalRawData.length; i++) {
+        let row = globalRawData[i];
+        if (!row || row.length === 0) continue;
+
+        let col1 = row[0] ? String(row[0]).trim() : ''; let col2 = row[1] ? String(row[1]).trim() : ''; 
+        let col3 = row[2] ? String(row[2]).trim() : ''; let col4 = row[3] ? String(row[3]).trim() : ''; 
+        let uraian = row[4] ? String(row[4]).trim() : '';
+
+        let textCol1 = col1.toLowerCase(); let textCol2 = col2.toLowerCase(); let textUraian = uraian.toLowerCase();
+
+        if (textCol1 === '1' && (textCol2 === '2' || textUraian === '2' || textUraian === '3')) continue;
+        if (textCol1.includes('kab. luwu') || textUraian.includes('kab. luwu')) continue;
+        if (textCol1.includes('rekapitulasi') || textUraian.includes('rekapitulasi')) continue;
+        if (textCol1.includes('beserta hasil') || textUraian.includes('beserta hasil')) continue;
+        if (textCol1.includes('tahun anggaran') || textUraian.includes('tahun anggaran')) continue;
+
+        let fullKode = col1 + col2 + col3 + col4;
+        if (!fullKode && !uraian) continue; 
+
+        let segmen = [];
+        if (col1) segmen.push(col1); if (col2) segmen.push(col2);
+        if (col3) segmen.push(col3); if (col4) segmen.push(col4);
+        let kodeRekening = segmen.join('.');
+        
+        if (/[a-zA-Z]/.test(kodeRekening)) {
+            kodeRekening = ""; 
+        }
+        
+        if (kodeRekening) trackerKode = kodeRekening;
+
+        let anggaran = 0;
+        colAnggaran.forEach(idx => {
+            anggaran += parseIndonesianNumber(row[idx]);
+        });
+
+        let realisasi = 0;
+        colRealisasi.forEach(idx => {
+            realisasi += parseIndonesianNumber(row[idx]);
+        });
+
+        let selisih = realisasi - anggaran;
+        let persentase = anggaran > 0 ? ((realisasi / anggaran) * 100).toFixed(2) : '0,00';
+
+        let paddingLevel = 0; let textStyle = ''; let isRincian = false;
+        let isBarisJumlah = textUraian.includes('jumlah') || textUraian === 'total' || textUraian.includes('surplus') || textUraian.includes('defisit');
+        let isRowKodeText = (textCol1 === 'kode' || textUraian.includes('uraian urusan, organisasi'));
+
+        if (isBarisJumlah) {
+            paddingLevel = 1; textStyle = 'style-bold'; isRincian = false;
+        } else if (isRowKodeText) {
+            paddingLevel = 0; textStyle = 'style-header'; isRincian = false;
+        } else if (!kodeRekening && uraian) {
+            paddingLevel = 10; textStyle = 'style-normal'; isRincian = true;
+        } else if (col4) { 
+            let tailBlocks = col4.split('.');
+            paddingLevel = 3 + tailBlocks.length; 
+            
+            if (tailBlocks.length <= 5) { 
+                textStyle = 'style-bold'; isRincian = false; 
+            } else { 
+                textStyle = 'style-normal'; isRincian = true; 
+            }
+        } else {
+            let dots = (kodeRekening.match(/\./g) || []).length;
+            if (dots <= 1) {
+                paddingLevel = 0; textStyle = 'style-header';
+                if(!urusanDitemukan && textCol1 !== 'kode') { document.getElementById('metaUrusan').innerText = ": " + kodeRekening + " " + uraian; urusanDitemukan = true; }
+            } else if (kodeRekening.endsWith('.0000') || dots === 7 || dots === 8 || dots === 9 || dots === 10) {
+                paddingLevel = 1; textStyle = 'style-bold';
+                
+                if (textCol1 !== 'kode') {
+                    trackerUnitAktif = kodeRekening; 
+                }
+
+                if(!kodeSkpdAktif && textCol1 !== 'kode') {
+                    kodeSkpdAktif = kodeRekening; 
+                    document.getElementById('metaOrganisasi').innerText = ": " + kodeRekening + " " + uraian;
+                    
+                    let textHeaderSkpd = document.getElementById('headerNamaSkpd');
+                    if (textHeaderSkpd) {
+                        textHeaderSkpd.innerText = uraian.toLowerCase();
+                    }
+                } 
+            } else if (dots === 2 || dots === 3) { 
+                paddingLevel = 1; textStyle = 'style-bold'; 
+            } else if (dots === 4 || dots === 12 || dots === 13) { 
+                paddingLevel = 2; textStyle = 'style-bold'; 
+            } else { 
+                paddingLevel = 3; textStyle = 'style-bold'; 
+            }
+        }
+
+        let displayKode = isRowKodeText ? col1 : kodeRekening;
+        
+        if (trackerUnitAktif && displayKode.startsWith(trackerUnitAktif + '.') && paddingLevel > 1) {
+            displayKode = displayKode.substring(trackerUnitAktif.length + 1);
+        } else if (kodeSkpdAktif && displayKode.startsWith(kodeSkpdAktif + '.') && paddingLevel > 1) {
+            displayKode = displayKode.substring(kodeSkpdAktif.length + 1);
+        }
+
+        let filePenjelasanHtml = '';
+        let cleanUraian = uraian.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        let cleanKode = displayKode ? displayKode.replace(/'/g, "\\'") : '';
+        
+        let safeKode = trackerKode.replace(/[^a-zA-Z0-9]/g, "");
+        let safeUraian = uraian.substring(0, 25).replace(/[^a-zA-Z0-9]/g, "");
+        let rowID = `R_${safeKode}_${safeUraian}`;
+
+        if (isBarisJumlah) {
+            // Kosong
+        } else if (isRincian) {
+            filePenjelasanHtml = `
+                <div class="no-print">
+                    <button id="btn_${rowID}" class="btn btn-sm w-100 text-start" 
+                            style="font-family:Arial; font-size:11px; font-weight:600; padding: 4px 8px; background-color: #ffffff; border: 1px solid #94a3b8; color: #1e293b; border-radius: 4px; transition: all 0.2s;"
+                            onclick="bukaAsisten('${rowID}', '${cleanKode}', '${cleanUraian}', ${realisasi})">
+                        <i class="fa-regular fa-pen-to-square me-1" style="color: #475569;"></i> Isi Penjelasan Rincian Belanja
+                    </button>
+                </div>
+                <div id="print_${rowID}" class="print-view-text"></div>
+                <input type="hidden" id="val_${rowID}" class="input-database" data-rowid="${rowID}" data-realisasi="${realisasi}">
+            `;
+        } else {
+            filePenjelasanHtml = `
+                <div class="no-print">
+                    <button id="btn_${rowID}" class="btn btn-sm w-100 text-start" 
+                            style="font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #ffffff; border: 1px solid #e2e8f0; color: #64748b; border-radius: 4px; transition: all 0.2s;"
+                            onclick="bukaKeterangan('${rowID}', '${cleanKode}', '${cleanUraian}')">
+                        <i class="fa-regular fa-comment-dots text-muted me-1"></i>
+                    </button>
+                </div>
+                <div id="print_${rowID}" class="print-view-text fw-bold text-dark" style="margin-top: 5px; font-size: 11px;"></div>
+                <input type="hidden" id="val_${rowID}" class="input-database" data-rowid="${rowID}" data-realisasi="0">
+            `;
+        }
+
+        let formatRp = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+        let strAng = anggaran !== 0 ? anggaran.toLocaleString('id-ID', formatRp) : '0,00';
+        let strRea = realisasi !== 0 ? realisasi.toLocaleString('id-ID', formatRp) : '0,00';
+        let strSel = selisih !== 0 ? (selisih < 0 ? '(' + Math.abs(selisih).toLocaleString('id-ID', formatRp) + ')' : selisih.toLocaleString('id-ID', formatRp)) : '0,00';
+        let strPersen = persentase.replace('.', ',');
+
+        if (isRowKodeText) {
+            strAng = ''; strRea = ''; strSel = ''; strPersen = ''; displayKode = col1; 
+        }
+        
+        let tr = document.createElement('tr');
+        tr.className = `pad-lvl-${paddingLevel} ${textStyle}`;
+        tr.dataset.pad = paddingLevel;
+
+        let kategori = 'induk';
+        if (isRincian && !isBarisJumlah) {
+            let valOperasi = 0; colOperasi.forEach(idx => { valOperasi += Math.abs(parseIndonesianNumber(row[idx])); });
+            let valModal = 0; colModal.forEach(idx => { valModal += Math.abs(parseIndonesianNumber(row[idx])); });
+            let valBtt = 0; colBtt.forEach(idx => { valBtt += Math.abs(parseIndonesianNumber(row[idx])); });
+            let valTransfer = 0; colTransfer.forEach(idx => { valTransfer += Math.abs(parseIndonesianNumber(row[idx])); });
+
+            let teksUraianLcase = textUraian.toLowerCase();
+
+            if (valOperasi > 0 && valModal === 0 && valBtt === 0 && valTransfer === 0) {
+                kategori = 'operasi'; 
+            } else if (valModal > 0 && valOperasi === 0 && valBtt === 0 && valTransfer === 0) {
+                kategori = 'modal';   
+            } else if (valBtt > 0 && valOperasi === 0 && valModal === 0 && valTransfer === 0) {
+                kategori = 'btt';
+            } else if (valTransfer > 0 && valOperasi === 0 && valModal === 0 && valBtt === 0) {
+                kategori = 'transfer';
+            }
+            else if (teksUraianLcase.includes('tak terduga') || teksUraianLcase.includes('darurat') || teksUraianLcase.includes('kejadian luar biasa')) {
+                kategori = 'btt';
+            } else if (teksUraianLcase.includes('transfer') || teksUraianLcase.includes('bantuan keuangan') || teksUraianLcase.includes('bagi hasil') || teksUraianLcase.includes('bantuan sosial') || teksUraianLcase.includes('hibah') || teksUraianLcase.includes('subsidi') || teksUraianLcase.includes('dana desa')) {
+                kategori = 'transfer';
+            } else if (teksUraianLcase.includes('honor') || teksUraianLcase.includes('jasa') || teksUraianLcase.includes('barang') || teksUraianLcase.includes('makan') || teksUraianLcase.includes('perjalanan') || teksUraianLcase.includes('atk') || teksUraianLcase.includes('gaji') || teksUraianLcase.includes('kertas') || teksUraianLcase.includes('cetak') || teksUraianLcase.includes('habis pakai') || teksUraianLcase.includes('listrik') || teksUraianLcase.includes('air') || teksUraianLcase.includes('sewa')) {
+                kategori = 'operasi';
+            } else if (teksUraianLcase.includes('modal') || teksUraianLcase.includes('aset') || teksUraianLcase.includes('tanah') || teksUraianLcase.includes('mesin') || teksUraianLcase.includes('gedung') || teksUraianLcase.includes('bangunan') || teksUraianLcase.includes('jalan') || teksUraianLcase.includes('jaringan') || teksUraianLcase.includes('irigasi') || teksUraianLcase.includes('peralatan') || teksUraianLcase.includes('kendaraan')) {
+                kategori = 'modal';
+            } 
+            else if (kodeRekening.startsWith('5.1') || trackerKode.startsWith('5.1')) kategori = 'operasi';
+            else if (kodeRekening.startsWith('5.2') || trackerKode.startsWith('5.2')) kategori = 'modal';
+            else if (kodeRekening.startsWith('5.3') || trackerKode.startsWith('5.3')) kategori = 'btt';
+            else if (kodeRekening.startsWith('5.4') || trackerKode.startsWith('5.4')) kategori = 'transfer';
+            else kategori = 'lainnya'; 
+        }
+        tr.dataset.kategori = kategori;
+        
+                if (isRincian && !isBarisJumlah && textUraian.toLowerCase().includes('perjalanan')) {
+            tr.dataset.subKategori = 'perjalanan';
+        } else {
+            tr.dataset.subKategori = 'lainnya';
+        }
+                
+        tr.dataset.oriAng = anggaran || 0;
+        tr.dataset.oriRea = realisasi || 0;
+        tr.dataset.oriAngStr = strAng;
+        tr.dataset.oriReaStr = strRea;
+        tr.dataset.oriSelStr = strSel;
+        tr.dataset.oriPerStr = strPersen;
+
+        let kelasUraian = isBarisJumlah ? "uraian-cell text-center text-uppercase fw-bold text-dark" : "uraian-cell";
+        
+        if (isBarisJumlah && uraian.toLowerCase().trim() === 'jumlah') {
+            uraian = 'SURPLUS / (DEFISIT)';
+        }
+        
+        let styleGeneral = ''; 
+        let styleUraian = '';  
+
+        if (isRowKodeText) {
+            displayKode = ''; 
+            uraian = 'BELANJA DAERAH';
+            kelasUraian = "uraian-cell text-dark fw-bold text-uppercase";
+            
+            styleGeneral = 'border-bottom: none !important;';
+            styleUraian = 'border-bottom: 1px solid #000 !important;';
+            filePenjelasanHtml = ''; 
+            
+            window.hapusGarisAtas = true; 
+        } 
+        else if (window.hapusGarisAtas) {
+            styleGeneral = 'border-top: none !important;';
+            styleUraian = 'border-top: 1px solid #000 !important;';
+            
+            window.hapusGarisAtas = false; 
+        }
+
+        tr.innerHTML = `
+            <td style="${styleGeneral}">${displayKode}</td>
+            <td class="${kelasUraian}" style="${styleUraian}">${uraian}</td>
+            <td class="text-end" style="${styleGeneral}">${strAng}</td>
+            <td class="text-end" style="${styleGeneral}">${strRea}</td>
+            <td class="text-end" style="${styleGeneral}">${strSel}</td>
+            <td class="text-center" style="${styleGeneral}">${strPersen}</td>
+            <td class="cell-penjelasan" style="${styleGeneral}">${filePenjelasanHtml}</td>
+        `;
+        fragmentBelanja.appendChild(tr); 
+    } 
+    
+    tbody.appendChild(fragmentBelanja);
+    
+    if (!kodeSkpdAktif) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted py-5" style="font-family: Arial, sans-serif;">
+            <i class="fa-solid fa-triangle-exclamation text-danger mb-3" style="font-size: 50px;"></i><br>
+            <h5 class="fw-bold text-dark">DOKUMEN DITOLAK: Format Tidak Dikenali</h5>
+            File Excel yang Anda upload tidak memiliki struktur Kode Rekening SKPD standar SIPD Pemerintah Daerah.<br>
+            Sistem membatalkan proses agar database tidak rusak oleh data yang salah.
+        </td></tr>`;
+        
+        document.getElementById('metaOrganisasi').innerText = ": -";
+        document.getElementById('metaUrusan').innerText = ": -";
+        
+        let textHeaderSkpd = document.getElementById('headerNamaSkpd');
+        if (textHeaderSkpd) {
+            textHeaderSkpd.innerText = 'belum ada data skpd';
+        }
+        
+        globalRawData = []; 
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Format Excel Ilegal!',
+            text: 'Ini bukan file LRA SIPD yang sah. Sistem mendeteksi tidak ada Kode SKPD yang valid di dalamnya.',
+            confirmButtonColor: '#d33'
+        });
+        
+        return; 
+    }
+    
+    updateInfoTandaTangan();
+    terapkanFilterBelanja();
+    if (typeof window.restoreBrankasDraf === 'function') window.restoreBrankasDraf();
+	autoRestoreIndexedDB();
+}
+
+function bukaKeterangan(rowID, kodeRek, uraian) {
+    let nilaiLama = document.getElementById('val_' + rowID).value;
+    document.getElementById('modalKetTargetRow').value = rowID;
+    
+    let judulRekening = kodeRek ? `${kodeRek} - ${uraian}` : uraian;
+    document.getElementById('modalKetUraian').innerText = judulRekening;
+    document.getElementById('modalKetTextarea').value = nilaiLama;
+    modalKeterangan.show();
+}
+
+function simpanKeterangan() {
+    let rowID = document.getElementById('modalKetTargetRow').value;
+    let teks = document.getElementById('modalKetTextarea').value;
+    
+    simpanKeKamus(teks); 
+    
+    document.getElementById('val_' + rowID).value = teks;
+    document.getElementById('val_' + rowID).classList.add('is-dirty'); 
+    document.getElementById('print_' + rowID).innerText = teks;
+    
+    let btn = document.getElementById('btn_' + rowID);
+    if (btn) {
+        if (teks.trim() === '') {
+            btn.className = 'btn btn-sm w-100 text-start';
+            btn.style.cssText = "font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #ffffff; border: 1px solid #e2e8f0; color: #64748b; border-radius: 4px;";
+            btn.innerHTML = '<i class="fa-regular fa-comment-dots text-muted me-1"></i>';
+        } else {
+            btn.className = 'btn btn-sm w-100 text-start fw-bold';
+            btn.style.cssText = "font-family:Arial; font-size:10px; padding: 4px 8px; background-color: #f8fafc; border: 1px solid #cbd5e1; color: #334155; border-radius: 4px;";
+            btn.innerHTML = '<i class="fa-solid fa-check text-muted me-1"></i> Keterangan Disimpan';
+        }
+    }
+    modalKeterangan.hide();
+}
+
+function hitungTotalDariTeks(teks) {
+    let total = 0;
+    let regex = /=\s*([^#\n\r]+)/g; 
+    let matches = teks.match(regex);
+    if(matches) {
+        matches.forEach(m => {
+            let cleanStr = m.replace(/=/g, '').replace(/Rp/gi, '').trim();
+            let numMatch = cleanStr.match(/^[\d\.,]+/);
+            if (numMatch) {
+                let numStr = numMatch[0];
+                if(numStr.includes(',') && numStr.split(',')[1].length <= 2) {
+                    numStr = numStr.replace(/\./g, '').replace(',', '.');
+                } else {
+                    numStr = numStr.replace(/\./g, '').replace(/,/g, '');
+                }
+                let val = parseFloat(numStr);
+                if(!isNaN(val)) total += val;
+            }
+        });
+    }
+    return total;
+}
+
+function formatRibuan(input) {
+    let value = input.value.replace(/[^,\d]/g, '');
+    let parts = value.split(',');
+    let sisa = parts[0].length % 3;
+    let rupiah = parts[0].substr(0, sisa);
+    let ribuan = parts[0].substr(sisa).match(/\d{3}/gi);
+    
+    if (ribuan) {
+        let separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+    input.value = parts[1] !== undefined ? rupiah + ',' + parts[1] : rupiah;
+}
+
+function perbaruiTombolStatus(rowID, printText, realisasi) {
+    let btn = document.getElementById('btn_' + rowID);
+    if (!btn) return;
+    
+    let totalHitung = hitungTotalDariTeks(printText);
+    let selisih = totalHitung - realisasi;
+    let formatRp = { minimumFractionDigits: 0 };
+    
+    let teksBersih = printText.replace(/<[^>]*>?/gm, '').trim(); 
+    let statusTeks = cekKualitasTeks(teksBersih);
+    
+    btn.className = 'btn btn-sm w-100 text-start fw-bold';
+
+    if (teksBersih === '') {
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:600; padding: 4px 8px; background-color: #ffffff; border: 1px solid #94a3b8; color: #1e293b; border-radius: 4px; transition: all 0.2s;"
+        btn.innerHTML = '<i class="fa-regular fa-pen-to-square me-1" style="color: #475569;"></i> Isi Penjelasan Rincian Belanja';
+        return; 
+    }
+
+    if (statusTeks !== "OK") { 
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:700; padding: 4px 8px; background-color: #ef4444; border: 1px solid #e11d48; color: #881337; border-radius: 4px;";
+        btn.innerHTML = `<i class="fa-solid fa-circle-exclamation me-1"></i> Draf: ${statusTeks}`;
+        return; 
+    }
+
+    if (realisasi === 0) {
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:700; padding: 4px 8px; background-color: #fde047; border: 1px solid #eab308; color: #713f12; border-radius: 4px;";
+        btn.innerHTML = '<i class="fa-solid fa-check-double me-1"></i> Hanya Tersimpan Sebagai Catatan';
+        return;
+    }
+
+    if (Math.abs(selisih) < 1) { 
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:700; padding: 4px 8px; background-color: #22c55e; border: 1px solid #15803d; color: #ffffff; border-radius: 4px;";
+        btn.innerHTML = '<i class="fa-solid fa-check-double me-1"></i> Nilai Rincian VALID';
+    } else if (selisih < 0) { 
+        let fKurang = Math.abs(selisih).toLocaleString('id-ID', formatRp);
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:700; padding: 4px 8px; background-color: #fb923c; border: 1px solid #c2410c; color: #ffffff; border-radius: 4px;";
+        btn.innerHTML = `<i class="fa-solid fa-file-pen me-1"></i> Jumlah Kurang (Selisih) Senilai Rp ${fKurang}`;
+    } else { 
+        let fLebih = selisih.toLocaleString('id-ID', formatRp);
+        btn.style.cssText = "font-family:Arial; font-size:11px; font-weight:700; padding: 4px 8px; background-color: #ef4444; border: 1px solid #b91c1c; color: #ffffff; border-radius: 4px;";
+        btn.innerHTML = `<i class="fa-solid fa-circle-xmark me-1"></i> Jumlah Lebih (Selisih) Senilai Rp ${fLebih}`;
+    }
+}
+
+function setMode() {
+    setTimeout(() => { kalkulasiKombinasi(); }, 100); 
+}
+
+let groupIdCounter = 0;
+
+function updateNomorUrutKelompok() {
+    let groups = document.querySelectorAll('#groupsContainer .group-container');
+    groups.forEach((group, index) => {
+        let badge = group.querySelector('.group-number-badge');
+        if (badge) badge.innerText = index + 1; 
+    });
+}
+
+function tambahKelompok(subText = "", items = []) {
+    groupIdCounter++;
+    let gId = 'group_' + groupIdCounter;
+    let container = document.getElementById('groupsContainer');
+    
+    let groupDiv = document.createElement('div');
+    groupDiv.className = "group-container border bg-white p-4 mb-4 position-relative shadow-sm";
+    groupDiv.style.borderRadius = "10px";
+    groupDiv.style.border = "1px solid #e2e8f0";
+    groupDiv.id = gId;
+    
+    groupDiv.innerHTML = `
+        <button class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-3" 
+                onclick="document.getElementById('${gId}').remove(); kalkulasiKombinasi(); updateNomorUrutKelompok();" 
+                title="Hapus Kelompok" 
+                style="border-radius: 50%; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-trash-can" style="font-size: 12px;"></i>
+        </button>
+
+        <div class="row mb-3">
+            <div class="col-12 mb-3 pe-5">
+                <label class="form-label fw-bold text-secondary d-flex align-items-center" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    <span class="group-number-badge text-white bg-primary d-flex align-items-center justify-content-center me-2" style="width: 20px; height: 20px; border-radius: 50%; font-size: 11px;">1</span>
+                    Keterangan : Kegiatan / Lokasi / Tanggal
+                </label>
+                <textarea class="form-control textarea-smart p-2 uraian-sub" rows="2" placeholder="Masukkan Keterangan Belanja Anda...." onkeyup="kalkulasiKombinasi()">${subText}</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-2 fw-bold text-secondary pb-1" style="font-size: 10px; font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.5px;">
+            <div class="col-4">Uraian Rincian Belanja</div>
+            <div class="col-2 text-center">Vol</div>
+            <div class="col-2 text-center">Satuan</div>
+            <div class="col-3 text-end">Harga (Rp)</div>
+            <div class="col-1 text-end">Total</div>
+        </div>
+        
+        <div id="rows_${gId}" class="item-rows-container mb-3"></div>
+        
+        <button class="btn btn-sm btn-outline-secondary fw-bold text-secondary w-100 py-1" onclick="tambahBaris('${gId}')" style="font-size: 11px; border-radius: 6px; border-style: dashed; border-width: 1px;">
+            <i class="fa-solid fa-plus me-1"></i> Tambah Baris Rincian
+        </button>
+    `;
+    
+    container.appendChild(groupDiv);
+    
+    updateNomorUrutKelompok();
+
+    if (items.length === 0) {
+        tambahBaris(gId);
+    } else {
+        items.forEach(item => tambahBaris(gId, item.u, item.v, item.s, item.h));
+    }
+    kalkulasiKombinasi();
+    
+    setTimeout(() => { groupDiv.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, 100);
+}
+
+function tambahBaris(groupId, ur = "", v = "", s = "", h = "") {
+    let container = document.getElementById('rows_' + groupId);
+    let div = document.createElement('div');
+    
+    div.className = "row mb-3 align-items-center pb-2 border-bottom border-light"; 
+    let hFormatted = h ? h.toLocaleString('id-ID') : "";
+	let urAman = amankanTeks(ur);
+
+    div.innerHTML = `
+        <div class="col-4">
+            <textarea class="form-control textarea-smart p-2 uraian" rows="2" placeholder="Masukkan Nama Belanja Anda..." style="font-size: 12px; resize: vertical;">${urAman}</textarea>
+        </div>
+        <div class="col-2">
+            <input type="number" class="form-control form-control-sm text-center border-light-subtle shadow-none vol" placeholder="Vol" oninput="kalkulasiKombinasi()" value="${v}" style="font-size: 12px; background-color: #f8fafc;">
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control form-control-sm text-center border-light-subtle shadow-none satuan" placeholder="Satuan" value="${s}" style="font-size: 12px; background-color: #f8fafc;">
+        </div>
+        <div class="col-3">
+            <input type="text" class="form-control form-control-sm text-end border-light-subtle shadow-none harga" placeholder="Harga (Rp)" oninput="formatRibuan(this); kalkulasiKombinasi()" value="${hFormatted}" style="font-size: 12px; background-color: #f8fafc;">
+        </div>
+        <div class="col-1 d-flex flex-column align-items-end justify-content-center">
+            <div class="fw-bold subtotal-txt text-dark mb-1" style="font-size: 12px; letter-spacing: 0.3px;">0</div>
+            <button class="btn btn-sm p-0 border-0 shadow-none text-danger" 
+                    style="opacity: 0.5; transition: all 0.2s ease-in-out;" 
+                    onmouseover="this.style.opacity='1'; this.style.transform='scale(1.1)';" 
+                    onmouseout="this.style.opacity='0.5'; this.style.transform='scale(1)';" 
+                    onclick="this.parentElement.parentElement.remove(); kalkulasiKombinasi();" title="Hapus Baris">
+                <i class="fa-regular fa-trash-can" style="font-size: 14px;"></i>
+            </button>
+        </div>
+    `;
+    container.appendChild(div);
+    kalkulasiKombinasi();
+}
+
+function bukaAsisten(rowID, kodeRek, uraian, realisasi) {
+    let nilaiLama = document.getElementById('val_' + rowID).value;
+        if (nilaiLama === "[]") {
+        nilaiLama = "";
+    }
+        
+    document.getElementById('modalTargetRow').value = rowID;
+    document.getElementById('modalTargetRealisasi').value = realisasi;
+    
+    document.getElementById('modalUraian').innerText = kodeRek ? `${kodeRek} - ${uraian}` : uraian;
+    document.getElementById('modalRealisasiTxt').innerText = "Rp " + realisasi.toLocaleString('id-ID');
+    
+    document.getElementById('groupsContainer').innerHTML = '';
+    groupIdCounter = 0;
+    
+    let groupsData = [];
+
+    if (nilaiLama && nilaiLama.trim() !== "") {
+        try { 
+            let parsed = JSON.parse(nilaiLama); 
+            if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].items !== undefined) {
+                groupsData = parsed;
+            } 
+            else if (parsed.items) {
+                let textSub = parsed.sub || parsed.judul || "";
+                groupsData = [{ sub: textSub, items: parsed.items }];
+            } 
+            else if (parsed.data && Array.isArray(parsed.data)) {
+                groupsData = [{ sub: "", items: parsed.data }];
+            } else if (parsed.data && typeof parsed.data === 'string') {
+                groupsData = [{ sub: parsed.data, items: [] }];
+            }
+        } catch(e) { 
+            groupsData = [{ sub: nilaiLama, items: [] }];
+        }
+    }
+
+    if (groupsData.length === 0) {
+        tambahKelompok(); 
+    } else {
+        groupsData.forEach(g => tambahKelompok(g.sub, g.items));
+    }
+    
+    kalkulasiKombinasi();
+    modalAsisten.show();
+}
+
+function kalkulasiKombinasi() {
+    let realisasi = parseFloat(document.getElementById('modalTargetRealisasi').value);
+    let totalHitung = 0;
+    let isKosong = true;
+    let teksGabungan = ""; 
+
+    document.querySelectorAll('.group-container').forEach(group => {
+        let sub = group.querySelector('.uraian-sub').value.trim();
+        if(sub) { isKosong = false; teksGabungan += sub + " "; }
+
+        group.querySelectorAll('.item-rows-container .row').forEach(row => {
+            let v = parseFloat(row.querySelector('.vol').value) || 0;
+            let hStr = row.querySelector('.harga').value.replace(/\./g, '').replace(/,/g, '.');
+            let h = parseFloat(hStr) || 0;
+            let subtotal = v * h;
+            row.querySelector('.subtotal-txt').innerText = subtotal.toLocaleString('id-ID');
+            totalHitung += subtotal;
+            
+            let ur = row.querySelector('.uraian').value.trim();
+            if(ur || v > 0 || h > 0) isKosong = false;
+            if(ur) teksGabungan += ur + " ";
+        });
+    });
+
+    let alertBox = document.getElementById('alertSmart');
+    let icon = document.getElementById('iconSmart');
+    let title = document.getElementById('titleSmart');
+    let desc = document.getElementById('descSmart');
+    let selisih = totalHitung - realisasi;
+    
+    let btnDraft = document.getElementById('btnSimpanDraft');
+    let btnFinal = document.getElementById('btnSimpanFinal');
+
+    let statusTeks = cekKualitasTeks(teksGabungan);
+    let isBalance = (realisasi > 0 && Math.abs(selisih) < 1);
+    
+    let memoriCopyPaste = sessionStorage.getItem('last_saved_text') || "";
+    let teksKunci = teksGabungan.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    let isCopyPaste = (teksKunci.length > 20 && memoriCopyPaste === teksKunci);
+
+    if (isKosong) {
+        alertBox.className = 'alert alert-pro alert-pro-info d-flex align-items-center mb-0 py-2 px-3';
+        icon.className = 'fa-solid fa-pen-to-square fs-4 me-3 text-secondary';
+        title.innerText = 'Mari Mulai Mengisi Rincian Belanja';
+        desc.innerText = 'Silakan ketik nama barang atau jasa yang dibayar. Pastikan total hitungannya pas dengan Nilai Realisasi di atas.';
+        if(btnDraft) { btnDraft.style.display = 'inline-block'; btnFinal.style.display = 'none'; }
+    } else if (realisasi === 0) {
+        alertBox.className = 'alert alert-pro alert-pro-info d-flex align-items-center mb-0 py-2 px-3';
+        icon.className = 'fa-solid fa-info-circle fs-4 me-3 text-info';
+        title.innerText = 'Nilai Realisasi Nol (0)';
+        desc.innerText = 'Catatan akan dilampirkan sebagai penjelas nilai kosong ini.';
+        if(btnDraft) { btnDraft.style.display = 'none'; btnFinal.style.display = 'inline-block'; } 
+    } else if (isBalance) {
+        if (statusTeks !== "OK") {
+            alertBox.className = 'alert alert-pro alert-pro-danger d-flex align-items-center mb-0 py-2 px-3';
+            icon.className = 'fa-solid fa-circle-exclamation fs-4 me-3 text-danger';
+            title.innerText = 'ANGKA SESUAI, TAPI PENJELASAN DITOLAK!';
+            desc.innerHTML = `Total Rp${totalHitung.toLocaleString('id-ID')} sesuai, tapi <b>${statusTeks}</b>!`;
+            if(btnDraft) { btnDraft.style.display = 'inline-block'; btnFinal.style.display = 'none'; }
+        } else if (isCopyPaste) {
+            alertBox.className = 'alert alert-pro alert-pro-warning d-flex align-items-center mb-0 py-2 px-3';
+            icon.className = 'fa-solid fa-copy fs-4 me-3 text-warning';
+            title.innerText = 'INDIKASI COPY-PASTE TERDETEKSI!';
+            desc.innerHTML = `Penjelasan Anda 100% mirip dengan rincian yang baru saja Anda simpan. Bedakan isinya!`;
+            if(btnDraft) { btnDraft.style.display = 'inline-block'; btnFinal.style.display = 'none'; }
+        } else {
+            alertBox.className = 'alert alert-pro alert-pro-success d-flex align-items-center mb-0 py-2 px-3';
+            icon.className = 'fa-solid fa-check-double fs-4 me-3 text-success';
+            title.innerText = 'Rincian Realisasi VALID';
+            desc.innerText = `Perhitungan Rp${totalHitung.toLocaleString('id-ID')} SESUAI, Silahkan Simpan Rincian Penjelasan Anda`;
+            if(btnDraft) { btnDraft.style.display = 'none'; btnFinal.style.display = 'inline-block'; }
+        }
+    } else if (selisih < 0) {
+        alertBox.className = 'alert alert-pro alert-pro-warning d-flex align-items-center mb-0 py-2 px-3';
+        icon.className = 'fa-solid fa-triangle-exclamation fs-4 me-3 text-warning';
+        title.innerText = 'NILAI MASIH KURANG DARI REALISASI';
+        desc.innerHTML = `Terinput: <b>Rp${totalHitung.toLocaleString('id-ID')}</b>. Masih Kurang Senilai: <b>Rp${Math.abs(selisih).toLocaleString('id-ID')}</b>.`;
+        if(btnDraft) { btnDraft.style.display = 'inline-block'; btnFinal.style.display = 'none'; }
+    } else {
+        alertBox.className = 'alert alert-pro alert-pro-danger d-flex align-items-center mb-0 py-2 px-3';
+        icon.className = 'fa-solid fa-circle-xmark fs-4 me-3 text-danger';
+        title.innerText = 'JUMLAH MELEBIHI REALISASI';
+        desc.innerHTML = `Melebihi Nilai Realisasi Sebesar <b>Rp${selisih.toLocaleString('id-ID')}</b>. Periksa angka Anda!`;
+        if(btnDraft) { btnDraft.style.display = 'inline-block'; btnFinal.style.display = 'none'; }
+    }
+}
+
+function simpanDariModal() {
+    let rowID = document.getElementById('modalTargetRow').value;
+    let realisasi = parseFloat(document.getElementById('modalTargetRealisasi').value);
+    
+    let groupsToSave = [];
+    let textToPrint = "";
+
+    document.querySelectorAll('.group-container').forEach(group => {
+        let sub = group.querySelector('.uraian-sub').value.trim();
+        let dataJSON = [];
+        let groupPrintText = "";
+
+        if (sub) {
+            groupPrintText += `${sub}\n\n`; 
+            simpanKeKamus(sub); 
+        }
+
+        group.querySelectorAll('.item-rows-container .row').forEach(row => {
+            let ur = row.querySelector('.uraian').value.trim();
+            let rawVol = row.querySelector('.vol').value.trim();
+            let v = parseFloat(rawVol) || 0;
+            let s = row.querySelector('.satuan').value.trim();
+            
+            let rawHarga = row.querySelector('.harga').value.trim(); 
+            let hStr = rawHarga.replace(/\./g, '').replace(/,/g, '.');
+            let h = parseFloat(hStr) || 0;
+            let t = v * h;
+            
+            if (ur || v > 0 || h > 0) {
+                if (ur) simpanKeKamus(ur); 
+                if (rawVol) simpanKamusKhusus(rawVol, 'vol'); 
+                if (s) simpanKamusKhusus(s, 'satuan'); 
+                if (rawHarga && h > 0) simpanKamusKhusus(rawHarga, 'harga'); 
+
+                dataJSON.push({u: ur, v: v, s: s, h: h, t: t});
+                let st = s ? ` ${s}` : '';
+                groupPrintText += `- ${ur}\n<div style="border-bottom: 1px dashed #666; padding-bottom: 4px; margin-bottom: 4px;"><em>${v} ${st} x Rp ${h.toLocaleString('id-ID')} = Rp ${t.toLocaleString('id-ID')}</em></div>`;
+            }
+        });
+
+        if (sub || dataJSON.length > 0) {
+            groupsToSave.push({ sub: sub, items: dataJSON });
+            textToPrint += groupPrintText + "\n"; 
+        }
+    });
+        
+    let teksKunci = textToPrint.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    if (teksKunci.length > 20) {
+        sessionStorage.setItem('last_saved_text', teksKunci);
+    }
+        
+    let valToSave = JSON.stringify(groupsToSave);
+    
+    document.getElementById('val_' + rowID).value = valToSave;
+    document.getElementById('val_' + rowID).classList.add('is-dirty'); 
+    document.getElementById('print_' + rowID).innerHTML = textToPrint.trim();
+    
+    perbaruiTombolStatus(rowID, textToPrint, realisasi);
+	autoSaveIndexedDB();
+    modalAsisten.hide();
+}
+
+// =========================================================================
+// MESIN PAGINASI CERDAS (ANTI-BOLONG & ANTI-KERTAS KOSONG)
+// =========================================================================
+function binarySearchFit(makeProbe, penjelasanDiv, clone, maxBottom, maxLen) {
+    let lo = 0, hi = maxLen, best = 0;
+    while (lo <= hi) {
+        let mid = Math.floor((lo + hi) / 2);
+        let probe = makeProbe(mid);
+        penjelasanDiv.appendChild(probe);
+        let bottom = clone.getBoundingClientRect().bottom;
+        penjelasanDiv.removeChild(probe);
+        if (bottom <= maxBottom) {
+            best = mid;
+            lo = mid + 1;
+        } else {
+            hi = mid - 1;
+        }
+    }
+    return best;
+}
+
+function findWordBoundary(text, best) {
+    let breakAt = best;
+    let lastNL = text.lastIndexOf('\n', best - 1);
+    if (lastNL > best * 0.5) return lastNL + 1;
+    let lastSpace = text.lastIndexOf(' ', best - 1);
+    if (lastSpace > best * 0.5) return lastSpace + 1;
+    return breakAt;
+}
+
+function trySplitPenjelasan(clone, maxBottom) {
+    let penjelasanDiv = clone.querySelector('.print-view-text');
+    if (!penjelasanDiv) return { success: false };
+
+    let originalHTML = penjelasanDiv.innerHTML;
+    let originalText = penjelasanDiv.innerText;
+    if (!originalText.trim()) return { success: false };
+
+    penjelasanDiv.innerHTML = '';
+    let baselineBottom = clone.getBoundingClientRect().bottom;
+
+    if (baselineBottom > maxBottom) {
+        penjelasanDiv.innerHTML = originalHTML;
+        return { success: false };
+    }
+
+    let availablePx = maxBottom - baselineBottom;
+    if (availablePx < 14) {
+        penjelasanDiv.innerHTML = originalHTML;
+        return { success: false };
+    }
+
+    penjelasanDiv.innerHTML = originalHTML;
+    let originalNodes = Array.from(penjelasanDiv.childNodes);
+
+    penjelasanDiv.innerHTML = '';
+    let remainingNodes = [];
+    let splitDone = false;
+
+    for (let node of originalNodes) {
+        if (splitDone) {
+            remainingNodes.push(node);
+            continue;
+        }
+
+        penjelasanDiv.appendChild(node.cloneNode(true));
+        let testBottom = clone.getBoundingClientRect().bottom;
+
+        if (testBottom > maxBottom) {
+            penjelasanDiv.removeChild(penjelasanDiv.lastChild);
+            let didSplit = false;
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                let text = node.textContent;
+                let best = binarySearchFit(
+                    (len) => document.createTextNode(text.substring(0, len)),
+                    penjelasanDiv, clone, maxBottom, text.length
+                );
+                if (best > 0) {
+                    let breakAt = findWordBoundary(text, best);
+                    let firstPart = text.substring(0, breakAt);
+                    let restPart = text.substring(breakAt);
+                    if (firstPart.trim()) penjelasanDiv.appendChild(document.createTextNode(firstPart));
+                    if (restPart.trim()) remainingNodes.unshift(document.createTextNode(restPart));
+                    didSplit = true;
+                }
+            }
+
+            if (!didSplit) {
+                remainingNodes.unshift(node);
+            }
+            splitDone = true;
+        }
+    }
+
+    let keptText = penjelasanDiv.innerText.trim();
+    if (!keptText || remainingNodes.length === 0) {
+        penjelasanDiv.innerHTML = originalHTML;
+        return { success: false };
+    }
+
+    let tempContainer = document.createElement('div');
+    remainingNodes.forEach(n => tempContainer.appendChild(n));
+    return {
+        success: true,
+        remainingHTML: tempContainer.innerHTML
+    };
+}
+
+function buildContinuationRow(remainingHTML, padLevel) {
+    let tr = document.createElement('tr');
+    tr.className = `pad-lvl-${padLevel} style-rincian continuation-row`;
+    tr.dataset.pad = padLevel;
+    tr.innerHTML = `
+        <td></td>
+        <td class="uraian-cell" style="font-style: italic; color: #555555; font-size: 9px; padding-top: 5px; vertical-align: top !important;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="cell-penjelasan" style="vertical-align: top !important; padding-top: 5px !important;">
+            <div class="print-view-text" style="margin-top: 0;">${remainingHTML}</div>
+        </td>
+    `;
+    return tr;
+}
+
+function validasiCetak() {
+    let dropdownPeriode = document.getElementById('selectPeriode');
+    if (dropdownPeriode.value === "") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Tunggu Dulu!',
+            text: 'Silakan pilih Periode/Semester terlebih dahulu sebelum melanjutkan proses cetak.',
+            confirmButtonColor: '#3b82f6',
+            confirmButtonText: 'Baik, Saya Pilih Dulu'
+        }).then(() => {
+            dropdownPeriode.focus();
+            dropdownPeriode.style.boxShadow = "0 0 0 4px rgba(239,68,68,0.4)";
+            setTimeout(() => dropdownPeriode.style.boxShadow = "", 2000);
+        });
+        return; 
+    }
+    cetakPro();
+}
+
+async function cetakPro() { 
+    let tbodyLama = document.getElementById('containerRender');
+    if(tbodyLama.children.length === 0 || tbodyLama.innerText.includes('Menunggu')) {
+        Swal.fire('Data Kosong', 'Upload Excel LRA Per Pogram dari SIPD terlebih dahulu.', 'warning');
+        return;
+    }
+
+    Swal.fire({ title: 'Tunggu...', text: 'Halaman Sedang diproses...', allowOutsideClick: false, didOpen: () => { Swal.showLoading(); }});
+
+    let mulaiHalaman = parseInt(document.getElementById('inputHalaman').value) || 1;
+    let rows = Array.from(tbodyLama.children);
+
+    let wrapper = document.getElementById('printWrapper');
+    wrapper.innerHTML = '';
+    wrapper.style.display = 'block';
+
+    document.querySelector('.container-fluid').style.display = 'none';
+    document.querySelector('.print-page').style.display = 'none';
+
+    let pageNum = mulaiHalaman;
+    let absolutePageNum = 1;
+    let currentPage = createPageTemplate(pageNum, true, absolutePageNum);
+    wrapper.appendChild(currentPage);
+
+    let currentTbody = currentPage.querySelector('.tbody-render');
+    let currentFooter = currentPage.querySelector('.pdf-footer-pro');
+
+    let queue = rows.map(r => ({
+        type: 'row',
+        source: r,
+        padLevel: parseInt(r.dataset.pad) || 0
+    }));
+
+    let safetyCounter = 0;
+    const SAFETY_MAX = 10000; 
+
+    while (queue.length > 0 && safetyCounter < SAFETY_MAX) {
+        safetyCounter++;
+        
+        // [v5] CPU Auto-Detection: Ukur kecepatan CPU di awal, lalu sesuaikan yield
+        if (safetyCounter === 1) {
+            var _cpuStart = performance.now();
+            for (var _ci = 0; _ci < 5000; _ci++) { Math.sqrt(_ci); }
+            var _cpuMs = performance.now() - _cpuStart;
+            window._v5YieldMs = _cpuMs < 3 ? 15 : (_cpuMs < 8 ? 25 : 40);
+            window._v5YieldInterval = window._v5YieldMs <= 15 ? 10 : 7;
+        }
+        if (safetyCounter % (window._v5YieldInterval || 10) === 0) {
+            await new Promise(resolve => setTimeout(resolve, window._v5YieldMs || 15));
+        }
+
+        let item = queue.shift();
+
+        let clone;
+        if (item.type === 'row') {
+            clone = item.source.cloneNode(true);
+        } else {
+            clone = buildContinuationRow(item.remainingHTML, item.padLevel);
+        }
+
+        currentTbody.appendChild(clone);
+
+        let rowRect = clone.getBoundingClientRect();
+        let footerRect = currentFooter.getBoundingClientRect();
+        let maxBottom = footerRect.top - 1; 
+
+        if (rowRect.bottom <= maxBottom) {
+            continue; 
+        }
+
+        let split = trySplitPenjelasan(clone, maxBottom);
+
+        if (split.success) {
+            queue.unshift({
+                type: 'continuation',
+                remainingHTML: split.remainingHTML,
+                padLevel: item.padLevel
+            });
+        } else {
+            currentTbody.removeChild(clone);
+
+            let lastEl = currentTbody.lastElementChild;
+            if (lastEl) {
+                let gap = maxBottom - lastEl.getBoundingClientRect().bottom;
+                if (gap > 2) {
+                    let spacer = document.createElement('tr');
+                    spacer.innerHTML = '<td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td>';
+                    spacer.style.height = gap + 'px';
+                    currentTbody.appendChild(spacer);
+                } else {
+                    Array.from(lastEl.children).forEach(td => td.style.borderBottom = '2px solid #000 !important');
+                }
+            }
+
+            pageNum++;
+            absolutePageNum++;
+            currentPage = createPageTemplate(pageNum, false, absolutePageNum);
+            wrapper.appendChild(currentPage);
+            currentTbody = currentPage.querySelector('.tbody-render');
+            currentFooter = currentPage.querySelector('.pdf-footer-pro');
+            currentTbody.appendChild(clone);
+
+            let freshRect = clone.getBoundingClientRect();
+            let freshFooter = currentFooter.getBoundingClientRect();
+            let freshMaxBottom = freshFooter.top - 1;
+
+            if (freshRect.bottom > freshMaxBottom) {
+                let forceSplit = trySplitPenjelasan(clone, freshMaxBottom);
+                if (forceSplit.success) {
+                    queue.unshift({
+                        type: 'continuation',
+                        remainingHTML: forceSplit.remainingHTML,
+                        padLevel: item.padLevel
+                    });
+                }
+            }
+        }
+    }
+
+    let tgl = document.getElementById('ttd-tanggal').innerText;
+    let jab = document.getElementById('ttd-jabatan').innerText;
+    let nma = document.getElementById('ttd-nama').innerText;
+    let nip = document.getElementById('ttd-nip').innerText;
+
+    let ttdNode = document.createElement('div');
+    ttdNode.style = "display: flex; justify-content: flex-end; padding-right: 50px; margin-top: 20px;";
+    ttdNode.innerHTML = `
+        <div class="text-center" style="width: 250px; font-family: Arial, sans-serif; font-size: 11px; color: #000; line-height: 1.4;">
+            <div style="margin-bottom: 2px;">${tgl}</div>
+            <div class="fw-bold">${jab}</div>
+            <div style="height: 55px;"></div>
+            <div class="fw-bold text-decoration-underline">${nma}</div>
+            <div>${nip}</div>
+        </div>
+    `;
+
+    currentPage.insertBefore(ttdNode, currentFooter);
+    let ttdRect = ttdNode.getBoundingClientRect();
+    let currentFooterRect = currentFooter.getBoundingClientRect();
+
+    if (ttdRect.bottom > (currentFooterRect.top - 5)) {
+        currentPage.removeChild(ttdNode);
+
+        let lastEl = currentTbody.lastElementChild;
+        if (lastEl) {
+            let gap = (currentFooterRect.top - 1) - lastEl.getBoundingClientRect().bottom;
+            if (gap > 2) {
+                let spacer = document.createElement('tr');
+                spacer.innerHTML = '<td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td>';
+                spacer.style.height = gap + 'px';
+                currentTbody.appendChild(spacer);
+            } else {
+                Array.from(lastEl.children).forEach(td => td.style.borderBottom = '2px solid #000 !important');
+            }
+        }
+
+        pageNum++;
+        absolutePageNum++;
+        currentPage = createPageTemplate(pageNum, false, absolutePageNum);
+        wrapper.appendChild(currentPage);
+        currentTbody = currentPage.querySelector('.tbody-render');
+        currentFooter = currentPage.querySelector('.pdf-footer-pro');
+        currentPage.insertBefore(ttdNode, currentFooter);
+
+        let ttdTop = ttdNode.getBoundingClientRect().top;
+        let tbodyTop = currentTbody.getBoundingClientRect().top;
+        let gap = ttdTop - tbodyTop - 15; 
+        if (gap > 10) {
+            let spacer = document.createElement('tr');
+            spacer.innerHTML = '<td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td>';
+            spacer.style.height = gap + 'px';
+            currentTbody.appendChild(spacer);
+        }
+
+    } else {
+        let lastEl = currentTbody.lastElementChild;
+        if (lastEl) {
+            let gap = ttdNode.getBoundingClientRect().top - lastEl.getBoundingClientRect().bottom - 15;
+            if (gap > 2) {
+                let spacer = document.createElement('tr');
+                spacer.innerHTML = '<td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td><td style="border-bottom: 2px solid #000 !important;"></td>';
+                spacer.style.height = gap + 'px';
+                currentTbody.appendChild(spacer);
+            } else {
+                Array.from(lastEl.children).forEach(td => td.style.borderBottom = '2px solid #000 !important');
+            }
+        }
+    }
+
+    Swal.close();
+    
+    let totalLembarKertas = wrapper.querySelectorAll('.page-pro').length;
+    
+    document.body.classList.add('preview-active');
+    let wrapperPreview = document.getElementById('printWrapper');
+    wrapperPreview.classList.add('preview-active');
+    
+    let ctrlBar = document.getElementById('previewControlBar');
+    let skpdOriText = document.getElementById('metaOrganisasi').innerText;
+    let skpdBersihText = skpdOriText.replace(/.*:\s*[0-9\.\-]+\s*/, '');
+    if (skpdBersihText === '-' || skpdBersihText === '') skpdBersihText = 'BELUM ADA DATA SKPD';
+    
+    let titleSpan = ctrlBar.querySelector('.text-white.fw-bold.d-flex span');
+    if (titleSpan) {
+        titleSpan.innerHTML = `
+            MODE PRATINJAU 
+            <span class="badge ms-2 px-2 py-1" style="background-color: #1e293b; color: #f8fafc; border: 1px solid #475569; font-size: 11px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); vertical-align: text-bottom; letter-spacing: 0.5px;">
+                <i class="fa-solid fa-building me-1" style="color: #94a3b8;"></i> ${skpdBersihText.toUpperCase()}
+            </span>
+            <span id="badgeInfoTotalHalaman" class="badge ms-2 px-2 py-1" style="background-color: #0f172a; color: #e2e8f0; border: 1px solid #334155; font-size: 11px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); vertical-align: text-bottom; letter-spacing: 0.5px;">
+                <i class="fa-solid fa-copy me-1" style="color: #64748b;"></i> Total: ${totalLembarKertas} Lembar
+            </span>
+            <span id="badgeLiveReader" class="badge ms-2 px-2 py-1" style="background-color: rgba(14, 165, 233, 0.1); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 11px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); vertical-align: text-bottom; transition: all 0.3s; letter-spacing: 0.5px;">
+                <i class="fa-solid fa-eye me-1"></i> Lembaran : 1
+            </span>
+            <br><small style="font-size: 10px; font-weight: normal; color: #cbd5e1;">Periksa Halaman Sebelum Lanjut Mencetak</small>
+        `;
+    }
+    
+    ctrlBar.style.display = 'flex';
+
+    if (window.pageObserver) {
+        window.pageObserver.disconnect();
+    }
+    
+    window.pageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                let activeSheet = entry.target.dataset.lembar;
+                let liveBadge = document.getElementById('badgeLiveReader');
+                if (liveBadge) {
+                    liveBadge.innerHTML = '<i class="fa-solid fa-eye me-1"></i> Lembaran : ' + activeSheet;
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    wrapper.querySelectorAll('.page-pro').forEach(page => {
+        window.pageObserver.observe(page);
+    });
+}
+
+function createPageTemplate(pageNum, isFirstPage, absolutePageNum) {
+    let div = document.createElement('div');
+    div.className = 'page-pro';
+    div.dataset.lembar = absolutePageNum; 
+    div.style.cssText = "position: relative; width: 330mm; height: 215.9mm; padding: 10mm 5mm 10mm 15mm; margin: 0 auto 20px auto; background: #fff; box-sizing: border-box; overflow: hidden; page-break-after: always;";
+
+    let tahun = document.getElementById('selectTahun').value;
+    let periode = document.getElementById('selectPeriode').value;
+    let urusan = document.getElementById('metaUrusan').innerText;
+    let orgOri = document.getElementById('metaOrganisasi').innerText;
+    let skpdBersih = orgOri.replace(/.*:\s*[0-9\.\-]+\s*/, ''); 
+
+    let teksHeaderTahun = "TAHUN ANGGARAN " + tahun;
+    if (periode.includes("Juni")) {
+        teksHeaderTahun = "Periode 1 Januari " + tahun + " s/d 30 Juni " + tahun;
+    }
+
+    let headerHTML = '';
+    let tableMargin = '';
+    
+    if (isFirstPage) {
+        headerHTML = `
+        <div style="display: flex; align-items: center; border-bottom: 3px solid #000; padding-bottom: 10px; margin-bottom: 15px;">
+            <img src="img/luwu.png" style="height: 65px; width: auto; margin-right: 15px;">
+            <div style="flex: 1; text-align: center; margin-left: -65px;">
+                <h4 class="fw-bold m-0" style="letter-spacing: 1px; font-size: 16px;">PEMERINTAH KABUPATEN LUWU</h4>
+                <h5 class="fw-bold m-0 mt-1" style="font-size: 13px;">PENJABARAN LAPORAN REALISASI ANGGARAN PENDAPATAN DAN BELANJA DAERAH</h5>
+                <h6 class="fw-bold mt-1" style="font-size: 13px;">${teksHeaderTahun}</h6>
+            </div>
+        </div>
+        <div class="fw-bold mb-2" style="font-size: 11px; font-family: Arial, sans-serif;">
+            <table style="width: 100%;">
+                <tr><td style="width: 22%;">Urusan Pemerintahan</td><td>${urusan}</td></tr>
+                <tr><td>Unit Organisasi</td><td>${orgOri}</td></tr>
+            </table>
+        </div>
+        `;
+    } else {
+        tableMargin = 'margin-top: 35px;';
+    }
+
+    div.innerHTML = `
+        ${headerHTML} 
+        <table class="table-lra" style="${tableMargin}">
+            <colgroup>
+                <col style="width: 18%;">
+                <col style="width: 24%;">
+                <col style="width: 11%;">
+                <col style="width: 11%;">
+                <col style="width: 11%;">
+                <col style="width: 4%;"> 
+                <col style="width: 25%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>KODE REKENING</th>
+                    <th>URAIAN</th>
+                    <th>ANGGARAN (Rp)</th>
+                    <th>REALISASI (Rp)</th>
+                    <th>BERTAMBAH/<br>(BERKURANG) (Rp)</th>
+                    <th>(%)</th>
+                    <th>PENJELASAN</th>
+                </tr>
+                <tr style="font-size: 9px; background-color: #fafafa;">
+                    <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-render"></tbody>
+        </table>
+        
+        <div class="pdf-footer-pro" style="position: absolute; bottom: 10mm; left: 15mm; right: 5mm; display: flex; justify-content: space-between; font-size: 10px; font-weight: bold; font-family: Arial, sans-serif; border-top: 2px solid #000; padding-top: 8px; color: #000; background: #fff;">
+            <div>${periode} ${tahun}</div>
+            <div class="text-uppercase">${skpdBersih}</div>
+            <div class="page-number-indicator">Halaman ${pageNum}</div>
+        </div>
+    `;
+    return div;
+}
+
+function tutupPreviewCetak() {
+    document.body.classList.remove('preview-active');
+    
+    let wrapper = document.getElementById('printWrapper');
+    if (wrapper) {
+        wrapper.classList.remove('preview-active');
+        wrapper.style.display = 'none';
+        wrapper.innerHTML = ''; 
+    }
+    
+    document.getElementById('previewControlBar').style.display = 'none';
+    document.querySelector('.container-fluid').style.display = 'block';
+    document.querySelector('.print-page').style.display = 'block';
+
+    if (window.pageObserver) {
+        window.pageObserver.disconnect();
+    }
+}
+
+window.addEventListener('afterprint', () => {
+    tutupPreviewCetak();
+});
+
+function exportToExcelRapi() {
+    if(globalRawData.length === 0) { Swal.fire('Data Kosong', 'Upload file Excel SIPD terlebih dahulu.', 'warning'); return; }
+    let wb = XLSX.utils.book_new();
+    let excelData = [];
+    excelData.push(["KODE REKENING", "URAIAN", "ANGGARAN (Rp)", "REALISASI (Rp)", "BERTAMBAH/(BERKURANG)", "%", "PENJELASAN SKPD"]);
+    
+    document.querySelectorAll('#containerRender tr').forEach(tr => {
+        let cols = tr.querySelectorAll('td');
+        if (cols.length < 7) return;
+        let padLevel = parseInt(tr.dataset.pad) || 0;
+        let kode = cols[0].innerText.trim();
+        let uraian = cols[1].innerText.trim();
+        let divPrint = tr.querySelector('.print-view-text');
+        let penjelasan = divPrint ? divPrint.innerText.trim() : "";
+        let spasi = "   ".repeat(padLevel); 
+        excelData.push([ kode, spasi + uraian, cols[2].innerText.trim(), cols[3].innerText.trim(), cols[4].innerText.trim(), cols[5].innerText.trim(), penjelasan ]);
+    });
+
+    let ws = XLSX.utils.aoa_to_sheet(excelData);
+    ws['!cols'] = [ {wch: 28}, {wch: 60}, {wch: 18}, {wch: 18}, {wch: 18}, {wch: 8}, {wch: 60} ];
+    let skpdOri = document.getElementById('metaOrganisasi').innerText;
+    let skpdBersih = skpdOri.split(' ').slice(1).join(' ').replace(/^[0-9\.\- ]+/g, '');
+    XLSX.utils.book_append_sheet(wb, ws, "Penjabaran_LRA");
+    XLSX.writeFile(wb, "LRA_" + (skpdBersih || "SKPD") + "_2026.xlsx");
+}
+
+// =========================================================================
+// MESIN KOMUNIKASI SERVER: SISTEM CICILAN (DATA CHUNKING) ENTERPRISE
+// =========================================================================
+async function simpanKeCloud() {
+    const DOMAIN_RESMI = "bkadakuntansiluwu.github.io"; 
+    let currentDomain = window.location.hostname;
+    
+    if (currentDomain !== DOMAIN_RESMI && currentDomain !== "localhost") {
+        Swal.fire('Akses Ilegal', 'Aplikasi dijalankan dari server tidak resmi! Koneksi diblokir.', 'error');
+        return; 
+    }
+
+    if(SCRIPT_URL_DATABASE.includes("ISI_DENGAN_URL")) { Swal.fire('Peringatan', 'URL Google Apps Script belum diset.', 'warning'); return; }
+    if(!kodeSkpdAktif) { Swal.fire('Error', 'Harap upload LRA Excel terlebih dahulu!', 'warning'); return; }
+    let tahun = document.getElementById('selectTahun').value;
+    
+    let dataPayload = [];
+    document.querySelectorAll('.input-database.is-dirty').forEach(inp => {
+        dataPayload.push({ row_id: inp.getAttribute('data-rowid'), penjelasan: inp.value.trim() });
+    });
+
+    if(dataPayload.length === 0) { Swal.fire('Info', 'Belum ada draf baru yang diketik untuk disimpan.', 'info'); return; }
+    
+    // === LOGIKA CHUNKING (CICILAN) ===
+    // Memecah data jika terlalu besar (maksimal 150 baris per pengiriman) agar koneksi stabil
+    const CHUNK_SIZE = 150; 
+    const totalChunks = Math.ceil(dataPayload.length / CHUNK_SIZE);
+
+    Swal.fire({
+        title: 'Menyimpan Data...',
+        html: `Menyiapkan pengiriman data ke server...`,
+        allowOutsideClick: false,
+        didOpen: () => { Swal.showLoading(); }
+    });
+
+    let totalDisimpan = 0;
+
+    for (let i = 0; i < totalChunks; i++) {
+        let chunkData = dataPayload.slice(i * CHUNK_SIZE, (i + 1) * CHUNK_SIZE);
+        
+        if (totalChunks > 1) {
+            Swal.update({ html: `Mengirim paket <b>${i + 1}</b> dari <b>${totalChunks}</b> ke server aman...` });
+        }
+
+        try {
+            var payloadObj = {
+                token: SESSION_TOKEN || undefined,
+                secret_key: SESSION_TOKEN ? undefined : SECRET_KEY,
+                tahun: tahun,
+                kode_skpd: kodeSkpdAktif,
+                data: chunkData.map(function(item) {
+                    return { row_id: item.row_id, penjelasan: _sanitizeInput(item.penjelasan) };
+                }),
+                user_agent: getUserAgentUntukAudit()
+            };
+            var res = await _enqueueRequest({
+                url: SCRIPT_URL_DATABASE,
+                method: 'POST',
+                body: JSON.stringify(payloadObj)
+            });
+            
+            if(res.status === 'success') {
+                // Berhasil! Hapus tanda is-dirty HANYA untuk paket yang ini
+                chunkData.forEach(item => {
+                    let inp = document.getElementById('val_' + item.row_id);
+                    if (inp) inp.classList.remove('is-dirty');
+                });
+                totalDisimpan += chunkData.length;
+				bersihkanIndexedDB();
+            } 
+            else if (res.status === 'busy') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Jalur Sedang Penuh',
+                    text: 'Server sedang antre ketat. Sebagian data Anda tertunda, silakan klik Simpan Draft lagi sebentar lagi.',
+                    confirmButtonText: 'Baik, Saya Mengerti'
+                });
+                return; // Hentikan cicilan karena server sibuk
+            }
+			
+			else if (res.status === 'error' && res.message && res.message.includes('Sesi tidak valid')) {
+                // Panggil jendela penyelamat jika batas 8 jam habis saat menekan Simpan
+                perpanjangSesiMulus();
+                return; 
+            }
+			
+            else {
+                Swal.fire('Gagal Menyimpan', res.message || 'Terjadi kesalahan sistem.', 'error');
+                return;
+            }
+        } catch (err) {
+            Swal.fire('Koneksi Terputus', 'Gagal terhubung ke server di tengah proses. Silakan periksa internet Anda dan coba lagi.', 'error');
+            return;
+        }
+    }
+
+    // Jika seluruh paket berhasil dikirim
+    Swal.fire({
+        icon: 'success',
+        title: 'Tersimpan (Lengkap)',
+        text: `${totalDisimpan} penjelasan berhasil diamankan ke server.`,
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true
+    });
+
+    setTimeout(() => { 
+        if(typeof tarikDataSiluman === 'function') tarikDataSiluman(); 
+    }, 2500);
+}
+
+function muatDataDariCloud() {
+    const DOMAIN_RESMI = "bkadakuntansiluwu.github.io"; 
+    let currentDomain = window.location.hostname;
+    
+    if (currentDomain !== DOMAIN_RESMI) {
+        Swal.fire('Akses Ilegal', 'Aplikasi dijalankan dari server tidak resmi! Tarik data ditolak.', 'error');
+        return; 
+    }
+
+    if(SCRIPT_URL_DATABASE.includes("ISI_DENGAN_URL")) { Swal.fire('Peringatan', 'URL Google Apps Script belum diset.', 'warning'); return; }
+    if(!kodeSkpdAktif) { Swal.fire('Error', 'Harap upload LRA Excel terlebih dahulu!', 'warning'); return; }
+
+    let drafBelumDisimpan = document.querySelectorAll('.input-database.is-dirty').length;
+    if (drafBelumDisimpan > 0) {
+        Swal.fire({
+            title: 'Ada Draf Belum Disimpan!',
+            html: `Anda memiliki <b>${drafBelumDisimpan} rincian</b> yang belum di-Simpan Draft ke Cloud.<br><br>Jika Anda Menarik Data sekarang, ketikan Anda tersebut akan <b>TERTIMPA/HILANG</b> oleh data lama dari server.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Timpa Data Saya (Hapus Draf)',
+            cancelButtonText: 'Batal (Saya Mau Simpan Dulu)'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelectorAll('.input-database.is-dirty').forEach(inp => inp.classList.remove('is-dirty'));
+                eksekusiTarikDataLRA();
+            }
+        });
+    } else {
+        eksekusiTarikDataLRA();
+    }
+}
+
+// =========================================================================
+// FUNGSI INTI PENARIKAN DATA (SUDAH DIRAPIKAN MENGGUNAKAN PABRIK HTML)
+// =========================================================================
+function eksekusiTarikDataLRA() {
+    let tahun = document.getElementById('selectTahun').value;
+    Swal.fire({ title: 'Sedang Menarik Data', allowOutsideClick: false, didOpen: () => { Swal.showLoading(); }});
+
+    var authParam = SESSION_TOKEN ? ('token=' + SESSION_TOKEN) : ('secret_key=' + SECRET_KEY);
+    let fetchUrl = `${SCRIPT_URL_DATABASE}?action=load&tahun=${tahun}&kode_skpd=${kodeSkpdAktif}&${authParam}`;
+
+    _smartFetch({ url: fetchUrl }).then(function(res) { return res; }).then(function(res) {
+            if(res.status === 'success') {
+                let dataServer = res.data; let count = 0;
+                document.querySelectorAll('.input-database').forEach(inp => {
+                    let rowId = inp.getAttribute('data-rowid');
+                    let realisasi = parseFloat(inp.getAttribute('data-realisasi'));
+                    if(dataServer[rowId]) { 
+                        inp.value = dataServer[rowId]; 
+                        
+                        let printText = formatTeksPenjelasan(dataServer[rowId]);
+                        document.getElementById('print_' + rowId).innerHTML = printText;
+                        
+                        let btn = document.getElementById('btn_' + rowId);
+                        if (btn) {
+                            let isKeterangan = btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('bukaKeterangan');
+                            
+                            if (isKeterangan) {
+                                if (printText.trim() === '') {
+                                    btn.className = 'btn btn-sm w-100 text-start';
+                                    btn.style.cssText = "font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #ffffff; border: 1px solid #e2e8f0; color: #64748b; border-radius: 4px;";
+                                    btn.innerHTML = '<i class="fa-regular fa-comment-dots text-muted me-1"></i>';
+                                } else {
+                                    btn.className = 'btn btn-sm w-100 text-start fw-bold';
+                                    btn.style.cssText = "font-family:Arial; font-size:10px; padding: 4px 8px; background-color: #f8fafc; border: 1px solid #cbd5e1; color: #334155; border-radius: 4px;";
+                                    btn.innerHTML = '<i class="fa-solid fa-check text-muted me-1"></i> Keterangan Disimpan';
+                                }
+                            } else {
+                                perbaruiTombolStatus(rowId, printText, realisasi);
+                            }
+                        }
+                        count++; 
+                    }
+                });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Ditarik',
+                    text: `${count} baris penjelasan berhasil dimuat dari server.`,
+                    timer: 2000,
+                    showConfirmButton: false,
+                    timerProgressBar: true
+                });
+            } 
+            else if (res.status === 'busy') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Mohon Tunggu Sebentar',
+                    text: res.message || 'Sistem sedang memproses permintaan lain. Silakan coba Tarik Data kembali dalam 1 menit.',
+                    confirmButtonText: 'Baik, Saya Mengerti',
+                    confirmButtonColor: '#f59e0b'
+                });
+            }
+            else if (res.status === 'error') {
+                Swal.fire({ icon: 'error', title: 'Akses Ditolak', text: res.message, confirmButtonText: 'OK' });
+            }
+            else Swal.fire({ icon: 'info', title: 'Data tidak ditemukan', text: 'Belum ada penjelasan yang tersimpan.', confirmButtonText: 'OK' });
+        }).catch(() => Swal.fire({
+            icon: 'error', title: 'Koneksi Terputus', text: 'Gagal terhubung ke server. Periksa koneksi internet Anda, lalu coba Tarik Data kembali.', confirmButtonText: 'OK'
+        }));
+}
+
+function terapkanFilterBelanja() {
+    let selectObj = document.getElementById('selectFilterBelanja');
+    if (!selectObj) return; 
+    let filter = selectObj.value;
+    let tbody = document.getElementById('containerRender');
+    
+    let oldTotalRow = document.getElementById('rowDynamicTotal');
+    if (oldTotalRow) oldTotalRow.remove();
+
+    let rows = Array.from(document.querySelectorAll('#containerRender tr'));
+
+    rows.forEach(tr => {
+        let kat = tr.dataset.kategori;
+        let subKat = tr.dataset.subKategori;
+        tr.style.display = ''; 
+
+        if (filter !== 'semua') {
+            if (kat !== 'induk') {
+                if (filter === 'perjalanan') {
+                    if (subKat !== 'perjalanan') tr.style.display = 'none';
+                } else if (filter === 'operasi_non_perjalanan') {
+                    if (kat !== 'operasi' || subKat === 'perjalanan') tr.style.display = 'none';
+                } else if (filter === 'operasi') {
+                    if (kat !== 'operasi') tr.style.display = 'none';
+                } else {
+                    if (kat !== filter) tr.style.display = 'none';
+                }
+            }
+        }
+    });
+
+    if (filter !== 'semua') {
+        for (let i = rows.length - 1; i >= 0; i--) {
+            let tr = rows[i];
+            if (tr.dataset.kategori === 'induk') {
+                let padLvl = parseInt(tr.dataset.pad) || 0;
+                let hasVisibleChild = false;
+                for (let j = i + 1; j < rows.length; j++) {
+                    let childTr = rows[j];
+                    let childPad = parseInt(childTr.dataset.pad) || 0;
+                    if (childPad <= padLvl) break; 
+                    if (childTr.style.display !== 'none') {
+                        hasVisibleChild = true;
+                        break;
+                    }
+                }
+                if (!hasVisibleChild) tr.style.display = 'none';
+            }
+        }
+    }
+
+    let grandAng = 0; let grandRea = 0;
+
+    if (filter === 'semua') {
+        rows.forEach(tr => {
+            let tdAng = tr.children[2]; let tdRea = tr.children[3];
+            let tdSel = tr.children[4]; let tdPer = tr.children[5];
+            if(tdAng && tr.dataset.oriAngStr !== undefined) tdAng.innerText = tr.dataset.oriAngStr;
+            if(tdRea && tr.dataset.oriReaStr !== undefined) tdRea.innerText = tr.dataset.oriReaStr;
+            if(tdSel && tr.dataset.oriSelStr !== undefined) tdSel.innerText = tr.dataset.oriSelStr;
+            if(tdPer && tr.dataset.oriPerStr !== undefined) tdPer.innerText = tr.dataset.oriPerStr;
+        });
+    } else {
+        rows.forEach((tr, i) => {
+            if (tr.style.display === 'none') return; 
+            
+            if (tr.dataset.kategori === 'induk') {
+                let textUraianLcase = tr.children[1].innerText.toLowerCase();
+                let isGrandTotal = textUraianLcase.includes('jumlah') || textUraianLcase === 'total' || textUraianLcase.includes('surplus') || textUraianLcase.includes('defisit');
+                
+                let padLvl = parseInt(tr.dataset.pad) || 0;
+                let sumAng = 0; let sumRea = 0;
+
+                if (isGrandTotal) {
+                    tr.style.display = 'none'; 
+                } else {
+                    for (let j = i + 1; j < rows.length; j++) {
+                        let childTr = rows[j];
+                        let childPad = parseInt(childTr.dataset.pad) || 0;
+                        if (childPad <= padLvl) break; 
+                        if (childTr.style.display !== 'none' && childTr.dataset.kategori !== 'induk') {
+                            sumAng += parseFloat(childTr.dataset.oriAng) || 0;
+                            sumRea += parseFloat(childTr.dataset.oriRea) || 0;
+                        }
+                    }
+
+                    let selisih = sumRea - sumAng;
+                    let persentase = sumAng > 0 ? ((sumRea / sumAng) * 100).toFixed(2) : '0,00';
+                    let formatRp = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+                    
+                    let strAng = sumAng !== 0 ? sumAng.toLocaleString('id-ID', formatRp) : '0,00';
+                    let strRea = sumRea !== 0 ? sumRea.toLocaleString('id-ID', formatRp) : '0,00';
+                    let strSel = selisih !== 0 ? (selisih < 0 ? '(' + Math.abs(selisih).toLocaleString('id-ID', formatRp) + ')' : selisih.toLocaleString('id-ID', formatRp)) : '0,00';
+                    let strPer = persentase.replace('.', ',');
+
+                    if (tr.dataset.oriAngStr === '') { strAng = ''; strRea = ''; strSel = ''; strPer = ''; }
+
+                    let tdAng = tr.children[2]; let tdRea = tr.children[3];
+                    let tdSel = tr.children[4]; let tdPer = tr.children[5];
+                    if(tdAng) tdAng.innerText = strAng;
+                    if(tdRea) tdRea.innerText = strRea;
+                    if(tdSel) tdSel.innerText = strSel;
+                    if(tdPer) tdPer.innerText = strPer;
+                }
+            } else {
+                grandAng += parseFloat(tr.dataset.oriAng) || 0;
+                grandRea += parseFloat(tr.dataset.oriRea) || 0;
+            }
+        });
+    }
+
+    if (filter !== 'semua') {
+        let namaFilter = "KESELURUHAN";
+        if (filter === 'operasi') namaFilter = "BELANJA OPERASI";
+        else if (filter === 'operasi_non_perjalanan') namaFilter = "BELANJA OPERASI (TANPA PERJALANAN DINAS)";
+        else if (filter === 'modal') namaFilter = "BELANJA MODAL";
+        else if (filter === 'btt') namaFilter = "BELANJA TAK TERDUGA";
+        else if (filter === 'transfer') namaFilter = "BELANJA TRANSFER";
+        else if (filter === 'perjalanan') namaFilter = "BELANJA PERJALANAN DINAS";
+        
+        let grandSel = grandRea - grandAng;
+        let grandPer = grandAng > 0 ? ((grandRea / grandAng) * 100).toFixed(2).replace('.', ',') : '0,00';
+        let formatRp = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+        
+        let trTotal = document.createElement('tr');
+        trTotal.id = 'rowDynamicTotal';
+        trTotal.className = 'pad-lvl-1 style-bold';
+        
+        trTotal.style.backgroundColor = '#f8fafc';
+        trTotal.style.borderTop = '2px solid #000';
+        trTotal.style.borderBottom = '2px solid #000';
+        trTotal.dataset.pad = 1;
+
+        trTotal.innerHTML = `
+            <td></td>
+            <td class="uraian-cell text-center text-uppercase text-dark" style="font-size: 12px; font-weight: 800; letter-spacing: 0.5px;">Total ${namaFilter}</td>
+            <td class="text-end text-dark" style="font-weight: 800;">${grandAng !== 0 ? grandAng.toLocaleString('id-ID', formatRp) : '0,00'}</td>
+            <td class="text-end text-dark" style="font-weight: 800;">${grandRea !== 0 ? grandRea.toLocaleString('id-ID', formatRp) : '0,00'}</td>
+            <td class="text-end text-dark" style="font-weight: 800;">${grandSel !== 0 ? (grandSel < 0 ? '(' + Math.abs(grandSel).toLocaleString('id-ID', formatRp) + ')' : grandSel.toLocaleString('id-ID', formatRp)) : '0,00'}</td>
+            <td class="text-center text-dark" style="font-weight: 800;">${grandPer}</td>
+            <td></td>
+        `;
+        
+        tbody.appendChild(trTotal);
+    }
+}
+
+function cekKualitasTeks(teks) {
+    let bersih = teks.replace(/<[^>]*>?/gm, '').trim(); 
+        if (bersih === '') return "OK";
+    let hurufSaja = bersih.replace(/[^a-zA-Z]/g, '');  
+    if (hurufSaja.length < 15) return "Teks Kurang (Min. 15 Kata)";
+    if (/(.)\1{4,}/.test(bersih.toLowerCase())) return "Terdeteksi Ketikan Ngawur (Karakter Berulang)"; 
+    if (/[bcdfghjklmnpqrstvwxyz]{6,}/i.test(bersih)) return "Terdeteksi Ketikan Ngawur (Konsonan Beruntun)"; 
+    if (/\b[a-zA-Z]{25,}\b/.test(bersih)) return "Terdeteksi Ketikan Ngawur (Kata Terlalu Panjang)"; 
+    
+    return "OK";
+}
+
+function backupDaruratOffline() {
+    if(!kodeSkpdAktif) { Swal.fire('Error', 'Harap upload LRA Excel terlebih dahulu!', 'warning'); return; }
+    
+    let tahun = document.getElementById('selectTahun').value;
+    let dataPayload = {};
+    let count = 0;
+    
+    document.querySelectorAll('.input-database').forEach(inp => {
+        if(inp.value.trim() !== '') {
+            dataPayload[inp.getAttribute('data-rowid')] = inp.value.trim();
+            count++;
+        }
+    });
+
+    if(count === 0) { Swal.fire('Info', 'Belum ada data rincian yang diketik untuk di-backup.', 'info'); return; }
+
+    let backupData = {
+        app: "LRA_LUWU",
+        tahun: tahun,
+        kode_skpd: kodeSkpdAktif,
+        timestamp: new Date().toISOString(),
+        data: dataPayload
+    };
+
+    let jsonString = JSON.stringify(backupData);
+    let blob = new Blob([jsonString], { type: "application/json" });
+    let blobUrl = URL.createObjectURL(blob);
+    
+    let downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", blobUrl);
+    
+    let namaFile = `Backup_LRA_LUWU_${tahun}_${kodeSkpdAktif.replace(/\./g, '')}.json`;
+    downloadAnchorNode.setAttribute("download", namaFile);
+    document.body.appendChild(downloadAnchorNode); 
+    downloadAnchorNode.click();
+    
+    downloadAnchorNode.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    
+    Swal.fire('Berhasil', `File Backup berhasil diunduh (${count} rincian).<br><br><b>PENTING:</b> Harap simpan Baik-baik data Backup anda dikomputer/laptop`, 'success');
+}
+
+function prosesRestoreOffline(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if(!kodeSkpdAktif) { 
+        Swal.fire('Error', 'Harap upload LRA Excel dari SIPD terlebih dahulu di layar utama sebelum melakukan Restore!', 'warning'); 
+        event.target.value = ''; 
+        return; 
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            let parsedData = JSON.parse(e.target.result);
+            
+            if(parsedData.app !== "LRA_LUWU") {
+                Swal.fire('File Ditolak', 'Ini bukan file backup resmi dari Aplikasi LRA Luwu.', 'error');
+                return;
+            }
+            
+            let tahunAktif = document.getElementById('selectTahun').value;
+            let isWarning = false;
+            let warningMsg = "";
+            
+            if(parsedData.tahun !== tahunAktif) { isWarning = true; warningMsg += `<br>- Tahun file (${parsedData.tahun}) beda dengan tahun aktif (${tahunAktif})`; }
+            if(parsedData.kode_skpd !== kodeSkpdAktif) { isWarning = true; warningMsg += `<br>- Kode SKPD milik dinas lain`; }
+            
+            if(isWarning) {
+                Swal.fire({
+                    title: 'Peringatan Data Tidak Cocok!',
+                    html: `File backup ini memiliki ketidaksesuaian:${warningMsg}<br><br>Apakah Anda yakin ingin memaksakan restore? Data baris yang tidak cocok akan diabaikan oleh sistem.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, Paksa Restore'
+                }).then((result) => {
+                    if (result.isConfirmed) eksekusiRestoreLokal(parsedData.data);
+                });
+            } else {
+                eksekusiRestoreLokal(parsedData.data);
+            }
+            
+        } catch (err) {
+            Swal.fire('Error', 'File backup rusak atau gagal dibaca.', 'error');
+        }
+        event.target.value = ''; 
+    };
+    reader.readAsText(file);
+}
+
+// LOGIKA RENDER RESTORE (SUDAH DIRAPIKAN MENGGUNAKAN PABRIK HTML)
+function eksekusiRestoreLokal(dataServer) {
+    let count = 0;
+    Swal.fire({ title: 'Merestore Data...', allowOutsideClick: false, didOpen: () => { Swal.showLoading(); }});
+    
+    setTimeout(() => {
+        document.querySelectorAll('.input-database').forEach(inp => {
+            let rowId = inp.getAttribute('data-rowid');
+            let realisasi = parseFloat(inp.getAttribute('data-realisasi'));
+            
+            if(dataServer[rowId]) { 
+                inp.value = dataServer[rowId]; 
+                inp.classList.add('is-dirty');
+                
+                // MEMANGGIL PABRIK HTML TERPUSAT
+                let printText = formatTeksPenjelasan(dataServer[rowId]);
+
+                document.getElementById('print_' + rowId).innerHTML = printText;
+                
+                let btn = document.getElementById('btn_' + rowId);
+                if (btn && btn.innerHTML.includes('Isi Keterangan')) {
+                    btn.className = 'btn btn-sm w-100 text-start fw-bold';
+                    btn.style.cssText = "font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #f8fafc; border: 1px solid #cbd5e1; color: #334155; border-radius: 4px;";
+                    btn.innerHTML = '<i class="fa-solid fa-check text-muted me-1"></i> Keterangan Disimpan';
+                } else {
+                    perbaruiTombolStatus(rowId, printText, realisasi);
+                }
+                count++; 
+            }
+        });
+        
+        Swal.fire('Restore Berhasil dimuat!', `${count} baris data berhasil dikembalikan dari file Backup Lokal Anda.`, 'success');
+    }, 600);
+}
+
+function cekKoneksiServer() {
+    let badge = document.getElementById('statusKoneksi');
+    let text = document.getElementById('teksKoneksi');
+    let icon = badge.querySelector('i');
+
+    if (!SCRIPT_URL_DATABASE || SCRIPT_URL_DATABASE.includes("ISI_DENGAN_URL")) {
+        badge.className = 'connection-badge offline shadow-sm';
+        icon.className = 'fa-solid fa-triangle-exclamation';
+        text.innerText = 'Offline (URL Kosong)';
+        return;
+    }
+
+    let authParam = SESSION_TOKEN ? ('token=' + SESSION_TOKEN) : ('secret_key=' + SECRET_KEY);
+    let urlPing = `${SCRIPT_URL_DATABASE}?${authParam}&action=ping`;
+    
+    _smartFetch({ url: urlPing })
+        .then(function(res) { return res; })
+        .then(res => {
+            if (res && res.status === 'success') {
+                badge.className = 'connection-badge online shadow-sm';
+                icon.className = 'fa-solid fa-wifi';
+                text.innerText = 'Terhubung';
+            } else {
+                throw new Error("Invalid response");
+            }
+        })
+        .catch(err => {
+            badge.className = 'connection-badge offline shadow-sm';
+            icon.className = 'fa-solid fa-server'; 
+            text.innerText = 'Server Offline';
+        });
+}
+
+// =========================================================================
+// FUNGSI PEMULIHAN CERDAS & LOG OUT (ANTI-PANIK SAAT REFRESH)
+// =========================================================================
+function pulihkanDataSesiLokal() {
+    let savedLRA = sessionStorage.getItem('LRA_RAW_DATA');
+    if (savedLRA) {
+        try {
+            globalRawData = JSON.parse(savedLRA);
+            if (globalRawData && globalRawData.length > 0) {
+                // 1. Bangun ulang tabel LRA Belanja
+                processAndBuildLRA();
+                
+                // 2. Jika ada data PAD, bangun juga setelah LRA selesai
+                let savedPAD = sessionStorage.getItem('PAD_RAW_DATA');
+                if (savedPAD) {
+                    globalRawPAD = JSON.parse(savedPAD);
+                    if (globalRawPAD && globalRawPAD.length > 0 && typeof injeksiDataPADkeTabel === 'function') {
+                        // Beri jeda agar DOM LRA siap dulu
+                        setTimeout(() => { injeksiDataPADkeTabel(); }, 500);
+                    }
+                }
+            }
+        } catch (e) {
+            console.error("Gagal memulihkan memori lokal:", e);
+        }
+    }
+}
+
+function fungsiKeluarAplikasi() {
+    Swal.fire({
+        title: 'Anda Yakin ingin keluar?',
+        html: '',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        cancelButtonColor: '#64748b',
+        confirmButtonText: '<i class="fa-solid fa-power-off me-1"></i> YA',
+        cancelButtonText: 'TIDAK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Hapus semua memori pintar dan kunci login
+            sessionStorage.removeItem('LRA_RAW_DATA');
+            sessionStorage.removeItem('PAD_RAW_DATA');
+            sessionStorage.removeItem('LRA_AUTH_KEY');
+            sessionStorage.removeItem('LRA_TOKEN');
+            
+            SECRET_KEY = "";
+            SESSION_TOKEN = "";
+            kodeSkpdAktif = "";
+            
+            // Reload halaman secara penuh untuk mengunci ulang aplikasi
+            window.location.reload();
+        }
+    });
+}
+
+function tampilkanGerbangKeamanan() {
+    if (SESSION_TOKEN !== "") {
+        document.body.style.overflow = 'auto';
+        document.querySelectorAll('.container-fluid, .print-page').forEach(el => {
+            el.style.filter = 'none';
+            el.style.pointerEvents = 'auto';
+        });
+                pulihkanDataSesiLokal();
+        cekKoneksiServer();
+        return;
+    }
+
+    Swal.fire({
+        title: '<strong style="font-family: Arial;">Login Aplikasi LRA <i class="fa-solid fa-lock text-dark ms-1"></i></strong>',
+        html: `
+            <div class="mb-3 mt-2 text-start" style="font-family: Arial;">
+                <label class="form-label fw-bold text-secondary" style="font-size:12px;">Masukkan Password Akses SKPD:</label>
+                <div class="input-group">
+                    <input type="password" id="swal-input-password" class="form-control form-control-lg shadow-none border-secondary" placeholder="Ketik sandi disini..." style="font-size: 14px;">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+                <div class="mt-2 text-muted" style="font-size: 10px;">
+                    <i class="fa-solid fa-circle-info text-primary me-1"></i> Sesi akan aktif selama browser belum ditutup.
+                </div>
+            </div>
+        `,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: true,
+        confirmButtonText: 'Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>',
+        confirmButtonColor: '#0f172a',
+        showLoaderOnConfirm: true,
+        didOpen: () => {
+            document.body.style.overflow = 'hidden'; 
+            document.querySelectorAll('.container-fluid, .print-page').forEach(el => {
+                el.style.filter = 'blur(10px) grayscale(20%)';
+                el.style.pointerEvents = 'none';
+            });
+
+            const toggleBtn = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('swal-input-password');
+            toggleBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.getAttribute('type') === 'password';
+                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+                toggleBtn.innerHTML = isPassword ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+            });
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') Swal.clickConfirm();
+            });
+        },
+        preConfirm: () => {
+            const pwd = document.getElementById('swal-input-password').value;
+            if (!pwd) { Swal.showValidationMessage('Password tidak boleh kosong!'); return false; }
+            
+            return fetch(SCRIPT_URL_DATABASE, {
+                method: 'POST',
+                body: JSON.stringify({ secret_key: pwd, action: 'login' })
+            })
+                .then(function(response) { return response.json(); })
+                .then(function(res) {
+                    if (res.status === 'error') {
+                        Swal.showValidationMessage('Password Salah! Akses ditolak.');
+                        return false;
+                    }
+                    return res;
+                })
+                .catch(function(error) {
+                    Swal.showValidationMessage('[X] Gagal cek server. Pastikan internet aktif!');
+                    return false;
+                });
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var loginData = result.value;
+            SECRET_KEY = '';  // Tidak simpan password di memori
+            SESSION_TOKEN = loginData.token || '';
+            sessionStorage.setItem('LRA_TOKEN', SESSION_TOKEN);
+            sessionStorage.removeItem('LRA_AUTH_KEY');
+            
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('.container-fluid, .print-page').forEach(el => {
+                el.style.filter = 'none';
+                el.style.pointerEvents = 'auto';
+            });
+            
+            Swal.fire({
+                icon: 'success', title: 'Berhasil Login', text: 'Selamat bekerja!', timer: 1500, showConfirmButton: false
+            });
+            pulihkanDataSesiLokal();
+            cekKoneksiServer();
+            if (typeof jalankanWekerSiluman === 'function') jalankanWekerSiluman();
+        }
+    });
+}
+
+let kamusPengetikan = JSON.parse(localStorage.getItem('KAMUS_LRA_LUWU')) || [];
+let kamusSatuan = JSON.parse(localStorage.getItem('KAMUS_SATUAN_LUWU')) || [];
+let kamusHarga = JSON.parse(localStorage.getItem('KAMUS_HARGA_LUWU')) || [];
+let kamusVol = JSON.parse(localStorage.getItem('KAMUS_VOL_LUWU')) || [];
+
+function simpanKeKamus(teks) {
+    if (!teks || teks.trim().length < 4) return; 
+    let bersih = teks.trim();
+    if (!kamusPengetikan.includes(bersih)) {
+        kamusPengetikan.unshift(bersih); 
+        if (kamusPengetikan.length > 250) kamusPengetikan.pop(); 
+        localStorage.setItem('KAMUS_LRA_LUWU', JSON.stringify(kamusPengetikan));
+    }
+}
+
+function simpanKamusKhusus(teks, tipe) {
+    if (!teks) return;
+    let bersih = String(teks).trim();
+    if (bersih === '' || bersih === '0') return;
+    
+    let target, key;
+    if (tipe === 'satuan') { target = kamusSatuan; key = 'KAMUS_SATUAN_LUWU'; }
+    else if (tipe === 'harga') { target = kamusHarga; key = 'KAMUS_HARGA_LUWU'; }
+    else if (tipe === 'vol') { target = kamusVol; key = 'KAMUS_VOL_LUWU'; }
+
+    if (!target.includes(bersih)) {
+        target.unshift(bersih);
+        if (target.length > 30) target.pop(); 
+        localStorage.setItem(key, JSON.stringify(target));
+    }
+}
+
+let boxSaran = document.createElement('div');
+boxSaran.id = 'boxSaranLRA';
+boxSaran.style.cssText = 'display:none; position:absolute; z-index:10000; max-height:220px; overflow-y:auto; font-family:Arial; font-size:12px; background:#ffffff; border:1px solid #94a3b8; border-radius:6px; box-shadow:0 10px 25px rgba(0,0,0,0.15);';
+document.body.appendChild(boxSaran);
+
+let activeInput = null;
+
+document.addEventListener('input', function(e) {
+    let isUraian = e.target.classList.contains('textarea-smart');
+    let isSatuan = e.target.classList.contains('satuan');
+    let isHarga = e.target.classList.contains('harga');
+    let isVol = e.target.classList.contains('vol');
+
+    if (isUraian || isSatuan || isHarga || isVol) {
+        let val = e.target.value.toLowerCase().trim();
+        let targetKamus = [];
+        let minChar = 2; 
+        let tipeTarget = '';
+
+        if (isUraian) { targetKamus = kamusPengetikan; minChar = 2; tipeTarget = 'uraian'; }
+        if (isSatuan) { targetKamus = kamusSatuan; minChar = 1; tipeTarget = 'satuan'; } 
+        if (isHarga) { targetKamus = kamusHarga; minChar = 1; tipeTarget = 'harga'; }
+        if (isVol) { targetKamus = kamusVol; minChar = 1; tipeTarget = 'vol'; }
+
+        if (val.length < minChar) {
+            boxSaran.style.display = 'none';
+            return;
+        }
+
+        let matches = targetKamus.filter(k => k.toLowerCase().includes(val));
+        
+        if (matches.length > 0) {
+            activeInput = e.target;
+            boxSaran.innerHTML = '';
+            
+            matches.slice(0, 8).forEach(match => { 
+                let item = document.createElement('div');
+                item.className = 'p-2 border-bottom text-secondary fw-bold d-flex justify-content-between align-items-center';
+                item.style.cssText = 'transition:0.2s; background:#fff;';
+                
+                let textSpan = document.createElement('span');
+                textSpan.className = 'text-truncate';
+                textSpan.style.cssText = 'flex: 1; cursor: pointer; padding-right: 10px;';
+                textSpan.innerText = match;
+                
+                textSpan.onclick = function() {
+                    activeInput.value = match;
+                    boxSaran.style.display = 'none';
+                    if (isHarga) formatRibuan(activeInput); 
+                    if (typeof kalkulasiKombinasi === 'function') kalkulasiKombinasi(); 
+                    activeInput.focus();
+                };
+
+                let delBtn = document.createElement('i');
+                delBtn.className = 'fa-solid fa-xmark text-danger';
+                delBtn.style.cssText = 'cursor: pointer; padding: 4px 8px; border-radius: 4px; opacity: 0.5; transition: 0.2s; font-size: 14px;';
+                delBtn.title = 'Hapus saran ini';
+                
+                delBtn.onmouseover = function() { this.style.opacity = '1'; this.style.backgroundColor = '#fee2e2'; };
+                delBtn.onmouseout = function() { this.style.opacity = '0.5'; this.style.backgroundColor = 'transparent'; };
+                
+                delBtn.onclick = function(event) {
+                    event.stopPropagation(); 
+                    if (tipeTarget === 'uraian') {
+                        kamusPengetikan = kamusPengetikan.filter(k => k !== match);
+                        localStorage.setItem('KAMUS_LRA_LUWU', JSON.stringify(kamusPengetikan));
+                    } else if (tipeTarget === 'satuan') {
+                        kamusSatuan = kamusSatuan.filter(k => k !== match);
+                        localStorage.setItem('KAMUS_SATUAN_LUWU', JSON.stringify(kamusSatuan));
+                    } else if (tipeTarget === 'harga') {
+                        kamusHarga = kamusHarga.filter(k => k !== match);
+                        localStorage.setItem('KAMUS_HARGA_LUWU', JSON.stringify(kamusHarga));
+                    } else if (tipeTarget === 'vol') {
+                        kamusVol = kamusVol.filter(k => k !== match);
+                        localStorage.setItem('KAMUS_VOL_LUWU', JSON.stringify(kamusVol));
+                    }
+                    item.remove();
+                    if (boxSaran.children.length === 0) boxSaran.style.display = 'none';
+                };
+                
+                item.onmouseover = function() { this.style.backgroundColor = '#f1f5f9'; textSpan.style.color = '#0f172a'; };
+                item.onmouseout = function() { this.style.backgroundColor = '#fff'; textSpan.style.color = ''; };
+                
+                item.appendChild(textSpan);
+                item.appendChild(delBtn);
+                boxSaran.appendChild(item);
+            });
+
+            let rect = e.target.getBoundingClientRect();
+            boxSaran.style.left = rect.left + window.scrollX + 'px';
+            boxSaran.style.top = (rect.bottom + window.scrollY + 2) + 'px';
+            boxSaran.style.width = rect.width + 'px'; 
+            boxSaran.style.display = 'block';
+        } else {
+            boxSaran.style.display = 'none';
+        }
+    }
+});
+
+document.addEventListener('click', function(e) {
+    if (e.target.id !== 'boxSaranLRA' && !e.target.closest('#boxSaranLRA') && !e.target.classList.contains('textarea-smart') && !e.target.classList.contains('satuan') && !e.target.classList.contains('harga') && !e.target.classList.contains('vol')) {
+        boxSaran.style.display = 'none';
+    }
+});
+
+document.addEventListener('scroll', function() { boxSaran.style.display = 'none'; }, true);
+
+function cekResolusiLayar() {
+    if (window.innerWidth < 1024) { 
+        document.body.style.overflow = 'hidden'; 
+        
+        let mobileBlocker = document.getElementById('mobileBlockerLRA');
+        if (!mobileBlocker) {
+            mobileBlocker = document.createElement('div');
+            mobileBlocker.id = 'mobileBlockerLRA';
+            mobileBlocker.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background-color:#0f172a; z-index:999999; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:30px; color:#f8fafc; font-family:Arial, sans-serif;';
+            
+            mobileBlocker.innerHTML = `
+                <i class="fa-solid fa-laptop-code text-primary mb-4" style="font-size: 60px;"></i>
+                <h3 style="font-weight: bold; margin-bottom: 15px; letter-spacing: 1px;">Mode Desktop Diperlukan</h3>
+                <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; max-width: 400px; margin: 0 auto 25px auto;">
+                    Aplikasi Penjabaran LRA Pemkab Luwu memuat data tabel dan fitur cetak yang sangat kompleks.<br><br>
+                    Untuk pengalaman kerja dan keamanan data terbaik, mohon buka aplikasi ini menggunakan <b>PC atau Laptop</b>.
+                </p>
+                <div style="padding: 10px 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 11px; color: #cbd5e1;">
+                    Resolusi minimum yang disarankan: 1024px (Landscape)
+                </div>
+            `;
+            document.body.appendChild(mobileBlocker);
+        }
+        mobileBlocker.style.display = 'flex';
+    } else {
+        let mobileBlocker = document.getElementById('mobileBlockerLRA');
+        if (mobileBlocker) {
+            mobileBlocker.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+}
+
+window.addEventListener('load', cekResolusiLayar);
+window.addEventListener('resize', cekResolusiLayar);
+
+window.brankasDraf = [];
+
+window.backupBrankasDraf = function() {
+    let adaData = false;
+    let tempDraft = [];
+    document.querySelectorAll('.input-database').forEach(inp => {
+        let id = inp.getAttribute('data-rowid');
+        if (inp.value.trim() !== '') {
+            adaData = true;
+            tempDraft.push({
+                id: id,
+                val: inp.value,
+                isDirty: inp.classList.contains('is-dirty'), 
+                printHtml: document.getElementById('print_' + id) ? document.getElementById('print_' + id).innerHTML : '',
+                btnOuter: document.getElementById('btn_' + id) ? document.getElementById('btn_' + id).outerHTML : ''
+            });
+        }
+    });
+    if (adaData) {
+        window.brankasDraf = tempDraft; 
+    }
+};
+
+window.restoreBrankasDraf = function() {
+    if (!window.brankasDraf || window.brankasDraf.length === 0) return;
+    
+    window.brankasDraf.forEach(item => {
+        let inp = document.getElementById('val_' + item.id);
+        if (inp) {
+            inp.value = item.val;
+            if (item.isDirty) inp.classList.add('is-dirty');
+            
+            let printDiv = document.getElementById('print_' + item.id);
+            if (printDiv && item.printHtml) printDiv.innerHTML = item.printHtml;
+            
+            let btnDiv = document.getElementById('btn_' + item.id);
+            if (btnDiv && item.btnOuter) {
+                btnDiv.outerHTML = item.btnOuter;
+            }
+        }
+    });
+};
+
+// =========================================================================
+// FITUR KERJA TIM: TARIK DATA SILUMAN (DIPERBARUI: ANTI-CACHE BROWSER)
+// =========================================================================
+let waktuTerakhirSiluman = 0;
+
+function tarikDataSiluman(tampilkanLoading = false) {
+    if(!kodeSkpdAktif) return;
+    
+    let waktuSekarang = Date.now();
+    if (waktuSekarang - waktuTerakhirSiluman < 15000) return; 
+    waktuTerakhirSiluman = waktuSekarang; 
+
+    let tahun = document.getElementById('selectTahun').value;
+    var authParam = SESSION_TOKEN ? ('token=' + SESSION_TOKEN) : ('secret_key=' + SECRET_KEY);
+    let fetchUrl = `${SCRIPT_URL_DATABASE}?action=load&tahun=${tahun}&kode_skpd=${kodeSkpdAktif}&${authParam}&warm=true&t=${waktuSekarang}`;
+
+    let badge = document.getElementById('statusKoneksi');
+    let oriHtml = badge.innerHTML;
+    let oriClass = badge.className;
+    
+    if (tampilkanLoading) {
+        badge.className = 'connection-badge checking shadow-sm';
+        badge.innerHTML = '<i class="fa-solid fa-rotate fa-spin"></i> Menyinkronkan...';
+    }
+
+    fetch(fetchUrl, { cache: 'no-store' })
+        .then(r => r.json()).then(res => {
+            if(res.status === 'success') {
+                let dataServer = res.data;
+                let adaDataBaru = false; 
+
+                document.querySelectorAll('.input-database').forEach(inp => {
+                    let rowId = inp.getAttribute('data-rowid');
+                    let realisasi = parseFloat(inp.getAttribute('data-realisasi'));
+
+                    if(dataServer[rowId] !== undefined && !inp.classList.contains('is-dirty')) {
+                        if(inp.value !== dataServer[rowId]) {
+                            inp.value = dataServer[rowId];
+                            adaDataBaru = true; 
+                            
+                            let printText = formatTeksPenjelasan(dataServer[rowId]);
+                            let printDiv = document.getElementById('print_' + rowId);
+                            if(printDiv) printDiv.innerHTML = printText;
+                            
+                            let btn = document.getElementById('btn_' + rowId);
+                            if (btn) {
+                                let isKeterangan = btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('bukaKeterangan');
+                                
+                                if (isKeterangan) {
+                                    if (printText.trim() === '') {
+                                        btn.className = 'btn btn-sm w-100 text-start';
+                                        btn.style.cssText = "font-family:Arial; font-size:11px; padding: 4px 8px; background-color: #ffffff; border: 1px solid #e2e8f0; color: #64748b; border-radius: 4px;";
+                                        btn.innerHTML = '<i class="fa-regular fa-comment-dots text-muted me-1"></i>';
+                                    } else {
+                                        btn.className = 'btn btn-sm w-100 text-start fw-bold';
+                                        btn.style.cssText = "font-family:Arial; font-size:10px; padding: 4px 8px; background-color: #f8fafc; border: 1px solid #cbd5e1; color: #334155; border-radius: 4px;";
+                                        btn.innerHTML = '<i class="fa-solid fa-check text-muted me-1"></i> Keterangan Disimpan';
+                                    }
+                                } else {
+                                    if(typeof perbaruiTombolStatus === 'function') perbaruiTombolStatus(rowId, printText, realisasi);
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                if (adaDataBaru) {
+                    badge.className = 'connection-badge online shadow-sm';
+                    badge.innerHTML = '<i class="fa-solid fa-check-double"></i> Data Tim Masuk!';
+                    setTimeout(() => { badge.className = oriClass; badge.innerHTML = oriHtml; }, 4000);
+                } else if (tampilkanLoading) {
+                    badge.className = oriClass; badge.innerHTML = oriHtml;
+                }
+            }
+        }).catch(() => {
+            if (tampilkanLoading) { badge.className = oriClass; badge.innerHTML = oriHtml; }
+        });
+}
+
+// =========================================================================
+// PABRIK HTML TERPUSAT (Ubah desain rincian cukup dari sini saja!)
+// Sudah dilengkapi proteksi anti-error untuk array kosong
+// =========================================================================
+function formatTeksPenjelasan(dataServerString) {
+    if (!dataServerString || dataServerString === "[]" || dataServerString === '""') return "";
+    let printText = dataServerString;
+    try { 
+        let parsed = JSON.parse(dataServerString);
+        let tempText = "";
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].items !== undefined) {
+            parsed.forEach(g => {
+                if (g.sub) tempText += `${g.sub}\n\n`;
+                if(g.items) {
+                    g.items.forEach(i => {
+                        let st = i.s ? ` ${i.s}` : '';
+                        tempText += `- ${i.u}\n<div style="border-bottom: 1px dashed #666; padding-bottom: 4px; margin-bottom: 4px;"><em>${i.v} ${st} x Rp ${i.h.toLocaleString('id-ID')} = Rp ${i.t.toLocaleString('id-ID')}</em></div>`;
+                    });
+                }
+                tempText += "\n";
+            });
+            printText = tempText.trim();
+        } 
+        else if (parsed && parsed.items) {
+            let headText = parsed.sub || parsed.judul || ""; 
+            if (headText) tempText += `${headText}\n\n`;
+            parsed.items.forEach(i => {
+                let st = i.s ? ` ${i.s}` : '';
+                tempText += `- ${i.u}\n<div style="border-bottom: 1px dashed #666; padding-bottom: 4px; margin-bottom: 4px;"><em>${i.v} ${st} x Rp ${i.h.toLocaleString('id-ID')} = Rp ${i.t.toLocaleString('id-ID')}</em></div>`;
+            });
+            printText = tempText;
+        } 
+        else if (parsed && parsed.mode === 'auto') {
+            printText = parsed.data.map(i => {
+                let st = i.s ? ` ${i.s}` : '';
+                return `- ${i.u}: ${i.v}${st} x Rp${i.h.toLocaleString('id-ID')} = Rp${i.t.toLocaleString('id-ID')}`;
+            }).join('\n');
+        } else if (parsed && parsed.mode === 'manual') {
+            printText = parsed.data;
+        }
+    } catch(e) {
+    } 
+    return printText;
+}
+
+// =========================================================================
+// JAM WEKER CERDAS V2 (SENSOR AKTIVITAS + ANTI-TABRAKAN/JITTER)
+// Tujuan: Menghemat Server Google & Mencegah Tabrakan Massal (Thundering Herd)
+// =========================================================================
+
+let waktuAktivitasTerakhir = Date.now();
+let statusTabAktif = true;
+
+// 1. SENSOR GERAK: Mencatat kapan terakhir kali admin menyentuh laptop
+function resetWaktuAktivitas() {
+    waktuAktivitasTerakhir = Date.now();
+}
+document.addEventListener('mousemove', resetWaktuAktivitas);
+document.addEventListener('keypress', resetWaktuAktivitas);
+document.addEventListener('scroll', resetWaktuAktivitas);
+document.addEventListener('touchstart', resetWaktuAktivitas);
+
+// 2. SENSOR MATA: Reaksi instan saat admin kembali ke tab LRA kita
+document.addEventListener('visibilitychange', function() {
+    statusTabAktif = !document.hidden;
+    
+    // Jika admin baru saja kembali dari tab lain, JANGAN TUNGGU 30 DETIK!
+    // Langsung tembak server detik itu juga untuk menyedot data terbaru.
+    if (statusTabAktif && kodeSkpdAktif !== "") {
+        resetWaktuAktivitas();
+        tarikDataSiluman(false);
+    }
+});
+
+// 3. MESIN UTAMA ANTI-TABRAKAN (Weker 10 Menit)
+function jalankanWekerSiluman() {
+    // 10 Menit (600.000 ms) + Acak hingga 2 menit (120.000 ms) untuk mencegah tabrakan server
+    let waktuAcak = 600000 + Math.floor(Math.random() * 120000);
+
+    setTimeout(function() {
+        let lamaDiam = Date.now() - waktuAktivitasTerakhir;
+        
+        // Eksekusi tarik data HANYA JIKA:
+        // 1. Excel sudah diupload (kodeSkpdAktif tidak kosong)
+        // 2. Tab sedang dilihat (statusTabAktif true)
+        // 3. Admin tidak AFK lebih dari 5 menit (lamaDiam <= 300000)
+        if (kodeSkpdAktif !== "" && statusTabAktif && lamaDiam <= 300000) {
+            tarikDataSiluman(false); 
+        }
+
+        jalankanWekerSiluman();
+    }, waktuAcak);
+}
+
+// Fitur Kelas Premium: Memperpanjang sesi token 8 jam tanpa me-refresh halaman (mencegah data hilang saat lembur)
+function perpanjangSesiMulus() {
+    Swal.fire({
+        title: 'Waktu Sesi Berakhir (8 Jam)',
+        text: 'Draf ketikan Anda sangat aman di layar! Silakan masukkan kembali sandi SKPD untuk memperpanjang sesi lembur Anda:',
+        input: 'password',
+        inputAttributes: {
+            autocapitalize: 'off',
+            autocorrect: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: '<i class="fa-solid fa-unlock-keyhole me-1"></i> Perpanjang Sesi',
+        cancelButtonText: 'Nanti Saja',
+        showLoaderOnConfirm: true,
+        allowOutsideClick: false,
+        preConfirm: (pwd) => {
+            if (!pwd) { Swal.showValidationMessage('Sandi wajib diisi!'); return false; }
+            return fetch(SCRIPT_URL_DATABASE, {
+                method: 'POST',
+                body: JSON.stringify({ secret_key: pwd, action: 'login' })
+            })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status === 'error') {
+                    Swal.showValidationMessage('Sandi Salah! Coba lagi.');
+                    return false;
+                }
+                return res;
+            })
+            .catch(error => {
+                Swal.showValidationMessage('Gagal menghubungi server. Periksa koneksi internet!');
+                return false;
+            });
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Memasang token baru yang segar untuk 8 jam ke depan
+            SESSION_TOKEN = result.value.token;
+            sessionStorage.setItem('LRA_TOKEN', SESSION_TOKEN);
+            Swal.fire({
+                icon: 'success', 
+                title: 'Sesi Diperpanjang!', 
+                text: 'Sistem berhasil diaktifkan kembali. Silakan klik tombol "Simpan Data" untuk melanjutkan penyimpanan.', 
+                timer: 4000, 
+                showConfirmButton: false
+            });
+        }
+    });
+}
+
+// =========================================================================
+// FITUR AUTO-SAVE KELAS ENTERPRISE (INDEXEDDB) - ANTI LIMIT & ANTI ERROR
+// =========================================================================
+const DB_NAMA = "LRA_Luwu_Database";
+const DB_STORE = "DrafPenyimpanan";
+
+function inisialisasiDB() {
+    return new Promise((resolve, reject) => {
+        let request = indexedDB.open(DB_NAMA, 1);
+        request.onupgradeneeded = function(e) {
+            let db = e.target.result;
+            if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
+        };
+        request.onsuccess = function(e) { resolve(e.target.result); };
+        request.onerror = function(e) { reject(e.target.error); };
+    });
+}
+
+async function autoSaveIndexedDB() {
+    let draftData = {};
+    document.querySelectorAll('.input-database.is-dirty').forEach(inp => {
+        let id = inp.getAttribute('data-rowid');
+        if (inp.value.trim() !== '') draftData[id] = inp.value;
+    });
+    if (Object.keys(draftData).length === 0) return;
+    try {
+        let db = await inisialisasiDB();
+        let tx = db.transaction(DB_STORE, "readwrite");
+        tx.objectStore(DB_STORE).put(draftData, "draf_aktif_skpd"); 
+    } catch (e) { console.error("AutoSave Gagal:", e); }
+}
+
+async function autoRestoreIndexedDB() {
+    try {
+        let db = await inisialisasiDB();
+        let tx = db.transaction(DB_STORE, "readonly");
+        let request = tx.objectStore(DB_STORE).get("draf_aktif_skpd");
+        request.onsuccess = function() {
+            let parsed = request.result;
+            if (parsed) {
+                for (let rowId in parsed) {
+                    let inp = document.getElementById('val_' + rowId);
+                    if (inp) {
+                        inp.value = parsed[rowId];
+                        inp.classList.add('is-dirty'); 
+                        let printText = formatTeksPenjelasan(parsed[rowId]);
+                        let printDiv = document.getElementById('print_' + rowId);
+                        if (printDiv) printDiv.innerHTML = printText;
+                        let realisasi = parseFloat(inp.getAttribute('data-realisasi')) || 0;
+                        if(typeof perbaruiTombolStatus === 'function') perbaruiTombolStatus(rowId, printText, realisasi);
+                    }
+                }
+            }
+        };
+    } catch (e) {}
+}
+
+async function bersihkanIndexedDB() {
+    try {
+        let db = await inisialisasiDB();
+        let tx = db.transaction(DB_STORE, "readwrite");
+        tx.objectStore(DB_STORE).delete("draf_aktif_skpd");
+    } catch (e) {}
+}
+
+
+
+// =========================================================================
+// KODE SEMENTARA UNTUK UJI COBA (HAPUS SEBELUM RILIS FINAL)
+// =========================================================================
+document.addEventListener('keydown', function(e) {
+    // Jika menekan Ctrl + Q, rusak token untuk simulasi!
+    if (e.ctrlKey && (e.key === 'q' || e.key === 'Q')) {
+        e.preventDefault();
+        
+        // Mengganti token asli dengan token palsu
+        SESSION_TOKEN = "TOKEN_RUSAK_TIRUAN"; 
+        sessionStorage.setItem('LRA_TOKEN', "TOKEN_RUSAK_TIRUAN");
+        
+        Swal.fire({
+            icon: 'warning',
+            title: 'Simulasi Diaktifkan!',
+            text: 'Token Anda baru saja dihancurkan. Silakan klik tombol "Simpan Data" di atas untuk melihat respon sistem.',
+            timer: 4000,
+            showConfirmButton: false
+        });
+    }
+});
