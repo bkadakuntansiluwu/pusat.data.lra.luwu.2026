@@ -43,7 +43,7 @@ function inisialisasiDropdownTracker(targetContainer) {
                 <div style="background: #e0f2fe; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
                     <i class="fa-solid fa-chart-pie" style="color: #0284c7; font-size: 12px;"></i>
                 </div>
-                Status Realisasi SKPD
+                Status Realisasi
             </div>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
@@ -59,11 +59,11 @@ function inisialisasiDropdownTracker(targetContainer) {
 
             <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; margin-bottom: 16px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px; align-items: center;">
-                    <span style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Target Keseluruhan</span>
+                    <span style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Realisasi Keseluruhan</span>
                     <span id="auditTargetTotal" style="font-size: 12px; color: #0f172a; font-weight: 800;">Rp 0</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Total Terinput</span>
+                    <span style="font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;">Total Realisasi Terinput</span>
                     <span id="auditTerinputTotal" style="font-size: 12px; color: #10b981; font-weight: 800;">Rp 0</span>
                 </div>
             </div>
@@ -75,7 +75,7 @@ function inisialisasiDropdownTracker(targetContainer) {
                 
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; position: relative; z-index: 2;">
                     <div>
-                        <div id="labelSisa" style="font-size: 10px; color: #e11d48; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;">Sisa Belum Rinci</div>
+                        <div id="labelSisa" style="font-size: 10px; color: #e11d48; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;">Sisa Realisasi Belum Rinci</div>
                         <div id="auditSisa" style="font-size: 17px; color: #be123c; font-weight: 900; letter-spacing: -0.5px;">Rp 0</div>
                     </div>
                     <div id="auditPersenDetail" style="font-size: 12px; font-weight: 800; color: #e11d48; background: #ffe4e6; padding: 4px 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">0%</div>
