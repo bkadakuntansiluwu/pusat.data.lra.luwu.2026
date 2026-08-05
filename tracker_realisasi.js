@@ -208,7 +208,7 @@ function kalkulasiProgressRealisasi() {
     let ring = document.getElementById('auditRing');
     let btnAudit = document.getElementById('btnAuditTracker');
 
-    miniText.innerText = persentase.toFixed(0) + "% Tuntas";
+    miniText.innerText = persentase.toFixed(0) + "% Selesai";
 
     let mainColor = '#3b82f6'; 
 
