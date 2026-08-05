@@ -14,22 +14,30 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function inisialisasiDropdownTracker(targetContainer) {
+    let titleBox = document.querySelector('.control-panel .d-flex.align-items-center:first-child');
+    if (titleBox) {
+        titleBox.style.flexShrink = '0';
+        titleBox.style.whiteSpace = 'nowrap';
+    }
+
     let wrapper = document.createElement('div');
     wrapper.id = 'wrapperTrackerPremium';
     wrapper.className = 'no-print';
-    wrapper.style.cssText = 'position: relative; display: flex; align-items: center; z-index: 1060;';
+    // Margin dipindah ke wrapper agar posisi vertikalnya sejajar mutlak dengan Timer
+    wrapper.style.cssText = 'position: relative; display: flex; align-items: center; z-index: 1060; flex-shrink: 0; margin-right: 4px;';
 
+    // Tinggi disamakan mutlak menjadi 34px, border disamakan menjadi #cbd5e1
     let triggerBtn = `
-        <div id="btnAuditTracker" onclick="toggleAuditPanel(event)" style="background: #ffffff; height: 36px; padding: 0 16px; border-radius: 50px; font-size: 12px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-right: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);">
-            <div id="auditRing" style="width: 16px; height: 16px; border-radius: 50%; background: conic-gradient(#e2e8f0 100%, #e2e8f0 0%); position: relative; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
-                <div style="width: 10px; height: 10px; background: #ffffff; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);"></div>
+        <div id="btnAuditTracker" onclick="toggleAuditPanel(event)" style="background: #ffffff; height: 34px; padding: 0 14px; border-radius: 50px; font-size: 11px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; border: 1px solid #cbd5e1; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);">
+            <div id="auditRing" style="width: 14px; height: 14px; border-radius: 50%; background: conic-gradient(#e2e8f0 100%, #e2e8f0 0%); position: relative; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
+                <div style="width: 8px; height: 8px; background: #ffffff; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);"></div>
             </div>
             <span id="auditMiniText" style="color: #334155; letter-spacing: 0.3px;">Menghitung...</span>
         </div>
     `;
 
     let dropdownPanel = `
-        <div id="panelAuditTracker" style="position: absolute; top: 48px; right: 10px; width: 380px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(226, 232, 240, 0.6); display: none; cursor: default; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-10px);">
+        <div id="panelAuditTracker" style="position: absolute; top: 44px; right: 0; width: 380px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(226, 232, 240, 0.6); display: none; cursor: default; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-10px);">
             
             <div style="font-size: 11px; font-weight: 800; color: #475569; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
                 <div style="background: #e0f2fe; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -244,7 +252,7 @@ function kalkulasiProgressRealisasi() {
         this.style.boxShadow = `0 2px 8px ${mainColor}20`;
     }
     btnAudit.onmouseout = function() { 
-        this.style.borderColor = '#e2e8f0'; 
-        this.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.04)';
+        this.style.borderColor = '#cbd5e1'; 
+        this.style.boxShadow = '0 2px 4px rgba(15, 23, 42, 0.04)';
     }
 }
