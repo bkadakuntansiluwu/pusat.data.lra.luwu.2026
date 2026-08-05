@@ -14,21 +14,19 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function inisialisasiDropdownTracker(targetContainer) {
-    let titleBox = document.querySelector('.control-panel .d-flex.align-items-center:first-child');
-    if (titleBox) {
-        titleBox.style.flexShrink = '0';
-        titleBox.style.whiteSpace = 'nowrap';
+    let titleElement = document.querySelector('.control-panel h5');
+    if (titleElement) {
+        titleElement.style.whiteSpace = 'nowrap'; 
+        titleElement.style.minWidth = 'max-content';
+        titleElement.style.fontSize = '15px'; 
     }
 
     let wrapper = document.createElement('div');
     wrapper.id = 'wrapperTrackerPremium';
     wrapper.className = 'no-print';
-    // Margin dipindah ke wrapper agar posisi vertikalnya sejajar mutlak dengan Timer
-    wrapper.style.cssText = 'position: relative; display: flex; align-items: center; z-index: 1060; flex-shrink: 0; margin-right: 4px;';
-
-    // Tinggi disamakan mutlak menjadi 34px, border disamakan menjadi #cbd5e1
+    wrapper.style.cssText = 'position: relative; display: flex; align-items: center; z-index: 1060; flex-shrink: 0;';
     let triggerBtn = `
-        <div id="btnAuditTracker" onclick="toggleAuditPanel(event)" style="background: #ffffff; height: 34px; padding: 0 14px; border-radius: 50px; font-size: 11px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; border: 1px solid #cbd5e1; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);">
+        <div id="btnAuditTracker" onclick="toggleAuditPanel(event)" style="background: #ffffff; height: 34px; padding: 0 12px; border-radius: 50px; font-size: 11px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-right: 8px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); white-space: nowrap;">
             <div id="auditRing" style="width: 14px; height: 14px; border-radius: 50%; background: conic-gradient(#e2e8f0 100%, #e2e8f0 0%); position: relative; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
                 <div style="width: 8px; height: 8px; background: #ffffff; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);"></div>
             </div>
@@ -37,7 +35,7 @@ function inisialisasiDropdownTracker(targetContainer) {
     `;
 
     let dropdownPanel = `
-        <div id="panelAuditTracker" style="position: absolute; top: 44px; right: 0; width: 380px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(226, 232, 240, 0.6); display: none; cursor: default; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-10px);">
+        <div id="panelAuditTracker" style="position: absolute; top: 44px; right: 10px; width: 380px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(226, 232, 240, 0.6); display: none; cursor: default; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-10px);">
             
             <div style="font-size: 11px; font-weight: 800; color: #475569; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
                 <div style="background: #e0f2fe; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -75,7 +73,7 @@ function inisialisasiDropdownTracker(targetContainer) {
                 
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; position: relative; z-index: 2;">
                     <div>
-                        <div id="labelSisa" style="font-size: 10px; color: #e11d48; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;">Sisa Realisasi Belum Rinci</div>
+                        <div id="labelSisa" style="font-size: 10px; color: #e11d48; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;">Sisa Realisasi Belum Terinci</div>
                         <div id="auditSisa" style="font-size: 17px; color: #be123c; font-weight: 900; letter-spacing: -0.5px;">Rp 0</div>
                     </div>
                     <div id="auditPersenDetail" style="font-size: 12px; font-weight: 800; color: #e11d48; background: #ffe4e6; padding: 4px 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">0%</div>
@@ -252,7 +250,7 @@ function kalkulasiProgressRealisasi() {
         this.style.boxShadow = `0 2px 8px ${mainColor}20`;
     }
     btnAudit.onmouseout = function() { 
-        this.style.borderColor = '#cbd5e1'; 
-        this.style.boxShadow = '0 2px 4px rgba(15, 23, 42, 0.04)';
+        this.style.borderColor = '#e2e8f0'; 
+        this.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.04)';
     }
 }
