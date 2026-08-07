@@ -349,7 +349,7 @@ const observerPAD = new MutationObserver(() => {
                 }
             }
         }
-    }, 500);
+    }, 1500); 
 });
 
 window.addEventListener('DOMContentLoaded', () => {
