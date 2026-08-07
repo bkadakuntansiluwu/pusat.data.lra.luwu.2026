@@ -10,17 +10,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 500);
 
-    // LOGIKA CERDAS: Hanya menghitung jika tab aktif dan menggunakan requestIdleCallback
+
     setInterval(() => {
         if (!document.hidden && typeof kodeSkpdAktif !== 'undefined' && kodeSkpdAktif !== "") {
             if ('requestIdleCallback' in window) {
-                // Menunggu processor komputer santai (idle) baru menghitung progres
+               
                 requestIdleCallback(kalkulasiProgressRealisasi, { timeout: 1000 });
             } else {
                 kalkulasiProgressRealisasi();
             }
         }
-    }, 5000); // Mengecek setiap 5 detik (Sangat Ringan!)
+    }, 5000); 
 });
 
 function inisialisasiDropdownTracker(targetContainer) {
