@@ -54,9 +54,9 @@ function prosesUploadPAD(event) {
                     `,
                     showConfirmButton: false,
                     timer: 2000,
-                    width: '360px', /* Ukuran popup lebih ramping */
+                    width: '360px', 
                     padding: '20px',
-                    backdrop: 'rgba(15, 23, 42, 0.4)', /* Latar belakang transparan gelap elegan */
+                    backdrop: 'rgba(15, 23, 42, 0.4)', 
                     background: '#ffffff'
                 });
             }
