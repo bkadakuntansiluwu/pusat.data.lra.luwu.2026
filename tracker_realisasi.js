@@ -10,7 +10,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 500);
 
-    setInterval(kalkulasiProgressRealisasi, 1500);
+    // LOGIKA CERDAS: Hanya menghitung jika tab aktif dan menggunakan requestIdleCallback
+    setInterval(() => {
+        if (!document.hidden && typeof kodeSkpdAktif !== 'undefined' && kodeSkpdAktif !== "") {
+            if ('requestIdleCallback' in window) {
+                // Menunggu processor komputer santai (idle) baru menghitung progres
+                requestIdleCallback(kalkulasiProgressRealisasi, { timeout: 1000 });
+            } else {
+                kalkulasiProgressRealisasi();
+            }
+        }
+    }, 5000); // Mengecek setiap 5 detik (Sangat Ringan!)
 });
 
 function inisialisasiDropdownTracker(targetContainer) {
@@ -146,10 +156,23 @@ function kalkulasiProgressRealisasi() {
             let printDiv = document.getElementById('print_' + rowId);
             
             if (printDiv) {
-                let terinputCerdas = window.hitungTotalDariTeks(printDiv.innerHTML);
+                let terinputCerdas = 0;
+                
+               
+                let memoriNilai = printDiv.getAttribute('data-nilai-terinput');
+                
+                if (memoriNilai !== null) {
+                    terinputCerdas = parseFloat(memoriNilai);
+                } else {
+                    
+                    terinputCerdas = window.hitungTotalDariTeks(printDiv.innerHTML);
+                    printDiv.setAttribute('data-nilai-terinput', terinputCerdas); 
+                }
+                
                 if (terinputCerdas > nilaiRealisasiAsli) {
                     terinputCerdas = nilaiRealisasiAsli; 
                 }
+                
                 if (isPAD) {
                     terinputPAD += terinputCerdas;
                 } else {
