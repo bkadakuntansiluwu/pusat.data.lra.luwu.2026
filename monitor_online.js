@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let browserId = sessionStorage.getItem('LRA_BROWSER_ID');
+    let browserId = localStorage.getItem('LRA_BROWSER_ID');
     if (!browserId) {
         browserId = 'USR_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-        sessionStorage.setItem('LRA_BROWSER_ID', browserId);
+        localStorage.setItem('LRA_BROWSER_ID', browserId);
     }
 
     let jumlahOnlineTerakhir = 1; 
