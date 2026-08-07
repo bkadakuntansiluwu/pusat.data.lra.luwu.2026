@@ -322,32 +322,6 @@
 <script src="script.js"></script>
 <script src="tracker_realisasi.js"></script>
 <script src="monitor_online.js"></script>
-<script>
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
-            e.preventDefault();
-            return false;
-        }
-
-        if (e.ctrlKey && (e.key === 'p' || e.key === 'P' || e.keyCode === 80 || e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
-            e.preventDefault();
-            return false;
-        }
-    });
-</script>
 </body>
 </html>
