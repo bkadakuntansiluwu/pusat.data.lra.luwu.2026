@@ -1,51 +1,17 @@
-/**
- * ===========================================================================
- * PRINT CONTROLLER — Kontrol Cetak & Skala Pratinjau LRA
- * ===========================================================================
- * 
- * Fitur:
- *   1. Lompat ke halaman tertentu (scroll otomatis)
- *   2. Cetak rentang halaman (dari halaman X sampai Y)
- *   3. Cetak semua halaman sekaligus
- *   4. Preview tetap terbuka setelah cetak rentang
- *   5. Skala tampilan (perbesar/perkecil ukuran kertas di layar)
- *   6. Font cetak tajam (optimasi rendering saat print)
- *   7. Ukuran kertas F4 Landscape terkunci otomatis saat cetak
- * 
- * File ini TERPISAH dan TIDAK mengubah logika asli aplikasi.
- * Cukup tambahkan <script src="print_controller.js"></script> di index.html
- * setelah baris <script src="script.js"></script>.
- * ===========================================================================
- */
-
 (function() {
     'use strict';
 
-    // === KONFIGURASI SKALA ===
-    var ZOOM_MIN = 0.40;   // 40%
-    var ZOOM_MAX = 1.15;   // 115%
-    var ZOOM_STEP = 0.05;  // 5% per klik
-    var ZOOM_DEFAULT = 0.95; // 95% (sesuai CSS asli)
+    
+    var ZOOM_MIN = 0.40;   
+    var ZOOM_MAX = 1.15;   
+    var ZOOM_STEP = 0.05;  
+    var ZOOM_DEFAULT = 0.95; 
 
     // === STATE INTERNAL ===
     var _rangePrintActive = false;
     var _hiddenPages = [];
     var _currentZoom = ZOOM_DEFAULT;
 
-    // ================================================================
-    // INJEKSI CSS: Kertas F4 terkunci + Font tajam untuk cetak
-    // ================================================================
-    // CSS ini hanya aktif saat @media print.
-    // TIDAK mengubah tampilan layar (preview) sama sekali.
-    //
-    // KENAPA INI BEKERJA:
-    //   style.css punya 2x @page yang bentrok:
-    //     - baris 95:  @page { size: landscape }        (A4 landscape, generic)
-    //     - baris 135: @page { size: 330mm 215.9mm }   (F4, benar)
-    //   Karena CSS cascade: aturan @page TERAKHIR menang.
-    //   Style ini di-append ke akhir <head>, jadi jadi aturan
-    //   @page terakhir di seluruh dokumen => F4 SELALU menang.
-    // ================================================================
     var _printCSSInjected = false;
     function injectPrintCSS() {
         if (_printCSSInjected) return;
@@ -54,15 +20,8 @@
         var style = document.createElement('style');
         style.id = 'pcPrintSharpCSS';
         style.textContent =
-            '@media print {' +
-                /* ============================================
-                   KERTAS F4 LANDSCAPE — TERKUNCI
-                   330mm x 215.9mm = F4 Landscape
-                   Override semua @page sebelumnya di style.css
-                   ============================================ */
-                '@page { size: 330mm 215.9mm; margin: 0; }' +
-
-                /* Tajamkan semua font di dalam halaman cetak */
+            '@media print {' +                
+                '@page { size: 330mm 215.9mm; margin: 0; }' +                
                 '.page-pro,' +
                 '.page-pro *,' +
                 '.page-pro table,' +
@@ -79,24 +38,24 @@
                     'text-rendering: geometricPrecision;' +
                     'font-smooth: always;' +
                 '}' +
-                /* Optimasi render transform agar tidak buram */
+                
                 '.page-pro {' +
                     'will-change: transform;' +
                     'backface-visibility: hidden;' +
                     '-webkit-backface-visibility: hidden;' +
                 '}' +
-                /* Pastikan warna tabel tetap tajam */
+                
                 '.table-lra th {' +
                     'background-color: #ffffff !important;' +
                     '-webkit-print-color-adjust: exact !important;' +
                     'print-color-adjust: exact !important;' +
                 '}' +
-                /* Border tabel tajam dan presisi */
+                
                 '.table-lra td,' +
                 '.table-lra th {' +
                     'border: 0.5pt solid #000 !important;' +
                 '}' +
-                /* Footer tajam */
+                
                 '.pdf-footer-pro {' +
                     '-webkit-font-smoothing: subpixel-antialiased;' +
                     'text-rendering: geometricPrecision;' +
@@ -104,10 +63,7 @@
             '}';
         document.head.appendChild(style);
     }
-
-    // ================================================================
-    // INTERCEPTOR: Override tutupPreviewCetak sementara saat cetak range
-    // ================================================================
+   
     var _originalTutup = typeof window.tutupPreviewCetak === 'function'
         ? window.tutupPreviewCetak : null;
 
@@ -141,22 +97,20 @@
     // FUNGSI SKALA / ZOOM
     // ================================================================
     function applyZoom(scale) {
-        // Batasi dalam rentang aman
+        
         scale = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, scale));
         _currentZoom = scale;
 
         var pages = document.querySelectorAll('#printWrapper .page-pro');
-        var baseMarginBottom = 25; // px, margin bawaan preview
+        var baseMarginBottom = 25; 
 
         pages.forEach(function(page) {
-            // Terapkan skala via transform (hanya preview, print punya aturan sendiri)
+            
             page.style.transform = 'scale(' + scale + ')';
             page.style.transformOrigin = 'top center';
 
-            // Kompensasi margin agar jarak antar halaman konsisten visual
-            // Saat scale < 1: halaman terlihat lebih kecil, kurangi margin
-            // Saat scale > 1: halaman terlihat lebih besar, tambah margin
-            var h = page.offsetHeight || 816; // fallback ~215.9mm di 96dpi
+            
+            var h = page.offsetHeight || 816; 
             var compensation = h * (1 - scale);
             var newMargin = Math.max(4, baseMarginBottom - compensation);
             page.style.marginBottom = newMargin + 'px';
@@ -192,16 +146,16 @@
         var ctrlBar = document.getElementById('previewControlBar');
         if (!ctrlBar || ctrlBar._pcInjected) return;
 
-        // Injek CSS cetak tajam (sekali saja)
+        
         injectPrintCSS();
 
-        // 1. Sembunyikan tombol Print & Tutup bawaan dari index.html
+        
         var originalBtns = ctrlBar.querySelectorAll(
             'button[onclick*="window.print"], button[onclick*="tutupPreviewCetak"]'
         );
         originalBtns.forEach(function(btn) { btn.style.display = 'none'; });
 
-        // 2. Ubah ctrlBar jadi layout kolom (baris info + baris kontrol)
+        
         ctrlBar.style.flexDirection = 'column';
         ctrlBar.style.alignItems = 'stretch';
         ctrlBar.style.gap = '0';
