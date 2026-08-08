@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(uiCheckInterval);
             
             pingOnlineStatus();
-            setInterval(pingOnlineStatus, 25000); 
+            setInterval(pingOnlineStatus, 60000); 
         }
     }, 1000);
 });
