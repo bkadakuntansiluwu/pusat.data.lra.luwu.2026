@@ -20,6 +20,24 @@ self.onmessage = function(event) {
             htmlString: teksHTML
         });
     }
+
+    // === BULK: Hitung banyak teks sekaligus (untuk Tracker) ===
+    else if (pesan.action === 'hitung_bulk') {
+        let hasil = {};
+        (pesan.items || []).forEach(function(item) {
+            hasil[item.id] = prosesHitungTotal(item.teks);
+        });
+        self.postMessage({ action: 'hasil_hitung_bulk', hasil: hasil });
+    }
+
+    // === BULK: Format banyak penjelasan sekaligus (untuk Restore) ===
+    else if (pesan.action === 'format_bulk') {
+        let hasil = {};
+        (pesan.items || []).forEach(function(item) {
+            hasil[item.id] = formatTeksPenjelasanWorker(item.data);
+        });
+        self.postMessage({ action: 'hasil_format_bulk', hasil: hasil });
+    }
 };
 
 // =========================================================================
@@ -82,6 +100,17 @@ function formatTeksPenjelasanWorker(dataServerString) {
                 tempText += `- ${i.u}\n<div style="border-bottom: 1px dashed #666; padding-bottom: 4px; margin-bottom: 4px;"><em>${i.v} ${st} x Rp ${i.h.toLocaleString('id-ID')} = Rp ${i.t.toLocaleString('id-ID')}</em></div>`;
             });
             printText = tempText;
+        }
+        // === MODE AUTO (dipakai input otomatis) ===
+        else if (parsed && parsed.mode === 'auto') {
+            printText = parsed.data.map(function(i) {
+                let st = i.s ? ' ' + i.s : '';
+                return '- ' + i.u + ': ' + i.v + st + ' x Rp' + i.h.toLocaleString('id-ID') + ' = Rp' + i.t.toLocaleString('id-ID');
+            }).join('\n');
+        }
+        // === MODE MANUAL (teks bebas dari user) ===
+        else if (parsed && parsed.mode === 'manual') {
+            printText = parsed.data;
         }
     } catch(e) {
         
