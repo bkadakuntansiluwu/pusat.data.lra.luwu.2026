@@ -10,7 +10,8 @@ s.textContent=
 '.pg-sc button.pg-on{opacity:1;pointer-events:auto}'+
 '.pg-sc button:hover{background:#1d4ed8;color:#fff;border-color:#1d4ed8;box-shadow:0 4px 12px rgba(29,78,216,.25)}'+
 '.pg-sc button:active{transform:scale(.88)}'+
-'@media(max-width:768px){.pg-sc{right:8px}.pg-sc button{width:26px;height:26px;font-size:10px}}';
+'@media(max-width:768px){.pg-sc{right:8px}.pg-sc button{width:26px;height:26px;font-size:10px}}'+
+'@media print{.pg-sc{display:none!important}}';
 document.head.appendChild(s);
 }
 function init(){
