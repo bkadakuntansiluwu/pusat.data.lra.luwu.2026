@@ -22,7 +22,7 @@ body { background-color: #f4f6f8; font-family: "Times New Roman", Times, serif; 
 
 .print-page { background: #fff; padding: 40px 50px; margin: 25px auto; max-width: 1400px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
 
-.table-lra { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 15px; table-layout: fixed; }
+.table-lra { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 15px; table-layout: fixed; contain: layout style; }
 
 .table-lra th { border: 1px solid #000 !important; text-align: center; vertical-align: middle; padding: 8px 4px; font-weight: bold; background-color: #ffffff !important; font-size: 10px; }
 
@@ -50,13 +50,13 @@ body { background-color: #f4f6f8; font-family: "Times New Roman", Times, serif; 
 .style-normal { font-weight: normal; color: #1e293b; }
 .style-rincian { font-weight: normal; color: #000; background-color: #fff; font-style: normal; }
 
-.table-lra tbody tr:hover td { background-color: #f1f5f9 !important; transition: background-color 0.2s ease; cursor: default; }
+.table-lra tbody tr:hover td { background-color: #f1f5f9 !important; cursor: default; }
 
 .table-lra tbody tr.style-header:hover td { background-color: #f8fafc !important; }
 
 .print-view-text { display: none; white-space: pre-wrap; word-break: break-word; font-size: 11px; font-family: "Times New Roman", Times, serif; margin-top: 2px; line-height: 1.15; text-align: justify; }
 
-.table-lra tr { page-break-inside: avoid; }
+@media print { .table-lra tr { page-break-inside: avoid; } }
 
 .cell-penjelasan { vertical-align: top !important; }
 
