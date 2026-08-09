@@ -54,9 +54,9 @@ function prosesUploadPAD(event) {
                     `,
                     showConfirmButton: false,
                     timer: 2000,
-                    width: '360px', 
+                    width: '360px', /* Ukuran popup lebih ramping */
                     padding: '20px',
-                    backdrop: 'rgba(15, 23, 42, 0.4)', 
+                    backdrop: 'rgba(15, 23, 42, 0.4)', /* Latar belakang transparan gelap elegan */
                     background: '#ffffff'
                 });
             }
@@ -69,6 +69,20 @@ function prosesUploadPAD(event) {
 }
 
 function injeksiDataPADkeTabel() {
+	
+	if (!document.getElementById('css-validasi-ui')) {
+        let style = document.createElement('style');
+        style.id = 'css-validasi-ui';
+        style.innerHTML = `
+            .bg-ui-valid { background-color: #dcfce7 !important; color: #166534 !important; transition: background-color 0.3s; cursor: help; }
+            .bg-ui-invalid { background-color: #fee2e2 !important; color: #991b1b !important; font-weight: 900 !important; transition: background-color 0.3s; cursor: help; }
+            @media print {
+                .bg-ui-valid, .bg-ui-invalid { background-color: transparent !important; color: #000 !important; font-weight: bold !important; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+	
     let tbody = document.getElementById('containerRender');
     if (!tbody || !globalRawPAD || globalRawPAD.length === 0) return false;
     if (typeof window.backupBrankasDraf === 'function') window.backupBrankasDraf();
@@ -91,8 +105,9 @@ function injeksiDataPADkeTabel() {
 
     let headerSkpdElement = document.getElementById('headerNamaSkpd');
     let namaBelanja = headerSkpdElement ? headerSkpdElement.innerText.toUpperCase() : 'BELUM ADA DATA SKPD';
-    
-    if (kodeSkpdAktif && namaBelanja !== 'BELUM ADA DATA SKPD') {
+    let isBelanjaAsliAktif = kodeSkpdAktif && !String(kodeSkpdAktif).startsWith('PAD_') && namaBelanja !== 'BELUM ADA DATA SKPD';
+
+    if (isBelanjaAsliAktif) {
         let cleanPad = namaDinasPAD.replace(/(BADAN|DINAS|KANTOR|KECAMATAN|SEKRETARIAT|KABUPATEN|LUWU|PEMERINTAH|DAERAH|PROVINSI)/g, '').trim();
         let cleanBelanja = namaBelanja.replace(/(BADAN|DINAS|KANTOR|KECAMATAN|SEKRETARIAT|KABUPATEN|LUWU|PEMERINTAH|DAERAH|PROVINSI)/g, '').trim();
         
@@ -142,13 +157,12 @@ function injeksiDataPADkeTabel() {
 
             globalRawPAD = null; 
             sessionStorage.removeItem('PAD_RAW_DATA'); 
-            // --------------------------------------------------
-            
             return false; 
         }
         
     } 
-    else if (!kodeSkpdAktif) {
+    else {
+        
         kodeSkpdAktif = "PAD_" + namaDinasPAD.replace(/[^A-Z0-9]/g, '_');
         
         let metaOrg = document.getElementById('metaOrganisasi');
@@ -181,6 +195,8 @@ function injeksiDataPADkeTabel() {
     let padFragment = document.createDocumentFragment();
     let trackerKode = "";
     let validPADCount = 0;
+	let totalNyataPadAnggaran = 0;
+    let totalNyataPadRealisasi = 0;
 
     for (let i = 0; i < globalRawPAD.length; i++) {
         let row = globalRawPAD[i];
@@ -220,6 +236,11 @@ function injeksiDataPADkeTabel() {
             else if (dots >= 5) { paddingLevel = 5; textStyle = 'style-normal'; isRincian = true; }
         }
 
+		if (isRincian && !isBarisJumlah) {
+            totalNyataPadAnggaran += anggaran;
+            totalNyataPadRealisasi += realisasi;
+        }
+		
         let safeKode = trackerKode.replace(/[^a-zA-Z0-9]/g, "");
         let safeUraian = uraian.substring(0, 25).replace(/[^a-zA-Z0-9]/g, "");
         let rowID = `R_PAD_${safeKode}_${safeUraian}`; 
@@ -254,11 +275,64 @@ function injeksiDataPADkeTabel() {
             `;
         }
 
+        
+        let bgClassAng = '';
+        let bgClassRea = '';
+        let titleAng = '';
+        let titleRea = '';
+        
+
+        
+        if (isBarisJumlah && (textUraian.trim() === 'jumlah pendapatan' || textUraian.trim() === 'jumlah pendapatan daerah' || textUraian.trim() === 'total pendapatan')) {
+            
+            
+            let excelAng = anggaran;
+            let excelRea = realisasi;
+
+           
+            anggaran = totalNyataPadAnggaran;
+            realisasi = totalNyataPadRealisasi;
+            selisih = realisasi - anggaran;
+
+            
+            let selisihAng = Math.abs(Math.abs(anggaran) - Math.abs(excelAng));
+            let selisihRea = Math.abs(Math.abs(realisasi) - Math.abs(excelRea));
+            let formatTeks = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+
+            // Pengecekan Anggaran PAD
+            if (selisihAng < 1) {
+                bgClassAng = 'bg-ui-valid';
+                titleAng = '✓ Anggaran PAD VALID: Sudah sesuai dengan perhitungan rincian mesin.';
+            } else {
+                bgClassAng = 'bg-ui-invalid';
+                titleAng = '❌ Peringatan: Ada SELISIH ANGGARAN PAD sebesar Rp ' + selisihAng.toLocaleString('id-ID', formatTeks) + ' dari ketikan Excel!';
+            }
+
+            // Pengecekan Realisasi PAD
+            if (selisihRea < 1) {
+                bgClassRea = 'bg-ui-valid';
+                titleRea = '✓ Realisasi PAD VALID: Sudah sesuai dengan perhitungan rincian mesin.';
+            } else {
+                bgClassRea = 'bg-ui-invalid';
+                titleRea = '❌ Peringatan: Ada SELISIH REALISASI PAD sebesar Rp ' + selisihRea.toLocaleString('id-ID', formatTeks) + ' dari ketikan Excel!';
+            }
+            
+            
+            persentase = anggaran > 0 ? ((realisasi / anggaran) * 100).toFixed(2) : (anggaran < 0 ? ((realisasi / Math.abs(anggaran)) * -100).toFixed(2) : '0,00');
+        }
+        // ===================================================================
+		
+		
         let formatRp = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
-        let strAng = anggaran !== 0 ? anggaran.toLocaleString('id-ID', formatRp) : '0,00';
-        let strRea = realisasi !== 0 ? realisasi.toLocaleString('id-ID', formatRp) : '0,00';
-        let strSel = selisih !== 0 ? (selisih < 0 ? '(' + Math.abs(selisih).toLocaleString('id-ID', formatRp) + ')' : selisih.toLocaleString('id-ID', formatRp)) : '0,00';
+        
+        let strAng = anggaran === 0 ? '0,00' : (anggaran < 0 ? '(' + Math.abs(anggaran).toLocaleString('id-ID', formatRp) + ')' : anggaran.toLocaleString('id-ID', formatRp));
+        
+        let strRea = realisasi === 0 ? '0,00' : (realisasi < 0 ? '(' + Math.abs(realisasi).toLocaleString('id-ID', formatRp) + ')' : realisasi.toLocaleString('id-ID', formatRp));
+        
+        let strSel = selisih === 0 ? '0,00' : (selisih < 0 ? '(' + Math.abs(selisih).toLocaleString('id-ID', formatRp) + ')' : selisih.toLocaleString('id-ID', formatRp));
+        
         let strPersen = persentase.replace('.', ',');
+        // =============================================================
 
         let tr = document.createElement('tr');
         tr.className = `pad-lvl-${paddingLevel} ${textStyle} row-khusus-pad`;
@@ -277,8 +351,8 @@ function injeksiDataPADkeTabel() {
         tr.innerHTML = `
             <td>${col1}</td>
             <td class="${kelasUraian}">${uraian}</td>
-            <td class="text-end">${strAng}</td>
-            <td class="text-end">${strRea}</td>
+            <td class="text-end ${bgClassAng}" title="${titleAng}">${strAng}</td>
+            <td class="text-end ${bgClassRea}" title="${titleRea}">${strRea}</td>
             <td class="text-end">${strSel}</td>
             <td class="text-center">${strPersen}</td>
             <td class="cell-penjelasan">${filePenjelasanHtml}</td>
