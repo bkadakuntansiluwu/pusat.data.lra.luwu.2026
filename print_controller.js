@@ -292,7 +292,7 @@
             'box-shadow:0 2px 8px rgba(245,158,11,0.25);margin-left:8px;',
             { id: 'pcBtnRange' }
         );
-        btnCetakPilihan.innerHTML = '<i class="fa-solid fa-file-export" style="margin-right:5px;"></i>Cetak Pilihan';
+        btnCetakPilihan.innerHTML = '<i class="fa-solid fa-file-export" style="margin-right:5px;"></i>Cetak Halaman yang dipilih';
         btnCetakPilihan.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-1px)';
             this.style.boxShadow = '0 4px 14px rgba(245,158,11,0.45)';
@@ -310,7 +310,7 @@
             'box-shadow:0 2px 8px rgba(59,130,246,0.25);margin-left:6px;',
             { id: 'pcBtnAll' }
         );
-        btnCetakSemua.innerHTML = '<i class="fa-solid fa-print" style="margin-right:5px;"></i>Cetak Semua';
+        btnCetakSemua.innerHTML = '<i class="fa-solid fa-print" style="margin-right:5px;"></i>Cetak Semua Halaman';
         btnCetakSemua.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-1px)';
             this.style.boxShadow = '0 4px 14px rgba(59,130,246,0.45)';
