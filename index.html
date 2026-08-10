@@ -26,6 +26,7 @@
         </button>
     </div>
 </div>
+
 <div id="statusKoneksi" class="connection-badge checking shadow-sm" title="Status Koneksi Database">
     <i class="fa-solid fa-rotate fa-spin"></i> <span id="teksKoneksi">Menghubungkan...</span>
 </div>
@@ -172,23 +173,35 @@
             <tr><td colspan="7" class="text-center text-muted py-5" style="font-family: Arial, sans-serif; vertical-align: middle;"><i>Harap Download File dari SIPD terlebih dahulu dalam Format excel (LRA Per Program) berdasarkan periode semester.<br>lalu upload file nya pada menu yang sudah di sediakan diatas...</i></td></tr>
         </tbody>
     </table>
-    
+
     <div class="mt-4" style="display: flex; justify-content: flex-end; align-items: flex-start; gap: 15px;">
-        <div class="no-print d-flex flex-column align-items-center" style="margin-top: 5px;">
-            <span id="ttdStatusBadge" class="badge bg-light text-dark" title="Status TTD" style="font-size: 10px; padding: 5px 10px; cursor: help;">✏ Kosong</span>
-            <button class="btn btn-sm btn-outline-danger mt-2" onclick="hapusTTDDariCloud()" 
-                    title="Hapus tanda tangan dari database cloud" 
-                    style="font-size: 10px; padding: 2px 8px; border-radius: 4px;">
-                <i class="fa-solid fa-trash-can"></i> Reset TTD
+        
+        
+        <div class="no-print d-flex flex-column align-items-stretch" style="margin-top: 5px; min-width: 120px;">
+            <span id="ttdStatusBadge" class="badge bg-light text-dark mb-2 py-2 border" title="Status TTD" style="font-size: 10px; cursor: help;">✏ Kosong</span>
+            
+            
+            <button id="btnToggleTTD" class="btn btn-sm btn-outline-primary mb-2 fw-bold d-flex align-items-center justify-content-center" onclick="toggleEditTTD()" title="Buka Kunci untuk Mengedit" style="font-size: 10px; border-radius: 6px; transition: all 0.2s;">
+                <i class="fa-solid fa-lock me-1" id="iconLockTTD"></i> <span id="teksLockTTD">Edit TTD</span>
+            </button>
+            
+            <button class="btn btn-sm btn-outline-danger d-flex align-items-center justify-content-center" onclick="hapusTTDDariCloud()" title="Hapus tanda tangan dari database" style="font-size: 10px; border-radius: 6px; transition: all 0.2s;">
+                <i class="fa-solid fa-trash-can me-1"></i> Reset TTD
             </button>
         </div>
-        <div class="text-center" style="width: 250px; font-family: Arial, sans-serif; font-size: 12px; color: #000;">
-            <div contenteditable="true" class="editable-field" id="ttd-tanggal" style="margin-bottom: 3px; outline: none; border-bottom: 1px dashed transparent;">Belopa, 31 Desember 2026</div>
-            <div contenteditable="true" class="editable-field fw-bold mt-1" id="ttd-jabatan" style="outline: none;">PENGGUNA ANGGARAN</div>
+
+        
+        <div class="text-center p-2" id="boxTeksTTD" style="width: 260px; font-family: Arial, sans-serif; font-size: 12px; color: #000; border-radius: 8px; border: 1px solid transparent; transition: all 0.3s ease;">
+            
+            
+            <div contenteditable="false" id="ttd-tanggal" style="margin-bottom: 3px; outline: none; padding: 2px;">Belopa, 31 Desember 2026</div>           
+            <div contenteditable="false" class="editable-field fw-bold mt-1" id="ttd-jabatan" style="outline: none; padding: 2px; border-bottom: 1px dashed transparent;">PENGGUNA ANGGARAN</div>
             <div style="height: 65px;"></div>
-            <div contenteditable="true" class="editable-field fw-bold text-decoration-underline" id="ttd-nama" style="outline: none;">NAMA KEPALA SKPD</div>
-            <div contenteditable="true" class="editable-field" id="ttd-nip" style="outline: none;">NIP. xxxxxxxx</div>
+            <div contenteditable="false" class="editable-field fw-bold text-decoration-underline" id="ttd-nama" style="outline: none; padding: 2px; border-bottom: 1px dashed transparent;">NAMA KEPALA SKPD</div>
+            <div contenteditable="false" class="editable-field" id="ttd-nip" style="outline: none; padding: 2px; border-bottom: 1px dashed transparent;">NIP. xxxxxxxx</div>
+            
         </div>
+        
     </div>
 </div>
 
@@ -326,6 +339,7 @@
 <script src="print_controller.js"></script>
 <script src="page_scroller.js"></script>
 <script src="pendeteksi.js"></script>
+
 
 </body>
 </html>
