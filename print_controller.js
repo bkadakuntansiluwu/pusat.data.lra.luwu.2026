@@ -176,7 +176,7 @@
             'font-family:Segoe UI,Arial,sans-serif;transition:all 0.2s;flex-shrink:0;',
             { id: 'pcBtnClose' }
         );
-        btnTutup.innerHTML = '<i class="fa-solid fa-xmark" style="margin-right:5px;"></i>Tutup';
+        btnTutup.innerHTML = '<i class="fa-solid fa-xmark" style="margin-right:5px;"></i>Batal';
         btnTutup.addEventListener('mouseenter', function() {
             this.style.background = 'rgba(255,255,255,0.12)'; this.style.color = '#fff';
         });
