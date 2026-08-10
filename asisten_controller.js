@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-var CHUNK=10,DEBOUNCE=300,_tmr=null,_sup=false,_fn={};
+var CHUNK=10,DEBOUNCE=500,_tmr=null,_sup=false,_fn={};
 
 function fmtRp(n){
 var s=Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
