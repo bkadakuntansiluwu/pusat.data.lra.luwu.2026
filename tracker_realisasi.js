@@ -1,5 +1,4 @@
 let trackerTrackerInitialized = false;
-
 document.addEventListener("DOMContentLoaded", function() {
     let initInterval = setInterval(() => {
         let targetContainer = document.querySelector('.control-panel .d-flex.justify-content-end, .control-panel .gap-2, .d-flex.gap-2');
@@ -178,7 +177,7 @@ function kalkulasiProgressRealisasi() {
     } else {
         wrapper.style.display = 'flex';
     }
-
+    
     let totalTarget = targetBelanja + targetPAD;
     let totalTerinput = terinputBelanja + terinputPAD;
     let sisa = totalTarget - totalTerinput;
