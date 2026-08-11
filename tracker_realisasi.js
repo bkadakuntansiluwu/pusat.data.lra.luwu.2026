@@ -155,21 +155,19 @@ function kalkulasiProgressRealisasi() {
             let rowId = inp.getAttribute('data-rowid');
             let printDiv = document.getElementById('print_' + rowId);
             
-            if (printDiv) {
-                let terinputCerdas = 0;
-                
-               
-                let memoriNilai = printDiv.getAttribute('data-nilai-terinput');
-                
-                if (memoriNilai !== null) {
-                    terinputCerdas = parseFloat(memoriNilai);
-                } else {
-                    
-                    terinputCerdas = window.hitungTotalDariTeks(printDiv.innerHTML);
-                    printDiv.setAttribute('data-nilai-terinput', terinputCerdas); 
-                }
+            if (printDiv) {                
+                let terinputCerdas = window.hitungTotalDariTeks(printDiv.innerHTML);
                 
                 if (terinputCerdas > nilaiRealisasiAsli) {
+                    terinputCerdas = nilaiRealisasiAsli; 
+                }
+                
+                if (isPAD) {
+                    terinputPAD += terinputCerdas;
+                } else {
+                    terinputBelanja += terinputCerdas;
+                }
+            }
                     terinputCerdas = nilaiRealisasiAsli; 
                 }
                 
@@ -276,11 +274,9 @@ function kalkulasiProgressRealisasi() {
         this.style.borderColor = '#e2e8f0'; 
         this.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.04)';
     }
-}
-
-let namaDinas = document.getElementById('headerNamaSkpd') ? document.getElementById('headerNamaSkpd').innerText : "SKPD ANONIM";
+	
+    let namaDinas = document.getElementById('headerNamaSkpd') ? document.getElementById('headerNamaSkpd').innerText : "SKPD ANONIM";
     
-   
     window.telemetriRadar = {
         nama_skpd: namaDinas,
         target_total: totalTarget,
@@ -288,5 +284,5 @@ let namaDinas = document.getElementById('headerNamaSkpd') ? document.getElementB
         persentase: parseFloat(persentase.toFixed(2)),
         sisa_belum_terinci: sisa,
         waktu_update: Date.now()
-    };   
+    };    
 } 
