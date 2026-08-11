@@ -69,9 +69,6 @@ function prosesHitungTotal(teks) {
     return total;
 }
 
-// =========================================================================
-// MESIN PEMBEDAH JSON LATAR BELAKANG
-// =========================================================================
 function formatTeksPenjelasanWorker(dataServerString) {
     if (!dataServerString || dataServerString === "[]" || dataServerString === '""') return "";
     let printText = dataServerString;
@@ -79,6 +76,19 @@ function formatTeksPenjelasanWorker(dataServerString) {
         let parsed = JSON.parse(dataServerString);
         let tempText = "";
         
+        // [MESIN AUTO-HEAL] Bongkar kode ganda di Web Worker
+        if (Array.isArray(parsed) && parsed.length === 1 && typeof parsed[0].sub === 'string') {
+            let innerText = parsed[0].sub.trim();
+            if (innerText.startsWith('[') && innerText.endsWith(']')) {
+                try {
+                    let innerParsed = JSON.parse(innerText);
+                    if (Array.isArray(innerParsed) && innerParsed.length > 0 && innerParsed[0].items !== undefined) {
+                        parsed = innerParsed; 
+                    }
+                } catch(e) {}
+            }
+        }
+
         if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].items !== undefined) {
             parsed.forEach(g => {
                 if (g.sub) tempText += `${g.sub}\n\n`;
@@ -101,19 +111,16 @@ function formatTeksPenjelasanWorker(dataServerString) {
             });
             printText = tempText;
         }
-        // === MODE AUTO (dipakai input otomatis) ===
         else if (parsed && parsed.mode === 'auto') {
             printText = parsed.data.map(function(i) {
                 let st = i.s ? ' ' + i.s : '';
                 return '- ' + i.u + ': ' + i.v + st + ' x Rp' + i.h.toLocaleString('id-ID') + ' = Rp' + i.t.toLocaleString('id-ID');
             }).join('\n');
         }
-        // === MODE MANUAL (teks bebas dari user) ===
         else if (parsed && parsed.mode === 'manual') {
             printText = parsed.data;
         }
     } catch(e) {
-        
     } 
     return printText;
 }
