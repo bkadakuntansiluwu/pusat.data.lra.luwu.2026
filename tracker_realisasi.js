@@ -277,3 +277,16 @@ function kalkulasiProgressRealisasi() {
         this.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.04)';
     }
 }
+
+let namaDinas = document.getElementById('headerNamaSkpd') ? document.getElementById('headerNamaSkpd').innerText : "SKPD ANONIM";
+    
+   
+    window.telemetriRadar = {
+        nama_skpd: namaDinas,
+        target_total: totalTarget,
+        terinput_total: totalTerinput,
+        persentase: parseFloat(persentase.toFixed(2)),
+        sisa_belum_terinci: sisa,
+        waktu_update: Date.now()
+    };   
+} 
