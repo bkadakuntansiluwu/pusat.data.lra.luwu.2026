@@ -10,11 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 500);
 
-
     setInterval(() => {
         if (!document.hidden && typeof kodeSkpdAktif !== 'undefined' && kodeSkpdAktif !== "") {
             if ('requestIdleCallback' in window) {
-               
                 requestIdleCallback(kalkulasiProgressRealisasi, { timeout: 1000 });
             } else {
                 kalkulasiProgressRealisasi();
@@ -168,15 +166,6 @@ function kalkulasiProgressRealisasi() {
                     terinputBelanja += terinputCerdas;
                 }
             }
-                    terinputCerdas = nilaiRealisasiAsli; 
-                }
-                
-                if (isPAD) {
-                    terinputPAD += terinputCerdas;
-                } else {
-                    terinputBelanja += terinputCerdas;
-                }
-            }
         }
     });
 
@@ -274,7 +263,7 @@ function kalkulasiProgressRealisasi() {
         this.style.borderColor = '#e2e8f0'; 
         this.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.04)';
     }
-	
+    
     let namaDinas = document.getElementById('headerNamaSkpd') ? document.getElementById('headerNamaSkpd').innerText : "SKPD ANONIM";
     
     window.telemetriRadar = {
@@ -285,4 +274,4 @@ function kalkulasiProgressRealisasi() {
         sisa_belum_terinci: sisa,
         waktu_update: Date.now()
     };    
-} 
+}
