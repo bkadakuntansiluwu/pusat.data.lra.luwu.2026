@@ -3,118 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Command Center | LRA Luwu 2026</title>
+    <title>Dasbor Pengawasan LRA | Kabupaten Luwu 2026</title>
     
-    <!-- Framework & Library -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    <!-- Premium Enterprise UI -->
     <link rel="stylesheet" href="style_sys_nx.css">
 </head>
 <body>
 
-    <!-- ═══ NAVBAR ═══ -->
+    <!-- NAVBAR -->
     <div class="top-navbar">
         <div class="d-flex align-items-center">
-            <div class="card-icon icon-indigo me-3">
-                <i class="fa-solid fa-layer-group"></i>
+            <div class="card-icon icon-navy me-3">
+                <i class="fa-solid fa-landmark"></i>
             </div>
             <div>
-                <div class="brand-title">EXECUTIVE COMMAND CENTER</div>
-                <div style="font-size: 11px; color: var(--text-faint); letter-spacing: 0.5px;">
-                    Sistem Pengendalian LRA Terpadu &mdash; Tahun Anggaran 2026
+                <div class="brand-title">DASBOR PENGAWASAN LRA</div>
+                <div style="font-size: 11px; color: var(--text-muted); letter-spacing: 0.3px;">
+                    Sistem Pengendalian Laporan Realisasi Anggaran &mdash; Tahun Anggaran 2026
                 </div>
             </div>
         </div>
         <div class="d-flex align-items-center">
             <div class="text-end">
                 <div id="liveClock">00:00:00</div>
-                <div style="font-size: 10px; color: var(--text-faint); font-family: var(--font-mono); letter-spacing: 0.5px;">
-                    <i class="fa-solid fa-shield-halved" style="color: var(--accent-emerald);"></i>
-                    ENKRIPSI AKTIF 256-BIT
+                <div style="font-size: 10px; color: var(--text-faint); font-family: var(--font-mono); letter-spacing: 0.3px;">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--accent-green);"></i>
+                    KONEKSI TERAMAN
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- BANNER STATUS SISTEM — otomatis berubah via CSS :has() -->
+    <div class="system-state-banner">
+        <div class="state-inner state-loading">
+            <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 14px;"></i>
+            <span>Memeriksa status akses input data...</span>
+        </div>
+        <div class="state-inner state-closed">
+            <div class="state-icon"><i class="fa-solid fa-lock" style="font-size: 12px;"></i></div>
+            <span><strong>Akses Input Data Saat Ini Ditutup</strong> &mdash; Seluruh SKPD tidak dapat menyimpan data ke server hingga akses dibuka kembali oleh pengelola sistem.</span>
+        </div>
+        <div class="state-inner state-open">
+            <div class="state-icon"><i class="fa-solid fa-lock-open" style="font-size: 12px;"></i></div>
+            <span><strong>Akses Input Data Saat Ini Dibuka</strong> &mdash; Seluruh SKPD dapat menyimpan data realisasi anggaran secara normal ke server.</span>
+        </div>
+    </div>
+
     <div class="container-fluid py-4 px-4" style="padding-bottom: 72px !important;">
 
-        <!-- ═══ ROW 1: CONTROL WIDGETS ═══ -->
+        <!-- BARIS 1: KONTROL UTAMA -->
         <div class="row g-4 mb-4">
 
-            <!-- Widget 1: Master Switch System -->
+            <!-- Widget 1: Pengendali Akses Input Data -->
             <div class="col-xl-4 col-md-6">
-                <div class="enterprise-card d-flex flex-column justify-content-between">
+                <div id="statusCard" class="enterprise-card d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="section-heading">
-                                <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1.5px;">Sakelar Sistem Utama</h6>
+                                <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1px;">Pengendali Akses Input</h6>
                             </div>
-                            <div class="card-icon icon-emerald" style="width: 34px; height: 34px; font-size: 14px;">
-                                <i class="fa-solid fa-power-off"></i>
+                            <div id="statusCardIcon" class="card-icon icon-green" style="width: 34px; height: 34px; font-size: 14px;">
+                                <i class="fa-solid fa-toggle-on"></i>
                             </div>
                         </div>
-                        <h4 id="teksStatusSistem" class="fw-bold mb-1" style="font-size: 18px;">Mengecek Peladen...</h4>
-                        <p class="text-muted" style="font-size: 12px; margin: 0;" id="teksSubStatus">Menyinkronkan data dengan Firebase...</p>
+                        <h4 id="teksStatusSistem" class="fw-bold mb-1" style="font-size: 17px;">Memeriksa Status Sistem...</h4>
+                        <p class="text-muted" style="font-size: 12px; margin: 0;" id="teksSubStatus">Menghubungkan ke server pusat data...</p>
                     </div>
 
                     <div class="d-flex gap-2 mt-4">
                         <button onclick="ubahStatusSistem(false)" class="btn btn-outline-success flex-fill fw-bold" style="font-size: 12px;">
-                            <i class="fa-solid fa-unlock me-1"></i> BUKA LAPORAN
+                            <i class="fa-solid fa-lock-open me-1"></i> BUKA POSTINGAN
                         </button>
                         <button onclick="ubahStatusSistem(true)" class="btn btn-danger flex-fill fw-bold" style="font-size: 12px;">
-                            <i class="fa-solid fa-lock me-1"></i> KUNCI LAPORAN
+                            <i class="fa-solid fa-lock me-1"></i> TUTUP AKSES
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Widget 2: Grand Backup Database -->
+            <!-- Widget 2: Pencadangan Data LRA -->
             <div class="col-xl-4 col-md-6">
                 <div class="enterprise-card d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="section-heading">
-                                <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1.5px;">Grand Backup Database</h6>
+                                <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1px;">Pencadangan Data LRA</h6>
                             </div>
-                            <div class="card-icon icon-cyan" style="width: 34px; height: 34px; font-size: 14px;">
+                            <div class="card-icon icon-blue" style="width: 34px; height: 34px; font-size: 14px;">
                                 <i class="fa-solid fa-cloud-arrow-down"></i>
                             </div>
                         </div>
-                        <h4 class="fw-bold mb-1" style="font-size: 18px; color: var(--accent-cyan);">Arsip Master 2026</h4>
-                        <p class="text-muted" style="font-size: 12px; margin: 0;">Unduh seluruh data LRA dari seluruh instansi (format JSON).</p>
+                        <h4 class="fw-bold mb-1" style="font-size: 17px; color: var(--accent-teal);">Data Master Tahun 2026</h4>
+                        <p class="text-muted" style="font-size: 12px; margin: 0;">Unduh seluruh data realisasi anggaran dari semua SKPD dalam format JSON.</p>
                     </div>
 
-                    <button onclick="unduhMasterBrankas()" class="btn btn-info mt-4 fw-bold w-100" style="font-size: 12px; color: #fff;">
-                        <i class="fa-solid fa-download me-2"></i> UNDUH MASTER DATABASE
+                    <button onclick="unduhMasterBrankas()" class="btn btn-info mt-4 fw-bold w-100" style="font-size: 12px;">
+                        <i class="fa-solid fa-download me-2"></i> UNDUH DATA MASTER
                     </button>
                 </div>
             </div>
 
-            <!-- Widget 3: Cloud Infrastructure -->
+            <!-- Widget 3: Status Infrastruktur Sistem -->
             <div class="col-xl-4 col-md-12">
-                <div class="enterprise-card" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(3, 7, 18, 0.98));">
+                <div class="enterprise-card" style="background: linear-gradient(135deg, #f7f8fc, #eef0f7);">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="section-heading">
-                            <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1.5px;">Infrastruktur Awan</h6>
+                            <h6 class="text-uppercase text-muted fw-bold m-0" style="font-size: 11px; letter-spacing: 1px;">Status Infrastruktur Sistem</h6>
                         </div>
-                        <span class="badge bg-success">ONLINE</span>
+                        <span class="badge bg-success">TERHUBUNG</span>
                     </div>
 
                     <div class="d-flex justify-content-between mb-3 pb-3 border-bottom border-secondary" style="font-size: 13px;">
-                        <span class="text-muted">Region Peladen</span>
-                        <span class="fw-bold" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">asia-southeast1</span>
+                        <span class="text-muted">Lokasi Server</span>
+                        <span class="fw-bold" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">Asia Tenggara</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3 pb-3 border-bottom border-secondary" style="font-size: 13px;">
-                        <span class="text-muted">Protokol</span>
-                        <span class="fw-bold" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">JSON Realtime DB</span>
+                        <span class="text-muted">Protokol Data</span>
+                        <span class="fw-bold" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">Realtime Database</span>
                     </div>
                     <div class="d-flex justify-content-between" style="font-size: 13px;">
-                        <span class="text-muted">Status Radar</span>
+                        <span class="text-muted">Status Pemantauan</span>
                         <span id="indikatorRadar" class="fw-bold text-success" style="font-size: 12px; font-family: var(--font-mono);">
-                            <i class="fa-solid fa-circle-notch fa-spin me-1"></i> Memindai...
+                            <i class="fa-solid fa-circle-notch fa-spin me-1"></i> Memuat Data...
                         </span>
                     </div>
                 </div>
@@ -122,26 +135,25 @@
 
         </div>
 
-        <!-- ═══ ROW 2: RADAR PEMANTAUAN SKPD ═══ -->
+        <!-- BARIS 2: PEMANTAUAN PROGRES SKPD -->
         <div class="row">
             <div class="col-12">
                 <div class="enterprise-card">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="section-heading">
-                            <h5 class="fw-bold m-0" style="font-size: 16px;">
-                                <i class="fa-solid fa-satellite-dish me-2" style="color: var(--accent-amber);"></i>
-                                Radar Aktivitas SKPD
-                                <span style="color: var(--text-faint); font-weight: 400; font-size: 12px; margin-left: 8px;">Real-Time</span>
+                            <h5 class="fw-bold m-0" style="font-size: 16px; color: var(--accent-navy);">
+                                <i class="fa-solid fa-chart-bar me-2" style="color: var(--accent-gold);"></i>
+                                Pemantauan Progres Pengisian LRA SKPD
                             </h5>
                         </div>
 
                         <div class="d-flex gap-3 align-items-center">
                             <span style="font-size: 11px; color: var(--text-faint); font-family: var(--font-mono);">
-                                <i class="fa-solid fa-rotate fa-spin me-1" style="animation-duration: 3s;"></i> Auto-sync 10s
+                                <i class="fa-solid fa-rotate fa-spin me-1" style="animation-duration: 3s;"></i> Perbaruan otomatis setiap 10 detik
                             </span>
                             <div style="position: relative;">
                                 <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-faint); font-size: 12px; pointer-events: none;"></i>
-                                <input type="text" id="cariSkpd" class="search-box" placeholder="Cari nama instansi..." onkeyup="filterRadar()">
+                                <input type="text" id="cariSkpd" class="search-box" placeholder="Cari nama SKPD..." onkeyup="filterRadar()">
                             </div>
                         </div>
                     </div>
@@ -151,20 +163,19 @@
                             <thead>
                                 <tr>
                                     <th width="14%" style="text-align: left;">Kode Rekening</th>
-                                    <th width="42%" style="text-align: left;">Nama Instansi (SKPD)</th>
-                                    <th width="28%" style="text-align: left;">Progres Pengisian</th>
-                                    <th width="16%" class="text-center">Aksi</th>
+                                    <th width="42%" style="text-align: left;">Nama SKPD</th>
+                                    <th width="28%" style="text-align: left;">Tingkat Kelengkapan</th>
+                                    <th width="16%" class="text-center">Detail</th>
                                 </tr>
                             </thead>
                             <tbody id="badanRadar">
-                                <!-- Data SKPD disuntikkan oleh engine JS -->
                             </tbody>
                         </table>
 
                         <div id="pesanKosong" class="text-center py-5 text-muted" style="display: none;">
-                            <i class="fa-solid fa-satellite-dish" style="font-size: 48px; opacity: 0.1; display: block; margin-bottom: 16px;"></i>
-                            <h5 style="font-weight: 600; color: var(--text-faint);">Belum Ada Sinyal Masuk</h5>
-                            <p style="font-size: 13px;">Belum ada instansi yang melakukan penginputan ke dalam sistem.</p>
+                            <i class="fa-solid fa-folder-open" style="font-size: 40px; opacity: 0.2; display: block; margin-bottom: 16px;"></i>
+                            <h5 style="font-weight: 600; color: var(--text-muted);">Data Belum Tersedia</h5>
+                            <p style="font-size: 13px;">Belum ada SKPD yang menginputkan data ke dalam sistem.</p>
                         </div>
                     </div>
                 </div>
@@ -173,22 +184,21 @@
 
     </div>
 
-    <!-- ═══ STATUS BAR (Bottom) ═══ -->
+    <!-- STATUS BAR -->
     <div class="status-bar">
         <div class="d-flex align-items-center">
             <span class="status-dot-bar"></span>
             <span>SISTEM AKTIF</span>
         </div>
         <div style="color: var(--text-faint);">
-            <i class="fa-solid fa-database me-1"></i> Firebase RTDB &mdash; Asia Southeast1
+            <i class="fa-solid fa-database me-1"></i> Server Database &mdash; Asia Tenggara
         </div>
         <div>
-            <i class="fa-solid fa-fingerprint me-1" style="color: var(--accent-indigo);"></i>
-            <span id="statusBarSession">SESSION SECURE</span>
+            <i class="fa-solid fa-lock me-1" style="color: var(--accent-gold);"></i>
+            <span id="statusBarSession">SESI AMAN</span>
         </div>
     </div>
 
-    <!-- Engine Logic -->
     <script src="engine_core_v9.js"></script>
 
 </body>
