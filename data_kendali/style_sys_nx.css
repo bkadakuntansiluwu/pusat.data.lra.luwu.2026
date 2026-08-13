@@ -3,15 +3,19 @@
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* ==========================================================================
+   GANTI BAGIAN PALING ATAS (VARIABEL WARNA) DENGAN INI:
+   ========================================================================== */
 :root {
     /* TEMA TERANG (LIGHT MODE) */
     --bg-page:        #f0f2f5;
     --bg-card:        #ffffff;
     --bg-card-alt:    #f8fafc;
+    --bg-input:       #ffffff;
     --border-light:   #e2e8f0;
     --border-default: #cbd5e1;
-    --text-heading:   #0f172a; 
-    --text-primary:   #1e293b; 
+    --text-heading:   #0f172a; /* Warna Hitam/Gelap Tajam */
+    --text-primary:   #1e293b; /* Warna Teks Utama */
     --text-muted:     #64748b;
     --text-faint:     #94a3b8;
     
@@ -23,27 +27,62 @@
     --accent-gold:    #b8860b;
     --accent-green:   #10b981;
     --accent-red:     #ef4444;
-    --accent-warning: #f59e0b;
     
-    --shadow-sm:      0 1px 3px rgba(0,0,0,0.05);
     --shadow-card:    0 4px 6px -1px rgba(0,0,0,0.05);
-    
     --font-sans:      'Inter', sans-serif;
     --font-mono:      'JetBrains Mono', monospace;
 }
 
-/* TEMA GELAP (DARK MODE) - Variabel Otomatis Berubah */
+/* TEMA GELAP (DARK MODE) - Mengubah Teks Menjadi Putih Otomatis */
 body.dark-mode {
     --bg-page:        #0f172a;
     --bg-card:        #1e293b;
     --bg-card-alt:    #0f172a;
+    --bg-input:       #0f172a; /* Kotak input menjadi gelap */
     --border-light:   #334155;
     --border-default: #475569;
-    --text-heading:   #ffffff; 
-    --text-primary:   #f8fafc; 
+    --text-heading:   #ffffff; /* Huruf otomatis Putih Bersih */
+    --text-primary:   #f8fafc; /* Teks paragraf otomatis Putih/Terang */
     --text-muted:     #94a3b8;
     --shadow-card:    0 4px 15px rgba(0,0,0,0.4);
 }
+
+/* Pastikan semua elemen menuruti warna variabel */
+h1, h2, h3, h4, h5, h6, .text-heading { color: var(--text-heading) !important; }
+p, span, td, .text-primary { color: var(--text-primary); }
+
+
+/* ==========================================================================
+   GANTI BAGIAN BAWAH /* GERBANG LOGIN */ DENGAN INI:
+   ========================================================================== */
+/* ── GERBANG LOGIN (Aman, Presisi & Sangat Responsif di HP) ───────────────── */
+.login-gate-bg { 
+    position: fixed; inset: 0; 
+    background: var(--sidebar-bg-top); /* Latar Biru Dongker Elegan */
+    display: flex; justify-content: center; align-items: center; z-index: 9999; 
+}
+.login-card { 
+    background: var(--bg-card); 
+    border-radius: 16px; padding: 40px; width: 100%; max-width: 400px; 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3); text-align: center; margin: 20px; 
+}
+.login-text-primary { color: var(--text-heading) !important; font-weight: 800; font-size: 24px; }
+.login-text-muted { font-size: 13px; color: var(--text-muted); }
+.login-input-wrapper { position: relative; margin-bottom: 25px; }
+.login-input { 
+    width: 100%; padding: 15px 45px 15px 20px; 
+    border: 2px solid var(--border-default); border-radius: 10px; 
+    font-size: 14px; background: var(--bg-input); color: var(--text-primary); 
+    outline: none; transition: 0.3s; 
+}
+.login-input:focus { border-color: var(--accent-navy); box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1); }
+.login-eye { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted); }
+.btn-login-navy { 
+    width: 100%; padding: 14px; 
+    background: var(--accent-navy); color: white; 
+    border: none; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; 
+}
+.btn-login-navy:hover { background: var(--accent-royal); transform: translateY(-2px); }
 
 *,*::before,*::after { box-sizing: border-box; }
 body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-sans); margin: 0; min-height: 100vh; overflow-x: hidden; transition: background 0.3s ease, color 0.3s ease; }
