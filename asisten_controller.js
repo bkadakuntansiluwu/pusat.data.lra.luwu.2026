@@ -27,9 +27,9 @@ s.textContent=`
 #modalPenjelasan .px-4.pt-3.pb-2 .text-end .text-secondary{font-size:9px!important;margin:0!important}
 #modalPenjelasan .px-4.pt-3.pb-2 .text-end .fw-bold{font-size:15px!important;color:#0f172a!important;letter-spacing:-.3px}
 #modalPenjelasan #alertSmart{border:none!important;border-radius:0!important;padding:7px 20px!important;margin:0!important;box-shadow:none!important;background:#fff!important}
-#modalPenjelasan #alertSmart .fs-4{font-size:13px!important;margin-right:8px!important}
-#modalPenjelasan #titleSmart{font-size:11px!important;font-weight:700!important}
-#modalPenjelasan #descSmart{font-size:10px!important;line-height:1.3!important;opacity:.7}
+#modalPenjelasan #alertSmart .fs-4{font-size:18px!important;margin-right:12px!important}
+#modalPenjelasan #titleSmart{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif!important;font-size:13px!important;font-weight:800!important;letter-spacing:0.3px!important;color:#0f172a!important}
+#modalPenjelasan #descSmart{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif!important;font-size:11.5px!important;line-height:1.5!important;font-weight:600!important;color:#334155!important;opacity:1!important;letter-spacing:0.2px!important}
 .ac-wrap{padding:0 14px 4px}.ac-sticky-top{position:sticky;top:0;z-index:25;background:#f1f5f9;padding:4px 0 3px}
 .ac-strip{display:flex;align-items:stretch;background:#fff!important;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:3px;border:1px solid #e2e8f0!important;overflow:hidden}
 .ac-si{flex:1;padding:4px 12px;display:flex;align-items:center;gap:8px;position:relative}
