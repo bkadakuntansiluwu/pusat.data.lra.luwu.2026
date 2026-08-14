@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-var CHUNK=10,DEBOUNCE=500,_tmr=null,_sup=false,_fn={};
+var CHUNK=10,DEBOUNCE=300,_tmr=null,_sup=false,_fn={};
 
 function fmtRp(n){
 var s=Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
@@ -54,14 +54,14 @@ s.textContent=`
 .ac-ch{position:sticky;top:48px;z-index:20;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-radius:10px 10px 0 0;background:#f8fafc;box-shadow:0 1px 0 0 #e2e8f0}
 .ac-ch:hover{background:#f1f5f9;box-shadow:0 1px 0 0 #e2e8f0}
 .ac-cl{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
-.ac-cn{width:26px;height:26px;border-radius:7px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;transition:all .2s}
+.ac-cn{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;width:26px;height:26px;border-radius:7px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;transition:all .2s}
 .group-container:nth-child(odd) .ac-cn{background:#1d4ed8;box-shadow:0 2px 6px rgba(29,78,216,.25)}
 .group-container:nth-child(odd).ac-col .ac-cn{background:#3b82f6}
 .group-container:nth-child(even) .ac-cn{background:#b91c1c;box-shadow:0 2px 6px rgba(185,28,28,.25)}
 .group-container:nth-child(even).ac-col .ac-cn{background:#ef4444}
 .ac-ci{flex:1;min-width:0}
-.ac-cl-t{font-size:11px;font-weight:800;color:#64748b;line-height:1.2}
-.ac-cl-p{font-size:11px;font-weight:600;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.ac-cl-t{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;font-size:11px;font-weight:800;color:#64748b;line-height:1.2;letter-spacing:0.5px}
+.ac-cl-p{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;font-size:12px;font-weight:600;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;letter-spacing:0.2px}
 .ac-cl-p.ac-empty{color:#94a3b8;font-style:italic;font-weight:400}
 .ac-cr{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .ac-group-total{font-size:11px;font-weight:800;color:#1e293b;background:#fff;padding:4px 10px;border-radius:6px;border:1px solid #e2e8f0;transition:all .2s;white-space:nowrap}
