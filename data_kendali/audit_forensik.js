@@ -1,7 +1,7 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V7.0)
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V8.0)
 // =========================================================================
-// Dilengkapi Sensor Identitas Anti-Silang Lapis Baja (Cek Kode + Cek Nama)
+// Dilengkapi Sensor Identitas Anti-Silang & Penarik Data Tanda Tangan (Nama + NIP).
 // Terhubung dengan Otak 'pendeteksi_3.js' dan 'script_3.js' milik SKPD.
 
 const GAS_AUDIT_URL = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
@@ -125,9 +125,7 @@ function prosesInvestigasiBerkas(event) {
             let workbook = XLSX.read(data, {type: 'array'});
             let rawData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
             
-            // =================================================================
-            // [BARU] SENSOR IDENTITAS SKPD KUNCI GANDA (KODE + NAMA TEKS)
-            // =================================================================
+            // SENSOR IDENTITAS SKPD KUNCI GANDA (KODE + NAMA TEKS)
             let kodeSkpdExcel = "";
             let namaSkpdExcel = "Instansi Tidak Dikenali / Format Salah";
             
@@ -148,7 +146,6 @@ function prosesInvestigasiBerkas(event) {
                 let dots = (kodeRek.match(/\./g) || []).length;
                 let textCol1 = c1.toLowerCase();
                 
-                // Menangkap identitas (Persis seperti script.js)
                 if (kodeRek && (kodeRek.endsWith('.0000') || (dots >= 6 && dots <= 10))) {
                     if (textCol1 !== 'kode') {
                         if (!kodeSkpdExcel || (kodeRek.endsWith('.0000') && !kodeSkpdExcel.endsWith('.0000'))) {
@@ -159,7 +156,6 @@ function prosesInvestigasiBerkas(event) {
                 }
             }
 
-            // KUNCI GANDA (DUAL-LAYER CHECK)
             let isCocok = false;
             let targetKodeBersih = auditAktif_KodeSkpd.replace(/\.0000/g, '');
             let excelKodeBersih = kodeSkpdExcel.replace(/\.0000/g, '');
@@ -167,14 +163,10 @@ function prosesInvestigasiBerkas(event) {
             let namaTarget = auditAktif_NamaSkpd.toUpperCase().trim();
             let namaExcel = namaSkpdExcel.toUpperCase().trim();
 
-            // Pintu 1: Kecocokan Kode Rekening (Mencegah Salah Pogram)
             if (kodeSkpdExcel === auditAktif_KodeSkpd || 
                (excelKodeBersih && targetKodeBersih && (excelKodeBersih.startsWith(targetKodeBersih) || targetKodeBersih.startsWith(excelKodeBersih)))) {
                 isCocok = true;
             }
-            
-            // Pintu 2 (Lapis Baja): Kecocokan Nama Teks Langsung
-            // Jika Kode gagal terbaca sempurna, kita pastikan namanya sesuai (Contoh: DINAS PENDIDIKAN = DINAS PENDIDIKAN)
             if (namaTarget === namaExcel || namaExcel.includes(namaTarget) || namaTarget.includes(namaExcel)) {
                 isCocok = true;
             }
@@ -191,9 +183,8 @@ function prosesInvestigasiBerkas(event) {
                     confirmButtonText: 'Mengerti'
                 });
                 event.target.value = ''; 
-                return; // STOP di sini! Hemat CPU dan Kuota
+                return; 
             }
-            // =================================================================
 
             // A. BACA EXCEL ASLI
             let colAnggaran = []; let colRealisasi = []; let maxAngCount = 0;
@@ -296,17 +287,32 @@ function prosesInvestigasiBerkas(event) {
                 }
             });
 
-            // C. TARIK DATA TTD
-            let statusTTD = "-"; let colorTTD = "color: #94a3b8; font-weight: 800;";
+            // C. TARIK DATA TANDA TANGAN (TTD) DARI GOOGLE APPS SCRIPT
+            let statusTTD = `<span style="color: #94a3b8; font-weight: 800;">-</span>`; 
             try {
-                let resTTD = await fetch(GAS_AUDIT_URL, { method: "POST", body: JSON.stringify({ action: 'load_ttd', tahun: auditAktif_Tahun, kode_skpd: auditAktif_KodeSkpd }) }).then(r => r.json());
-                if (resTTD.status === 'success' && resTTD.data && resTTD.data.nama && resTTD.data.nama !== 'NAMA KEPALA SKPD') {
-                    statusTTD = "Sudah Terisi"; colorTTD = "color: #10b981; font-weight: 800;";
+                let payloadTTD = { action: 'load_ttd', tahun: auditAktif_Tahun, kode_skpd: auditAktif_KodeSkpd };
+                let resTTD = await fetch(GAS_AUDIT_URL, { method: "POST", body: JSON.stringify(payloadTTD) }).then(r => r.json());
+                
+                if (resTTD.status === 'success' && resTTD.data) {
+                    if (resTTD.data.nama && resTTD.data.nama !== 'NAMA KEPALA SKPD') {
+                        // Membongkar Data Nama & NIP
+                        let nma = resTTD.data.nama;
+                        let nip = resTTD.data.nip || '-';
+                        
+                        // Membangun Tampilan TTD yang Mewah dan Berkelas
+                        statusTTD = `
+                            <div style="text-align: right; line-height: 1.3; margin-top: 4px;">
+                                <span style="color: #10b981; font-weight: 800; font-size: 11px; letter-spacing: 0.5px;"><i class="fa-solid fa-file-signature me-1"></i> TEREKAM DI SERVER</span><br>
+                                <span style="color: #0f172a; font-weight: 800; font-size: 13px; text-transform: uppercase;">${nma}</span><br>
+                                <span style="color: #64748b; font-size: 11px; font-family: monospace; letter-spacing: 0.5px;">${nip}</span>
+                            </div>
+                        `;
+                    }
                 }
-            } catch (err) {}
+            } catch (err) { console.warn("Pengecekan TTD gagal atau dialihkan."); }
 
             // D. CETAK LAPORAN
-            _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, errSelisih, errDraf, statusTTD, colorTTD);
+            _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, errSelisih, errDraf, statusTTD);
             
         } catch (error) {
             Swal.fire('Audit Dibatalkan', 'Gagal memproses berkas. Pastikan file Excel berasal dari SIPD.', 'error');
@@ -319,7 +325,7 @@ function prosesInvestigasiBerkas(event) {
 // =====================================================================
 // 4. DESAIN VISUAL LAPORAN AUDIT ELEGAN
 // =====================================================================
-function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, errSelisih, errDraf, statTTD, colorTTD) {
+function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, errSelisih, errDraf, statTTD) {
     let formatRp = { minimumFractionDigits: 0 };
     
     function _buatLabelStatus(target, terinput) {
@@ -378,9 +384,9 @@ function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, e
             <div style="border-bottom: 2px solid #1e3a5f; padding-bottom: 8px; margin-bottom: 12px;">
                 <h6 style="color: #1e3a5f; font-weight: 800; margin: 0; text-transform: uppercase;">3. Autentikasi Pengesahan:</h6>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0;">
-                <span style="font-weight: 600;">➖ TTD Pejabat</span>
-                <span style="${colorTTD}">${statTTD}</span>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 6px 0;">
+                <span style="font-weight: 600; margin-top: 4px;">➖ TTD Pejabat</span>
+                <span>${statTTD}</span>
             </div>
 
         </div>
