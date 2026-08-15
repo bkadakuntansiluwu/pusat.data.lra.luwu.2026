@@ -1,7 +1,7 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V6.0)
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V7.0)
 // =========================================================================
-// Dilengkapi Sensor Identitas Anti-Silang (Mencegah Salah Upload File SKPD)
+// Dilengkapi Sensor Identitas Anti-Silang Lapis Baja (Cek Kode + Cek Nama)
 // Terhubung dengan Otak 'pendeteksi_3.js' dan 'script_3.js' milik SKPD.
 
 const GAS_AUDIT_URL = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
@@ -126,7 +126,7 @@ function prosesInvestigasiBerkas(event) {
             let rawData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
             
             // =================================================================
-            // [BARU] SENSOR IDENTITAS SKPD (MENCEGAH SALAH UPLOAD FILE)
+            // [BARU] SENSOR IDENTITAS SKPD KUNCI GANDA (KODE + NAMA TEKS)
             // =================================================================
             let kodeSkpdExcel = "";
             let namaSkpdExcel = "Instansi Tidak Dikenali / Format Salah";
@@ -144,23 +144,38 @@ function prosesInvestigasiBerkas(event) {
                 let kodeRek = segmen.join('.');
                 
                 if (/[a-zA-Z]/.test(kodeRek)) kodeRek = "";
-                let dots = (kodeRek.match(/\./g) || []).length;
                 
-                // Cari kode SKPD di kepala file
-                if (kodeRek && (kodeRek.endsWith('.0000') || dots >= 6) && c1.toLowerCase() !== 'kode') {
-                    if (!kodeSkpdExcel || (kodeRek.endsWith('.0000') && !kodeSkpdExcel.endsWith('.0000'))) {
-                        kodeSkpdExcel = kodeRek;
-                        namaSkpdExcel = uraian;
+                let dots = (kodeRek.match(/\./g) || []).length;
+                let textCol1 = c1.toLowerCase();
+                
+                // Menangkap identitas (Persis seperti script.js)
+                if (kodeRek && (kodeRek.endsWith('.0000') || (dots >= 6 && dots <= 10))) {
+                    if (textCol1 !== 'kode') {
+                        if (!kodeSkpdExcel || (kodeRek.endsWith('.0000') && !kodeSkpdExcel.endsWith('.0000'))) {
+                            kodeSkpdExcel = kodeRek;
+                            namaSkpdExcel = uraian.toUpperCase();
+                        }
                     }
                 }
             }
 
-            // Cek Kecocokan (Toleransi format titik SIPD)
+            // KUNCI GANDA (DUAL-LAYER CHECK)
             let isCocok = false;
-            let targetKodeBersih = auditAktif_KodeSkpd.replace(/\.0000$/, '');
-            let excelKodeBersih = kodeSkpdExcel.replace(/\.0000$/, '');
+            let targetKodeBersih = auditAktif_KodeSkpd.replace(/\.0000/g, '');
+            let excelKodeBersih = kodeSkpdExcel.replace(/\.0000/g, '');
             
-            if (kodeSkpdExcel === auditAktif_KodeSkpd || excelKodeBersih.startsWith(targetKodeBersih) || targetKodeBersih.startsWith(excelKodeBersih)) {
+            let namaTarget = auditAktif_NamaSkpd.toUpperCase().trim();
+            let namaExcel = namaSkpdExcel.toUpperCase().trim();
+
+            // Pintu 1: Kecocokan Kode Rekening (Mencegah Salah Pogram)
+            if (kodeSkpdExcel === auditAktif_KodeSkpd || 
+               (excelKodeBersih && targetKodeBersih && (excelKodeBersih.startsWith(targetKodeBersih) || targetKodeBersih.startsWith(excelKodeBersih)))) {
+                isCocok = true;
+            }
+            
+            // Pintu 2 (Lapis Baja): Kecocokan Nama Teks Langsung
+            // Jika Kode gagal terbaca sempurna, kita pastikan namanya sesuai (Contoh: DINAS PENDIDIKAN = DINAS PENDIDIKAN)
+            if (namaTarget === namaExcel || namaExcel.includes(namaTarget) || namaTarget.includes(namaExcel)) {
                 isCocok = true;
             }
 
@@ -175,8 +190,8 @@ function prosesInvestigasiBerkas(event) {
                     confirmButtonColor: '#1e3a5f',
                     confirmButtonText: 'Mengerti'
                 });
-                event.target.value = ''; // Langsung buang dari RAM
-                return; // STOP di sini! Hemat CPU dan Kuota!
+                event.target.value = ''; 
+                return; // STOP di sini! Hemat CPU dan Kuota
             }
             // =================================================================
 
