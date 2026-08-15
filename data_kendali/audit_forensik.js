@@ -1,5 +1,5 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (V2.0)
 // =========================================================================
 // Membaca file Excel secara lokal (RAM) dan membandingkannya dengan Server.
 // Sangat ringan, terisolasi, dan menggunakan bahasa pelaporan formal.
@@ -44,6 +44,28 @@ window.mulaiAuditForensik = function(kodeSkpd, namaSkpd) {
     });
 };
 
+// =====================================================================
+// MESIN PEMBACA ANGKA CERDAS (KEMBAR IDENTIK DENGAN SKPD)
+// =====================================================================
+function _parseIndoNum(val) {
+    if (!val) return 0;
+    if (typeof val === 'number') return val;
+    let str = String(val).trim();
+    if (str === '-' || str === '') return 0;
+
+    let isNeg = false;
+    if (str.startsWith('(') && str.endsWith(')')) { isNeg = true; str = str.substring(1, str.length - 1).trim(); }
+    else if (str.startsWith('-')) { isNeg = true; str = str.substring(1).trim(); }
+
+    str = str.replace(/\s/g, '').replace(/%/g, '').replace(/Rp/gi, '');
+    if (str.includes('.') && str.includes(',')) { str = str.replace(/\./g, '').replace(/,/g, '.'); }
+    else if (str.includes(',') && !str.includes('.')) { let pts = str.split(','); if(pts[pts.length-1].length<=2) str=str.replace(/,/g,'.'); else str=str.replace(/,/g,''); }
+    else if (str.includes('.') && !str.includes(',')) { let pts = str.split('.'); if(pts[pts.length-1].length!==2) str=str.replace(/\./g,''); }
+    
+    let num = parseFloat(str);
+    return isNeg ? -num : (isNaN(num) ? 0 : num);
+}
+
 // 3. Mesin Pembaca Excel & Pengambil Keputusan
 function prosesInvestigasiBerkas(event) {
     const file = event.target.files[0];
@@ -54,42 +76,68 @@ function prosesInvestigasiBerkas(event) {
     const reader = new FileReader();
     reader.onload = async function(e) {
         try {
-            // A. Baca Excel Asli (Hanya Ekstrak Angka Realisasi)
+            // A. Baca Excel Asli (LOGIKA 100% SAMA DENGAN APLIKASI SKPD)
             let data = new Uint8Array(e.target.result);
             let workbook = XLSX.read(data, {type: 'array'});
             let rawData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
             
-            let colRea = -1;
+            let colRealisasi = [];
+            // Mencari kolom Realisasi yang dinamis
+            for (let r = 0; r < 15 && r < rawData.length; r++) {
+                let rowObj = rawData[r];
+                if (!rowObj) continue;
+                let tempRea = [];
+                for (let c = 4; c < rowObj.length; c++) {
+                    let cellVal = String(rowObj[c] || '').toLowerCase().trim();
+                    if (cellVal === 'realisasi') tempRea.push(c);
+                }
+                if (tempRea.length > 0) { colRealisasi = tempRea; break; }
+            }
+            if (colRealisasi.length === 0) colRealisasi = [6, 8, 10, 12]; // Jaga-jaga standar SIPD
+
             let targetBelanjaExcel = 0;
             let targetPADExcel = 0;
+            let trackerKode = "";
 
-            // Cari kolom Realisasi
-            for (let r = 0; r < 15 && r < rawData.length; r++) {
-                if (!rawData[r]) continue;
-                for (let c = 0; c < rawData[r].length; c++) {
-                    let cellVal = String(rawData[r][c] || '').toLowerCase().trim();
-                    if (cellVal === 'realisasi') { colRea = c; break; }
-                }
-                if (colRea !== -1) break;
-            }
-
-            if (colRea === -1) throw new Error("Format Excel Tidak Sah. Kolom Realisasi tidak ditemukan.");
-
-            // Kalkulasi Akurat Excel
+            // Menjumlahkan target realisasi murni dari Excel
             for (let i = 0; i < rawData.length; i++) {
                 let row = rawData[i];
-                if (!row || !row[0]) continue;
-                let kodeStr = String(row[0]).trim();
-                let realisasiVal = parseFloat(String(row[colRea] || '0').replace(/[^0-9\.\-]/g, '').replace(/\./g, '')) || 0;
+                if (!row || row.length === 0) continue;
 
-                let dots = (kodeStr.match(/\./g) || []).length;
-                if (dots >= 5) {
-                    if (kodeStr.startsWith('5.')) targetBelanjaExcel += realisasiVal;
-                    if (kodeStr.startsWith('4.')) targetPADExcel += realisasiVal;
+                let col1 = row[0] ? String(row[0]).trim() : ''; 
+                let col2 = row[1] ? String(row[1]).trim() : '';
+                let col3 = row[2] ? String(row[2]).trim() : ''; 
+                let col4 = row[3] ? String(row[3]).trim() : '';
+                let uraian = row[4] ? String(row[4]).trim() : '';
+
+                let segmen = [];
+                if(col1) segmen.push(col1); if(col2) segmen.push(col2); 
+                if(col3) segmen.push(col3); if(col4) segmen.push(col4);
+                
+                let kodeRekening = segmen.join('.');
+                if (/[a-zA-Z]/.test(kodeRekening)) kodeRekening = "";
+                if (kodeRekening) trackerKode = kodeRekening;
+
+                let isBarisJumlah = uraian.toLowerCase().includes('jumlah') || uraian.toLowerCase() === 'total' || uraian.toLowerCase().includes('surplus') || uraian.toLowerCase().includes('defisit');
+
+                // Deteksi Rincian (Sama persis dengan otak SKPD)
+                let isRincian = false;
+                if (!kodeRekening && uraian) { isRincian = true; }
+                else if (col4) {
+                    let tailBlocks = col4.split('.');
+                    if (tailBlocks.length > 5) isRincian = true;
+                }
+
+                if (isRincian && !isBarisJumlah) {
+                    let realisasi = 0;
+                    colRealisasi.forEach(idx => { realisasi += _parseIndoNum(row[idx]); });
+
+                    if (trackerKode.startsWith('5')) targetBelanjaExcel += realisasi;
+                    else if (trackerKode.startsWith('4')) targetPADExcel += realisasi;
                 }
             }
 
-            // B. Tarik Data Ketikan (Cloud)
+            // B. Tarik Data Ketikan (Cloud Firebase)
             let amanKode = auditAktif_KodeSkpd.replace(/\./g, '_');
             let urlLRA = `${FIREBASE_URL}lra_${auditAktif_Tahun}/${amanKode}.json`;
             let resLRA = await fetch(urlLRA, { cache: 'no-store' }).then(r => r.json()).catch(() => null);
@@ -102,6 +150,7 @@ function prosesInvestigasiBerkas(event) {
                     let jsonKetikan = resLRA[key];
                     let totalBarisIni = _kalkulasiTotalJsonCerdas(jsonKetikan);
                     
+                    // R_5 untuk Belanja, R_4 untuk PAD
                     if (key.startsWith('R_5')) terinputBelanjaCloud += totalBarisIni;
                     else if (key.startsWith('R_4')) terinputPADCloud += totalBarisIni;
                 }
@@ -127,9 +176,10 @@ function prosesInvestigasiBerkas(event) {
             _tampilkanLaporanAudit(targetBelanjaExcel, terinputBelanjaCloud, targetPADExcel, terinputPADCloud, statusTTD, colorTTD);
             
         } catch (error) {
+            console.error(error);
             Swal.fire('Audit Dibatalkan', 'Gagal memproses berkas. Pastikan file Excel berasal dari SIPD.', 'error');
         }
-        event.target.value = ''; // Reset Input
+        event.target.value = ''; // Kosongkan Input agar memori RAM terbebas
     };
     reader.readAsArrayBuffer(file);
 }
@@ -137,14 +187,18 @@ function prosesInvestigasiBerkas(event) {
 // 4. Logika Pengekstrak Nilai Uang (Super Ringan)
 function _kalkulasiTotalJsonCerdas(jsonString) {
     let total = 0;
+    if (!jsonString || jsonString.trim() === "") return 0;
     try {
         let parsed = JSON.parse(jsonString);
+        
+        // Auto-Heal untuk JSON yang dibungkus 2 kali
         if (Array.isArray(parsed) && parsed.length === 1 && typeof parsed[0].sub === 'string') {
             let innerText = parsed[0].sub.trim();
             if (innerText.startsWith('[') && innerText.endsWith(']')) {
                 try { parsed = JSON.parse(innerText); } catch(e){}
             }
         }
+        
         if (Array.isArray(parsed)) {
             parsed.forEach(g => { if(g.items) g.items.forEach(i => { total += (parseFloat(i.t) || 0); }); });
         } else if (parsed && parsed.items) {
@@ -154,23 +208,32 @@ function _kalkulasiTotalJsonCerdas(jsonString) {
     return total;
 }
 
-// 5. Tampilan Sertifikat Laporan Formal
+// 5. Tampilan Sertifikat Laporan Formal (DENGAN PERSENTASE)
 function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, statTTD, colorTTD) {
     let formatRp = { minimumFractionDigits: 0 };
     
-    // Status Belanja
-    let selisihBelanja = Math.abs(belanjaEx - belanjaCl);
-    let lblBelanja = "";
-    if (belanjaEx === 0 && belanjaCl === 0) lblBelanja = `<span style="color: #94a3b8; font-weight: 800;">-</span>`;
-    else if (selisihBelanja < 1) lblBelanja = `<span style="color: #10b981; font-weight: 800;"><i class="fa-solid fa-check-circle me-1"></i> VALID</span>`;
-    else lblBelanja = `<span style="color: #dc2626; font-weight: 800;"><i class="fa-solid fa-triangle-exclamation me-1"></i> MASIH SELISIH (Rp ${selisihBelanja.toLocaleString('id-ID', formatRp)})</span>`;
+    // Fungsi pembuat label Persentase & Validasi
+    function _buatLabelStatus(targetExcel, terinputCloud) {
+        if (targetExcel === 0 && terinputCloud === 0) {
+            return `<span style="color: #94a3b8; font-weight: 800;">-</span>`;
+        }
+        
+        let selisih = Math.abs(targetExcel - terinputCloud);
+        let persen = targetExcel > 0 ? ((terinputCloud / targetExcel) * 100) : 0;
+        let persenStr = persen % 1 === 0 ? persen.toFixed(0) : persen.toFixed(2);
 
-    // Status PAD
-    let selisihPAD = Math.abs(padEx - padCl);
-    let lblPAD = "";
-    if (padEx === 0) lblPAD = `<span style="color: #94a3b8; font-weight: 800;">-</span>`;
-    else if (selisihPAD < 1) lblPAD = `<span style="color: #10b981; font-weight: 800;"><i class="fa-solid fa-check-circle me-1"></i> VALID</span>`;
-    else lblPAD = `<span style="color: #dc2626; font-weight: 800;"><i class="fa-solid fa-triangle-exclamation me-1"></i> MASIH SELISIH (Rp ${selisihPAD.toLocaleString('id-ID', formatRp)})</span>`;
+        if (selisih < 1) {
+            return `<span style="color: #10b981; font-weight: 800;"><i class="fa-solid fa-check-circle me-1"></i> 100% SESUAI</span>`;
+        } else {
+            return `<span style="color: #dc2626; font-weight: 800; text-align: right; display: block; line-height: 1.4;">
+                        <i class="fa-solid fa-triangle-exclamation me-1"></i> BARU ${persenStr.replace('.', ',')}%<br>
+                        <span style="font-size: 11px;">(Selisih Rp ${selisih.toLocaleString('id-ID', formatRp)})</span>
+                    </span>`;
+        }
+    }
+
+    let lblBelanja = _buatLabelStatus(belanjaEx, belanjaCl);
+    let lblPAD = _buatLabelStatus(padEx, padCl);
 
     let htmlLaporan = `
         <div style="text-align: left; font-family: Arial, sans-serif; font-size: 13px; color: #334155;">
@@ -178,12 +241,12 @@ function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, statTTD, col
                 <h6 style="color: #1e3a5f; font-weight: 800; margin: 0; text-transform: uppercase;">1. Nilai Rincian Realisasi:</h6>
             </div>
             
-            <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #cbd5e1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed #cbd5e1;">
                 <span style="font-weight: 600;">➖ Belanja Daerah</span>
                 <span>${lblBelanja}</span>
             </div>
             
-            <div style="display: flex; justify-content: space-between; padding: 6px 0; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; margin-bottom: 20px;">
                 <span style="font-weight: 600;">➖ Pendapatan (PAD)</span>
                 <span>${lblPAD}</span>
             </div>
@@ -192,7 +255,7 @@ function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, statTTD, col
                 <h6 style="color: #1e3a5f; font-weight: 800; margin: 0; text-transform: uppercase;">2. Autentikasi Pengesahan:</h6>
             </div>
             
-            <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0;">
                 <span style="font-weight: 600;">➖ TTD Pejabat</span>
                 <span style="${colorTTD}">${statTTD}</span>
             </div>
