@@ -1,7 +1,7 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V8.1)
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V8.2)
 // =========================================================================
-// Dilengkapi Sensor Identitas Anti-Silang & Penarik Data Tanda Tangan (Nama + NIP).
+// Dilengkapi Sensor Identitas Anti-Silang & Penarik Data Tanda Tangan (Jalur GET - Anti Gagal).
 // Terhubung dengan Otak 'pendeteksi_3.js' dan 'script_3.js' milik SKPD.
 
 const GAS_AUDIT_URL = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
@@ -287,34 +287,22 @@ function prosesInvestigasiBerkas(event) {
                 }
             });
 
-            // C. TARIK DATA TANDA TANGAN (TTD) DARI GOOGLE APPS SCRIPT
+            // C. TARIK DATA TANDA TANGAN (JALUR GET - ANTI GAGAL)
             let statusTTD = `<span style="color: #94a3b8; font-weight: 800;">-</span>`; 
             try {
-                // [PERBAIKAN CERDAS]: Ubah format garis bawah (_) kembali menjadi titik (.) karena GAS menyimpannya dengan titik
+                // [PERBAIKAN MUTLAK]: Mengubah garis bawah jadi titik karena GAS menyimpannya pakai titik!
                 let kodeSkpdTitik = auditAktif_KodeSkpd.replace(/_/g, '.');
                 
-                // [PERBAIKAN CERDAS]: Ambil Kunci Rahasia Admin yang tersimpan di memori browser
-                let sandiAdmin = sessionStorage.getItem("LRA_ADMIN_TOKEN_X7") || "Luwu.2026";
+                // [JALUR BEBAS HAMBATAN]: Menggunakan fetch GET untuk menghindari blokir CORS
+                let getUrlGAS = `${GAS_AUDIT_URL}?action=load_ttd&tahun=${auditAktif_Tahun}&kode_skpd=${kodeSkpdTitik}&secret_key=Luwu.2026`;
                 
-                let payloadTTD = { 
-                    action: 'load_ttd', 
-                    tahun: auditAktif_Tahun, 
-                    kode_skpd: kodeSkpdTitik, // Menggunakan format titik
-                    secret_key: sandiAdmin // Menyertakan kunci otorisasi
-                };
-                
-                let resTTD = await fetch(GAS_AUDIT_URL, { 
-                    method: "POST", 
-                    body: JSON.stringify(payloadTTD) 
-                }).then(r => r.json());
+                let resTTD = await fetch(getUrlGAS).then(r => r.json());
                 
                 if (resTTD.status === 'success' && resTTD.data) {
                     if (resTTD.data.nama && resTTD.data.nama !== 'NAMA KEPALA SKPD') {
-                        // Membongkar Data Nama & NIP
                         let nma = resTTD.data.nama;
                         let nip = resTTD.data.nip || '-';
                         
-                        // Membangun Tampilan TTD yang Mewah dan Berkelas
                         statusTTD = `
                             <div style="text-align: right; line-height: 1.3; margin-top: 4px;">
                                 <span style="color: #10b981; font-weight: 800; font-size: 11px; letter-spacing: 0.5px;"><i class="fa-solid fa-file-signature me-1"></i> TEREKAM DI SERVER</span><br>
