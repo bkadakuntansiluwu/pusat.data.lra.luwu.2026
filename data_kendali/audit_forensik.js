@@ -1,5 +1,5 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V8.0)
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (ULTIMATE V8.1)
 // =========================================================================
 // Dilengkapi Sensor Identitas Anti-Silang & Penarik Data Tanda Tangan (Nama + NIP).
 // Terhubung dengan Otak 'pendeteksi_3.js' dan 'script_3.js' milik SKPD.
@@ -290,8 +290,23 @@ function prosesInvestigasiBerkas(event) {
             // C. TARIK DATA TANDA TANGAN (TTD) DARI GOOGLE APPS SCRIPT
             let statusTTD = `<span style="color: #94a3b8; font-weight: 800;">-</span>`; 
             try {
-                let payloadTTD = { action: 'load_ttd', tahun: auditAktif_Tahun, kode_skpd: auditAktif_KodeSkpd };
-                let resTTD = await fetch(GAS_AUDIT_URL, { method: "POST", body: JSON.stringify(payloadTTD) }).then(r => r.json());
+                // [PERBAIKAN CERDAS]: Ubah format garis bawah (_) kembali menjadi titik (.) karena GAS menyimpannya dengan titik
+                let kodeSkpdTitik = auditAktif_KodeSkpd.replace(/_/g, '.');
+                
+                // [PERBAIKAN CERDAS]: Ambil Kunci Rahasia Admin yang tersimpan di memori browser
+                let sandiAdmin = sessionStorage.getItem("LRA_ADMIN_TOKEN_X7") || "Luwu.2026";
+                
+                let payloadTTD = { 
+                    action: 'load_ttd', 
+                    tahun: auditAktif_Tahun, 
+                    kode_skpd: kodeSkpdTitik, // Menggunakan format titik
+                    secret_key: sandiAdmin // Menyertakan kunci otorisasi
+                };
+                
+                let resTTD = await fetch(GAS_AUDIT_URL, { 
+                    method: "POST", 
+                    body: JSON.stringify(payloadTTD) 
+                }).then(r => r.json());
                 
                 if (resTTD.status === 'success' && resTTD.data) {
                     if (resTTD.data.nama && resTTD.data.nama !== 'NAMA KEPALA SKPD') {
@@ -309,7 +324,7 @@ function prosesInvestigasiBerkas(event) {
                         `;
                     }
                 }
-            } catch (err) { console.warn("Pengecekan TTD gagal atau dialihkan."); }
+            } catch (err) { console.warn("Pengecekan TTD dialihkan.", err); }
 
             // D. CETAK LAPORAN
             _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, errKosong, errSelisih, errDraf, statusTTD);
