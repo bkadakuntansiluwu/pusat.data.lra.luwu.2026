@@ -1,8 +1,8 @@
 // =========================================================================
-// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (V2.0)
+// [MESIN AUDIT FORENSIK PUSAT] - VALIDASI KEBENARAN LRA SKPD (V3.0)
 // =========================================================================
 // Membaca file Excel secara lokal (RAM) dan membandingkannya dengan Server.
-// Sangat ringan, terisolasi, dan menggunakan bahasa pelaporan formal.
+// Menggunakan Otak Pengekstrak Kembar Identik dengan Aplikasi SKPD.
 
 const GAS_AUDIT_URL = "https://script.google.com/macros/s/AKfycbyhFPzwcma9noqUe-P-g0wcxgaC_uTzwySMOq5NQA_WTeVIXOZ9IZ94xzfAjpQc1R5XKw/exec";
 
@@ -48,22 +48,44 @@ window.mulaiAuditForensik = function(kodeSkpd, namaSkpd) {
 // MESIN PEMBACA ANGKA CERDAS (KEMBAR IDENTIK DENGAN SKPD)
 // =====================================================================
 function _parseIndoNum(val) {
-    if (!val) return 0;
+    if (val === undefined || val === null || val === '') return 0;
     if (typeof val === 'number') return val;
+    
     let str = String(val).trim();
     if (str === '-' || str === '') return 0;
 
-    let isNeg = false;
-    if (str.startsWith('(') && str.endsWith(')')) { isNeg = true; str = str.substring(1, str.length - 1).trim(); }
-    else if (str.startsWith('-')) { isNeg = true; str = str.substring(1).trim(); }
+    let isNegative = false;
+    if (str.startsWith('(') && str.endsWith(')')) {
+        isNegative = true;
+        str = str.substring(1, str.length - 1).trim();
+    } else if (str.startsWith('-')) {
+        isNegative = true;
+        str = str.substring(1).trim();
+    }
 
     str = str.replace(/\s/g, '').replace(/%/g, '').replace(/Rp/gi, '');
-    if (str.includes('.') && str.includes(',')) { str = str.replace(/\./g, '').replace(/,/g, '.'); }
-    else if (str.includes(',') && !str.includes('.')) { let pts = str.split(','); if(pts[pts.length-1].length<=2) str=str.replace(/,/g,'.'); else str=str.replace(/,/g,''); }
-    else if (str.includes('.') && !str.includes(',')) { let pts = str.split('.'); if(pts[pts.length-1].length!==2) str=str.replace(/\./g,''); }
-    
+
+    if (str.includes('.') && str.includes(',')) {
+        str = str.replace(/\./g, '').replace(/,/g, '.'); 
+    } else if (str.includes(',') && !str.includes('.')) {
+        let parts = str.split(',');
+        if (parts[parts.length - 1].length <= 2) {
+            str = str.replace(/,/g, '.'); 
+        } else {
+            str = str.replace(/,/g, ''); 
+        }
+    } else if (str.includes('.') && !str.includes(',')) {
+        let parts = str.split('.');
+        if (parts[parts.length - 1].length === 2 && parts.length === 2) {
+            // Biarkan
+        } else {
+            str = str.replace(/\./g, ''); 
+        }
+    }
+
     let num = parseFloat(str);
-    return isNeg ? -num : (isNaN(num) ? 0 : num);
+    if (isNaN(num)) return 0;
+    return isNegative ? -num : num;
 }
 
 // 3. Mesin Pembaca Excel & Pengambil Keputusan
@@ -81,19 +103,24 @@ function prosesInvestigasiBerkas(event) {
             let workbook = XLSX.read(data, {type: 'array'});
             let rawData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
             
-            let colRealisasi = [];
-            // Mencari kolom Realisasi yang dinamis
+            // Pencarian Kolom Realisasi Akurat
+            let colAnggaran = []; let colRealisasi = []; let maxAnggaranCount = 0;
             for (let r = 0; r < 15 && r < rawData.length; r++) {
                 let rowObj = rawData[r];
                 if (!rowObj) continue;
-                let tempRea = [];
+                let tempAng = []; let tempRea = [];
                 for (let c = 4; c < rowObj.length; c++) {
                     let cellVal = String(rowObj[c] || '').toLowerCase().trim();
-                    if (cellVal === 'realisasi') tempRea.push(c);
+                    if (cellVal === 'anggaran') tempAng.push(c);
+                    else if (cellVal === 'realisasi') tempRea.push(c);
                 }
-                if (tempRea.length > 0) { colRealisasi = tempRea; break; }
+                if (tempAng.length > maxAnggaranCount) {
+                    maxAnggaranCount = tempAng.length;
+                    colAnggaran = tempAng; colRealisasi = tempRea;
+                }
             }
-            if (colRealisasi.length === 0) colRealisasi = [6, 8, 10, 12]; // Jaga-jaga standar SIPD
+            if (colAnggaran.length === 0) colAnggaran = [5, 7, 9, 11];
+            if (colRealisasi.length === 0) colRealisasi = [6, 8, 10, 12];
 
             let targetBelanjaExcel = 0;
             let targetPADExcel = 0;
@@ -105,35 +132,53 @@ function prosesInvestigasiBerkas(event) {
                 if (!row || row.length === 0) continue;
 
                 let col1 = row[0] ? String(row[0]).trim() : ''; 
-                let col2 = row[1] ? String(row[1]).trim() : '';
+                let col2 = row[1] ? String(row[1]).trim() : ''; 
                 let col3 = row[2] ? String(row[2]).trim() : ''; 
-                let col4 = row[3] ? String(row[3]).trim() : '';
+                let col4 = row[3] ? String(row[3]).trim() : ''; 
                 let uraian = row[4] ? String(row[4]).trim() : '';
 
+                let textCol1 = col1.toLowerCase(); 
+                let textCol2 = col2.toLowerCase(); 
+                let textUraian = uraian.toLowerCase();
+
+                if (textCol1 === '1' && (textCol2 === '2' || textUraian === '2' || textUraian === '3')) continue;
+                if (textCol1.includes('kab. luwu') || textUraian.includes('kab. luwu')) continue;
+                if (textCol1.includes('rekapitulasi') || textUraian.includes('rekapitulasi')) continue;
+                if (textCol1.includes('beserta hasil') || textUraian.includes('beserta hasil')) continue;
+                if (textCol1.includes('tahun anggaran') || textUraian.includes('tahun anggaran')) continue;
+
+                let fullKode = col1 + col2 + col3 + col4;
+                if (!fullKode && !uraian) continue; 
+
                 let segmen = [];
-                if(col1) segmen.push(col1); if(col2) segmen.push(col2); 
-                if(col3) segmen.push(col3); if(col4) segmen.push(col4);
-                
+                if (col1) segmen.push(col1); if (col2) segmen.push(col2);
+                if (col3) segmen.push(col3); if (col4) segmen.push(col4);
                 let kodeRekening = segmen.join('.');
-                if (/[a-zA-Z]/.test(kodeRekening)) kodeRekening = "";
+                
+                if (/[a-zA-Z]/.test(kodeRekening)) { kodeRekening = ""; }
                 if (kodeRekening) trackerKode = kodeRekening;
 
-                let isBarisJumlah = uraian.toLowerCase().includes('jumlah') || uraian.toLowerCase() === 'total' || uraian.toLowerCase().includes('surplus') || uraian.toLowerCase().includes('defisit');
+                let isBarisJumlah = textUraian.includes('jumlah') || textUraian === 'total' || textUraian.includes('surplus') || textUraian.includes('defisit');
+                let isRowKodeText = (textCol1 === 'kode' || textUraian.includes('uraian urusan, organisasi'));
 
-                // Deteksi Rincian (Sama persis dengan otak SKPD)
                 let isRincian = false;
-                if (!kodeRekening && uraian) { isRincian = true; }
-                else if (col4) {
+                if (isBarisJumlah || isRowKodeText) {
+                    isRincian = false;
+                } else if (!kodeRekening && uraian) {
+                    isRincian = true;
+                } else if (col4) { 
                     let tailBlocks = col4.split('.');
-                    if (tailBlocks.length > 5) isRincian = true;
+                    if (tailBlocks.length > 5) isRincian = true; 
                 }
 
                 if (isRincian && !isBarisJumlah) {
                     let realisasi = 0;
                     colRealisasi.forEach(idx => { realisasi += _parseIndoNum(row[idx]); });
 
+                    // Gunakan TrackerKode yang menempel untuk tahu ini Belanja (5) atau PAD (4)
                     if (trackerKode.startsWith('5')) targetBelanjaExcel += realisasi;
                     else if (trackerKode.startsWith('4')) targetPADExcel += realisasi;
+                    else targetBelanjaExcel += realisasi; // Fallback Aman
                 }
             }
 
@@ -150,15 +195,16 @@ function prosesInvestigasiBerkas(event) {
                     let jsonKetikan = resLRA[key];
                     let totalBarisIni = _kalkulasiTotalJsonCerdas(jsonKetikan);
                     
-                    // R_5 untuk Belanja, R_4 untuk PAD
+                    // Kunci Identifier: R_5 untuk Belanja, R_4 untuk PAD
                     if (key.startsWith('R_5')) terinputBelanjaCloud += totalBarisIni;
                     else if (key.startsWith('R_4')) terinputPADCloud += totalBarisIni;
+                    else terinputBelanjaCloud += totalBarisIni;
                 }
             }
 
             // C. Periksa Tanda Tangan (TTD)
             let statusTTD = "-";
-            let colorTTD = "color: #dc2626; font-weight: 800;"; // Merah
+            let colorTTD = "color: #94a3b8; font-weight: 800;"; // Abu-abu Strip
             
             try {
                 let payload = { action: 'load_ttd', tahun: auditAktif_Tahun, kode_skpd: auditAktif_KodeSkpd };
@@ -179,7 +225,7 @@ function prosesInvestigasiBerkas(event) {
             console.error(error);
             Swal.fire('Audit Dibatalkan', 'Gagal memproses berkas. Pastikan file Excel berasal dari SIPD.', 'error');
         }
-        event.target.value = ''; // Kosongkan Input agar memori RAM terbebas
+        event.target.value = ''; // Kosongkan RAM Laptop Admin
     };
     reader.readAsArrayBuffer(file);
 }
@@ -212,22 +258,23 @@ function _kalkulasiTotalJsonCerdas(jsonString) {
 function _tampilkanLaporanAudit(belanjaEx, belanjaCl, padEx, padCl, statTTD, colorTTD) {
     let formatRp = { minimumFractionDigits: 0 };
     
-    // Fungsi pembuat label Persentase & Validasi
+    // Fungsi Pembuat Label Persentase Pintar
     function _buatLabelStatus(targetExcel, terinputCloud) {
         if (targetExcel === 0 && terinputCloud === 0) {
             return `<span style="color: #94a3b8; font-weight: 800;">-</span>`;
         }
         
         let selisih = Math.abs(targetExcel - terinputCloud);
-        let persen = targetExcel > 0 ? ((terinputCloud / targetExcel) * 100) : 0;
+        let persen = targetExcel > 0 ? ((terinputCloud / targetExcel) * 100) : (terinputCloud > 0 ? 100 : 0);
         let persenStr = persen % 1 === 0 ? persen.toFixed(0) : persen.toFixed(2);
 
-        if (selisih < 1) {
-            return `<span style="color: #10b981; font-weight: 800;"><i class="fa-solid fa-check-circle me-1"></i> 100% SESUAI</span>`;
+        // Ambang batas sangat akurat (mengatasi pecahan desimal mesin)
+        if (selisih < 1 || persen >= 99.98) {
+            return `<span style="color: #10b981; font-weight: 800; font-size: 13px;"><i class="fa-solid fa-check-circle me-1"></i> 100% SESUAI</span>`;
         } else {
-            return `<span style="color: #dc2626; font-weight: 800; text-align: right; display: block; line-height: 1.4;">
-                        <i class="fa-solid fa-triangle-exclamation me-1"></i> BARU ${persenStr.replace('.', ',')}%<br>
-                        <span style="font-size: 11px;">(Selisih Rp ${selisih.toLocaleString('id-ID', formatRp)})</span>
+            return `<span style="color: #dc2626; font-weight: 800; text-align: right; display: block; line-height: 1.4; font-size: 13px;">
+                        BARU ${persenStr.replace('.', ',')}%<br>
+                        <span style="font-size: 11px; color: #ef4444; font-weight: 600;"><i class="fa-solid fa-triangle-exclamation me-1"></i> Selisih Rp ${selisih.toLocaleString('id-ID', formatRp)}</span>
                     </span>`;
         }
     }
