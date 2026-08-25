@@ -1,0 +1,19 @@
+# ==========================================
+# 🗑️ PEMBLOKIR SAMPAH SISTEM OPERASI
+# ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# 🛠️ PEMBLOKIR CACHE & EDITOR (VISUAL STUDIO CODE)
+# ==========================================
+.vscode/
+.idea/
